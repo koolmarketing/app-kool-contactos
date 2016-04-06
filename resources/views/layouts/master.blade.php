@@ -9,29 +9,31 @@
 
     <title>KOOLKONTACT</title>
 
+    {!! HTML::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
+    {!! HTML::style('bower_components/font-awesome/css/font-awesome.min.css') !!}
+    {!! HTML::style('bower_components/mdi/css/materialdesignicons.min.css') !!}
+    {!! HTML::style('bower_components/metisMenu/dist/metisMenu.min.css') !!}
+    {!! HTML::style('bower_components/Waves/dist/waves.min.css') !!}
+    {!! HTML::style('bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') !!}
+    {!! HTML::style('js/selects/cs-select.css') !!}
+    {!! HTML::style('js/selects/cs-skin-elastic.css') !!}
+    {!! HTML::style('bower_components/c3/c3.min.css') !!}
+    {!! HTML::style('bower_components/zabuto_calendar/zabuto_calendar.min.css') !!}
+    {!! HTML::style('css/style.css') !!}
+    {!! HTML::script('js/menu/modernizr.custom.js') !!}
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css">
-    <link rel="stylesheet" href="bower_components/Waves/dist/waves.min.css">
-    <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
 
-    <link rel="stylesheet" href="js/selects/cs-select.css">
-    <link rel="stylesheet" href="js/selects/cs-skin-elastic.css">
 
-    <link rel="stylesheet" href="bower_components/c3/c3.min.css">
-    <link rel="stylesheet" href="bower_components/zabuto_calendar/zabuto_calendar.min.css">
-    <script src="js/menu/modernizr.custom.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{!! URL::to('img/favicon.ico')!!}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{!! URL::to('img/favicon.ico')!!}"  type="image/x-icon" />
     <!--[if lt IE 9]>
-    <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
-    <script src="bower_components/respondJs/dest/respond.min.js"></script>
+    {!! HTML::script('bower_components/html5shiv/dist/html5shiv.min.js') !!}
+    {!! HTML::script('bower_components/respondJs/dest/respond.min.js') !!}
+
     <![endif]-->
+    @yield('add_styles')
+
 </head>
 
 
@@ -68,17 +70,22 @@
                 <div class="gn-scroller">
                     <ul class="gn-menu metismenu">
                         <li class="gn-search-item">
-                            <input placeholder="Search" type="search" class="gn-search">
+                            <input placeholder="Buscar" type="search" class="gn-search">
                             <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
                         </li>
                         <li>
                             <a href="grids.html">
-                                <i class="fa fa-desktop"></i>Contactos
+                                <i class="fa fa-child"></i>Clientes
                             </a>
                         </li>
                         <li>
                             <a href="grids.html">
-                                <i class="fa fa-desktop"></i>Empresas
+                                <i class="fa fa-building-o"></i>Empresas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="grids.html">
+                                <i class="fa fa-area-chart"></i>Campañas
                             </a>
                         </li>
 
@@ -111,14 +118,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h2>Dashboard</h2>
+                    <h2>{!! $data->page !!}</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Dashboards</li>
-                        <li class="active">Dashboard</li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li>{!! $data->page !!}</li>
+
                     </ol>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            @yield('content')
         </div>
 
 
@@ -193,28 +204,25 @@
 
 
 <!--Scripts-->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-<script src="bower_components/Waves/dist/waves.min.js"></script>
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-<script src="bower_components/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
-<script src="bower_components/cta/dist/cta.min.js"></script>
-
-<!--Menu-->
-<script src="js/menu/classie.js"></script>
-<script src="js/menu/gnmenu.js"></script>
-
-<!--Selects-->
-<script src="js/selects/selectFx.js"></script>
+<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
+<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+{!! HTML::script('bower_components/metisMenu/dist/metisMenu.min.js') !!}
+{!! HTML::script('bower_components/Waves/dist/waves.min.js') !!}
+{!! HTML::script('bower_components/moment/min/moment.min.js') !!}
+{!! HTML::script('bower_components/jquery.nicescroll/jquery.nicescroll.min.js') !!}
+{!! HTML::script('bower_components/slimScroll/jquery.slimscroll.min.js') !!}
+{!! HTML::script('bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js') !!}
+{!! HTML::script('bower_components/cta/dist/cta.min.js') !!}
+{!! HTML::script('js/menu/classie.js') !!}
+{!! HTML::script('js/menu/gnmenu.js') !!}
+{!! HTML::script('js/selects/selectFx.js') !!}
+{!! HTML::script('js/common.js') !!}
 
 
 
-<!--Custom Scripts-->
-<script src="js/common.js"></script>
 
+
+@yield('add_scripts')
 
 
 </body>

@@ -6,7 +6,15 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "nesbot/carbon": "*",
+        "illuminate/html": "*",
+        "thujohn/pdf": "*",
+        "laracasts/testdummy": "*",
+        "kartik-v/bootstrap-fileinput": "*",
+        "psy/psysh": "@stable",
+        "laravelcollective/html": "5.*",
+        "phpmailer/phpmailer": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
