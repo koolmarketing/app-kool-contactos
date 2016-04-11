@@ -74,7 +74,7 @@
                             <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
                         </li>
                         <li>
-                            <a href="grids.html">
+                            <a href="{!! URL::to('clientes') !!}">
                                 <i class="fa fa-child"></i>Clientes
                             </a>
                         </li>
@@ -205,7 +205,9 @@
 
 <!--Scripts-->
 <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
-<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+{!! HTML::script('js/jquery-2.2.3.min.js') !!}
+{!! HTML::script('bower_components\bootstrap\dist\js\bootstrap.min.js') !!}
+{!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js') !!}
 {!! HTML::script('bower_components/metisMenu/dist/metisMenu.min.js') !!}
 {!! HTML::script('bower_components/Waves/dist/waves.min.js') !!}
 {!! HTML::script('bower_components/moment/min/moment.min.js') !!}

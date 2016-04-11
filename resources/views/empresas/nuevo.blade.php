@@ -368,17 +368,6 @@
 
 
 
-    <script>
-        $(document).ready(function() {
-            //Mascara
-            $('#thebox').picEdit();
-            $('.date').mask('00/00/0000');
-            $(".form_tags").tagsinput('items');
-
-
-
-        });
-    </script>
 
 
 

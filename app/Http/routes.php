@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 
 
-Route::get('/contactos','ContactoController@Contacts');
+Route::get('/clientes','ContactoController@Clientes');
+Route::get('/cliente/{id}','ContactoController@PerfilCliente');
 Route::get('/nuevo-contacto','ContactoController@NewContact');
 Route::get('/empresas','ContactoController@AllContacts');
 Route::get('/nueva-empresa','ContactoController@NewCompany');

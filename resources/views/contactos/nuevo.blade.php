@@ -15,7 +15,7 @@
 
 
 
-    <div class="col-lg-7">
+    <div class="col-lg-10 col-lg-offset-1">
 
 
         <!-- Nav tabs -->
@@ -222,32 +222,6 @@
 
     </div>
 
-    <!---  COMENTARIOS  -->
-<div class="col-lg-5 hidden-xs hidden-sm">
-    <div class="col-lg-12">
-        <div class="content-box biggest-box blue-bg">
-            <div class="pull-left">
-                <span class="block">Pageviews</span>
-                <h1 class="text-uppercase zero-m">28,473,585</h1>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="content-box biggest-box green-bg">
-            <div class="pull-left">
-                <span class="block">Visitors</span>
-                <h1 class="text-uppercase zero-m">19,594,958</h1>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="content-box biggest-box red-bg">
-            <div class="pull-left">
-                <span class="block">Sales</span>
-                <h1 class="text-uppercase zero-m">$274,392,374</h1>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
 
 
 </div>
