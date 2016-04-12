@@ -21,6 +21,7 @@
     {!! HTML::style('bower_components/zabuto_calendar/zabuto_calendar.min.css') !!}
     {!! HTML::style('css/style.css') !!}
     {!! HTML::script('js/menu/modernizr.custom.js') !!}
+    {!! HTML::style('fontello/css/fontello.css') !!}
 
 
 

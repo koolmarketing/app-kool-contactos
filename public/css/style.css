@@ -3148,10 +3148,12 @@ ul.inbox-pagination li {
 }
 
 .cbp_tmtimeline {
-  margin: 30px 0 0 0;
+  margin: 35px 0 0 0;
   padding: 0;
   list-style: none;
   position: relative;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .cbp_tmtimeline:before {
@@ -3183,7 +3185,7 @@ ul.inbox-pagination li {
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
-  font-size: 2.9em;
+  font-size: 2.2em;
   color: #368fe5;
 }
 
@@ -4790,7 +4792,7 @@ body .ns-effect-loadingcircle {
 }
 
 .label-primary {
-  background-color: #42b382;
+  background-color: #63A8EB;
 }
 
 .label-success {

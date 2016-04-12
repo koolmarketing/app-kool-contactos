@@ -15,7 +15,7 @@
 
 
 
-        <div class="col-lg-7">
+        <div class="col-lg-8 col-lg-offset-2">
 
 
             <!-- Nav tabs -->
@@ -204,7 +204,7 @@
 
 
                         <div class="form-group col-md-2">
-                            <h3>Facebook</h3>
+                            <h3><i class="icon-facebook-2"></i> Facebook</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -219,7 +219,7 @@
 
 
                         <div class="form-group col-md-2">
-                            <h3>Twitter</h3>
+                            <h3><i class="icon-twitter-2"></i> Twitter</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -233,7 +233,7 @@
                         </div>
 
                         <div class="form-group col-md-2">
-                            <h3>Youtube</h3>
+                            <h3><i class="icon-youtube-2"></i> Youtube</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -262,6 +262,20 @@
 
                         <div class="form-group col-md-2">
                             <h3>Linkedin</h3>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <input type="text" class="form-control material">
+                            <p class="help-text">Usuario</p>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <input type="text" class="form-control material">
+                            <p class="help-text">Contraseña</p>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <h3>Pinterest</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -366,8 +380,20 @@
     {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
     {!! HTML::script('js/mask.js') !!}
 
+    {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
 
+    <script>
+        $(document).ready(function() {
+            //Mascara
+            $('.date').mask('00/00/0000');
 
+            $('#thebox').picEdit();
+
+            $(".form_tags").tagsinput('items');
+            $(".multi_tags").select2();
+
+        });
+    </script>
 
 
 

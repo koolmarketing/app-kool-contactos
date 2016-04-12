@@ -29,8 +29,14 @@ class ContactoController extends Controller
         $data = (object) array("page" => "Clientes");
         return view('contactos.lista',['data' => $data]);
     }
+    
     public function PerfilCliente () {
         $data = (object) array("page" => "Clientes");
         return view('contactos.perfil',['data' => $data]);
+    }
+
+    public function PerfilEmpresa () {
+        $data = (object) array("page" => "Clientes");
+        return view('empresas.perfil',['data' => $data]);
     }
 }
