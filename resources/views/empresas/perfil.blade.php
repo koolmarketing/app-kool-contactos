@@ -440,14 +440,14 @@
 
     <div class="content-box big-box">
 
-        <buttom class="btn btn-primary"><i class="icon-plus-circle"></i> Nuevo Recordatorio</buttom> <buttom class="btn btn-success"><i class="icon-plus-circle"></i> Nueva Anotación</buttom>
+        <buttom class="btn btn-primary"><i class="icon-plus-circle"></i> Anotación</buttom> <buttom class="btn btn-success"><i class="icon-plus-circle"></i> Recordatorio</buttom> <buttom class="btn btn-danger"><i class="icon-plus-circle"></i> Alerta</buttom>
         <div class="panel panel-default" id="anotaciones">
             <div class="panel-body">
                 <div class="content-box biggest-box red-bg">
                 <div class="pull-left">
                 <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
                   <h3 class="text-uppercase zero-m"><i class="icon-attention-4"></i> Alerta</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio doloresLorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <p class="text-note"> Lorem ipsum dolor sitreuta, omnis odio doloresLorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
                 </div>
                 <div class="clearfix"></div>
               </div>
