@@ -1604,9 +1604,9 @@ body {
 }
 
 .nav-tabs > li.active a {
-  color: #76828E !important;
+  color: #ffffff !important;
   border: 1px solid #fff !important;
-  background: #fff !important;
+  background: #63A8EB !important;
   font-weight: 400;
   -webkit-box-shadow: -1px 0 1px -1px rgba(0, 0, 0, 0.2);
           box-shadow: -1px 0 1px -1px rgba(0, 0, 0, 0.2);
@@ -6428,3 +6428,6 @@ label {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+#anotaciones{max-height:570px;}

@@ -64,12 +64,17 @@
                             <p class="help-text">Sector</p>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control material" id="" placeholder="">
+                            <p class="help-text">Sitio Web</p>
+                        </div>                        
+
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material" id="input3" >
                             <p class="help-text">Ciudad, País</p>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material" id="" placeholder="">
                             <p class="help-text">Dirección</p>
                         </div>
@@ -86,11 +91,28 @@
                 <div role="tabpanel" class="tab-pane" id="representante">
                     <div class="content-box big-box box-shadow">
 
-                        <div class="form-group col-md-6">
+                       <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                            <p class="help-text">Sexo</p>
+                        </div>
+
+                        <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Sr.</option>                                
+                                <option value="mujer">Dr.</option>
+                                <option value="mujer">Lic.</option>
+                            </select>
+                            <p class="help-text">Trato</p>
+                        </div>
+
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Nombre</p>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Cargo</p>
                         </div>
@@ -115,11 +137,28 @@
                 <div role="tabpanel" class="tab-pane" id="comercial">
                     <div class="content-box big-box box-shadow">
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                            <p class="help-text">Sexo</p>
+                        </div>
+
+                        <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Sr.</option>                                
+                                <option value="mujer">Dr.</option>
+                                <option value="mujer">Lic.</option>
+                            </select>
+                            <p class="help-text">Trato</p>
+                        </div>
+
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Nombre</p>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Cargo</p>
                         </div>
@@ -143,11 +182,28 @@
                 <div role="tabpanel" class="tab-pane" id="soporte">
                     <div class="content-box big-box box-shadow">
 
-                        <div class="form-group col-md-6">
+                          <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                            <p class="help-text">Sexo</p>
+                        </div>
+
+                        <div class="form-group col-md-2">                            
+                            <select name="" id="" class="form-control material">
+                                <option value="hombre">Sr.</option>                                
+                                <option value="mujer">Dr.</option>
+                                <option value="mujer">Lic.</option>
+                            </select>
+                            <p class="help-text">Trato</p>
+                        </div>
+
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Nombre</p>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control material">
                             <p class="help-text">Cargo</p>
                         </div>
@@ -174,7 +230,7 @@
                 <div role="tabpanel" class="tab-pane" id="redes">
                     <div class="content-box big-box box-shadow">
                         <div class="form-group col-md-2">
-                            <h3>Gmail</h3>
+                            <h3><i class="icon-gmail"></i> Gmail</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -189,7 +245,7 @@
 
 
                         <div class="form-group col-md-2">
-                            <h3>Zohomail</h3>
+                            <h3><i class="icon-mail"></i> Zohomail</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -247,7 +303,7 @@
                         </div>
 
                         <div class="form-group col-md-2">
-                            <h3>Instagram</h3>
+                            <h3><i class="icon-instagram"></i> Instagram</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -261,7 +317,7 @@
                         </div>
 
                         <div class="form-group col-md-2">
-                            <h3>Linkedin</h3>
+                            <h3><i class="icon-linkedin-2"></i> Linkedin</h3>
                         </div>
 
                         <div class="form-group col-md-5">
@@ -275,7 +331,7 @@
                         </div>
 
                         <div class="form-group col-md-2">
-                            <h3>Pinterest</h3>
+                            <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
                         </div>
 
                         <div class="form-group col-md-5">

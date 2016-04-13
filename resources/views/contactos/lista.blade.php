@@ -32,406 +32,305 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
+                        <td><a href="{!! URL::to('cliente/31') !!}">Nombres Apellidos</a></td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
+                      <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
+                    </tr>  <tr>
+                        <td>Nombres Apellidos</td>
+                        <td>17/08/1992</td>
+                        <td>311 698 2368</td>
+                        <td>nombapell@gmail.com</td>
+                        <td>Estudiante</td>
                     </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.7</td>
-                        <td>A</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+/OSX.2+</td>
-                        <td>1.6</td>
-                        <td>B</td>
-                    </tr>
-                    <tr>
-                        <td>Gecko</td>
-                        <td>Firefox 1.8</td>
-                        <td>Win 7+</td>
-                        <td>2.2</td>
-                        <td>A</td>
-                    </tr>
-
-
+                   
                     </tbody>
                 </table>
             </div>

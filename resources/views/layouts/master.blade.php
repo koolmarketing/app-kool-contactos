@@ -26,6 +26,7 @@
 
 
 
+
     <link rel="icon" href="{!! URL::to('img/favicon.ico')!!}" type="image/x-icon" />
     <link rel="shortcut icon" href="{!! URL::to('img/favicon.ico')!!}"  type="image/x-icon" />
     <!--[if lt IE 9]>
@@ -80,7 +81,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="grids.html">
+                            <a href="{!! URL::to('empresas') !!}">
                                 <i class="fa fa-building-o"></i>Empresas
                             </a>
                         </li>
@@ -90,9 +91,9 @@
                             </a>
                         </li>
 
-                        <li>
+                     <!--    <li>
                             <a href="#"><i class="fa fa-calendar-o"></i>Calendar<span class="label label-warning pull-right">9</span></a>
-                        </li>
+                        </li> -->
 
 
                     </ul>
@@ -106,7 +107,7 @@
             </nav>
         </li>
         <li>
-            <a href="index.html" class="logo text-uppercase">KoolKontact<i class="fa fa-toggle-on"></i></a>
+            <a href="{!! URL::to('/') !!}" class="logo text-uppercase">KoolKontact<i class="fa fa-toggle-on"></i></a>
         </li>
         <li class="top-clock">
             <span class="current-time"></span>
@@ -219,6 +220,7 @@
 {!! HTML::script('js/menu/classie.js') !!}
 {!! HTML::script('js/menu/gnmenu.js') !!}
 {!! HTML::script('js/selects/selectFx.js') !!}
+{!! HTML::script('js/jquery.nicescroll.min.js') !!}
 {!! HTML::script('js/common.js') !!}
 
 

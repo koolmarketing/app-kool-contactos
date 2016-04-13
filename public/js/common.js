@@ -23,6 +23,7 @@ $(window).on('load', function(){
       theme:"minimal",
       scrollInertia: 300
     });
+    
 });
 
 $(function () {
@@ -247,5 +248,16 @@ $(function () {
 function localStorageSupport() {
     return (('localStorage' in window) && window['localStorage'] !== null)
 }
+
+
+$(document).ready(
+
+  function() { 
+
+    $("#anotaciones").niceScroll({cursorcolor:"#63A8EB"});
+
+  }
+
+);
 
 

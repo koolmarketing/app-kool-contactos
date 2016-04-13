@@ -22,10 +22,12 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::get('/clientes','ContactoController@Clientes');
+Route::get('/empresas','ContactoController@Empresas');
+
 Route::get('/cliente/{id}','ContactoController@PerfilCliente');
 Route::get('/empresa/{id}','ContactoController@PerfilEmpresa');
 Route::get('/nuevo-contacto','ContactoController@NewContact');
-Route::get('/empresas','ContactoController@AllContacts');
+
 Route::get('/nueva-empresa','ContactoController@NewCompany');
 
 
