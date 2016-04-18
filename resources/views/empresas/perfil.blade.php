@@ -58,30 +58,33 @@
 
     </div>
 
-    <div class="col-lg-6 col-xs-12">
+    <div class="col-md-6 col-xs-12">
 
         <div class="content-box big-box box-shadow">
             <br><button class="btn btn-primary btn-md pull-right">Editar Información</button>
             <div class="col-lg-12">
-            <h2><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-half"></i></h2>
+                <h2><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-half"></i></h2>
                 <h3>3 de Abril de 1982 - Cali, Colombia</h3>
                 <p><i class="icon-calendar"></i> Fecha y lugar de Creación</p>
             </div>
             <br>
 
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
 
                 <div>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
+                        <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
+
+                        <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
+
+                        <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
                     </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content"><br>
-                        <div role="tabpanel" class="tab-pane active" id="home">
+                        <div role="tabpanel" class="tab-pane active" id="contactos">
                             <div class="col-md-12">
 
                                 <div class="col-md-4">
@@ -101,8 +104,8 @@
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab"><i class="icon-male"></i> Representante</a></li>
-                                        <li role="presentation"><a href="#redes" aria-controls="profile" role="tab" data-toggle="tab"><i class="icon-female"></i> Comercial</a></li>
-                                        <li role="presentation"><a href="#soporte" aria-controls="messages" role="tab" data-toggle="tab"><i class="icon-male"></i> Soporte</a></li>
+                                        <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab"><i class="icon-female"></i> Comercial</a></li>
+                                        <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab"><i class="icon-male"></i> Soporte</a></li>
 
                                     </ul>
 
@@ -115,7 +118,7 @@
                                                  <!-- -->
 
                                                  <div class="col-md-6">
-                                                    <h3>William Alberto Fernandez Montes</h3>
+                                                    <h3>Dr. William Alberto Fernandez Montes</h3>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
@@ -141,21 +144,17 @@
                                                 <!-- -->
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
 
 
-                                    <div role="tabpanel" class="tab-pane" id="redes">
+                                    <div role="tabpanel" class="tab-pane" id="comercial">
 
                                         <div class="panel panel-default">
                                             <div class="panel-body">
                                                 <!-- -->
 
                                                 <div class="col-md-6">
-                                                    <h3>Maria Alejandra Cardona Villa </h3>
+                                                    <h3>Sra. Maria Alejandra Cardona Villa </h3>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
@@ -191,7 +190,7 @@
                                                 <!-- -->
 
                                                 <div class="col-md-6">
-                                                    <h3>Santiago Garcia Martinez</h3>
+                                                    <h3>Sr. Santiago Garcia Martinez</h3>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
@@ -229,210 +228,257 @@
 
                     </div>
 
-
-                    <div role="tabpanel" class="tab-pane" id="profile">
-                        <div class="col-md-12">
-
-                         <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-gmail"></i> Gmail</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
+                    <div role="tabpanel" class="tab-pane" id="filosofia">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h3>Compromiso, Satisfacción, Excelencia, Dinamismo, Servicio</h3>
+                                <p><i class="icon-list-2"></i> Valores Corporativos</p>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                      <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <i class="icon-bookmark-empty-1"></i> Misión
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                 </div>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-facebook-4"></i> Facebook</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-twitter-3"></i> Twitter</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-youtube-2"></i> YouTube</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-instagram-1"></i> Instagram</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-website"></i> Hootsuite</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-fire-3"></i> A.I</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-camera-alt"></i> Photosnack</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h3>distriya2015@gmail.com</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-3">
-                                        <h3><i class="icon-server"></i> FTP</h3>
-                                        <p>Red</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h3>distriklob.com</h3>
-                                        <p>Server</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h3>distriya2015</h3>
-                                        <p>Usuario</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h3>Distriya6723</h3>
-                                        <p>Contraseña</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                              <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  <i class="icon-bookmark-empty-1"></i> Visión
+                              </a>
+                          </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div><br>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h3>Crecer, Expander, Afianzar, Colaborar, Donar</h3>
+            <p><i class="icon-hourglass-1"></i> Intereses</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div role="tabpanel" class="tab-pane" id="redes">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+     <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-gmail"></i> Gmail</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-facebook-4"></i> Facebook</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-twitter-3"></i> Twitter</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-youtube-2"></i> YouTube</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-instagram-1"></i> Instagram</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-website"></i> Hootsuite</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-fire-3"></i> A.I</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-camera-alt"></i> Photosnack</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-5">
+                <h3>distriya2015@gmail.com</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <h3><i class="icon-server"></i> FTP</h3>
+                <p>Red</p>
+            </div>
+            <div class="col-md-3">
+                <h3>distriklob.com</h3>
+                <p>Server</p>
+            </div>
+            <div class="col-md-3">
+                <h3>distriya2015</h3>
+                <p>Usuario</p>
+            </div>
+            <div class="col-md-3">
+                <h3>Distriya6723</h3>
+                <p>Contraseña</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 </div>
 
@@ -444,75 +490,81 @@
         <div class="panel panel-default" id="anotaciones">
             <div class="panel-body">
                 <div class="content-box biggest-box red-bg">
-                <div class="pull-left">
-                <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-attention-4"></i> Alerta</h3>
-                  <p class="text-note"> Lorem ipsum dolor sitreuta, omnis odio doloresLorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                    <div class="pull-left">
+                        <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                        <h3 class="text-uppercase zero-m text-title-note"><i class="icon-attention-4"></i> Alerta</h3><br>
+                        <p class="text-note"> Lorem ipsum dolor sim dolor sit amet, consectetur adipisice nisi inventoreuta, omnis odio dols eveniet! </p>
+                        <span class="pull-right">15/04/2016</span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- Panel -->
-              <div class="content-box biggest-box blue-bg">
-                <div class="pull-left">
-                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-pencil-2"></i> Anotación</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- End panel -->
-
                 <!-- Panel -->
-              <div class="content-box biggest-box blue-bg">
+                <div class="content-box biggest-box blue-bg">
+                    <div class="pull-left">
+                       <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                       <span class="pull-right">13/04/2016</span>
+                   </div>
+                   <div class="clearfix"></div>
+               </div>
+               <!-- End panel -->
+
+               <!-- Panel -->
+               <div class="content-box biggest-box blue-bg">
                 <div class="pull-left">
                    <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-pencil-2"></i> Anotación</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- End panel -->
+                   <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                   <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                   <span class="pull-right">10/04/2016</span>
+               </div>
+               <div class="clearfix"></div>
+           </div>
+           <!-- End panel -->
 
-             <!-- Panel -->
-              <div class="content-box biggest-box blue-bg">
-                <div class="pull-left">
-                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-pencil-2"></i> Anotación</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- End panel -->
+           <!-- Panel -->
+           <div class="content-box biggest-box blue-bg">
+            <div class="pull-left">
+               <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+               <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+               <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+               <span class="pull-right">8/04/2016</span>
+           </div>
+           <div class="clearfix"></div>
+       </div>
+       <!-- End panel -->
 
-               <!-- Panel -->
-              <div class="content-box biggest-box blue-bg">
-                <div class="pull-left">
-                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-pencil-2"></i> Anotación</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- End panel -->
+       <!-- Panel -->
+       <div class="content-box biggest-box blue-bg">
+        <div class="pull-left">
+           <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+           <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+           <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+           <span class="pull-right">8/04/2016</span>
+       </div>
+       <div class="clearfix"></div>
+   </div>
+   <!-- End panel -->
 
-               <!-- Panel -->
-              <div class="content-box biggest-box blue-bg">
-                <div class="pull-left">
-                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                  <h3 class="text-uppercase zero-m"><i class="icon-pencil-2"></i> Anotación</h3>
-                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <!-- End panel -->
+   <!-- Panel -->
+   <div class="content-box biggest-box blue-bg">
+    <div class="pull-left">
+       <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+       <span class="pull-right">8/04/2016</span>
+   </div>
+   <div class="clearfix"></div>
+</div>
+<!-- End panel -->
 
-            </div>
-        </div>
-
-        
+</div>
+</div>
 
 
-    </div>
+
+
+</div>
 
 </div>
 
@@ -533,32 +585,4 @@
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
 <!--Data Tables-->
 
-<script>
-    $(document).ready(function() {
-            //Mascara
-            $('.date').mask('00/00/0000');
-
-            $('#thebox').picEdit();
-
-            $(".form_tags").tagsinput('items');
-            $(".multi_tags").select2();
-
-        });
-
-    $(function () {
-            //Data Tables
-            $('#datatable').DataTable({
-                displayLength: 25,
-                dom: 'T<"clear">lfrtip',
-                tableTools: {
-                    "sSwfPath": "js/datatables/copy_csv_xls_pdf.swf"
-                },
-                responsive: true
-            });
-        });
-
-    </script>
-
-
-
-    @stop
+@stop

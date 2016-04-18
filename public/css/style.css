@@ -7,6 +7,7 @@
 */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,400,500,300,700);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 .preloader {
   z-index: 99999;
   position: fixed !important;
@@ -6432,4 +6433,5 @@ label {
 
 
 #anotaciones{max-height:570px;}
-.text-note{font-size:23px; line-height: 100%; font-family:'Open Sans', sans-serif,Helvetica,Arial;}
+.text-note{font-size:21px; line-height: 100%; font-family:'Open Sans', sans-serif,Helvetica,Arial;}
+.text-title-note{font-family: 'Yanone Kaffeesatz', sans-serif;}

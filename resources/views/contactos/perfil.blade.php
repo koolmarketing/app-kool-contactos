@@ -251,35 +251,85 @@
 
                 <div class="content-box big-box">
 
-                    <buttom class="btn btn-primary"><i class="icon-plus-circle"></i> Nuevo Recordatorio</buttom> <buttom class="btn btn-success"><i class="icon-plus-circle"></i> Nueva Anotación</buttom>
-
-                    <ul class="cbp_tmtimeline">
-                        <li>
-                            <time class="cbp_tmtime" datetime="2015-04-10 18:30"><span>4/10/15</span> <span>18:30</span></time>
-                            <div class="cbp_tmicon cbp_tmicon-phone"></div>
-                            <div class="cbp_tmlabel">
-                                <h2>Amet laboriosam saepe</h2>
-                                <p>Lorem ipsum dolor sit amet, consec suscipit commodi, sunt quasi animi nam laborum rerum est libero error. A ipsum laudantium neque repellendus, dolore ullam harum obcaecati maiores dolorem beatae optio amet non, quo nisi sapiente fugit. Nihil eius laudantium, mollitia. Libero, veniam, officiis.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime="2015-04-11T12:04"><span>4/11/15</span> <span>12:04</span></time>
-                            <div class="cbp_tmicon cbp_tmicon-screen"></div>
-                            <div class="cbp_tmlabel">
-                                <h2>Tempore dignissimos ipsum repellendus</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore dignates voluptate veniam, sed veritatis, illum commodi reiciendis at suscipit reprehenderit possimus rem maiores totam. Facere vel, sed ex autem perspiciatis, laudantium.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime="2015-04-13 05:36"><span>4/13/15</span> <span>05:36</span></time>
-                            <div class="cbp_tmicon cbp_tmicon-mail"></div>
-                            <div class="cbp_tmlabel">
-                                <h2>Voluptas quibusdam</h2>
-                                <p>Pempore iste, sapiente architectoate recusandae temporibus magnam voluptas enim magni rem illo debitis. Voluptas quibusdam nesciunt ipsam et eum. Repellendus cum neque, hic?</p>
-                            </div>
-                        </li>
-                    </ul>
+        <buttom class="btn btn-primary"><i class="icon-plus-circle"></i> Anotación</buttom> <buttom class="btn btn-success"><i class="icon-plus-circle"></i> Recordatorio</buttom> <buttom class="btn btn-danger"><i class="icon-plus-circle"></i> Alerta</buttom>
+        <div class="panel panel-default" id="anotaciones">
+            <div class="panel-body">
+                <div class="content-box biggest-box red-bg">
+                <div class="pull-left">
+                <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-attention-4"></i> Alerta</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sim dolor sit amet, consectetur adipisice nisi inventoreuta, omnis odio dols eveniet! </p>
+                  <span class="pull-right">15/04/2016</span>
                 </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- Panel -->
+              <div class="content-box biggest-box blue-bg">
+                <div class="pull-left">
+                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <span class="pull-right">13/04/2016</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- End panel -->
+
+                <!-- Panel -->
+              <div class="content-box biggest-box blue-bg">
+                <div class="pull-left">
+                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <span class="pull-right">10/04/2016</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- End panel -->
+
+             <!-- Panel -->
+              <div class="content-box biggest-box blue-bg">
+                <div class="pull-left">
+                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <span class="pull-right">8/04/2016</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- End panel -->
+
+               <!-- Panel -->
+              <div class="content-box biggest-box blue-bg">
+                <div class="pull-left">
+                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <span class="pull-right">8/04/2016</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- End panel -->
+
+               <!-- Panel -->
+              <div class="content-box biggest-box blue-bg">
+                <div class="pull-left">
+                   <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                  <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                  <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                  <span class="pull-right">8/04/2016</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <!-- End panel -->
+
+            </div>
+        </div>
+
+        
+
+
+    </div>
 
             </div>
 
