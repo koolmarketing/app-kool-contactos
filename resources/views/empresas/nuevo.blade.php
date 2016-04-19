@@ -22,31 +22,34 @@
             <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab">Redes</a></li>
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Guardar</a></li>
         </ul>
+
+
         <!-- Tab panes -->
+        {!!Form::open(array('action' => 'ContactoController@SaveCompany', 'method' => 'post', 'id' => 'save_company','files'=>true));!!}
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="datos">
                 <div class="content-box big-box box-shadow">
-                    <div class="col-md-6">
-                        <input type="file" name="thefile" id="thebox">
-                    </div>
+                  <!--   <div class="col-md-6">
+                        <input type="file" name="imagen" id="thebox">
+                    </div> -->
                     <div class="col-md-6">
                       <div class="row item">
                           <div class="col-md-12">
                             <input type="text" id="range" name="rango" value="">
-                            <p class="help-text">Rango</p>
+                            <!-- <p class="help-text">Rango</p> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group col-md-12">
-                        <input type="text" name="nombre_comercial" class="form-control material" id="" placeholder="">
-                        <p class="help-text">Nombre Comercial</p>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" name="razon_social" class="form-control material" id="" placeholder="">
-                        <p class="help-text">Razón Social</p>
-                    </div>
+                
+                <div class="form-group col-md-6">
+                    <input type="text" name="nombre_comercial" class="form-control material" id="" placeholder="">
+                    <p class="help-text">Nombre Comercial</p>
                 </div>
+                <div class="form-group col-md-6">
+                    <input type="text" name="razon_social" class="form-control material" id="" placeholder="">
+                    <p class="help-text">Razón Social</p>
+                </div>
+
                 <div class="form-group col-md-4">
                     <input type="text" name="nit" class="form-control material" id="" placeholder="">
                     <p class="help-text">NIT</p>
@@ -158,7 +161,7 @@
                       </optgroup>
 
                   </select>
-                  <p class="help-text">Sector</p>
+                  <p class="help-text">Servicio</p>
               </div>
               <div class="form-group col-md-4">
                 <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
@@ -187,14 +190,14 @@
     <div role="tabpanel" class="tab-pane" id="representante">
         <div class="content-box big-box box-shadow">
            <div class="form-group col-md-2">                            
-            <select name="representante_sexo" id="" class="form-control material">
+           <select name="representante[sexo][]" id="" class="form-control material">
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
             </select>
             <p class="help-text">Sexo</p>
         </div>
         <div class="form-group col-md-2">                            
-            <select name="representante_trato" id="" class="form-control material">
+            <select name="representante[trato][]" id="" class="form-control material">
                 <option value="Srta.">Srta.</option>  
                 <option value="Sra.">Sra.</option>  
                 <option value="Sr.">Sr.</option>                                
@@ -205,23 +208,23 @@
             <p class="help-text">Trato</p>
         </div>
         <div class="form-group col-md-4">
-            <input name="representante_nombre" type="text" class="form-control material">
+            <input name="representante[nombre][]" type="text" class="form-control material">
             <p class="help-text">Nombre</p>
         </div>
         <div class="form-group col-md-4">
-            <input name="representante_cargo" type="text" class="form-control material">
+            <input name="representante[cargo][]" type="text" class="form-control material">
             <p class="help-text">Cargo</p>
         </div>
         <div class="form-group col-md-4">
-            <input name="representante_email" type="text" class="form-control material">
+            <input name="representante[email][]" type="text" class="form-control material">
             <p class="help-text">Email</p>
         </div>
         <div class="form-group col-md-4">
-            <input name="representante_celular" type="text" class="form-control material">
+            <input name="representante[celular][]" type="text" class="form-control material">
             <p class="help-text">Celular</p>
         </div>
         <div class="form-group col-md-4">
-            <input name="representante_telefono" type="text" class="form-control material">
+            <input name="representante[telefono][]" type="text" class="form-control material">
             <p class="help-text">Teléfono Fijo</p>
         </div>
     </div>
@@ -232,7 +235,7 @@
     <div class="content-box big-box box-shadow">
 
         <div class="form-group col-md-2">                            
-            <select name="" id="" class="form-control material">
+            <select name="comercial[sexo][]" id="" class="form-control material">
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
             </select>
@@ -240,36 +243,39 @@
         </div>
 
         <div class="form-group col-md-2">                            
-            <select name="" id="" class="form-control material">
-                <option value="hombre">Sr.</option>                                
-                <option value="mujer">Dr.</option>
-                <option value="mujer">Lic.</option>
-            </select>
-            <p class="help-text">Trato</p>
-        </div>
+            <select name="comercial[trato][]" id="" class="form-control material">
+              <option value="Srta.">Srta.</option>  
+              <option value="Sra.">Sra.</option>  
+              <option value="Sr.">Sr.</option>                                
+              <option value="Dr.">Dr.</option>
+              <option value="Dra.">Dr.</option>
+              <option value="Lic.">Lic.</option>
+          </select>
+          <p class="help-text">Trato</p>
+      </div>
 
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control material">
-            <p class="help-text">Nombre</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control material">
-            <p class="help-text">Cargo</p>
-        </div>
-
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control material">
-            <p class="help-text">Email</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control material">
-            <p class="help-text">Celular</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control material">
-            <p class="help-text">Teléfono Fijo</p>
-        </div>
+      <div class="form-group col-md-4">
+        <input name="comercial[nombre][]" type="text" class="form-control material">
+        <p class="help-text">Nombre</p>
     </div>
+    <div class="form-group col-md-4">
+        <input name="comercial[cargo][]" type="text" class="form-control material">
+        <p class="help-text">Cargo</p>
+    </div>
+
+    <div class="form-group col-md-4">
+        <input name="comercial[email][]" type="text" class="form-control material">
+        <p class="help-text">Email</p>
+    </div>
+    <div class="form-group col-md-4">
+        <input name="comercial[celular][]" type="text" class="form-control material">
+        <p class="help-text">Celular</p>
+    </div>
+    <div class="form-group col-md-4">
+        <input name="comercial[telefono][]" type="text" class="form-control material">
+        <p class="help-text">Teléfono Fijo</p>
+    </div>
+</div>
 </div>
 
 
@@ -277,41 +283,45 @@
     <div class="content-box big-box box-shadow">
 
       <div class="form-group col-md-2">                            
-        <select name="" id="" class="form-control material">
-            <option value="hombre">Hombre</option>
-            <option value="mujer">Mujer</option>
+        <select name="soporte[sexo][]" id="" class="form-control material">
+        <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+           
         </select>
         <p class="help-text">Sexo</p>
     </div>
 
     <div class="form-group col-md-2">                            
-        <select name="" id="" class="form-control material">
-            <option value="hombre">Sr.</option>                                
-            <option value="mujer">Dr.</option>
-            <option value="mujer">Lic.</option>
+        <select name="soporte[trato][]" id="" class="form-control material">
+           <option value="Srta.">Srta.</option>  
+              <option value="Sra.">Sra.</option>  
+              <option value="Sr.">Sr.</option>                                
+              <option value="Dr.">Dr.</option>
+              <option value="Dra.">Dr.</option>
+              <option value="Lic.">Lic.</option>
         </select>
         <p class="help-text">Trato</p>
     </div>
 
     <div class="form-group col-md-4">
-        <input type="text" class="form-control material">
+        <input type="text" name="soporte[nombre][]" class="form-control material">
         <p class="help-text">Nombre</p>
     </div>
     <div class="form-group col-md-4">
-        <input type="text" class="form-control material">
+        <input type="text" name="soporte[cargo][]" class="form-control material">
         <p class="help-text">Cargo</p>
     </div>
 
     <div class="form-group col-md-4">
-        <input type="text" class="form-control material">
+        <input type="text" name="soporte[email][]" class="form-control material">
         <p class="help-text">Email</p>
     </div>
     <div class="form-group col-md-4">
-        <input type="text" class="form-control material">
+        <input type="text" name="soporte[celular][]" class="form-control material">
         <p class="help-text">Celular</p>
     </div>
     <div class="form-group col-md-4">
-        <input type="text" class="form-control material">
+        <input type="text" name="soporte[telefono][]" class="form-control material">
         <p class="help-text">Teléfono Fijo</p>
     </div>
 
@@ -323,7 +333,7 @@
 <div role="tabpanel" class="tab-pane" id="filosofia">
     <div class="content-box big-box box-shadow">
         <div class="form-group col-md-12">
-            <select id="valores" class="form-control" multiple="multiple" style="width: 100%;">
+            <select id="valores" name="valores[]" class="form-control" multiple="multiple" style="width: 100%;">
              @foreach ($data->valores as $valor)
              <option value="{!! $valor !!}">{!! $valor !!}</option>
              @endforeach
@@ -332,26 +342,23 @@
      </div>
 
      <div class="col-md-12">
-      <textarea name="" id="input" class="form-control material" rows="3" ></textarea>
+      <textarea id="input" name="mision" class="form-control material" rows="3" ></textarea>
       <p class="help-text">Misión</p>
   </div>
 
   <div class="col-md-12">
-      <textarea name="" id="input" class="form-control material" rows="3" ></textarea>
+      <textarea name="vision" id="input"  class="form-control material" rows="3" ></textarea>
       <p class="help-text">Visión</p>
   </div>
 
   <div class="form-group col-md-12">
-    <select id="intereses" class="form-control material" multiple="multiple" style="width: 100%;">
+    <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
       <option value="AL">Alabama</option>
       <option value="WY">Wyoming</option>
   </select>
   <p class="help-text">Intereses</p>
 </div>
-
-
 </div>
-
 </div>
 
 
@@ -363,12 +370,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="gmail[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="gmail[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -378,12 +385,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="zohomail[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="zohomail[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -393,12 +400,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="facebook[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="facebook[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -408,12 +415,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="twitter[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="twitter[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -422,12 +429,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="youtube[contraseña][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="youtube[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -436,12 +443,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="instagram[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="instagram[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -450,12 +457,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="linkedin[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="linkedin[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -464,12 +471,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="pinterest[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="pinterest[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -478,12 +485,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="hootsuite[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="hootsuite[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -492,12 +499,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="amarillas_internet[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -506,12 +513,12 @@
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="photosnack[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-5">
-            <input type="text" class="form-control material">
+            <input type="text" name="photosnack[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -520,17 +527,17 @@
         </div>
 
         <div class="form-group col-md-3">
-            <input type="text" class="form-control material">
+            <input type="text" name="ftp[server][]" class="form-control material">
             <p class="help-text">Server</p>
         </div>
 
         <div class="form-group col-md-3">
-            <input type="text" class="form-control material">
+            <input type="text" name="ftp[usuario][]" class="form-control material">
             <p class="help-text">Usuario</p>
         </div>
 
         <div class="form-group col-md-3">
-            <input type="text" class="form-control material">
+            <input type="text" name="ftp[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
         </div>
 
@@ -539,11 +546,13 @@
 <div role="tabpanel" class="tab-pane" id="settings">
     <div class="content-box big-box box-shadow">
 
+        {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
 
-        <button class="btn btn-lg btn-info pull-right">Guardar Empresa</button>
+        
     </div>
 </div>
 </div>
+{!! Form::close() !!}
 </div>
 </div>
 @stop
