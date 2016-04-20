@@ -40,56 +40,59 @@
 
 
 <body>
-<!--Preloader-->
-<div id="preloader" class="preloader table-wrapper">
-    <div class="table-row">
-        <div class="table-cell">
-            <div class="la-ball-scale-multiple la-3x">
-                <div></div>
-                <div></div>
-                <div></div>
+    <!--Preloader-->
+    <div id="preloader" class="preloader table-wrapper">
+        <div class="table-row">
+            <div class="table-cell">
+                <div class="la-ball-scale-multiple la-3x">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="main-wrapper" class="main-wrapper">
+    <div id="main-wrapper" class="main-wrapper">
 
-    <ul id="gn-menu" class="navbar gn-menu-main">
-        <li class="gn-trigger">
-            <a id="menu-toggle" class="menu-toggle gn-icon gn-icon-menu">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="cross">
-                    <span></span>
-                    <span></span>
-                </div>
-            </a>
-            <nav class="gn-menu-wrapper">
-                <div class="gn-scroller">
-                    <ul class="gn-menu metismenu">
-                        <li class="gn-search-item">
-                            <input placeholder="Buscar" type="search" class="gn-search">
-                            <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
-                        </li>
-                        <li>
-                            <a href="{!! URL::to('clientes') !!}">
-                                <i class="fa fa-child"></i>Clientes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{!! URL::to('empresas') !!}">
-                                <i class="fa fa-building-o"></i>Empresas
-                            </a>
-                        </li>
-                        <li>
-                            <a href="grids.html">
-                                <i class="fa fa-area-chart"></i>Campañas
-                            </a>
-                        </li>
+        <ul id="gn-menu" class="navbar gn-menu-main">
+            <li class="gn-trigger">
+                <a id="menu-toggle" class="menu-toggle gn-icon gn-icon-menu">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="cross">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu metismenu">
+                            <li class="gn-search-item">
+                                <input placeholder="Buscar" type="search" class="gn-search">
+                                <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
+                            </li>
+                            <li>
+                                <a href="{!! URL::to('clientes') !!}"><i class="fa fa-child"></i> Clientes</a>
+                            </li>
+                            <li>
+                                <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Empresas
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart"></i> Reportes</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-wrench"></i> Configuración</a>
+                            </li>
+
+
 
                      <!--    <li>
                             <a href="#"><i class="fa fa-calendar-o"></i>Calendar<span class="label label-warning pull-right">9</span></a>
@@ -102,7 +105,7 @@
                 <div class="bottom-bnts">
                     <a class="profile" href="#"><i class="mdi mdi-account"></i></a>
                     <a class="fix-nav" href="#"><i class="mdi mdi-pin"></i></a>
-                    <a class="logout" href="#"><i class="mdi mdi-power"></i></a>
+                    <a class="logout" href="{!! URL::to('/logout') !!}"><i class="mdi mdi-power"></i></a>
                 </div>
             </nav>
         </li>
@@ -120,12 +123,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
+                    @if ($data->page=="Home")
                     <h2>{!! $data->page !!}</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li>{!! $data->page !!}</li>
-
+                        <li><a href="{!! URL::to('/') !!}">Home /</a></li>                      
                     </ol>
+                    @else
+                    <h2>{!! $data->page !!}</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{!! URL::to('/') !!}">Home</a></li>
+                        <li>{!! $data->page !!}</li>
+                    </ol>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -193,8 +203,8 @@
                     <div class="content-box">
                         <div class="light-blue-bg biggest-box">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h3 class="zero-m text-uppercase">Do you want to exit?</h3>
-                            <a href="#" class="i-block" data-dismiss="modal">Yes</a>
+                            <h3 class="zero-m text-uppercase">Quieres Salir?</h3>
+                            <a href="{!! URL::to('/logout') !!}" class="i-block" data-dismiss="modal">Si</a>
                             <a href="#" class="i-block" data-dismiss="modal">No</a>
                         </div>
                     </div>

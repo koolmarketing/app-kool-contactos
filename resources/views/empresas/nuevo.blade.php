@@ -36,7 +36,7 @@
                       <div class="row item">
                           <div class="col-md-12">
                             <input type="text" id="range" name="rango" value="">
-                            <!-- <p class="help-text">Rango</p> -->
+                            <p class="help-text">Rango</p> 
                         </div>
                     </div>
                 </div>
@@ -189,8 +189,8 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="representante">
         <div class="content-box big-box box-shadow">
-           <div class="form-group col-md-2">                            
-           <select name="representante[sexo][]" id="" class="form-control material">
+         <div class="form-group col-md-2">                            
+             <select name="representante[sexo][]" id="" class="form-control material">
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
             </select>
@@ -202,7 +202,7 @@
                 <option value="Sra.">Sra.</option>  
                 <option value="Sr.">Sr.</option>                                
                 <option value="Dr.">Dr.</option>
-                <option value="Dra.">Dr.</option>
+                <option value="Dra.">Dra.</option>
                 <option value="Lic.">Lic.</option>
             </select>
             <p class="help-text">Trato</p>
@@ -248,7 +248,7 @@
               <option value="Sra.">Sra.</option>  
               <option value="Sr.">Sr.</option>                                
               <option value="Dr.">Dr.</option>
-              <option value="Dra.">Dr.</option>
+              <option value="Dra.">Dra.</option>
               <option value="Lic.">Lic.</option>
           </select>
           <p class="help-text">Trato</p>
@@ -284,46 +284,46 @@
 
       <div class="form-group col-md-2">                            
         <select name="soporte[sexo][]" id="" class="form-control material">
-        <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-           
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+
         </select>
         <p class="help-text">Sexo</p>
     </div>
 
     <div class="form-group col-md-2">                            
         <select name="soporte[trato][]" id="" class="form-control material">
-           <option value="Srta.">Srta.</option>  
-              <option value="Sra.">Sra.</option>  
-              <option value="Sr.">Sr.</option>                                
-              <option value="Dr.">Dr.</option>
-              <option value="Dra.">Dr.</option>
-              <option value="Lic.">Lic.</option>
-        </select>
-        <p class="help-text">Trato</p>
-    </div>
+         <option value="Srta.">Srta.</option>  
+         <option value="Sra.">Sra.</option>  
+         <option value="Sr.">Sr.</option>                                
+         <option value="Dr.">Dr.</option>
+         <option value="Dra.">Dra.</option>
+         <option value="Lic.">Lic.</option>
+     </select>
+     <p class="help-text">Trato</p>
+ </div>
 
-    <div class="form-group col-md-4">
-        <input type="text" name="soporte[nombre][]" class="form-control material">
-        <p class="help-text">Nombre</p>
-    </div>
-    <div class="form-group col-md-4">
-        <input type="text" name="soporte[cargo][]" class="form-control material">
-        <p class="help-text">Cargo</p>
-    </div>
+ <div class="form-group col-md-4">
+    <input type="text" name="soporte[nombre][]" class="form-control material">
+    <p class="help-text">Nombre</p>
+</div>
+<div class="form-group col-md-4">
+    <input type="text" name="soporte[cargo][]" class="form-control material">
+    <p class="help-text">Cargo</p>
+</div>
 
-    <div class="form-group col-md-4">
-        <input type="text" name="soporte[email][]" class="form-control material">
-        <p class="help-text">Email</p>
-    </div>
-    <div class="form-group col-md-4">
-        <input type="text" name="soporte[celular][]" class="form-control material">
-        <p class="help-text">Celular</p>
-    </div>
-    <div class="form-group col-md-4">
-        <input type="text" name="soporte[telefono][]" class="form-control material">
-        <p class="help-text">Teléfono Fijo</p>
-    </div>
+<div class="form-group col-md-4">
+    <input type="text" name="soporte[email][]" class="form-control material">
+    <p class="help-text">Email</p>
+</div>
+<div class="form-group col-md-4">
+    <input type="text" name="soporte[celular][]" class="form-control material">
+    <p class="help-text">Celular</p>
+</div>
+<div class="form-group col-md-4">
+    <input type="text" name="soporte[telefono][]" class="form-control material">
+    <p class="help-text">Teléfono Fijo</p>
+</div>
 
 </div>
 
@@ -334,30 +334,30 @@
     <div class="content-box big-box box-shadow">
         <div class="form-group col-md-12">
             <select id="valores" name="valores[]" class="form-control" multiple="multiple" style="width: 100%;">
-             @foreach ($data->valores as $valor)
-             <option value="{!! $valor !!}">{!! $valor !!}</option>
-             @endforeach
-         </select>
-         <p class="help-text">Valores Corporativos</p>
-     </div>
+               @foreach ($data->valores as $valor)
+               <option value="{!! $valor !!}">{!! $valor !!}</option>
+               @endforeach
+           </select>
+           <p class="help-text">Valores Corporativos</p>
+       </div>
 
-     <div class="col-md-12">
-      <textarea id="input" name="mision" class="form-control material" rows="3" ></textarea>
-      <p class="help-text">Misión</p>
+       <div class="col-md-12">
+          <textarea id="input" name="mision" class="form-control material" rows="3" ></textarea>
+          <p class="help-text">Misión</p>
+      </div>
+
+      <div class="col-md-12">
+          <textarea name="vision" id="input"  class="form-control material" rows="3" ></textarea>
+          <p class="help-text">Visión</p>
+      </div>
+
+      <div class="form-group col-md-12">
+        <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
+          <option value="AL">Alabama</option>
+          <option value="WY">Wyoming</option>
+      </select>
+      <p class="help-text">Intereses</p>
   </div>
-
-  <div class="col-md-12">
-      <textarea name="vision" id="input"  class="form-control material" rows="3" ></textarea>
-      <p class="help-text">Visión</p>
-  </div>
-
-  <div class="form-group col-md-12">
-    <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
-      <option value="AL">Alabama</option>
-      <option value="WY">Wyoming</option>
-  </select>
-  <p class="help-text">Intereses</p>
-</div>
 </div>
 </div>
 
@@ -595,34 +595,34 @@
 
 
     <script>
-     $.log = function(message){
-      var $logger = $("#logger");
-      $logger.html($logger.html() + "\n * " + message );
-  }
-  $(function(){
+       $.log = function(message){
+          var $logger = $("#logger");
+          $logger.html($logger.html() + "\n * " + message );
+      }
+      $(function(){
 
-    $("#geocomplete").geocomplete()
-    .bind("geocode:result", function(event, result){
-        $.log("Result: " + result.formatted_address);
-    })
-    .bind("geocode:error", function(event, status){
-        $.log("ERROR: " + status);
-    })
-    .bind("geocode:multiple", function(event, results){
-        $.log("Multiple: " + results.length + " results found");
+        $("#geocomplete").geocomplete()
+        .bind("geocode:result", function(event, result){
+            $.log("Result: " + result.formatted_address);
+        })
+        .bind("geocode:error", function(event, status){
+            $.log("ERROR: " + status);
+        })
+        .bind("geocode:multiple", function(event, results){
+            $.log("Multiple: " + results.length + " results found");
+        });
+
+        $("#find").click(function(){
+          $("#geocomplete").trigger("geocode");
+      });
+
+
+        $("#examples a").click(function(){
+          $("#geocomplete").val($(this).text()).trigger("geocode");
+          return false;
+      });
+
     });
-
-    $("#find").click(function(){
-      $("#geocomplete").trigger("geocode");
-  });
-
-
-    $("#examples a").click(function(){
-      $("#geocomplete").val($(this).text()).trigger("geocode");
-      return false;
-  });
-
-});
 </script>
 
 

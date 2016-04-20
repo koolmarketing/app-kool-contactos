@@ -15,7 +15,7 @@
 // 	return view('welcome');
 // });
 
-Route::auth();
+
 
 // Route::get('/home', 'HomeController@index');
 // Route::get('/clientes','ContactoController@Clientes');
@@ -28,33 +28,45 @@ Route::auth();
 
 Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 { 
-		
+		Route::auth();
 
 	Route::get('', [
+		'middleware' => 'auth',
 		'as'   => 'home', 
 		'uses' => 'HomeController@index'
 		]);
 	Route::post('guardar_empresa', [
+		'middleware' => 'auth',
 		'as'   => 'home', 
 		'uses' => 'ContactoController@SaveCompany'
 		]);
+	Route::post('guardar_cliente',[
+		'middleware' => 'auth',
+		'as'   => 'guardar_cliente',
+		'uses' => 'ContactoController@GuardarClientes'
+		]);
 	Route::get('clientes', [
+		'middleware' => 'auth',
 		'as'   => 'clientes.list', 
 		'uses' => 'ContactoController@Clientes'
 		]);
 	Route::get('empresas', [
+		'middleware' => 'auth',
 		'as'   => 'empresas.index', 
-		'uses' => 'RateLanguageController@getAllLanguages'
+		'uses' => 'ContactoController@Empresas'
 		]);
 	Route::get('empresa/{id}', [
+		'middleware' => 'auth',
 		'as'   => 'empresas.id', 
-		'uses' => 'RateLanguageController@update'
+		'uses' => 'ContactoController@Empresa'
 		]);
 	Route::get('nuevo-contacto', [
+		'middleware' => 'auth',
 		'as'   => 'nuevo.contacto', 
 		'uses' => 'ContactoController@NewContact'
 		]);
 	Route::get('nueva-empresa', [
+		'middleware' => 'auth',
 		'as'   => 'nuevo.empresa', 
 		'uses' => 'ContactoController@NewCompany'
 		]);

@@ -113,15 +113,15 @@ $(function () {
   });
 
   //Logout
-  $(".logout").click(function(e){
-    var el1 = document.querySelector(".logout"),
-        el2 = document.querySelector(".logout-modal");
-    cta(el1, el2, {relativeToWindow: true}, function () {
-        $('.logout-modal').modal("show");
-    });
+  // $(".logout").click(function(e){
+  //   var el1 = document.querySelector(".logout"),
+  //       el2 = document.querySelector(".logout-modal");
+  //   cta(el1, el2, {relativeToWindow: true}, function () {
+  //       $('.logout-modal').modal("show");
+  //   });
 
-    e.preventDefault();
-  });
+  //   e.preventDefault();
+  // });
 
   //Members Sidebar
   $(".show-members").click(function(e){
