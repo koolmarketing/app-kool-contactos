@@ -82,12 +82,12 @@
                                 <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Empresas
                                 </a>
                             </li> 
-                            <li>
+                     <!--        <li>
                                 <a href="#"><i class="fa fa-bar-chart"></i> Reportes</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="#"><i class="fa fa-wrench"></i> Configuración</a>
                             </li>

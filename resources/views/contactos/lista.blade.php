@@ -13,7 +13,7 @@
 @section('content')
 
     <div class="container-fluid">
-
+    
         <div class="col-lg-10 col-lg-offset-1">
             <a href="#" class="btn btn-md btn-primary"> Filtro Avanzado</a>
             <a href="{!! URL::to('nuevo-contacto') !!}" class="btn btn-md btn-danger"> Crear Nuevo Cliente</a>
@@ -31,6 +31,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach ($data->all as $cliente)
+                        <tr>
+                        <td><a href="{!! URL::to('cliente/'.$cliente->id.'') !!}">{!! $cliente->nombres!!} {!! $cliente->apellidos !!}</a></td>
+                        <td>{!! $cliente->cumpleaños !!}</td>
+                        <td>{!! $cliente->telefono_movil !!}</td>
+                        <td>{!! $cliente->email_personal !!}</td>
+                        <td>{!! $cliente->profesion !!}</td>
+                    </tr>
+                    @endforeach
                     <tr>
                         <td><a href="{!! URL::to('cliente/31') !!}">Nombres Apellidos</a></td>
                         <td>17/08/1992</td>

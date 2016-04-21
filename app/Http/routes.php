@@ -28,7 +28,7 @@
 
 Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 { 
-		Route::auth();
+	Route::auth();
 
 	Route::get('', [
 		'middleware' => 'auth',
@@ -54,6 +54,11 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'middleware' => 'auth',
 		'as'   => 'empresas.index', 
 		'uses' => 'ContactoController@Empresas'
+		]);
+	Route::get('cliente/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'clientes.id', 
+		'uses' => 'ContactoController@PerfilCliente'
 		]);
 	Route::get('empresa/{id}', [
 		'middleware' => 'auth',

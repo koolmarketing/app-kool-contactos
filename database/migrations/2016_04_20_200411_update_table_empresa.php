@@ -12,7 +12,11 @@ class UpdateTableEmpresa extends Migration
      */
     public function up()
     {
-        //
+           Schema::table('empresas', function($table)
+        {         
+            $table->string('foto')->nullable();
+            $table->string('fecha_fundacion')->nullable();           
+        });
     }
 
     /**
@@ -22,6 +26,9 @@ class UpdateTableEmpresa extends Migration
      */
     public function down()
     {
-        //
+         Schema::table('empresas', function ($table) {
+            $table->dropColumn('foto');
+            $table->dropColumn('fecha_fundacion');            
+        });
     }
 }

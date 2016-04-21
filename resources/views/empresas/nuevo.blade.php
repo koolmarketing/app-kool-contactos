@@ -11,57 +11,70 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="col-md-6 col-md-offset-3">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#datos" aria-controls="datos" role="tab" data-toggle="tab">Datos Básicos</a></li>
-            <li role="presentation"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab">Representante</a></li>
-            <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab">Comercial</a></li>
-            <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte</a></li>
-            <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab">Filosofia</a></li>
-            <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab">Redes</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Guardar</a></li>
-        </ul>
+  <div class="col-md-6 col-md-offset-3">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#datos" aria-controls="datos" role="tab" data-toggle="tab">Datos Básicos</a></li>
+      <li role="presentation"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab">Representante</a></li>
+      <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab">Comercial</a></li>
+      <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte</a></li>
+      <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab">Filosofia</a></li>
+      <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab">Redes</a></li>
+      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Guardar</a></li>
+    </ul>
 
 
-        <!-- Tab panes -->
-        {!!Form::open(array('action' => 'ContactoController@SaveCompany', 'method' => 'post', 'id' => 'save_company','files'=>true));!!}
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="datos">
-                <div class="content-box big-box box-shadow">
+    <!-- Tab panes -->
+    {!!Form::open(array('action' => 'ContactoController@SaveCompany', 'method' => 'post', 'id' => 'save_company','files'=>true));!!}
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="datos">
+        <div class="content-box big-box box-shadow">
                   <!--   <div class="col-md-6">
                         <input type="file" name="imagen" id="thebox">
-                    </div> -->
+                      </div> -->
+
+                      <div class="col-md-6"><br>
+                       <div class="col-md-12">
+                        <input type="file" name="foto">
+                        <p class="help-text">Una foto</p>
+                      </div>
+                      <br>
+                      <div class="form-group col-md-12">
+                      <input type="text" name="fecha_fundacion" class="form-control material date" id="" placeholder="">
+                        <p class="help-text">Fundacion (dd-mm-aaaa)</p>
+                      </div>
+
+                    </div>                
                     <div class="col-md-6">
                       <div class="row item">
-                          <div class="col-md-12">
-                            <input type="text" id="range" name="rango" value="">
-                            <p class="help-text">Rango</p> 
+                        <div class="col-md-12">
+                          <input type="text" id="range" name="rango" value="">
+                          <p class="help-text">Rango</p> 
                         </div>
+                      </div>
                     </div>
-                </div>
-                
-                <div class="form-group col-md-6">
-                    <input type="text" name="nombre_comercial" class="form-control material" id="" placeholder="">
-                    <p class="help-text">Nombre Comercial</p>
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="text" name="razon_social" class="form-control material" id="" placeholder="">
-                    <p class="help-text">Razón Social</p>
-                </div>
 
-                <div class="form-group col-md-4">
-                    <input type="text" name="nit" class="form-control material" id="" placeholder="">
-                    <p class="help-text">NIT</p>
-                </div>
-                <div class="form-group col-md-7">
-                    <select name="" id="sector" name="servicios" class="form-control material">
+                    <div class="form-group col-md-6">
+                      <input type="text" name="nombre_comercial" class="form-control material" id="" placeholder="">
+                      <p class="help-text">Nombre Comercial</p>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" name="razon_social" class="form-control material" id="" placeholder="">
+                      <p class="help-text">Razón Social</p>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <input type="text" name="nit" class="form-control material" id="" placeholder="">
+                      <p class="help-text">NIT</p>
+                    </div>
+                    <div class="form-group col-md-7">
+                      <select name="" id="sector" name="servicios" class="form-control material">
                         <optgroup label="Arte y Marketing">
-                            <option value="Diseño Gráfico">Diseño Gráfico</option>
-                            <option value="Editor">Editor</option>
-                            <option value="Fotógrafo">Fotógrafo</option>
-                            <option value="Radiodifusión y Producción">Radiodifusión y Producción</option>
-                            <option value="Servicio de Entretenimiento">Servicio de Entretenimiento</option>
+                          <option value="Diseño Gráfico">Diseño Gráfico</option>
+                          <option value="Editor">Editor</option>
+                          <option value="Fotógrafo">Fotógrafo</option>
+                          <option value="Radiodifusión y Producción">Radiodifusión y Producción</option>
+                          <option value="Servicio de Entretenimiento">Servicio de Entretenimiento</option>
                         </optgroup>
                         <optgroup label="Bricolage">
                           <option value="Artículos de Cocina">Artículos de Cocina</option>
@@ -79,8 +92,8 @@
                           <option value="Servicio de limpieza">Servicio de limpieza</option>
                           <option value="Terrazas y patios">Terrazas y patios</option>
                           <option value="Utensilios domésticos">Utensilios domésticos</option>
-                      </optgroup>
-                      <optgroup label="Medicina y Salud">
+                        </optgroup>
+                        <optgroup label="Medicina y Salud">
                           <option value="Atención prenatal y partos">Atención prenatal y partos</option>
                           <option value="Cirugía plástica">Cirugía plástica</option>
                           <option value="Clínica">Clínica</option>
@@ -93,8 +106,8 @@
                           <option value="Nutricionista">Nutricionista</option>
                           <option value="Salud de la mujer">Salud de la mujer</option>
                           <option value="Terapeuta físico">Terapeuta físico</option>
-                      </optgroup>
-                      <optgroup label="Organización de eventos">
+                        </optgroup>
+                        <optgroup label="Organización de eventos">
                           <option value="Animador">Animador</option>
                           <option value="Bandas y músicos">Bandas y músicos</option>
                           <option value="DJ">DJ</option>
@@ -102,8 +115,8 @@
                           <option value="Organización de eventos">Organización de eventos</option>
                           <option value="Salón de eventos">Salón de eventos</option>
                           <option value="Servicio de comidas a domicilio">Servicio de comidas a domicilio</option>
-                      </optgroup>
-                      <optgroup label="Sector Automotriz">
+                        </optgroup>
+                        <optgroup label="Sector Automotriz">
                           <option value="Autopartes y accesorios">Autopartes y accesorios</option>
                           <option value="Autos de Carreras">Autos de Carreras</option>
                           <option value="Concesionaria">Concesionaria</option>
@@ -111,8 +124,8 @@
                           <option value="Motocicletas">Motocicletas</option>
                           <option value="Personalización de automóviles">Personalización de automóviles</option>
                           <option value="Reparación automotriz">Reparación automotriz</option>
-                      </optgroup>
-                      <optgroup label="Servicio para mascotas">
+                        </optgroup>
+                        <optgroup label="Servicio para mascotas">
                           <option value="Caballos">Caballos</option>
                           <option value="Criador de mascotas">Criador de mascotas</option>
                           <option value="Entrenamiento de perros">Entrenamiento de perros</option>
@@ -120,16 +133,16 @@
                           <option value="Refugio de animales">Refugio de animales</option>
                           <option value="Tienda de mascotas">Tienda de mascotas</option>
                           <option value="Veterinario">Veterinario</option>
-                      </optgroup>
-                      <optgroup label="Servicio de estilo de vida">
+                        </optgroup>
+                        <optgroup label="Servicio de estilo de vida">
                           <option value="Autopartes y accesorios">Autopartes y accesorios</option>
                           <option value="Autos de carreras">Autos de carreras</option>
                           <option value="Cuidado de niños">Cuidado de niños</option>
                           <option value="Entrenamiento personal"></option>
                           <option value="Psíquico">Psíquico</option>
                           <option value="Servicio de citas">Servicio de citas</option>
-                      </optgroup>
-                      <optgroup label="Servicios empresariales">
+                        </optgroup>
+                        <optgroup label="Servicios empresariales">
                           <option value="Agencia de empleos">Agencia de empleos</option>
                           <option value="Asesor comercial">Asesor comercial</option>
                           <option value="Proveedor de servicios de internet">Proveedor de servicios de internet</option>
@@ -138,8 +151,8 @@
                           <option value="Servicio de publicidad">Servicio de publicidad</option>
                           <option value="Servicio de transporte">Servicio de transporte</option>
                           <option value="Servicio de informática">Servicio de informática</option>  
-                      </optgroup>
-                      <optgroup label="Servicios financieros">
+                        </optgroup>
+                        <optgroup label="Servicios financieros">
                           <option value="Agente de seguros">Agente de seguros</option>
                           <option value="Agentes hipotecarios">Agentes hipotecarios</option>
                           <option value="Contador">Contador</option>
@@ -147,8 +160,8 @@
                           <option value="Planificación financiera">Planificación financiera</option>
                           <option value="Preparación de la declaración de renta"></option>
                           <option value="Préstamos">Préstamos</option>
-                      </optgroup>
-                      <optgroup label="Spa, belleza y cuidado personal">
+                        </optgroup>
+                        <optgroup label="Spa, belleza y cuidado personal">
                           <option value="Cosmeticos y productos de belleza">Cosmeticos y productos de belleza</option>
                           <option value="Cuidado de la piel">Cuidado de la piel</option>
                           <option value="Estética">Estética</option>
@@ -158,422 +171,423 @@
                           <option value="Salón de uñas">Salón de uñas</option>
                           <option value="Spa">Spa</option>
                           <option value="Tatuajes y piercings"></option>
-                      </optgroup>
+                        </optgroup>
 
-                  </select>
-                  <p class="help-text">Servicio</p>
+                      </select>
+                      <p class="help-text">Servicio</p>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
+                      <p class="help-text">1er. Teléfono de la empresa</p>
+                    </div>   
+                    <div class="form-group col-md-4">
+                      <input type="text" class="form-control material" name="telefono_2" id="" placeholder="">
+                      <p class="help-text">2do. Teléfono de la empresa</p>
+                    </div>  
+                    <div class="form-group col-md-4">
+                      <input type="text" class="form-control material" name="sitio_web" id="" placeholder="">
+                      <p class="help-text">Sitio Web</p>
+                    </div>                     
+                    <div class="form-group col-md-5">
+                      <input type="text" class="form-control material" name="ciudad_pais" id="geocomplete" >
+                      <p class="help-text">Ciudad, País</p>
+                    </div>
+                    <div class="form-group col-md-5">
+                      <input type="text" class="form-control material" name="direccion" id="" placeholder="">
+                      <p class="help-text">Dirección</p>
+                    </div>
+                    <br><br>
+                  </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="representante">
+                  <div class="content-box big-box box-shadow">
+                   <div class="form-group col-md-2">                            
+                     <select name="representante[sexo][]" id="" class="form-control material">
+                      <option value="hombre">Hombre</option>
+                      <option value="mujer">Mujer</option>
+                    </select>
+                    <p class="help-text">Sexo</p>
+                  </div>
+                  <div class="form-group col-md-2">                            
+                    <select name="representante[trato][]" id="" class="form-control material">
+                      <option value="Srta.">Srta.</option>  
+                      <option value="Sra.">Sra.</option>  
+                      <option value="Sr.">Sr.</option>                                
+                      <option value="Dr.">Dr.</option>
+                      <option value="Dra.">Dra.</option>
+                      <option value="Lic.">Lic.</option>
+                    </select>
+                    <p class="help-text">Trato</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="representante[nombre][]" type="text" class="form-control material">
+                    <p class="help-text">Nombre</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="representante[cargo][]" type="text" class="form-control material">
+                    <p class="help-text">Cargo</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="representante[email][]" type="text" class="form-control material">
+                    <p class="help-text">Email</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="representante[celular][]" type="text" class="form-control material">
+                    <p class="help-text">Celular</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="representante[telefono][]" type="text" class="form-control material">
+                    <p class="help-text">Teléfono Fijo</p>
+                  </div>
+                </div>
+
               </div>
-              <div class="form-group col-md-4">
-                <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
-                <p class="help-text">1er. Teléfono de la empresa</p>
-            </div>   
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control material" name="telefono_2" id="" placeholder="">
-                <p class="help-text">2do. Teléfono de la empresa</p>
-            </div>  
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control material" name="sitio_web" id="" placeholder="">
-                <p class="help-text">Sitio Web</p>
-            </div>                     
-            <div class="form-group col-md-5">
-                <input type="text" class="form-control material" name="ciudad_pais" id="geocomplete" >
-                <p class="help-text">Ciudad, País</p>
+
+              <div role="tabpanel" class="tab-pane" id="comercial">
+                <div class="content-box big-box box-shadow">
+
+                  <div class="form-group col-md-2">                            
+                    <select name="comercial[sexo][]" id="" class="form-control material">
+                      <option value="hombre">Hombre</option>
+                      <option value="mujer">Mujer</option>
+                    </select>
+                    <p class="help-text">Sexo</p>
+                  </div>
+
+                  <div class="form-group col-md-2">                            
+                    <select name="comercial[trato][]" id="" class="form-control material">
+                      <option value="Srta.">Srta.</option>  
+                      <option value="Sra.">Sra.</option>  
+                      <option value="Sr.">Sr.</option>                                
+                      <option value="Dr.">Dr.</option>
+                      <option value="Dra.">Dra.</option>
+                      <option value="Lic.">Lic.</option>
+                    </select>
+                    <p class="help-text">Trato</p>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <input name="comercial[nombre][]" type="text" class="form-control material">
+                    <p class="help-text">Nombre</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="comercial[cargo][]" type="text" class="form-control material">
+                    <p class="help-text">Cargo</p>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <input name="comercial[email][]" type="text" class="form-control material">
+                    <p class="help-text">Email</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="comercial[celular][]" type="text" class="form-control material">
+                    <p class="help-text">Celular</p>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input name="comercial[telefono][]" type="text" class="form-control material">
+                    <p class="help-text">Teléfono Fijo</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div role="tabpanel" class="tab-pane" id="soporte">
+                <div class="content-box big-box box-shadow">
+
+                  <div class="form-group col-md-2">                            
+                    <select name="soporte[sexo][]" id="" class="form-control material">
+                      <option value="hombre">Hombre</option>
+                      <option value="mujer">Mujer</option>
+
+                    </select>
+                    <p class="help-text">Sexo</p>
+                  </div>
+
+                  <div class="form-group col-md-2">                            
+                    <select name="soporte[trato][]" id="" class="form-control material">
+                     <option value="Srta.">Srta.</option>  
+                     <option value="Sra.">Sra.</option>  
+                     <option value="Sr.">Sr.</option>                                
+                     <option value="Dr.">Dr.</option>
+                     <option value="Dra.">Dra.</option>
+                     <option value="Lic.">Lic.</option>
+                   </select>
+                   <p class="help-text">Trato</p>
+                 </div>
+
+                 <div class="form-group col-md-4">
+                  <input type="text" name="soporte[nombre][]" class="form-control material">
+                  <p class="help-text">Nombre</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" name="soporte[cargo][]" class="form-control material">
+                  <p class="help-text">Cargo</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <input type="text" name="soporte[email][]" class="form-control material">
+                  <p class="help-text">Email</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" name="soporte[celular][]" class="form-control material">
+                  <p class="help-text">Celular</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="text" name="soporte[telefono][]" class="form-control material">
+                  <p class="help-text">Teléfono Fijo</p>
+                </div>
+
+              </div>
+
             </div>
-            <div class="form-group col-md-5">
-                <input type="text" class="form-control material" name="direccion" id="" placeholder="">
-                <p class="help-text">Dirección</p>
+
+
+            <div role="tabpanel" class="tab-pane" id="filosofia">
+              <div class="content-box big-box box-shadow">
+                <div class="form-group col-md-12">
+                  <select id="valores" name="valores[]" class="form-control" multiple="multiple" style="width: 100%;">
+                   @foreach ($data->valores as $valor)
+                   <option value="{!! $valor !!}">{!! $valor !!}</option>
+                   @endforeach
+                 </select>
+                 <p class="help-text">Valores Corporativos</p>
+               </div>
+
+               <div class="col-md-12">
+                <textarea id="input" name="mision" class="form-control material" rows="3" ></textarea>
+                <p class="help-text">Misión</p>
+              </div>
+
+              <div class="col-md-12">
+                <textarea name="vision" id="input"  class="form-control material" rows="3" ></textarea>
+                <p class="help-text">Visión</p>
+              </div>
+
+              <div class="form-group col-md-12">
+                <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
+                   @foreach ($data->intereses as $interes)
+                   <option value="{!! $interes !!}">{!! $interes !!}</option>
+                   @endforeach
+                </select>
+                <p class="help-text">Intereses</p>
+              </div>
             </div>
-            <br><br>
-        </div>
+          </div>
 
-    </div>
-    <div role="tabpanel" class="tab-pane" id="representante">
-        <div class="content-box big-box box-shadow">
-         <div class="form-group col-md-2">                            
-             <select name="representante[sexo][]" id="" class="form-control material">
-                <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-            </select>
-            <p class="help-text">Sexo</p>
-        </div>
-        <div class="form-group col-md-2">                            
-            <select name="representante[trato][]" id="" class="form-control material">
-                <option value="Srta.">Srta.</option>  
-                <option value="Sra.">Sra.</option>  
-                <option value="Sr.">Sr.</option>                                
-                <option value="Dr.">Dr.</option>
-                <option value="Dra.">Dra.</option>
-                <option value="Lic.">Lic.</option>
-            </select>
-            <p class="help-text">Trato</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input name="representante[nombre][]" type="text" class="form-control material">
-            <p class="help-text">Nombre</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input name="representante[cargo][]" type="text" class="form-control material">
-            <p class="help-text">Cargo</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input name="representante[email][]" type="text" class="form-control material">
-            <p class="help-text">Email</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input name="representante[celular][]" type="text" class="form-control material">
-            <p class="help-text">Celular</p>
-        </div>
-        <div class="form-group col-md-4">
-            <input name="representante[telefono][]" type="text" class="form-control material">
-            <p class="help-text">Teléfono Fijo</p>
-        </div>
-    </div>
 
-</div>
 
-<div role="tabpanel" class="tab-pane" id="comercial">
-    <div class="content-box big-box box-shadow">
+          <div role="tabpanel" class="tab-pane" id="redes">
+            <div class="content-box big-box box-shadow">
+              <div class="form-group col-md-2">
+                <h4><i class="icon-gmail"></i> Gmail</h4>
+              </div>
 
-        <div class="form-group col-md-2">                            
-            <select name="comercial[sexo][]" id="" class="form-control material">
-                <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-            </select>
-            <p class="help-text">Sexo</p>
+              <div class="form-group col-md-5">
+                <input type="text" name="gmail[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="gmail[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-mail"></i> Zohomail</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="zohomail[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="zohomail[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-facebook-2"></i> Facebook</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="facebook[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="facebook[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-twitter-2"></i> Twitter</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="twitter[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="twitter[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-youtube-2"></i> Youtube</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="youtube[contraseña][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="youtube[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-instagram"></i> Instagram</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="instagram[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="instagram[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-linkedin-2"></i> Linkedin</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="linkedin[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="linkedin[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="pinterest[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="pinterest[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4>Hootsuite</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="hootsuite[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="hootsuite[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4>A.I</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="amarillas_internet[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4>Photosnack</h4>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="photosnack[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-5">
+                <input type="text" name="photosnack[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+              <div class="form-group col-md-2">
+                <h4>FTP</h4>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="ftp[server][]" class="form-control material">
+                <p class="help-text">Server</p>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="ftp[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="ftp[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="settings">
+            <div class="content-box big-box box-shadow">
+
+              {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
+
+
+            </div>
+          </div>
         </div>
-
-        <div class="form-group col-md-2">                            
-            <select name="comercial[trato][]" id="" class="form-control material">
-              <option value="Srta.">Srta.</option>  
-              <option value="Sra.">Sra.</option>  
-              <option value="Sr.">Sr.</option>                                
-              <option value="Dr.">Dr.</option>
-              <option value="Dra.">Dra.</option>
-              <option value="Lic.">Lic.</option>
-          </select>
-          <p class="help-text">Trato</p>
+        {!! Form::close() !!}
       </div>
-
-      <div class="form-group col-md-4">
-        <input name="comercial[nombre][]" type="text" class="form-control material">
-        <p class="help-text">Nombre</p>
     </div>
-    <div class="form-group col-md-4">
-        <input name="comercial[cargo][]" type="text" class="form-control material">
-        <p class="help-text">Cargo</p>
-    </div>
+    @stop
 
-    <div class="form-group col-md-4">
-        <input name="comercial[email][]" type="text" class="form-control material">
-        <p class="help-text">Email</p>
-    </div>
-    <div class="form-group col-md-4">
-        <input name="comercial[celular][]" type="text" class="form-control material">
-        <p class="help-text">Celular</p>
-    </div>
-    <div class="form-group col-md-4">
-        <input name="comercial[telefono][]" type="text" class="form-control material">
-        <p class="help-text">Teléfono Fijo</p>
-    </div>
-</div>
-</div>
+    @section('add_scripts')
+    {!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
+    {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
+    {!! HTML::script('js/mask.js') !!}
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
+    {!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
+    {!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
 
 
-<div role="tabpanel" class="tab-pane" id="soporte">
-    <div class="content-box big-box box-shadow">
 
-      <div class="form-group col-md-2">                            
-        <select name="soporte[sexo][]" id="" class="form-control material">
-            <option value="hombre">Hombre</option>
-            <option value="mujer">Mujer</option>
-
-        </select>
-        <p class="help-text">Sexo</p>
-    </div>
-
-    <div class="form-group col-md-2">                            
-        <select name="soporte[trato][]" id="" class="form-control material">
-         <option value="Srta.">Srta.</option>  
-         <option value="Sra.">Sra.</option>  
-         <option value="Sr.">Sr.</option>                                
-         <option value="Dr.">Dr.</option>
-         <option value="Dra.">Dra.</option>
-         <option value="Lic.">Lic.</option>
-     </select>
-     <p class="help-text">Trato</p>
- </div>
-
- <div class="form-group col-md-4">
-    <input type="text" name="soporte[nombre][]" class="form-control material">
-    <p class="help-text">Nombre</p>
-</div>
-<div class="form-group col-md-4">
-    <input type="text" name="soporte[cargo][]" class="form-control material">
-    <p class="help-text">Cargo</p>
-</div>
-
-<div class="form-group col-md-4">
-    <input type="text" name="soporte[email][]" class="form-control material">
-    <p class="help-text">Email</p>
-</div>
-<div class="form-group col-md-4">
-    <input type="text" name="soporte[celular][]" class="form-control material">
-    <p class="help-text">Celular</p>
-</div>
-<div class="form-group col-md-4">
-    <input type="text" name="soporte[telefono][]" class="form-control material">
-    <p class="help-text">Teléfono Fijo</p>
-</div>
-
-</div>
-
-</div>
-
-
-<div role="tabpanel" class="tab-pane" id="filosofia">
-    <div class="content-box big-box box-shadow">
-        <div class="form-group col-md-12">
-            <select id="valores" name="valores[]" class="form-control" multiple="multiple" style="width: 100%;">
-               @foreach ($data->valores as $valor)
-               <option value="{!! $valor !!}">{!! $valor !!}</option>
-               @endforeach
-           </select>
-           <p class="help-text">Valores Corporativos</p>
-       </div>
-
-       <div class="col-md-12">
-          <textarea id="input" name="mision" class="form-control material" rows="3" ></textarea>
-          <p class="help-text">Misión</p>
-      </div>
-
-      <div class="col-md-12">
-          <textarea name="vision" id="input"  class="form-control material" rows="3" ></textarea>
-          <p class="help-text">Visión</p>
-      </div>
-
-      <div class="form-group col-md-12">
-        <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
-          <option value="AL">Alabama</option>
-          <option value="WY">Wyoming</option>
-      </select>
-      <p class="help-text">Intereses</p>
-  </div>
-</div>
-</div>
-
-
-
-<div role="tabpanel" class="tab-pane" id="redes">
-    <div class="content-box big-box box-shadow">
-        <div class="form-group col-md-2">
-            <h4><i class="icon-gmail"></i> Gmail</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="gmail[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="gmail[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-mail"></i> Zohomail</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="zohomail[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="zohomail[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-facebook-2"></i> Facebook</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="facebook[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="facebook[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-twitter-2"></i> Twitter</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="twitter[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="twitter[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-youtube-2"></i> Youtube</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="youtube[contraseña][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="youtube[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-instagram"></i> Instagram</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="instagram[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="instagram[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-linkedin-2"></i> Linkedin</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="linkedin[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="linkedin[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="pinterest[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="pinterest[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4>Hootsuite</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="hootsuite[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="hootsuite[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4>A.I</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="amarillas_internet[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4>Photosnack</h4>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="photosnack[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-5">
-            <input type="text" name="photosnack[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-        <div class="form-group col-md-2">
-            <h4>FTP</h4>
-        </div>
-
-        <div class="form-group col-md-3">
-            <input type="text" name="ftp[server][]" class="form-control material">
-            <p class="help-text">Server</p>
-        </div>
-
-        <div class="form-group col-md-3">
-            <input type="text" name="ftp[usuario][]" class="form-control material">
-            <p class="help-text">Usuario</p>
-        </div>
-
-        <div class="form-group col-md-3">
-            <input type="text" name="ftp[contraseña][]" class="form-control material">
-            <p class="help-text">Contraseña</p>
-        </div>
-
-    </div>
-</div>
-<div role="tabpanel" class="tab-pane" id="settings">
-    <div class="content-box big-box box-shadow">
-
-        {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
-
-        
-    </div>
-</div>
-</div>
-{!! Form::close() !!}
-</div>
-</div>
-@stop
-
-@section('add_scripts')
-{!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
-{!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
-{!! HTML::script('js/mask.js') !!}
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-{!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
-{!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
-{!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
-
-
-
-<script>
-    $(document).ready(function() {
+    <script>
+      $(document).ready(function() {
         $("#range").ionRangeSlider({
-            min: 0,
-            max: 6,
-            from: 0.5
+          min: 0,
+          max: 6,
+          from: 0.5
         });
 
         $("#valores").select2();
@@ -589,42 +603,42 @@
             $(".form_tags").tagsinput('items');
             $(".multi_tags").select2();
 
-        });
-    </script>
+          });
+        </script>
 
 
 
-    <script>
-       $.log = function(message){
+        <script>
+         $.log = function(message){
           var $logger = $("#logger");
           $logger.html($logger.html() + "\n * " + message );
-      }
-      $(function(){
+        }
+        $(function(){
 
-        $("#geocomplete").geocomplete()
-        .bind("geocode:result", function(event, result){
+          $("#geocomplete").geocomplete()
+          .bind("geocode:result", function(event, result){
             $.log("Result: " + result.formatted_address);
-        })
-        .bind("geocode:error", function(event, status){
+          })
+          .bind("geocode:error", function(event, status){
             $.log("ERROR: " + status);
-        })
-        .bind("geocode:multiple", function(event, results){
+          })
+          .bind("geocode:multiple", function(event, results){
             $.log("Multiple: " + results.length + " results found");
+          });
+
+          $("#find").click(function(){
+            $("#geocomplete").trigger("geocode");
+          });
+
+
+          $("#examples a").click(function(){
+            $("#geocomplete").val($(this).text()).trigger("geocode");
+            return false;
+          });
+
         });
-
-        $("#find").click(function(){
-          $("#geocomplete").trigger("geocode");
-      });
-
-
-        $("#examples a").click(function(){
-          $("#geocomplete").val($(this).text()).trigger("geocode");
-          return false;
-      });
-
-    });
-</script>
+      </script>
 
 
 
-@stop
+      @stop

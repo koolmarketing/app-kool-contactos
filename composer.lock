@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f282ee512f8216a58b0d844c814e6bd8",
-    "content-hash": "04216452e2bb888fb8ddc1e35a69f1d7",
+    "hash": "d655458bd399acbe867ae4fbb30d80e5",
+    "content-hash": "62eeff6a4e9f8936794562ca6c8a2327",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1052,7 +1052,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/b7151db9b758364f39677cd0d691fd368b901df0",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/fb82f2b9ead20343336f1d3a9a03a9183262ff63",
                 "reference": "b7151db9b758364f39677cd0d691fd368b901df0",
                 "shasum": ""
             },

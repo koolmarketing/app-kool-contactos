@@ -22,6 +22,7 @@
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Datos Básicos</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Iformación Profesional</a></li>
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Datos de Contacto</a></li>
+            <li role="presentation"><a href="#familia" aria-controls="familia" role="tab" data-toggle="tab">Familia</a></li>
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Información Personal</a></li>
         </ul>
 
@@ -29,10 +30,10 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="home">
                 <div class="content-box big-box box-shadow">
-{!!Form::open(array('action' => 'ContactoController@GuardarClientes', 'method' => 'post', 'id' => 'guarda_cliente','files'=>true));!!}
+                    {!!Form::open(array('action' => 'ContactoController@GuardarClientes', 'method' => 'post', 'id' => 'guarda_cliente','files'=>true));!!}
 
                     <div class="col-md-6">
-                       <div class="col-md-12">
+                     <div class="col-md-12">
                         <input type="file" name="foto">
                         <p class="help-text">Una foto</p>
                     </div>
@@ -147,54 +148,71 @@
 
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="settings">
+
+        <div role="tabpanel" class="tab-pane" id="familia">
             <div class="content-box big-box box-shadow">
+                <div class="form-group col-md-12">
 
+                    <button type="button" id="add_family" class="btn btn-primary btn-lg btn-block">Agregar Familiar</button>
+                    <br><br>
 
-                <div class="form-group col-md-12">                    
-                     <select name="hobbies" id="hobbies" class="form-control material" multiple="multiple" style="width: 100%">
-                     @foreach ($data->hobbits as $hobbits)
-                         <option value="{!! $hobbits !!}">{!! $hobbits !!}</option>
-                     @endforeach
-                     </select>
-                    <p class="help-text">Hobbits</p>
+                    <div id="contenedor-familiares" class="col-md-12">
+                    </div>
+
+                        <!-- <input type="text" name="nombres" class="form-control material" id="" placeholder="">
+                        <p class="help-text">Nombres.</p> -->
+                    </div>
                 </div>
+            </div>
 
-                <div class="form-group col-md-4">
+            <div role="tabpanel" class="tab-pane" id="settings">
+                <div class="content-box big-box box-shadow">
+
+
+                    <div class="form-group col-md-12">                    
+                       <select name="hobbies[]" id="hobbies" class="form-control material" multiple="multiple" style="width: 100%">
+                           @foreach ($data->hobbits as $hobbits)
+                           <option value="{!! $hobbits !!}">{!! $hobbits !!}</option>
+                           @endforeach
+                       </select>
+                       <p class="help-text">Hobbits</p>
+                   </div>
+
+                   <div class="form-group col-md-4">
                     <select name="religion" id="" class="form-control material">
                         @foreach ($data->religion as $religion)
-                         <option value="{!! $religion !!}">{!! $religion !!}</option>
-                     @endforeach
+                        <option value="{!! $religion !!}">{!! $religion !!}</option>
+                        @endforeach
                     </select>
                     <p class="help-text">Religión</p>
                 </div>
 
                 <div class="form-group col-md-4">
                     <select name="situacion_sentimental" id="" class="form-control material">
-                         @foreach ($data->situacion_sentimental as $s_s)
-                         <option value="{!! $s_s !!}">{!! $s_s !!}</option>
-                     @endforeach
-                    </select>
-                    <p class="help-text">Situación Sentimental</p>
-                </div>
+                       @foreach ($data->situacion_sentimental as $s_s)
+                       <option value="{!! $s_s !!}">{!! $s_s !!}</option>
+                       @endforeach
+                   </select>
+                   <p class="help-text">Situación Sentimental</p>
+               </div>
 
-                <div class="form-group col-md-4">
-                    <select name="orientacion_sexual"  class="form-control material" >
+               <div class="form-group col-md-4">
+                <select name="orientacion_sexual"  class="form-control material" >
                     @foreach ($data->orientacion as $sexo)
-                        <option value="{!! $sexo !!}">{!! $sexo !!}</option>
+                    <option value="{!! $sexo !!}">{!! $sexo !!}</option>
                     @endforeach
-                      
-                    </select>
-                    <p class="help-text">Orientación S.</p>
-                </div>
 
-                <br>
-
-                {!! Form::button('Guardar Contacto', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
-                
+                </select>
+                <p class="help-text">Orientación S.</p>
             </div>
-        </div>{!! Form::close() !!}
-    </div>
+
+            <br>
+
+            {!! Form::button('Guardar Contacto', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
+
+        </div>
+    </div>{!! Form::close() !!}
+</div>
 
 
 
@@ -229,32 +247,59 @@
     </script>
 
     <script>
-     $.log = function(message){
-      var $logger = $("#logger");
-      $logger.html($logger.html() + "\n * " + message );
-  }
-  $(function(){
-    $(".geocomplete").geocomplete()
-    .bind("geocode:result", function(event, result){
-        $.log("Result: " + result.formatted_address);
-    })
-    .bind("geocode:error", function(event, status){
-        $.log("ERROR: " + status);
-    })
-    .bind("geocode:multiple", function(event, results){
-        $.log("Multiple: " + results.length + " results found");
+       $.log = function(message){
+          var $logger = $("#logger");
+          $logger.html($logger.html() + "\n * " + message );
+      }
+      $(function(){
+        $(".geocomplete").geocomplete()
+        .bind("geocode:result", function(event, result){
+            $.log("Result: " + result.formatted_address);
+        })
+        .bind("geocode:error", function(event, status){
+            $.log("ERROR: " + status);
+        })
+        .bind("geocode:multiple", function(event, results){
+            $.log("Multiple: " + results.length + " results found");
+        });
+
+        $(".find").click(function(){
+          $(".geocomplete").trigger("geocode");
+      });
+        $(".examples a").click(function(){
+          $(".geocomplete").val($(this).text()).trigger("geocode");
+          return false;
+      });
     });
 
-    $(".find").click(function(){
-      $(".geocomplete").trigger("geocode");
-  });
-    $(".examples a").click(function(){
-      $(".geocomplete").val($(this).text()).trigger("geocode");
-      return false;
-  });
-});
-</script>
+      var fam = 0;
+
+      $('body').on('click', '#add_family', function(event) {
+          event.preventDefault();
+
+          $('#contenedor-familiares').append('<div class="col-md-12"><div class="form-group col-md-2"><select class="form-control material parentesco" name="familia['+fam+'][]" value=""><option value="hijo">Hijo</option><option value="hija">Hija</option><option value="pareja">Pareja</option><option value="hermano">Hermano</option><option value="hermana">Hermana</option><option value="padre">Padre</option><option value="madre">Madre</option><option value="primo">Primo</option><option value="prima">Prima</option></select><p class="help-text">Parentesco</p></div><div class="form-group col-md-4"><input type="text" name="familia['+fam+'][]" class="form-control material" placeholder="Nombre"></div><div class="form-group col-md-3"><input type="text" name="familia['+fam+'][]" class="form-control material cumpleaños" placeholder="Cumpleaños"></div><div class="opciones-familia"></div></div>');
+
+          fam = fam + 1;
+      });
+
+      $('body').on('click', '.parentesco', function(event) {
+          event.preventDefault();
+
+          $(this).change(function(event) {
+            value=$(this).val();
+            if (value=="pareja") {
+                console.log("Pareja selecciondo"); 
+                div=$(".form-group").parent(); 
+            }
+        });
+
+
+      });
 
 
 
-    @stop
+  </script>
+
+
+
+  @stop
