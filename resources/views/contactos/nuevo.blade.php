@@ -33,7 +33,7 @@
                     {!!Form::open(array('action' => 'ContactoController@GuardarClientes', 'method' => 'post', 'id' => 'guarda_cliente','files'=>true));!!}
 
                     <div class="col-md-6">
-                     <div class="col-md-12">
+                       <div class="col-md-12">
                         <input type="file" name="foto">
                         <p class="help-text">Una foto</p>
                     </div>
@@ -170,15 +170,15 @@
 
 
                     <div class="form-group col-md-12">                    
-                       <select name="hobbies[]" id="hobbies" class="form-control material" multiple="multiple" style="width: 100%">
-                           @foreach ($data->hobbits as $hobbits)
-                           <option value="{!! $hobbits !!}">{!! $hobbits !!}</option>
-                           @endforeach
-                       </select>
-                       <p class="help-text">Hobbits</p>
-                   </div>
+                     <select name="hobbies[]" id="hobbies" class="form-control material" multiple="multiple" style="width: 100%">
+                         @foreach ($data->hobbits as $hobbits)
+                         <option value="{!! $hobbits !!}">{!! $hobbits !!}</option>
+                         @endforeach
+                     </select>
+                     <p class="help-text">Hobbits</p>
+                 </div>
 
-                   <div class="form-group col-md-4">
+                 <div class="form-group col-md-4">
                     <select name="religion" id="" class="form-control material">
                         @foreach ($data->religion as $religion)
                         <option value="{!! $religion !!}">{!! $religion !!}</option>
@@ -188,15 +188,15 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    <select name="situacion_sentimental" id="" class="form-control material">
-                       @foreach ($data->situacion_sentimental as $s_s)
-                       <option value="{!! $s_s !!}">{!! $s_s !!}</option>
-                       @endforeach
-                   </select>
-                   <p class="help-text">Situación Sentimental</p>
-               </div>
+                    <select name="situacion_sentimental" id="situacion_sentimental" class="form-control material">
+                     @foreach ($data->situacion_sentimental as $s_s)
+                     <option value="{!! $s_s !!}">{!! $s_s !!}</option>
+                     @endforeach
+                 </select>
+                 <p class="help-text">Situación Sentimental</p>
+             </div>
 
-               <div class="form-group col-md-4">
+             <div class="form-group col-md-4">
                 <select name="orientacion_sexual"  class="form-control material" >
                     @foreach ($data->orientacion as $sexo)
                     <option value="{!! $sexo !!}">{!! $sexo !!}</option>
@@ -206,27 +206,20 @@
                 <p class="help-text">Orientación S.</p>
             </div>
 
+            <div class="form-group col-md-4" id="aniversario">
+
+            </div>
+
             <br>
 
-            {!! Form::button('Guardar Contacto', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
+            {!! Form::button('Guardar Contacto', array('class' => 'btn btn-lg btn-info pull-right',"id"=>"guardar_persona")); !!}
 
         </div>
     </div>{!! Form::close() !!}
 </div>
-
-
-
-
-
-
-
 </div>
-
-
-
 </div>
 @stop
-
 @section('add_scripts')
 {!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
 {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
@@ -234,23 +227,57 @@
 {!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
+<script>
+    //      SAVE AJAX        
+    $(function(){
+        $('body').on('click', '#guardar_persona', function(event) {
+        
+            $.ajaxSetup({
+                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+            })
+            event.preventDefault();
+            var formId = '#guarda_cliente';
+            $.ajax({
+                url: $(formId).attr('action'),
+                type: $(formId).attr('method'),
+                data: $(formId).serialize(),
+                dataType: 'html',
+                success: function(result){
+                    if ($(formId).find("input:first-child").attr('value') == 'PUT') {
+                        var $jsonObject = jQuery.parseJSON(result);
+                        $(location).attr('href',$jsonObject.url);
+                    }
+                    else{
+                        $(formId)[0].reset();
+                        console.log(result);                        
+                    }
+                },
+                error: function(){
+                    console.log('Error');
+                }
+            });
+        });
+    }); 
+//      END SAVE AJAX    <---
 
+
+
+</script>
 <script>
     $(document).ready(function() {
             //Mascara
             $('.date').mask('00-00-0000');
+            $('.cumpleaños').mask('00-00-0000');
             $('#thebox').picEdit();
             $(".form_tags").tagsinput('items');
             $("#hobbies").select2();
             $(".multi_tags").select2();
         });
     </script>
-
     <script>
-       $.log = function(message){
-          var $logger = $("#logger");
-          $logger.html($logger.html() + "\n * " + message );
-      }
+     $.log = function(message){
+      var $logger = $("#logger");
+      $logger.html($logger.html() + "\n * " + message );}
       $(function(){
         $(".geocomplete").geocomplete()
         .bind("geocode:result", function(event, result){
@@ -276,9 +303,7 @@
 
       $('body').on('click', '#add_family', function(event) {
           event.preventDefault();
-
-          $('#contenedor-familiares').append('<div class="col-md-12"><div class="form-group col-md-2"><select class="form-control material parentesco" name="familia['+fam+'][]" value=""><option value="hijo">Hijo</option><option value="hija">Hija</option><option value="pareja">Pareja</option><option value="hermano">Hermano</option><option value="hermana">Hermana</option><option value="padre">Padre</option><option value="madre">Madre</option><option value="primo">Primo</option><option value="prima">Prima</option></select><p class="help-text">Parentesco</p></div><div class="form-group col-md-4"><input type="text" name="familia['+fam+'][]" class="form-control material" placeholder="Nombre"></div><div class="form-group col-md-3"><input type="text" name="familia['+fam+'][]" class="form-control material cumpleaños" placeholder="Cumpleaños"></div><div class="opciones-familia"></div></div>');
-
+          $('#contenedor-familiares').append('<div class="col-md-12"><div class="form-group col-md-2"><select class="form-control material parentesco" id="familia" name="familia['+fam+'][]" ><option value="hijo">Hijo</option><option value="hija">Hija</option><option value="pareja">Pareja</option><option value="hermano">Hermano</option><option value="hermana">Hermana</option><option value="padre">Padre</option><option value="madre">Madre</option><option value="primo">Primo</option><option value="prima">Prima</option></select><p class="help-text">Parentesco</p></div><div class="form-group col-md-4"><input type="text" name="familia['+fam+'][]" class="form-control material" placeholder="Nombre"></div><div class="form-group col-md-3"><input type="text" name="familia['+fam+'][]" class="form-control material cumpleaños" placeholder="Cumpleaños"><p class="help-text">dd-mm-aaaa</p></div><div class="col-md-2 col-md-offset-1 opciones-familia"><button type="button" class="btn btn-primary"><i class="icon-cancel"></i></button> </div></div>');
           fam = fam + 1;
       });
 
@@ -288,14 +313,25 @@
           $(this).change(function(event) {
             value=$(this).val();
             if (value=="pareja") {
-                console.log("Pareja selecciondo"); 
-                div=$(".form-group").parent(); 
-            }
+                console.log(value);
+            } else{
+            }      
         });
-
-
       });
 
+
+      $('body').on('click', '#situacion_sentimental', function(event) {
+          event.preventDefault();
+          $(this).change(function(event) {
+            value=$(this).val();
+            if (value=="Casado(a)" || value=="Unión libre") {
+                console.log(value);
+                $("#aniversario").html('<input type="text" id="aniversario" name="aniversario" class="form-control material date" placeholder=""><p class="help-text">Aniversario</p>');
+            } else{
+               $("#aniversario").html('');
+           }      
+       });
+      });
 
 
   </script>

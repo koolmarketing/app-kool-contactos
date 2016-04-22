@@ -103,62 +103,68 @@ class ContactoController extends Controller
     public function NewCompany()
     {
 
-     $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
+       $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
 
-     $valores = ["Exactitud","logro","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
+       $valores = ["Exactitud","logro","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
 
-     $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses);
-     return view('empresas.nuevo',['data' => $data]);
- }
- public function Empresa ()
- {
+       $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses);
+       return view('empresas.nuevo',['data' => $data]);
+   }
+   public function Empresa ()
+   {
     $data = (object) array("page" => "Nueva Empresa");
     return view('empresas.perfil',['data' => $data]);
 }
 
 public function GuardarClientes (Request $request) {
 
-    $NP = new \App\Persona;
 
-    $destinationPath = 'uploads/fotos/';
+    if($request->ajax()) {  
+       return $request->all();
+    }else{
 
-    if ($request->hasFile('foto')) {
-        $file = $request->file('foto');
-        $destinationPath = 'uploads/fotos';
-        $extension = $file->getClientOriginalExtension();
-        $filename1 = "".str_random(12).".".$extension."";
-        $upload_success = $file->move($destinationPath, $filename1);            
+        $NP = new \App\Persona;
 
+        $destinationPath = 'uploads/fotos/';
+
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $destinationPath = 'uploads/fotos';
+            $extension = $file->getClientOriginalExtension();
+            $filename1 = "".str_random(12).".".$extension."";
+            $upload_success = $file->move($destinationPath, $filename1);            
+
+        }
+
+        if (isset($filename1)) { $NP->foto= $filename1;}
+        $NP->cumpleaños             = $request->input('cumpleaños');
+        $NP->sexo                   = $request->input('sexo');
+        $NP->nombres                = $request->input('nombres');
+        $NP->apellidos              = $request->input('apellidos');
+        $NP->ciudad_actual          = $request->input('ciudad_actual');
+        $NP->ciudad_natal           = $request->input('ciudad_natal');
+        $NP->profesion              = $request->input('profesion');
+        $NP->empresa_actual         = $request->input('empresa_actual');
+        $NP->cargo                  = $request->input('cargo');
+        $NP->telefono_oficina       = $request->input('telefono_oficina');
+        $NP->telefono_casa          = $request->input('telefono_casa');
+        $NP->telefono_movil         = $request->input('telefono_movil');
+        $NP->email_corporativo      = $request->input('email_corporativo');
+        $NP->email_personal         = $request->input('email_personal');
+        $NP->skype                  = $request->input('skype');
+        $NP->facebook               = $request->input('facebook');
+        $NP->twitter                = $request->input('twitter');
+        $NP->linkedin               = $request->input('linkedin');
+        $NP->hobbies                = json_encode($request->input('hobbies'));
+        $NP->religion               = $request->input('religion');
+        $NP->situacion_sentimental  = $request->input('situacion_sentimental');
+        $NP->orientacion_sexual     = $request->input('orientacion_sexual');
+
+        $NP->save();
+
+
+        return $request->all();
     }
-
-    if (isset($filename1)) { $NP->foto= $filename1;}
-    $NP->cumpleaños             = $request->input('cumpleaños');
-    $NP->sexo                   = $request->input('sexo');
-    $NP->nombres                = $request->input('nombres');
-    $NP->apellidos              = $request->input('apellidos');
-    $NP->ciudad_actual          = $request->input('ciudad_actual');
-    $NP->ciudad_natal           = $request->input('ciudad_natal');
-    $NP->profesion              = $request->input('profesion');
-    $NP->empresa_actual         = $request->input('empresa_actual');
-    $NP->cargo                  = $request->input('cargo');
-    $NP->telefono_oficina       = $request->input('telefono_oficina');
-    $NP->telefono_casa          = $request->input('telefono_casa');
-    $NP->telefono_movil         = $request->input('telefono_movil');
-    $NP->email_corporativo      = $request->input('email_corporativo');
-    $NP->email_personal         = $request->input('email_personal');
-    $NP->skype                  = $request->input('skype');
-    $NP->facebook               = $request->input('facebook');
-    $NP->twitter                = $request->input('twitter');
-    $NP->linkedin               = $request->input('linkedin');
-    $NP->hobbies                = json_encode($request->input('hobbies'));
-    $NP->religion               = $request->input('religion');
-    $NP->situacion_sentimental  = $request->input('situacion_sentimental');
-    $NP->orientacion_sexual     = $request->input('orientacion_sexual');
-
-    $NP->save();
-
-
-    return $request->input();
 }
 
 public function Clientes () {
