@@ -23,259 +23,32 @@
                     <thead>
                     <tr>
                         <th>Nombre</th>                        
-                        <th>Teléfono</th>
+                        <th>NIT</th>
                         <th>Sitio Web</th>
-                        <th>Email</th>
-                        <th>Sector</th>
+                        <th>Teléfono</th>
+                        <th>Rango</th>
+
 
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
+                   
+
+                    @foreach ($data->all as $empresa)
+                         <tr>
+                        <td><a href="{!! URL::to('empresa/'.$empresa->id.'') !!}">{!! $empresa->nombre_comercial !!}</a>  </td>
+                        <td>{!! $empresa->nit !!}</td>
+                        <td>{!! $empresa->sitio_web !!}</td>
+                        <td>{!! $empresa->telefono_1 !!}</td>
+                        <td>
+                            @for ($i = 0; $i < $empresa->rango ; $i++)
+                                <i class="icon-star"></i>
+                            @endfor
+                         </td>
+                        
                     </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>
-                                        <tr>
-                        <td>Empresa ABC S.A.S</td>
-                        <td>356 8691</td>
-                        <td>empresaabc.com</td>
-                        <td>info@abc.com</td>
-                        <td>Servicios</td>
-                    </tr>                   
+                    @endforeach
+                                  
 
                     </tbody>
                 </table>

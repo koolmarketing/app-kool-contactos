@@ -12,7 +12,7 @@ class UpdateTablePersonas extends Migration
      */
     public function up()
     {
-        Schema::table('empresas', function($table)
+        Schema::table('personas', function($table)
         {         
             $table->text('familia')->nullable();
             $table->string('aniversario')->nullable();
@@ -26,7 +26,7 @@ class UpdateTablePersonas extends Migration
      */
     public function down()
     {
-        Schema::table('empresas', function ($table) {
+        Schema::table('personas', function ($table) {
             $table->dropColumn('familia');
             $table->dropColumn('aniversario');
         });

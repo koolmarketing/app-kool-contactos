@@ -116,13 +116,20 @@
             <span class="current-time"></span>
         </li>
 
+        <li class="container-fluid pull-right">
+        <ul class="nav navbar-right right-menu">       
+          <li class="lang">
+          <div class="cs-select cs-skin-elastic" tabindex="0">Hola {!! Auth::user()->name; !!} </div></li>      
+        </ul>
+      </li>
+
     </ul>
 
     <!--Content-->
     <div id="content" class="content container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="page-header">
+                <div class="page-header col-md-10">
                     @if ($data->page=="Home")
                     <h2>{!! $data->page !!}</h2>
                     <ol class="breadcrumb">
@@ -136,7 +143,12 @@
                     </ol>
                     @endif
 
+
+
+                    
+
                 </div>
+               
             </div>
         </div>
 
