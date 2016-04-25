@@ -40,7 +40,7 @@
                       </div>
                       <br>
                       <div class="form-group col-md-12">
-                      <input type="text" name="fecha_fundacion" class="form-control material date" id="" placeholder="">
+                        <input type="text" name="fecha_fundacion" class="form-control material date" id="" placeholder="">
                         <p class="help-text">Fundacion (dd-mm-aaaa)</p>
                       </div>
 
@@ -366,234 +366,273 @@
 
               <div class="form-group col-md-12">
                 <select id="intereses" name="intereses[]" class="form-control material" multiple="multiple" style="width: 100%;">
-                   @foreach ($data->intereses as $interes)
-                   <option value="{!! $interes !!}">{!! $interes !!}</option>
-                   @endforeach
-                </select>
-                <p class="help-text">Intereses</p>
-              </div>
+                 @foreach ($data->intereses as $interes)
+                 <option value="{!! $interes !!}">{!! $interes !!}</option>
+                 @endforeach
+               </select>
+               <p class="help-text">Intereses</p>
+             </div>
+           </div>
+         </div>
+
+
+
+         <div role="tabpanel" class="tab-pane" id="redes">
+          <div class="content-box big-box box-shadow"><br>
+            <div class="col-lg-12">
+              <div class="col-lg-10"> <select id="lista_redes" class="form-control material"></select></div>
+              <div class="col-lg-2"><button id="add_red" class="btn btn-primary">Agregar Medio</button></div>
+              <br><br><br>
             </div>
-          </div>
-
-
-
-          <div role="tabpanel" class="tab-pane" id="redes">
-            <div class="content-box big-box box-shadow">
+            @for ($i = 1; $i <= 5; $i++)
+            <div class="col-lg-12 Gmail" id="gmail_{!!$i!!}" attr-visible="">
               <div class="form-group col-md-2">
                 <h4><i class="icon-gmail"></i> Gmail</h4>
               </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="gmail[usuario][]" class="form-control material">
+              <div class="form-group col-md-4">
+                <input type="text" name="gmail_{!!$i!!}[usuario][]" class="form-control material">
                 <p class="help-text">Usuario</p>
               </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="gmail[contraseña][]" class="form-control material">
+              <div class="form-group col-md-4">
+                <input type="text" name="gmail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
+              <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+            </div>
+            @endfor
 
 
+            @for ($i = 1; $i <= 5; $i++)
+            <div class="col-lg-12 Zohomail" id="zohomail_{!!$i!!}" attr-visible="">
               <div class="form-group col-md-2">
                 <h4><i class="icon-mail"></i> Zohomail</h4>
               </div>
-
-              <div class="form-group col-md-5">
+              <div class="form-group col-md-4">
                 <input type="text" name="zohomail[usuario][]" class="form-control material">
                 <p class="help-text">Usuario</p>
               </div>
 
-              <div class="form-group col-md-5">
+              <div class="form-group col-md-4">
                 <input type="text" name="zohomail[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-facebook-2"></i> Facebook</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="facebook[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="facebook[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-twitter-2"></i> Twitter</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="twitter[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="twitter[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-youtube-2"></i> Youtube</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="youtube[contraseña][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="youtube[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-instagram"></i> Instagram</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="instagram[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="instagram[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-linkedin-2"></i> Linkedin</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="linkedin[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="linkedin[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="pinterest[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="pinterest[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4>Hootsuite</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="hootsuite[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="hootsuite[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4>A.I</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="amarillas_internet[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4>Photosnack</h4>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="photosnack[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-5">
-                <input type="text" name="photosnack[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
-              <div class="form-group col-md-2">
-                <h4>FTP</h4>
-              </div>
-
-              <div class="form-group col-md-3">
-                <input type="text" name="ftp[server][]" class="form-control material">
-                <p class="help-text">Server</p>
-              </div>
-
-              <div class="form-group col-md-3">
-                <input type="text" name="ftp[usuario][]" class="form-control material">
-                <p class="help-text">Usuario</p>
-              </div>
-
-              <div class="form-group col-md-3">
-                <input type="text" name="ftp[contraseña][]" class="form-control material">
-                <p class="help-text">Contraseña</p>
-              </div>
-
+              <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="settings">
-            <div class="content-box big-box box-shadow">
+            
+            @endfor
 
-              {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
-
-
+            <div class="col-lg-12 Facebook" id="facebook" attr-visible="">
+             <div class="form-group col-md-2">
+              <h4><i class="icon-facebook-2"></i> Facebook</h4>
             </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="facebook[usuario][]"  class="form-control material">
+              <p class="help-text">Usuario</p>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="facebook[contraseña][]" class="form-control material">
+              <p class="help-text">Contraseña</p>
+            </div>
+            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
           </div>
+
+          <!-- Twitter -->
+          <div class="col-lg-12 Twitter" id="twitter" attr-visible="">
+            <div class="form-group col-md-2">
+              <h4><i class="icon-twitter-2"></i> Twitter</h4>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="twitter[usuario][]" class="form-control material">
+              <p class="help-text">Usuario</p>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="twitter[contraseña][]" class="form-control material">
+              <p class="help-text">Contraseña</p>
+            </div>
+
+            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+          </div>
+          
+          <div class="col-lg-12 Youtube" id="youtube" attr-visible="">
+            <div class="form-group col-md-2">
+              <h4><i class="icon-youtube-2"></i> Youtube</h4>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="youtube[contraseña][]" class="form-control material">
+              <p class="help-text">Usuario</p>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="youtube[contraseña][]" class="form-control material">
+              <p class="help-text">Contraseña</p>
+            </div>
+            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+          </div>
+
+          <div class="col-lg-12 Instagram" id="instagram" attr-visible="">
+            <div class="form-group col-md-2">
+              <h4><i class="icon-instagram"></i> Instagram</h4>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="instagram[usuario][]" class="form-control material">
+              <p class="help-text">Usuario</p>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="instagram[contraseña][]" class="form-control material">
+              <p class="help-text">Contraseña</p>
+            </div>
+            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+          </div>
+
+          <div class="col-lg-12 Linkedin" id="linkedin" attr-visible="">
+            <div class="form-group col-md-2">
+              <h4><i class="icon-linkedin-2"></i> Linkedin</h4>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="linkedin[usuario][]" class="form-control material">
+              <p class="help-text">Usuario</p>
+            </div>
+
+            <div class="form-group col-md-4">
+              <input type="text" name="linkedin[contraseña][]" class="form-control material">
+              <p class="help-text">Contraseña</p>
+            </div>
+            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+          </div>
+
+          <!-- Pinterest -->
+          <div class="col-lg-12 Pinterest" id="pinterest" attr-visible="">
+           <div class="form-group col-md-2">
+            <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
+          </div>
+
+          <div class="form-group col-md-4">
+            <input type="text" name="pinterest[usuario][]" class="form-control material">
+            <p class="help-text">Usuario</p>
+          </div>
+
+          <div class="form-group col-md-4">
+            <input type="text" name="pinterest[contraseña][]" class="form-control material">
+            <p class="help-text">Contraseña</p>
+          </div>
+          <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
         </div>
-        {!! Form::close() !!}
+
+        <!-- Hootsuite -->
+
+        <div class="col-lg-12 Hootsuite" id="hootsuite" attr-visible="">
+         <div class="form-group col-md-2">
+          <h4>Hootsuite</h4>
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" name="hootsuite[usuario][]" class="form-control material">
+          <p class="help-text">Usuario</p>
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" name="hootsuite[contraseña][]" class="form-control material">
+          <p class="help-text">Contraseña</p>
+        </div>
+        <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
       </div>
+      <!-- Amarillas Internet -->
+      <div class="col-lg-12 Amarillas_Internet" id="amarillas_internet" attr-visible="">
+       <div class="form-group col-md-2">
+        <h4>A.I</h4>
+      </div>
+      <div class="form-group col-md-4">
+        <input type="text" name="amarillas_internet[usuario][]" class="form-control material">
+        <p class="help-text">Usuario</p>
+      </div>
+      <div class="form-group col-md-4">
+        <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
+        <p class="help-text">Contraseña</p>
+      </div>
+      <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+    </div>      
+
+
+    <div class="col-lg-12 Photosnack" id="photosnack" attr-visible="">
+      <div class="form-group col-md-2">
+        <h4>Photosnack</h4>
+      </div>
+
+      <div class="form-group col-md-4">
+        <input type="text" name="photosnack[usuario][]" class="form-control material">
+        <p class="help-text">Usuario</p>
+      </div>
+
+      <div class="form-group col-md-4">
+        <input type="text" name="photosnack[contraseña][]" class="form-control material">
+        <p class="help-text">Contraseña</p>
+      </div>
+      <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
     </div>
-    @stop
 
-    @section('add_scripts')
-    {!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
-    {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
-    {!! HTML::script('js/mask.js') !!}
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-    {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
-    {!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
-    {!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
+    <div class="col-lg-12 FTP" id="ftp" attr-visible="">    
+      <div class="form-group col-md-2">
+        <h4>FTP</h4>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="ftp[server][]" class="form-control material">
+        <p class="help-text">Server</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="ftp[usuario][]" class="form-control material">
+        <p class="help-text">Usuario</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="ftp[contraseña][]" class="form-control material">
+        <p class="help-text">Contraseña</p>
+      </div>
+      <div class="col-md-1"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="settings">
+    <div class="content-box big-box box-shadow">
+      {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
+    </div>
+  </div>
+</div>
+{!! Form::close() !!}
+</div>
+</div>
+@stop
+
+@section('add_scripts')
+{!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
+{!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
+{!! HTML::script('js/mask.js') !!}
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+{!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
+{!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
+{!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
 
 
 
-    <script>
-      $(document).ready(function() {
-        $("#range").ionRangeSlider({
-          min: 0,
-          max: 6,
-          from: 0.5
-        });
+<script>
+  $(document).ready(function() {
+    $("#range").ionRangeSlider({
+      min: 0,
+      max: 6,
+      from: 0.5
+    });
 
-        $("#valores").select2();
-        $("#sector").select2();
-        $("#intereses").select2();
-
+    $("#valores").select2();
+    $("#sector").select2();
+    $("#intereses").select2();
 
             //Mascara
             $('.date').mask('00/00/0000');
@@ -605,8 +644,6 @@
 
           });
         </script>
-
-
 
         <script>
          $.log = function(message){
@@ -638,7 +675,106 @@
 
         });
       </script>
+      <script>
+        var redes = ["Gmail", "Zohomail", "Facebook", "Twitter", "Youtube", "Instagram", "Linkedin", "Pinterest", "Hootsuite", "Amarillas_Internet", "Photosnack", "FTP"];
+        var obj_redes= new Object;
+
+        obj_redes.gmail_1 = {title:"Gmail", name:"gmail_1", position:1, active:false};
+        obj_redes.gmail_2 = {title:"Gmail", name:"gmail_2", position:2, active:false};
+        obj_redes.gmail_3 = {title:"Gmail", name:"gmail_3", position:3, active:false};
+        obj_redes.gmail_4 = {title:"Gmail", name:"gmail_4", position:4, active:false};
+        obj_redes.gmail_5 = {title:"Gmail", name:"gmail_5", position:5, active:false};
+
+        obj_redes.zohomail_1 = {title:"Zohoomail", name:"zohomail_1", position:1, active:false};  
+        obj_redes.zohomail_2 = {title:"Zohoomail", name:"zohomail_2", position:2, active:false}; 
+        obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
+        obj_redes.zohomail_4 = {title:"Zohoomail", name:"zohomail_4", position:4, active:false}; 
+        obj_redes.zohomail_5 = {title:"Zohoomail", name:"zohomail_5", position:5, active:false};
+
+        obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
+        obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};
+        obj_redes.youtube   = {title:"Youtube", name:"youtube", position:1, active:false};
+        obj_redes.instagram = {title:"Instagram", name:"instagram", position:1, active:false};
+        obj_redes.linkedin  = {title:"Linkedin", name:"linkedin", position:1, active:false};
+        obj_redes.pinterest = {title:"Pinterest", name:"pinterest", position:1, active:false};
+        obj_redes.hootsuite = {title:"Hootsuite", name:"hootsuite", position:1, active:false};
+        obj_redes.amarillas_internet = {title:"Amarillas_Internet", name:"amarillas_internet", position:1, active:false};
+        obj_redes.photosnack= {title:"Photosnack", name:"photosnack", position:1, active:false};
+        obj_redes.ftp       = {title:"FTP",name:"ftp", position:1, active:false};
+
+//  Arreglo redes
+var arr_redes=(Object.keys(obj_redes));
+// 
+for (var i = 0; i < arr_redes.length; i++) {  
+  $("#"+arr_redes[i]+"").attr('attr-visible', 'false');
+  $("#"+arr_redes[i]+"").hide();
+}
+for (var i = 0; i < redes.length; i++) {
+  $("#lista_redes").append("<option value='"+redes[i]+"'>"+redes[i]+"</option>");
+}
+
+$("body").on('click', '#add_red', function(event) {
+  event.preventDefault();
+  var val=$("#lista_redes").val();
+  if (val=="Gmail") {
+   x=1;
+   encontrado=false;
+   while (encontrado==false || x==5) {
+    value = obj_redes["gmail_"+x+""].active;
+    if (value==false) {
+      obj_redes["gmail_"+x+""].active=true;
+      encontrado=true;
+      name_div = obj_redes["gmail_"+x+""].name;
+      $("#"+name_div+"").show();
+      console.log("entra a Gmail");
+    } else {x+=1;}
+  }
+} else if(val=="Zohomail") {
+  x=1;
+  encontrado=false;
+  while (encontrado==false || x==5) {
+    value = obj_redes["zohomail_"+x+""].active;
+    if (value==false) {
+      obj_redes["zohomail_"+x+""].active=true;
+      encontrado=true;
+      var name_div = obj_redes["zohomail_"+x+""].name;
+      $("#"+name_div+"").show();
+    } 
+    else {x+=1;}
+  }
+}else{
+  switch(val) {
+    case "Facebook":$("#facebook").show(); obj_redes["facebook"].active=true;
+    break;
+    case "Twitter": $("#twitter").show(); obj_redes["twitter"].active=true;    
+    break;
+    case "Youtube": $("#youtube").show(); obj_redes["youtube"].active=true; 
+    break;
+    case "Instagram": $("#instagram").show(); obj_redes["instagram"].active=true; 
+    break;
+    case "Linkedin": $("#linkedin").show(); obj_redes["linkedin"].active=true; 
+    break;
+    case "Pinterest": $("#pinterest").show(); obj_redes["pinterest"].active=true; 
+    break;
+     case "Amarillas_Internet": $("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true; 
+    break;
+    case "Hootsuite": $("#hootsuite").show(); obj_redes["hootsuite"].active=true; 
+    break;
+    case "Photosnack": $("#photosnack").show(); obj_redes["photosnack"].active=true; 
+    break;
+    case "FTP": $("#ftp").show(); obj_redes["ftp"].active=true; 
+    break;
+    default: console.log("error");
+  
+  }
+}
+}
+);
 
 
 
-      @stop
+</script>
+
+
+
+@stop
