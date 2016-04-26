@@ -80,4 +80,15 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'nuevo.reporte', 
 		'uses' => 'ContactoController@NuevoReporte'
 		]);
+	Route::post('nuevo-reporte', [
+		'middleware' => 'auth',
+		'as'   => 'nuevo.reporte', 
+		'uses' => 'ContactoController@SaveReporte'
+		]);
+	//GetReporte
+		Route::get('get-reportes', [
+		'middleware' => 'auth',
+		'as'   => 'get.reporte', 
+		'uses' => 'ContactoController@GetReporte'
+		]);
 });

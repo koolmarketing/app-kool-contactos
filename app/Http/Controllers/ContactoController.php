@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Empresa;
 use App\Persona;
+use App\Reporte;
 use DB;
+use Auth;
 use Session;
 use Validator;
 use Redirect;
@@ -218,7 +220,24 @@ public function NuevoReporte(){
     return view('reportes.nuevo',['data' => $data]);
 }
 
+public function SaveReporte(Request $request){
+    if($request->ajax()) { 
+        $RP = new \App\Reporte;
+        $RP->id_user = Auth::id(); 
+        $RP->actividad = $request->input('actividad');
+        $RP->cliente = $request->input('cliente');
+        $RP->inicio = $request->input('inicio');
+        $RP->fin = $request->input('fin');
+        $RP->porcentaje = $request->input('terminado');
+        $RP->nota = $request->input('anotacion');
+        $RP->save();
+        return $request->input();        
+    }    
+}
 
-
-
+public function GetReporte(){
+    $id = Auth::id();
+    $reportes = \App\Reporte::where('id_user', $id)->orderBy('created_at', 'asc')->paginate();
+    return $reportes;
+}
 }

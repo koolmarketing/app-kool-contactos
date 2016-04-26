@@ -66,6 +66,7 @@
         <!--Data Tables-->
 
     <script>
+
         $(document).ready(function() {
             //Mascara
             $('.date').mask('00/00/0000');

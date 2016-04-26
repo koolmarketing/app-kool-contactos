@@ -22,7 +22,7 @@
     {!! HTML::style('css/style.css') !!}
     {!! HTML::script('js/menu/modernizr.custom.js') !!}
     {!! HTML::style('fontello/css/fontello.css') !!}
-
+    {!! HTML::style('bower_components/sweetalert/dist/sweetalert.css') !!}
 
 
 
@@ -117,16 +117,16 @@
         </li>
 
         <li class="container-fluid pull-right">
-        <ul class="nav navbar-right right-menu">       
-          <li class="lang">
-          <div class="cs-select cs-skin-elastic" tabindex="0">Hola {!! Auth::user()->name; !!} </div></li>      
-        </ul>
-      </li>
+            <ul class="nav navbar-right right-menu">       
+              <li class="lang">
+                  <div class="cs-select cs-skin-elastic" tabindex="0">Hola {!! Auth::user()->name; !!} </div></li>      
+              </ul>
+          </li>
 
-    </ul>
+      </ul>
 
-    <!--Content-->
-    <div id="content" class="content container-fluid">
+      <!--Content-->
+      <div id="content" class="content container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header col-md-10">
@@ -148,7 +148,7 @@
                     
 
                 </div>
-               
+
             </div>
         </div>
 
@@ -244,7 +244,7 @@
 {!! HTML::script('js/selects/selectFx.js') !!}
 {!! HTML::script('js/jquery.nicescroll.min.js') !!}
 {!! HTML::script('js/common.js') !!}
-
+{!! HTML::script('bower_components/sweetalert/dist/sweetalert.min.js') !!}
 
 
 
