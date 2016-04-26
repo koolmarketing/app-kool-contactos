@@ -408,12 +408,12 @@
                 <h4><i class="icon-mail"></i> Zohomail</h4>
               </div>
               <div class="form-group col-md-4">
-                <input type="text" name="zohomail[usuario][]" class="form-control material">
+                <input type="text" name="zohomail_{!!$i!!}[usuario][]" class="form-control material">
                 <p class="help-text">Usuario</p>
               </div>
 
               <div class="form-group col-md-4">
-                <input type="text" name="zohomail[contraseña][]" class="form-control material">
+                <input type="text" name="zohomail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
               <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
@@ -463,7 +463,7 @@
             </div>
 
             <div class="form-group col-md-4">
-              <input type="text" name="youtube[contraseña][]" class="form-control material">
+              <input type="text" name="youtube[usuario][]" class="form-control material">
               <p class="help-text">Usuario</p>
             </div>
 

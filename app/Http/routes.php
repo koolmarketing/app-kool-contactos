@@ -75,4 +75,9 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'nuevo.empresa', 
 		'uses' => 'ContactoController@NewCompany'
 		]);
+	Route::get('nuevo-reporte', [
+		'middleware' => 'auth',
+		'as'   => 'nuevo.reporte', 
+		'uses' => 'ContactoController@NuevoReporte'
+		]);
 });

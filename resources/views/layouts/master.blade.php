@@ -82,10 +82,10 @@
                                 <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Empresas
                                 </a>
                             </li> 
-                     <!--        <li>
-                                <a href="#"><i class="fa fa-bar-chart"></i> Reportes</a>
-                            </li>
                             <li>
+                                <a href="{!! URL::to('nuevo-reporte') !!}"><i class="fa fa-bar-chart"></i> Reportes</a>
+                            </li>
+                           <!--  <li>
                                 <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
                             </li> -->
                             <li>

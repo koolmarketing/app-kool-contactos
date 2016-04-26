@@ -79,9 +79,29 @@ class ContactoController extends Controller
         $NC->vision           = $request->input('vision');
         $NC->intereses        = json_encode($request->input('intereses'));
 
+
+        $gmail = (object) array();
+
+        $gmail->cuenta_1 = $request->input('gmail_1');
+        $gmail->cuenta_2 = $request->input('gmail_2');
+        $gmail->cuenta_3 = $request->input('gmail_3');
+        $gmail->cuenta_3 = $request->input('gmail_4');
+        $gmail->cuenta_4 = $request->input('gmail_5');
+        $NC->gmail = $gmail;
+
+        $zohomail = (object) array();
+
+        $zohomail->cuenta_1 = $request->input('zohomail_1');
+        $zohomail->cuenta_2 = $request->input('zohomail_2');
+        $zohomail->cuenta_3 = $request->input('zohomail_3');
+        $zohomail->cuenta_3 = $request->input('zohomail_4');
+        $zohomail->cuenta_4 = $request->input('zohomail_5');
+        $NC->zohomail = $zohomail;
+
         #Redes
-        $NC->gmail               = json_encode($request->input('gmail'));
-        $NC->zohomail            = json_encode($request->input('zohomail'));
+        //$NC->gmail               = json_encode($request->input('gmail'));
+        //$NC->zohomail            = json_encode($request->input('zohomail'));
+
         $NC->facebook            = json_encode($request->input('facebook'));
         $NC->twitter             = json_encode($request->input('twitter'));
         $NC->youtube             = json_encode($request->input('youtube'));
@@ -93,9 +113,11 @@ class ContactoController extends Controller
         $NC->photosnack          = json_encode($request->input('photosnack'));
         $NC->ftp                 = json_encode($request->input('ftp'));
 
-        $NC->save();
-
-        print_r($NC->valores);
+        //$NC->save();
+        
+        
+        return json_encode($zohomail);
+        //return var_dump($test["usuario"]);
 
     }
 
@@ -103,15 +125,15 @@ class ContactoController extends Controller
     public function NewCompany()
     {
 
-     $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
+       $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
 
-     $valores = ["Exactitud","logro","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
+       $valores = ["Exactitud","logro","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
 
-     $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses);
-     return view('empresas.nuevo',['data' => $data]);
- }
- public function Empresa ()
- {
+       $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses);
+       return view('empresas.nuevo',['data' => $data]);
+   }
+   public function Empresa ()
+   {
     $data = (object) array("page" => "Nueva Empresa");
     return view('empresas.perfil',['data' => $data]);
 }
@@ -120,11 +142,11 @@ public function GuardarClientes (Request $request) {
 
 
     if($request->ajax()) {  
-     $NP = new \App\Persona;
+       $NP = new \App\Persona;
 
-     $destinationPath = 'uploads/fotos/';
+       $destinationPath = 'uploads/fotos/';
 
-     if ($request->hasFile('foto')) {
+       if ($request->hasFile('foto')) {
         $file = $request->file('foto');
         $destinationPath = 'uploads/fotos';
         $extension = $file->getClientOriginalExtension();
@@ -190,4 +212,13 @@ public function PerfilEmpresa () {
     $data = (object) array("page" => "Clientes");
     return view('empresas.perfil',['data' => $data]);
 }
+
+public function NuevoReporte(){
+    $data = (object) array("page" => "Reporte");
+    return view('reportes.nuevo',['data' => $data]);
+}
+
+
+
+
 }
