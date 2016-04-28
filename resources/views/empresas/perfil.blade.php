@@ -9,6 +9,7 @@
 
 {!! HTML::style('bower_components/DataTables/media/css/jquery.dataTables.css') !!}
 {!! HTML::style('bower_components/datatables-tabletools/css/dataTables.tableTools.css') !!}
+{!! HTML::style('datetimepicker/build/jquery.datetimepicker.min.css') !!}
 @stop
 @section('content')
 
@@ -115,9 +116,9 @@
 
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
-                                                 <!-- -->
+                                                   <!-- -->
 
-                                                 <div class="col-md-6">
+                                                   <div class="col-md-6">
                                                     <h3>Dr. William Alberto Fernandez Montes</h3>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
@@ -282,7 +283,7 @@
 <div role="tabpanel" class="tab-pane" id="redes">
     <div class="col-md-12 col-sm-12 col-xs-12">
 
-     <div class="panel panel-default">
+       <div class="panel panel-default">
         <div class="panel-body">
             <div class="col-md-3">
                 <h3><i class="icon-gmail"></i> Gmail</h3>
@@ -486,7 +487,11 @@
 
     <div class="content-box big-box">
 
-        <buttom class="btn btn-primary"><i class="icon-plus-circle"></i> Anotación</buttom> <buttom class="btn btn-success"><i class="icon-plus-circle"></i> Recordatorio</buttom> <buttom class="btn btn-danger"><i class="icon-plus-circle"></i> Alerta</buttom>
+        <a class="btn btn-primary" data-toggle="modal" href='#modal-anotacion'><i class="icon-plus-circle"></i> Anotación</a>
+        <a class="btn btn-success" data-toggle="modal" href='#modal-recordatorio'><i class="icon-plus-circle"></i> Recordatorio</a>
+        <a class="btn btn-danger" data-toggle="modal" href='#modal-alerta'><i class="icon-plus-circle"></i> Alerta</a>
+        <a type="button" class="btn btn-dark" data-toggle="modal" href='#modal-cobro'><i class="icon-plus-circle"></i> Cartera</a>
+
         <div class="panel panel-default" id="anotaciones">
             <div class="panel-body">
                 <div class="content-box biggest-box red-bg">
@@ -501,60 +506,60 @@
                 <!-- Panel -->
                 <div class="content-box biggest-box blue-bg">
                     <div class="pull-left">
-                       <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                       <span class="pull-right">13/04/2016</span>
-                   </div>
-                   <div class="clearfix"></div>
-               </div>
-               <!-- End panel -->
+                     <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                     <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                     <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                     <span class="pull-right">13/04/2016</span>
+                 </div>
+                 <div class="clearfix"></div>
+             </div>
+             <!-- End panel -->
 
-               <!-- Panel -->
-               <div class="content-box biggest-box blue-bg">
+             <!-- Panel -->
+             <div class="content-box biggest-box blue-bg">
                 <div class="pull-left">
-                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                   <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                   <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                   <span class="pull-right">10/04/2016</span>
-               </div>
-               <div class="clearfix"></div>
-           </div>
-           <!-- End panel -->
+                 <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                 <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                 <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                 <span class="pull-right">10/04/2016</span>
+             </div>
+             <div class="clearfix"></div>
+         </div>
+         <!-- End panel -->
 
-           <!-- Panel -->
-           <div class="content-box biggest-box blue-bg">
+         <!-- Panel -->
+         <div class="content-box biggest-box blue-bg">
             <div class="pull-left">
-               <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-               <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-               <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-               <span class="pull-right">8/04/2016</span>
-           </div>
-           <div class="clearfix"></div>
-       </div>
-       <!-- End panel -->
+             <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+             <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+             <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+             <span class="pull-right">8/04/2016</span>
+         </div>
+         <div class="clearfix"></div>
+     </div>
+     <!-- End panel -->
 
-       <!-- Panel -->
-       <div class="content-box biggest-box blue-bg">
+     <!-- Panel -->
+     <div class="content-box biggest-box blue-bg">
         <div class="pull-left">
-           <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-           <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-           <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-           <span class="pull-right">8/04/2016</span>
-       </div>
-       <div class="clearfix"></div>
-   </div>
-   <!-- End panel -->
+         <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+         <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+         <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+         <span class="pull-right">8/04/2016</span>
+     </div>
+     <div class="clearfix"></div>
+ </div>
+ <!-- End panel -->
 
-   <!-- Panel -->
-   <div class="content-box biggest-box blue-bg">
+ <!-- Panel -->
+ <div class="content-box biggest-box blue-bg">
     <div class="pull-left">
-       <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-       <span class="pull-right">8/04/2016</span>
-   </div>
-   <div class="clearfix"></div>
+     <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+     <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+     <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+     <span class="pull-right">8/04/2016</span>
+ </div>
+ <div class="clearfix"></div>
 </div>
 <!-- End panel -->
 
@@ -572,6 +577,139 @@
 </div>
 
 </div>
+
+
+<div class="modal fade" id="modal-anotacion">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Escribe un Comentario</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-primary">Guardar Anotación</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--====  Stat Recordatorio  ====-->
+<div class="modal fade" id="modal-recordatorio">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Escribe un Recordatorio</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <input type="text" name="" id="input" class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" pattern="" title="">
+
+                    </div>
+                    <div class="col-md-12">
+                        <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-primary">Guardar Anotación</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====  Stat Alerta  ====-->
+<div class="modal fade" id="modal-alerta">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Escribe un alerta</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <input type="text" name=""  class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" pattern="" title="">
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-primary">Guardar Anotación</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====  Stat Cartera  ====-->
+<div class="modal fade" id="modal-cobro">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Reporta un Cobro</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12"> 
+                       <div class="col-md-6">  <br>                
+                        <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required" pattern="" title="">
+                    </div>
+
+                    <div class="col-md-6"> <br>                     
+                        <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required" pattern="" title="">
+                    </div>
+                    <br><br>
+                </div>
+
+                
+                <div class="col-md-12" style="margin-top: 20px;"> 
+                   <div class="col-md-6">
+
+                    <input type="text" name="" id="input" class="form-control material" placeholder="Serial" value="" required="required" pattern="" title="">
+
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="" id="input" class="form-control material" placeholder="Monto" value="" required="required" pattern="" title="">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12" style="margin-top: 10px">
+                <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        <button type="button" class="btn btn-primary">Guardar Anotación</button>
+    </div>
+</div>
+</div>
+</div>
+
 @stop
 
 @section('add_scripts')
@@ -583,6 +721,53 @@
 {!! HTML::script('bower_components/DataTables/media/js/jquery.dataTables.js') !!}
 {!! HTML::script('bower_components/datatables.net-responsive/js/dataTables.responsive.js') !!}
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
+{!! HTML::script('datetimepicker/build/jquery.datetimepicker.full.js') !!}
+<script type="text/javascript">
+    $(function(){
+        $('#date_timepicker_start').datetimepicker({
+            format:'Y-m-d H:i:00',
+            step:"30",
+
+            onShow:function( ct ){
+                this.setOptions({
+                    maxDate:$('#date_timepicker_end').val()?$('#date_timepicker_end').val():false
+                })
+            },
+            lang:'es',
+            timepicker:true
+        });
+        $('#date_timepicker_end').datetimepicker({
+            step:"30",
+            format:'Y-m-d H:i:00',
+            onShow:function( ct ){
+                this.setOptions({
+                    minDate:$('#date_timepicker_start').val()?$('#date_timepicker_start').val():false
+                })
+            },
+            lang:'es',
+            timepicker:true
+        });
+
+        $('.datetimepicker3').datetimepicker({
+           i18n:{
+              de:{
+                 months:[
+                 'Enero','Febrero','Marzo','Abril',
+                 'Mayo','Junio','Julio','Agosto',
+                 'Septiembre','Octubre','Noviembre','Diciembre',
+                 ],
+                 dayOfWeek:[
+                 "Do", "Lu", "Ma", "Mi", 
+                 "Ju", "Vi", "Sa",
+                 ]
+             }
+         },
+         timepicker:true,
+         format:'Y-m-d H:i:00'
+     });
+    });
+</script>
+
 <!--Data Tables-->
 
 @stop

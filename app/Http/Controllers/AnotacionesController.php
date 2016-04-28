@@ -25,7 +25,7 @@ class AnotacionesController extends Controller
      **/
     function GuardarAnotacion()
     {
-
+    	
     }
     
 }
