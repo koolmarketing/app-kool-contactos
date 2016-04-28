@@ -15,7 +15,7 @@
     <div class="container-fluid">
 
         <div class="col-lg-10 col-lg-offset-1">
-            <a href="#" class="btn btn-md btn-primary"> Filtro Avanzado</a>
+            <a href="#" class="btn btn-md btn-primary"> Filtro Avanzado </a>
             <a href="{!! URL::to('nueva-empresa') !!}" class="btn btn-md btn-danger"> Nueva Empresa</a>
 
             <div class="table-responsive">
@@ -97,6 +97,8 @@
         });
 
     </script>
+
+  
 
 
 

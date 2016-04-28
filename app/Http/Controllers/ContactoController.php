@@ -241,8 +241,9 @@ public function GuardarClientes (Request $request) {
         return view('contactos.lista',['data' => $data]);
     }
     public function Empresas () {
+        $carbon = new \Carbon\Carbon();
         $all = \App\Empresa::all();
-        $data = (object) array("page" => "Empresas","all"=>$all);
+        $data = (object) array("page" => "Empresas","all"=>$all, "carbon"=>$carbon);
         return view('empresas.lista',['data' => $data]);
     }
 

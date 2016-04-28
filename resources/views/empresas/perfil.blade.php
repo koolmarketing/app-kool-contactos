@@ -116,9 +116,9 @@
 
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
-                                                   <!-- -->
+                                                 <!-- -->
 
-                                                   <div class="col-md-6">
+                                                 <div class="col-md-6">
                                                     <h3>Dr. William Alberto Fernandez Montes</h3>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
@@ -283,7 +283,7 @@
 <div role="tabpanel" class="tab-pane" id="redes">
     <div class="col-md-12 col-sm-12 col-xs-12">
 
-       <div class="panel panel-default">
+     <div class="panel panel-default">
         <div class="panel-body">
             <div class="col-md-3">
                 <h3><i class="icon-gmail"></i> Gmail</h3>
@@ -506,60 +506,60 @@
                 <!-- Panel -->
                 <div class="content-box biggest-box blue-bg">
                     <div class="pull-left">
-                     <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                     <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                     <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                     <span class="pull-right">13/04/2016</span>
-                 </div>
-                 <div class="clearfix"></div>
-             </div>
-             <!-- End panel -->
+                       <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                       <span class="pull-right">13/04/2016</span>
+                   </div>
+                   <div class="clearfix"></div>
+               </div>
+               <!-- End panel -->
 
-             <!-- Panel -->
-             <div class="content-box biggest-box blue-bg">
+               <!-- Panel -->
+               <div class="content-box biggest-box blue-bg">
                 <div class="pull-left">
-                 <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                 <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                 <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                 <span class="pull-right">10/04/2016</span>
-             </div>
-             <div class="clearfix"></div>
-         </div>
-         <!-- End panel -->
+                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+                   <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+                   <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
+                   <span class="pull-right">10/04/2016</span>
+               </div>
+               <div class="clearfix"></div>
+           </div>
+           <!-- End panel -->
 
-         <!-- Panel -->
-         <div class="content-box biggest-box blue-bg">
+           <!-- Panel -->
+           <div class="content-box biggest-box blue-bg">
             <div class="pull-left">
-             <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-             <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-             <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-             <span class="pull-right">8/04/2016</span>
-         </div>
-         <div class="clearfix"></div>
-     </div>
-     <!-- End panel -->
+               <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+               <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+               <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+               <span class="pull-right">8/04/2016</span>
+           </div>
+           <div class="clearfix"></div>
+       </div>
+       <!-- End panel -->
 
-     <!-- Panel -->
-     <div class="content-box biggest-box blue-bg">
+       <!-- Panel -->
+       <div class="content-box biggest-box blue-bg">
         <div class="pull-left">
-         <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-         <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-         <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-         <span class="pull-right">8/04/2016</span>
-     </div>
-     <div class="clearfix"></div>
- </div>
- <!-- End panel -->
+           <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+           <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+           <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+           <span class="pull-right">8/04/2016</span>
+       </div>
+       <div class="clearfix"></div>
+   </div>
+   <!-- End panel -->
 
- <!-- Panel -->
- <div class="content-box biggest-box blue-bg">
+   <!-- Panel -->
+   <div class="content-box biggest-box blue-bg">
     <div class="pull-left">
-     <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-     <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-     <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-     <span class="pull-right">8/04/2016</span>
- </div>
- <div class="clearfix"></div>
+       <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
+       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
+       <span class="pull-right">8/04/2016</span>
+   </div>
+   <div class="clearfix"></div>
 </div>
 <!-- End panel -->
 
@@ -667,12 +667,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Reporta un Cobro</h4>
+                <h4 class="modal-title">Programar un Cobro</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12"> 
-                       <div class="col-md-6">  <br>                
+                     <div class="col-md-6">  <br>                
                         <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required" pattern="" title="">
                     </div>
 
@@ -684,7 +684,7 @@
 
                 
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                   <div class="col-md-6">
+                 <div class="col-md-6">
 
                     <input type="text" name="" id="input" class="form-control material" placeholder="Serial" value="" required="required" pattern="" title="">
 
@@ -749,25 +749,49 @@
         });
 
         $('.datetimepicker3').datetimepicker({
-           i18n:{
-              de:{
-                 months:[
-                 'Enero','Febrero','Marzo','Abril',
-                 'Mayo','Junio','Julio','Agosto',
-                 'Septiembre','Octubre','Noviembre','Diciembre',
-                 ],
-                 dayOfWeek:[
-                 "Do", "Lu", "Ma", "Mi", 
-                 "Ju", "Vi", "Sa",
-                 ]
-             }
-         },
-         timepicker:true,
-         format:'Y-m-d H:i:00'
-     });
+         i18n:{
+          de:{
+           months:[
+           'Enero','Febrero','Marzo','Abril',
+           'Mayo','Junio','Julio','Agosto',
+           'Septiembre','Octubre','Noviembre','Diciembre',
+           ],
+           dayOfWeek:[
+           "Do", "Lu", "Ma", "Mi", 
+           "Ju", "Vi", "Sa",
+           ]
+       }
+   },
+   timepicker:true,
+   format:'Y-m-d H:i:00'
+});
     });
 </script>
 
-<!--Data Tables-->
+<script type="text/javascript">
+    
+/**
+ * Cargar/recargar (.html) anotaciones correspondientes al perfil {id}
+ * 
+ * Activar modal correspondiente
+ * Captar evento de clase btn y leer su atributo id [switch]
+ * serializar data, enviar y recibir respuesta. Recargar Anotaciones
+ *
+ *
+ */
+
+ $(document).ready(function() {
+    
+    function recargar_anotaciones() {
+    /**     
+     * Get data  + .html   
+     */
+     
+ }
+
+
+});
+
+</script>
 
 @stop
