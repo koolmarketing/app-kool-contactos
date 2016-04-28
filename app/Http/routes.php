@@ -86,9 +86,24 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'uses' => 'ContactoController@SaveReporte'
 		]);
 	//GetReporte
-		Route::get('get-reportes', [
+	Route::get('get-reportes', [
 		'middleware' => 'auth',
 		'as'   => 'get.reporte', 
 		'uses' => 'ContactoController@GetReporte'
+		]);
+	Route::get('usuarios', [
+		'middleware' => 'auth',
+		'as'   => 'ver.reporte', 
+		'uses' => 'ConfiguracionController@ListaUsuarios'
+		]);
+	Route::get('activar_usuario/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'activar.usuario', 
+		'uses' => 'ConfiguracionController@ActivarUsuario'
+		]);
+		Route::get('desactivar_usuario/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'desactivar.usuario', 
+		'uses' => 'ConfiguracionController@DesactivarUsuario'
 		]);
 });

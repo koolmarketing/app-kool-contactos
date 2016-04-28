@@ -175,69 +175,111 @@ public function GuardarClientes (Request $request) {
     $NP->skype                  = $request->input('skype');
     $NP->facebook               = $request->input('facebook');
     $NP->twitter                = $request->input('twitter');
-    $NP->linkedin               = $request->input('linkedin');
+    $NP->linkedin               = $request->input('linkedin');  
+
+    $NP->familia                = json_encode($request->input('famiia'));
     $NP->hobbies                = json_encode($request->input('hobbies'));
     $NP->religion               = $request->input('religion');
     $NP->situacion_sentimental  = $request->input('situacion_sentimental');
     $NP->orientacion_sexual     = $request->input('orientacion_sexual');
     $NP->aniversario            = $request->input('aniversario');
 
-    $NP->save();
+   // $NP->save();
 
+    $f_1 = json_encode($request->input('familia_0'));
+    $of_1 = json_decode($f_1);
 
-    return $request->all();
+    $familia = new object;
+
+    $f_0 = json_encode($request->input('familia_0'));
+    $f_1 = json_encode($request->input('familia_1'));
+    $f_2 = json_encode($request->input('familia_2'));
+    $f_3 = json_encode($request->input('familia_3'));
+    $f_4 = json_encode($request->input('familia_4'));
+    $f_5 = json_encode($request->input('familia_5'));
+    $f_6 = json_encode($request->input('familia_6'));
+    $f_7 = json_encode($request->input('familia_7'));
+    $f_8 = json_encode($request->input('familia_8'));
+    $f_9 = json_encode($request->input('familia_9'));
+    $f_10 = json_encode($request->input('familia_10'));
+    $f_11 = json_encode($request->input('familia_11'));
+    $f_12 = json_encode($request->input('familia_12'));
+    $f_13 = json_encode($request->input('familia_13'));
+    $f_14 = json_encode($request->input('familia_14'));
+    $f_15 = json_encode($request->input('familia_15'));
+
+    if ($f_0->nombre=="")  {} else{$familia->familiar_0 = $f_0;}
+    if ($f_1->nombre=="")  {} else{$familia->familiar_1 = $f_1;}
+    if ($f_2->nombre=="")  {} else{$familia->familiar_2 = $f_2;}
+    if ($f_3->nombre=="")  {} else{$familia->familiar_3 = $f_3;}
+    if ($f_4->nombre=="")  {} else{$familia->familiar_4 = $f_4;}
+    if ($f_5->nombre=="")  {} else{$familia->familiar_5 = $f_5;} 
+    if ($f_6->nombre=="")  {} else{$familia->familiar_6 = $f_6;}
+    if ($f_7->nombre)  {} else{$familia->familiar_7 = $f_7;}
+    if ($f_8->nombre)  {} else{$familia->familiar_8 = $f_8;}
+    if ($f_9->nombre)  {} else{$familia->familiar_9 = $f_9;}
+    if ($f_10->nombre) {} else{$familia->familiar_10 = $f_10;}
+    if (empty($f_11->nombre)) {} else{$familia->familiar_11 = $f_11;}
+    if (empty($f_12->nombre)) {} else{$familia->familiar_12 = $f_12;}
+    if (empty($f_13->nombre)) {} else{$familia->familiar_13 = $f_13;}
+    if (empty($f_14->nombre)) {} else{$familia->familiar_14 = $f_14;}
+    if (empty($f_15->nombre)) {} else{$familia->familiar_15 = $f_15;}    
+
+    $json_f = json_encode($familia);
+    return $json_f;
+
 }else{
     return "nope";
 
-}
-}
-
-public function Clientes () {
-
-    $all = \App\Persona::all();
-    $data = (object) array("page" => "Clientes","all"=>$all);
-    return view('contactos.lista',['data' => $data]);
-}
-public function Empresas () {
-    $all = \App\Empresa::all();
-    $data = (object) array("page" => "Empresas","all"=>$all);
-    return view('empresas.lista',['data' => $data]);
+     }
 }
 
-public function PerfilCliente ($id) {
-    $perfil=\App\Persona::find($id);
-    $data = (object) array("page" => "Clientes","perfil"=>$perfil);
-    return view('contactos.perfil',['data' => $data]);
-}
+    public function Clientes () {
 
-public function PerfilEmpresa () {
-    $data = (object) array("page" => "Clientes");
-    return view('empresas.perfil',['data' => $data]);
-}
+        $all = \App\Persona::all();
+        $data = (object) array("page" => "Clientes","all"=>$all);
+        return view('contactos.lista',['data' => $data]);
+    }
+    public function Empresas () {
+        $all = \App\Empresa::all();
+        $data = (object) array("page" => "Empresas","all"=>$all);
+        return view('empresas.lista',['data' => $data]);
+    }
 
-public function NuevoReporte(){
-    $data = (object) array("page" => "Reporte");
-    return view('reportes.nuevo',['data' => $data]);
-}
+    public function PerfilCliente ($id) {
+        $perfil=\App\Persona::find($id);
+        $data = (object) array("page" => "Clientes","perfil"=>$perfil);
+        return view('contactos.perfil',['data' => $data]);
+    }
 
-public function SaveReporte(Request $request){
-    if($request->ajax()) { 
-        $RP = new \App\Reporte;
-        $RP->id_user = Auth::id(); 
-        $RP->actividad = $request->input('actividad');
-        $RP->cliente = $request->input('cliente');
-        $RP->inicio = $request->input('inicio');
-        $RP->fin = $request->input('fin');
-        $RP->porcentaje = $request->input('terminado');
-        $RP->nota = $request->input('anotacion');
-        $RP->save();
-        return $request->input();        
-    }    
-}
+    public function PerfilEmpresa () {
+        $data = (object) array("page" => "Clientes");
+        return view('empresas.perfil',['data' => $data]);
+    }
 
-public function GetReporte(){
-    $id = Auth::id();
-    $reportes = \App\Reporte::where('id_user', $id)->orderBy('created_at', 'asc')->paginate();
-    return $reportes;
-}
+    public function NuevoReporte(){
+        $data = (object) array("page" => "Reporte");
+        return view('reportes.nuevo',['data' => $data]);
+    }
+
+    public function SaveReporte(Request $request){
+        if($request->ajax()) { 
+            $RP = new \App\Reporte;
+            $RP->id_user = Auth::id(); 
+            $RP->actividad = $request->input('actividad');
+            $RP->cliente = $request->input('cliente');
+            $RP->inicio = $request->input('inicio');
+            $RP->fin = $request->input('fin');
+            $RP->porcentaje = $request->input('terminado');
+            $RP->nota = $request->input('anotacion');
+            $RP->save();
+            return $request->input();        
+        }    
+    }
+
+    public function GetReporte(){
+        $id = Auth::id();
+        $reportes = \App\Reporte::where('id_user', $id)->orderBy('created_at', 'asc')->paginate();
+        return $reportes;
+    }
 }

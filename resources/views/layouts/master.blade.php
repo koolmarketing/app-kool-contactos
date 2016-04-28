@@ -89,7 +89,7 @@
                                 <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
                             </li> -->
                             <li>
-                                <a href="#"><i class="fa fa-wrench"></i> Configuración</a>
+                                <a href="{!! URL::to('usuarios') !!}"><i class="fa fa-wrench"></i> Configuración</a>
                             </li>
 
 

@@ -90,7 +90,7 @@
                 displayLength: 25,
                 dom: 'T<"clear">lfrtip',
                 tableTools: {
-                    "sSwfPath": "js/datatables/copy_csv_xls_pdf.swf"
+                    "sSwfPath": "{!! URL::to('/') !!}/Buttons-master/swf/flashExport.swf"
                 },
                 responsive: true
             });

@@ -104,6 +104,8 @@
 {!! HTML::script('bower_components/datatables.net-responsive/js/dataTables.responsive.js') !!}
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
 
+{!! HTML::script('Buttons-master/js/dataTables.buttons.js') !!}
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		cargar_tabla();	
@@ -111,7 +113,8 @@
 
 	function cargar_tabla(){
 		var table=$('#example').DataTable( {
-			"buttons": ['copy', 'excel', 'pdf'],
+			buttons: true,
+			 buttons: ['copy', 'excel', 'pdf'],
 			"ajax": "{!! URL::to("/") !!}/get-reportes",
 			"order": [ 0, 'desc' ],
 			"columns": [
