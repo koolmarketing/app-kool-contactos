@@ -4,7 +4,6 @@
 {!! HTML::style('css\awesome-bootstrap-checkbox.css') !!}
 {!! HTML::style('vendor\picEdit-master\dist\css\picedit.min.css') !!}
 {!! HTML::style('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.css') !!}
-
 {!! HTML::style('vendor\select2-master\dist\css\select2.css') !!}
 {!! HTML::style('bower_components/ion.rangeslider/css/ion.rangeSlider.css') !!}
 @stop

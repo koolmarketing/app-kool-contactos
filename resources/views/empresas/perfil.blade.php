@@ -565,41 +565,34 @@
 
 </div>
 </div>
-
-
-
-
 </div>
-
 </div>
-
-
 </div>
-
 </div>
-
 
 <div class="modal fade" id="modal-anotacion">
-    <div class="modal-dialog">
+    <div class="modal-dialog">    
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Escribe un Comentario</h4>
-            </div>
+            </div>{!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-anotacion','files'=>true));!!}
             <div class="modal-body">
                 <div class="row">
+                <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">                
                     <div class="form-group">
                         <div class="col-md-12">
-                            <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                            <textarea name="nota" id="nota" cols="5" rows="4" value="" class="material form-control"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-                <button type="button" class="btn btn-primary">Guardar Anotación</button>
-            </div>
-        </div>
+                <button type="button" id="btn-guardar-anotacion" class="btn btn-primary">Guardar Anotación</button>
+                {!! Form::close() !!}
+            </div>          
+        </div>        
     </div>
 </div>
 <!--====  Stat Recordatorio  ====-->
@@ -611,21 +604,23 @@
                 <h4 class="modal-title">Escribe un Recordatorio</h4>
             </div>
             <div class="modal-body">
+            {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-recordatorio','files'=>true));!!}
                 <div class="row">
-
+<input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
                     <div class="col-md-8">
-                        <input type="text" name="" id="input" class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" pattern="" title="">
+                        <input type="text" name="fecha" id="input" class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" >
 
                     </div>
                     <div class="col-md-12">
-                        <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                        <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-                <button type="button" class="btn btn-primary">Guardar Anotación</button>
+                <button id="btn-guardar-recordatorio" type="button" class="btn btn-primary">Guardar Recordatorio</button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
@@ -640,22 +635,24 @@
                 <h4 class="modal-title">Escribe un alerta</h4>
             </div>
             <div class="modal-body">
+            {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-alerta','files'=>true));!!}
                 <div class="row">
-
+<input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
                     <div class="col-md-8">
-                        <input type="text" name=""  class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" pattern="" title="">
+                        <input type="text" name="fecha"  class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required">
 
                     </div>
 
                     <div class="col-md-12">
-                        <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                        <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-                <button type="button" class="btn btn-primary">Guardar Anotación</button>
+                <button type="submit" id="btn-guardar-alerta" class="btn btn-primary guardar-form">Guardar Alerta</button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
@@ -671,40 +668,39 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-cartera','files'=>true));!!}
+                <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
                     <div class="col-md-12"> 
-                     <div class="col-md-6">  <br>                
-                        <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required" pattern="" title="">
-                    </div>
+                     <div class="col-md-6">  <br>  
 
+                     <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+
+                      
+                    </div>
                     <div class="col-md-6"> <br>                     
-                        <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required" pattern="" title="">
+                        <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
-                </div>
-
-                
+                </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
                  <div class="col-md-6">
 
-                    <input type="text" name="" id="input" class="form-control material" placeholder="Serial" value="" required="required" pattern="" title="">
+                    <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
 
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="" id="input" class="form-control material" placeholder="Monto" value="" required="required" pattern="" title="">
-
+                    <input type="text" name="monto" id="input" class="form-control material" placeholder="Monto" value="" required="required">
                 </div>
-
             </div>
-
             <div class="col-md-12" style="margin-top: 10px">
-                <textarea name="" id="" cols="5" rows="4" class="material form-control"></textarea>
+                <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
             </div>
         </div>
     </div>
-
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="button" class="btn btn-primary">Guardar Anotación</button>
+        <button type="submit" id="btn-guardar-cartera" class="btn btn-primary">Guardar Anotación</button>
+        {!! Form::close() !!}
     </div>
 </div>
 </div>
@@ -722,6 +718,13 @@
 {!! HTML::script('bower_components/datatables.net-responsive/js/dataTables.responsive.js') !!}
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
 {!! HTML::script('datetimepicker/build/jquery.datetimepicker.full.js') !!}
+<!-- Anotaciones -->
+{!! HTML::script('js/app/anotaciones/anotacion.js') !!}
+{!! HTML::script('js/app/anotaciones/alerta.js') !!}
+{!! HTML::script('js/app/anotaciones/cartera.js') !!}
+{!! HTML::script('js/app/anotaciones/recordatorio.js') !!}
+
+
 <script type="text/javascript">
     $(function(){
         $('#date_timepicker_start').datetimepicker({
@@ -769,7 +772,7 @@
 </script>
 
 <script type="text/javascript">
-    
+
 /**
  * Cargar/recargar (.html) anotaciones correspondientes al perfil {id}
  * 
@@ -780,17 +783,14 @@
  *
  */
 
- $(document).ready(function() {
-    
-    function recargar_anotaciones() {
-    /**     
-     * Get data  + .html   
-     */
-     
- }
+//  $(document).ready(function() {
 
-
-});
+//     function recargar_anotaciones() {
+//     /**     
+//      * Get data  + .html   
+//      */  
+//  }
+// });
 
 </script>
 

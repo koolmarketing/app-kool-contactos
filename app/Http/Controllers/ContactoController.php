@@ -134,9 +134,10 @@ class ContactoController extends Controller
        $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses);
        return view('empresas.nuevo',['data' => $data]);
    }
-   public function Empresa ()
+   public function Empresa ($id)
    {
-    $data = (object) array("page" => "Nueva Empresa");
+    $empresa=\App\Empresa::find($id);
+    $data = (object) array("page" => "Empresa","empresa"=>$empresa);
     return view('empresas.perfil',['data' => $data]);
 }
 
@@ -253,10 +254,6 @@ public function GuardarClientes (Request $request) {
         return view('contactos.perfil',['data' => $data]);
     }
 
-    public function PerfilEmpresa () {
-        $data = (object) array("page" => "Clientes");
-        return view('empresas.perfil',['data' => $data]);
-    }
 
     public function NuevoReporte(){
         $data = (object) array("page" => "Reporte");

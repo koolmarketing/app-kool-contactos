@@ -106,4 +106,16 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'desactivar.usuario', 
 		'uses' => 'ConfiguracionController@DesactivarUsuario'
 		]);
+		/**
+		 *
+		 * Anotaciones
+		 *
+		 */
+		Route::post('nueva-anotacion', [
+		'middleware' => 'auth',
+		'as'   => 'guardar.anotacion', 
+		'uses' => 'AnotacionesController@GuardarAnotacion'
+		]);
+
+		
 });

@@ -14,8 +14,10 @@ class UpdateAnotacionesTable extends Migration
     {
         Schema::table('anotaciones', function($table)
         {         
+            $table->timestamp('fecha_inicio')->nullable();
             $table->text('involucrados')->nullable();
             $table->integer('id_perfil')->nullable();
+            $table->integer('tipo')->nullable();
             
         });
     }
@@ -30,6 +32,9 @@ class UpdateAnotacionesTable extends Migration
         Schema::table('anotaciones', function ($table) {
             $table->dropColumn('involucrados');
             $table->dropColumn('id_perfil');
+            $table->dropColumn('tipo');
+            $table->dropColumn('fecha_inicio');
+            
         });
     }
 }
