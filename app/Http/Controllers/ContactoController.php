@@ -65,6 +65,8 @@ class ContactoController extends Controller
         $NC->nombre_comercial = $request->input('nombre_comercial');
         $NC->razon_social     = $request->input('razon_social');
         $NC->nit              = $request->input('nit');
+        $NC->servicios        = json_encode($request->input('servicios'));
+        $NC->sector           = $request->input('sector');
         $NC->telefono_1       = $request->input('telefono_1');
         $NC->telefono_2       = $request->input('telefono_2');
         $NC->sitio_web        = $request->input('sitio_web');
@@ -86,7 +88,7 @@ class ContactoController extends Controller
         $gmail->cuenta_3 = $request->input('gmail_3');
         $gmail->cuenta_3 = $request->input('gmail_4');
         $gmail->cuenta_4 = $request->input('gmail_5');
-        $NC->gmail = $gmail;
+        $NC->gmail = json_encode($gmail);
 
         $zohomail = (object) array();
 
@@ -95,7 +97,7 @@ class ContactoController extends Controller
         $zohomail->cuenta_3 = $request->input('zohomail_3');
         $zohomail->cuenta_3 = $request->input('zohomail_4');
         $zohomail->cuenta_4 = $request->input('zohomail_5');
-        $NC->zohomail = $zohomail;
+        $NC->zohomail = json_encode($zohomail);
 
         #Redes
         //$NC->gmail               = json_encode($request->input('gmail'));
@@ -112,7 +114,7 @@ class ContactoController extends Controller
         $NC->photosnack          = json_encode($request->input('photosnack'));
         $NC->ftp                 = json_encode($request->input('ftp'));
 
-        //$NC->save();
+        $NC->save();
         
         
         return json_encode($zohomail);

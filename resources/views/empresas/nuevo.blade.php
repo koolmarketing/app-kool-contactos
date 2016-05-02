@@ -10,7 +10,7 @@
 @section('content')
 
 <div class="container-fluid">
-  <div class="col-md-6 col-md-offset-3">
+<div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#datos" aria-controls="datos" role="tab" data-toggle="tab">Datos Básicos</a></li>
@@ -67,7 +67,7 @@
                       <p class="help-text">NIT</p>
                     </div>
                     <div class="form-group col-md-6">
-                      <select name="" id="servicios" name="servicios[]" class="form-control material" multiple="multiple">
+                      <select  id="servicios" name="servicios[]" class="form-control material" multiple="multiple">
                         <optgroup label="Arte y Marketing">
                           <option value="Diseño Gráfico">Diseño Gráfico</option>
                           <option value="Editor">Editor</option>
@@ -198,7 +198,7 @@
                         <p class="help-text">Sitio Web</p>
                       </div>  
                     </div>
-                    
+
                     <div class="form-group col-md-5">
                       <input type="text" class="form-control material" name="ciudad_pais" id="geocomplete" >
                       <p class="help-text">Ciudad, País</p>
@@ -777,7 +777,7 @@ $("body").on('click', '#add_red', function(event) {
     case "FTP": $("#ftp").show(); obj_redes["ftp"].active=true; 
     break;
     default: console.log("error");
-    
+
   }
 }
 }

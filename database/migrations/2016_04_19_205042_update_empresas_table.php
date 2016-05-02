@@ -10,8 +10,8 @@ class UpdateEmpresasTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+     public function up()
+     {
         Schema::table('empresas', function($table)
         {         
             $table->text('gmail')->nullable();
@@ -26,6 +26,10 @@ class UpdateEmpresasTable extends Migration
             $table->text('amarillas_internet')->nullable();    
             $table->text('photosnack')->nullable();
             $table->text('ftp')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('fecha_fundacion')->nullable();  
+            $table->text('servicios')->nullable();
+            $table->string('sector')->nullable();  
         });
     }
     /**
@@ -35,20 +39,24 @@ class UpdateEmpresasTable extends Migration
      */
     public function down()
     {
-           Schema::table('empresas', function ($table) {
-            $table->dropColumn('gmail');
-            $table->dropColumn('zohomail');
-            $table->dropColumn('facebook');
-            $table->dropColumn('twitter');
-            $table->dropColumn('youtube');
-            $table->dropColumn('instagram');
-            $table->dropColumn('linkedin');
-            $table->dropColumn('pinterest');
-            $table->dropColumn('hootsuite');
-            $table->dropColumn('amarillas_internet');
-            $table->dropColumn('photosnack');
-            $table->dropColumn('ftp');
-            
-        });
-    }
+       Schema::table('empresas', function ($table) {
+        $table->dropColumn('gmail');
+        $table->dropColumn('zohomail');
+        $table->dropColumn('facebook');
+        $table->dropColumn('twitter');
+        $table->dropColumn('youtube');
+        $table->dropColumn('instagram');
+        $table->dropColumn('linkedin');
+        $table->dropColumn('pinterest');
+        $table->dropColumn('hootsuite');
+        $table->dropColumn('amarillas_internet');
+        $table->dropColumn('photosnack');
+        $table->dropColumn('ftp');
+        $table->dropColumn('foto');
+        $table->dropColumn('fecha_fundacion'); 
+        $table->dropColumn('servicios');
+        $table->dropColumn('sector');  
+
+    });
+   }
 }
