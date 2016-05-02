@@ -30,9 +30,9 @@
           <div class="table-cell text-center">
             <div class="login i-block">
               <div class="content-box">
-                <div class="light-blue-bg biggest-box">
+                <div class="biggest-box">
 
-                  <h1 class="zero-m text-uppercase">Bienvenido</h1>
+                  <h1 class="zero-m text-uppercase">{!! HTML::image('image/lka.png','logo',array('width' => '200px',)) !!}</h1>
 
               </div>
               <div class="big-box text-left login-form">

@@ -66,8 +66,8 @@
                       <input type="text" name="nit" class="form-control material" id="" placeholder="">
                       <p class="help-text">NIT</p>
                     </div>
-                    <div class="form-group col-md-7">
-                      <select name="" id="sector" name="servicios" class="form-control material">
+                    <div class="form-group col-md-6">
+                      <select name="" id="servicios" name="servicios[]" class="form-control material" multiple="multiple">
                         <optgroup label="Arte y Marketing">
                           <option value="Diseño Gráfico">Diseño Gráfico</option>
                           <option value="Editor">Editor</option>
@@ -173,20 +173,32 @@
                         </optgroup>
 
                       </select>
-                      <p class="help-text">Servicio</p>
+                      <p class="help-text">Servicios</p>
                     </div>
-                    <div class="form-group col-md-4">
-                      <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
-                      <p class="help-text">1er. Teléfono de la empresa</p>
-                    </div>   
-                    <div class="form-group col-md-4">
-                      <input type="text" class="form-control material" name="telefono_2" id="" placeholder="">
-                      <p class="help-text">2do. Teléfono de la empresa</p>
-                    </div>  
-                    <div class="form-group col-md-4">
-                      <input type="text" class="form-control material" name="sitio_web" id="" placeholder="">
-                      <p class="help-text">Sitio Web</p>
-                    </div>                     
+
+                    <div class="form-group col-md-6">
+                      <select id="sector" name="sector" class="form-control material">
+                        @foreach ($data->sectores as $sectores)
+                        <option value="{!! $sectores->nombre !!}">{!! $sectores->nombre !!}</option>
+                        @endforeach
+                      </select>
+                      <p class="help-text">Sector Economico</p>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group col-md-4">
+                        <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
+                        <p class="help-text">1er. Teléfono de la empresa</p>
+                      </div>   
+                      <div class="form-group col-md-4">
+                        <input type="text" class="form-control material" name="telefono_2" id="" placeholder="">
+                        <p class="help-text">2do. Teléfono de la empresa</p>
+                      </div>  
+                      <div class="form-group col-md-4">
+                        <input type="text" class="form-control material" name="sitio_web" id="" placeholder="">
+                        <p class="help-text">Sitio Web</p>
+                      </div>  
+                    </div>
+                    
                     <div class="form-group col-md-5">
                       <input type="text" class="form-control material" name="ciudad_pais" id="geocomplete" >
                       <p class="help-text">Ciudad, País</p>
@@ -594,16 +606,16 @@
         <p class="help-text">Contraseña</p>
       </div>
       <div class="col-md-1"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
-      </div>
+    </div>
 
 
-    </div>
   </div>
-  <div role="tabpanel" class="tab-pane" id="settings">
-    <div class="content-box big-box box-shadow">
-      {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
-    </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="settings">
+  <div class="content-box big-box box-shadow">
+    {!! Form::button('Guardar Empresa', array('type'=> 'submit','class' => 'btn btn-lg btn-info pull-right')); !!}
   </div>
+</div>
 </div>
 {!! Form::close() !!}
 </div>
@@ -631,6 +643,7 @@
 
     $("#valores").select2();
     $("#sector").select2();
+    $("#servicios").select2();
     $("#intereses").select2();
 
             //Mascara
@@ -755,7 +768,7 @@ $("body").on('click', '#add_red', function(event) {
     break;
     case "Pinterest": $("#pinterest").show(); obj_redes["pinterest"].active=true; 
     break;
-     case "Amarillas_Internet": $("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true; 
+    case "Amarillas_Internet": $("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true; 
     break;
     case "Hootsuite": $("#hootsuite").show(); obj_redes["hootsuite"].active=true; 
     break;
@@ -764,7 +777,7 @@ $("body").on('click', '#add_red', function(event) {
     case "FTP": $("#ftp").show(); obj_redes["ftp"].active=true; 
     break;
     default: console.log("error");
-  
+    
   }
 }
 }
