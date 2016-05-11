@@ -24,6 +24,7 @@
     {!! HTML::script('js/menu/modernizr.custom.js') !!}
     {!! HTML::style('fontello/css/fontello.css') !!}
     {!! HTML::style('bower_components/sweetalert/dist/sweetalert.css') !!}
+    {!! HTML::style('css/main.css') !!}
 
 
 

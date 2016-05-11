@@ -20,7 +20,8 @@
                         else{
                             $(formId)[0].reset();
                             console.log(result); 
-                            swal("Tú anotación ha sido guardada!"); 
+                            swal("Tú alerta ha sido guardada!");
+                            load_notes(); 
                         }
                     },
                     error: function(){

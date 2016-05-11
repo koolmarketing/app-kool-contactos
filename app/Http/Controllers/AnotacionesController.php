@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
+use App\Anotacion;
 use Auth;
 use Session;
 use Validator;
@@ -31,40 +32,81 @@ class AnotacionesController extends Controller
     function GuardarAnotacion(Request $request)
     {
         if($request->ajax()) { 
-
-            $mensaje             = $request->input('nota');
-            $id_creador          = Auth::id();
-            $fecha_cobro         = $request->input('fin');
-            $fecha_vencimiento   = $request->input('fecha');
-            $serial              = $request->input('serial');
-            $monto               = $request->input('monto');
-            $estado              = 1;
-            $fecha_inicio        = $request->input('inicio');
-            $id_perfil           = $request->input('id_perfil');
-            $tipo                = $request->input('tipo');
-
-            $input = $request->all();
-
-            $AN = new \App\Anotacion;
-            
-
-            // if ($request->has('nota'))        {$AN->mensaje = $request->input('nota')} 
-            // if ($request->has('fecha_cobro')) {$AN->fecha_cobro = $request->input('id_creador')} else{}
-            // if ($request->has('fin'))         { $AN->fecha_cobro = $request->input('fin') } 
-            // if ($request->has('inicio'))      {$AN->fecha_inicio = $request->input('inicio')} 
-            // if ($request->has('fecha'))       {$AN->fecha_vencimiento = $request->input('fecha')} 
-            // if ($request->has('serial'))      {$AN->serial = $request->input('serial')} 
-            // if ($request->has('monto'))       {$AN->monto = $request->input('monto')} 
-
-
-            
-            // $AN->estado    = 1;
-            //$AN->id_perfil = $request->input('id');
-            //$AN->save();
-           
-            return $id_creador;
+            switch ($request->input('tipo')) {
+                case 'comentario':
+                    $AN             = new \App\Anotacion;
+                    $AN->id_creador = Auth::id();
+                    $AN->mensaje    = $request->input('nota');
+                    $AN->tipo_anotacion       = $request->input('tipo');
+                    $AN->estado        = 1;
+                    $AN->tipo_perfil       = "empresa";  
+                    $AN->id_perfil         = $request->input('id_perfil'); 
+                    $AN->save();
+                    return $request->input();
+                    break;
+                case 'recordatorio':
+                    $AN                    = new \App\Anotacion;
+                    $AN->id_creador        = Auth::id();
+                    $AN->fecha_vencimiento = $request->input('fecha');
+                    $AN->mensaje           = $request->input('nota');
+                    $AN->tipo_anotacion              = $request->input('tipo');
+                    $AN->estado            = 1; 
+                    $AN->id_perfil         = $request->input('id_perfil'); 
+                    $AN->tipo_perfil       = "empresa"; 
+                    $AN->save();
+                    return $request->input();
+                    break;
+                case 'alerta':
+                    $AN                    = new \App\Anotacion;
+                    $AN->id_creador        = Auth::id();
+                    $AN->fecha_vencimiento = $request->input('fecha');
+                    $AN->mensaje           = $request->input('nota');
+                    $AN->tipo_anotacion              = $request->input('tipo');
+                    $AN->estado            = 1; 
+                    $AN->id_perfil         = $request->input('id_perfil'); 
+                    $AN->tipo_perfil       = "empresa"; 
+                    $AN->save();
+                    return $request->input();
+                    break;
+                case 'cobro':
+                    $AN                    = new \App\Anotacion;
+                    $AN->id_creador        = Auth::id();
+                    $AN->fecha_inicio      = $request->input('inicio');
+                    $AN->fecha_cobro       = $request->input('fin');
+                    $AN->serial            = $request->input('serial');
+                    $AN->monto             = $request->input('monto'); 
+                    $AN->tipo_anotacion    = $request->input('tipo');
+                    $AN->estado            = 1;  
+                    $AN->id_perfil         = $request->input('id_perfil'); 
+                    $AN->tipo_perfil       = "empresa";  
+                    $AN->mensaje           = $request->input('nota');                
+                    $AN->save();
+                    return $request->input();
+                    break;
+                
+                default:
+                    return "nope";
+                    break;
+            }        
             
         }                                  
     } 
+
+    function print_anotacion_empresas($id){
+       $carbon = new \Carbon\Carbon();
+       $anotaciones = DB::table('anotaciones')
+          ->join('users', 'anotaciones.id_creador', '=', 'users.id')
+          ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
+          ->select('anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')
+          ->orderBy('anotaciones.created_at', 'desc')
+          ->get();
+
+
+
+        
+        return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
+    }
+
+
 }    
 

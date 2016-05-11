@@ -4,9 +4,7 @@
 {!! HTML::style('css\awesome-bootstrap-checkbox.css') !!}
 {!! HTML::style('vendor\picEdit-master\dist\css\picedit.min.css') !!}
 {!! HTML::style('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.css') !!}
-
 {!! HTML::style('vendor\select2-master\dist\css\select2.css') !!}
-
 {!! HTML::style('bower_components/DataTables/media/css/jquery.dataTables.css') !!}
 {!! HTML::style('bower_components/datatables-tabletools/css/dataTables.tableTools.css') !!}
 {!! HTML::style('datetimepicker/build/jquery.datetimepicker.min.css') !!}
@@ -21,14 +19,14 @@
         </div>
 
         <div class="col-lg-2 col-xs-12">
-            <div class="content-box profile-sidebar box-shadow">
-                <img src="{!! URL::to('img/distriya.jpg') !!}" class="img-responsive center-block" alt="user" width="200px">
+            <div class="content-box profile-sidebar box-shadow company-block-1">
+                <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">
-                        Distriya L.T.D.A.
+                        <h4>{!! $data->empresa->razon_social !!}</h4>
                     </div>
                     <div class="profile-usertitle-job">
-                        86384367224-8
+                        {!! $data->empresa->nit !!}
                     </div>
                 </div>
 
@@ -45,140 +43,176 @@
                       </span>
                       <div class="pull-left info">
                         <h3 class="text-uppercase zero-m">Sector</h3>
-                        <span class="block">Sector</span>
+                        <span class="block"><h4>{!! $data->empresa->sector !!}</h4></span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-
-
-
-
             </div>
 
+            <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                    <span class="fa-stack fa-2x block pull-left">
+                      <i class="fa fa-circle fa-stack-2x blue"></i>
+                      <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+                      <h3 class="text-uppercase zero-m">Servicios</h3>
+                      <span class="block"><h4>                    
+                        @foreach (json_decode ($data->empresa->servicios) as $servicio)
+                        <h4>{!! $servicio !!}</h4>
+                        @endforeach
+                    </h4></span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
         </div>
 
     </div>
 
-    <div class="col-md-6 col-xs-12">
+</div>
 
-        <div class="content-box big-box box-shadow">
-            <br><button class="btn btn-primary btn-md pull-right">Editar Información</button>
-            <div class="col-lg-12">
-                <h2><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-half"></i></h2>
-                <h3>3 de Abril de 1982 - Cali, Colombia</h3>
-                <p><i class="icon-calendar"></i> Fecha y lugar de Creación</p>
-            </div>
-            <br>
+<div class="col-md-6 col-xs-12">
+    <?php $carbon->setLocale('es'); ?>
+    <div class="content-box big-box box-shadow">
+        <br><button class="btn btn-primary btn-md pull-right">Editar Información</button>
+        <div class="col-lg-12">
+            <h2><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-half"></i></h2>
+            <h4><!-- {!! $data->empresa->fecha_fundacion !!} -->{!! $dt = $carbon->parse($data->empresa->fecha_fundacion)->format('l jS \\of F Y ');   !!} ({!! $carbon->parse($data->empresa->fecha_fundacion)->diffForHumans() !!})   - {!! $data->empresa->ciudad_pais !!}</h4>
+            <p><i class="icon-calendar"></i> Fecha y lugar de Creación</p>
+        </div>
+        <br>
 
-            <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
 
-                <div>
+            <div>
 
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
 
-                        <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
+                    <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
 
-                        <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
-                    </ul>
+                    <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
+                </ul>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content"><br>
-                        <div role="tabpanel" class="tab-pane active" id="contactos">
+                <!-- Tab panes -->
+                <div class="tab-content"><br>
+                    <div role="tabpanel" class="tab-pane active" id="contactos">
+                        <div class="col-md-12">
+
+                            <div class="col-md-6">
+                                <h3>{!! $data->empresa->ciudad_pais !!}</h3>
+                                <p><i class="icon-globe-6"></i> Ciudad, País</p>
+                                <hr>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h3>{!! $data->empresa->direccion !!}</h3>
+                                <p><i class="icon-location-5"></i> Dirección</p>
+                                <hr>
+                            </div>
+
                             <div class="col-md-12">
 
-                                <div class="col-md-4">
-                                    <h3>Cali, Colombia</h3>
-                                    <p><i class="icon-globe-6"></i> Ciudad, País</p>
-                                    <hr>
-                                </div>
+                                <!-- Nav tabs -->                                
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab"><i class="icon-male"></i> Representante</a></li>
+                                    <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab"><i class="icon-female"></i> Comercial</a></li>
+                                    <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab"><i class="icon-male"></i> Soporte</a></li>
 
-                                <div class="col-md-8">
-                                    <h3>Calle 30b 45-56 - Barrio San Cristobal</h3>
-                                    <p><i class="icon-location-5"></i> Dirección</p>
-                                    <hr>
-                                </div>
+                                </ul>
 
-                                <div class="col-md-12">
+                                <!-- Tab panes -->
+                                <?php 
+                                $representante = json_decode($data->empresa->representante);
+                                $comercial     = json_decode($data->empresa->comercial);
+                                $soporte       = json_decode($data->empresa->soporte); 
+                                ?>
+                                {{-- expr --}}
 
-                                    <!-- Nav tabs -->
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab"><i class="icon-male"></i> Representante</a></li>
-                                        <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab"><i class="icon-female"></i> Comercial</a></li>
-                                        <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab"><i class="icon-male"></i> Soporte</a></li>
+                                
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="representante">
 
-                                    </ul>
-
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="representante">
-
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-                                                 <!-- -->
-
-                                                 <div class="col-md-6">
-                                                    <h3>Dr. William Alberto Fernandez Montes</h3>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                @if ($representante->nombre[0] && $representante->email[0] != "")
+                                                <!-- -->
+                                                <div class="col-md-6">
+                                                    <h4>{!! $representante->trato[0] !!} {!! $representante->nombre[0] !!}</h4>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>Administrador General</h3>
+                                                    <h4>{!! $representante->cargo[0] !!}</h4>
                                                     <p><i class="icon-cog-alt"></i> Cargo</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>albertf@distriya.com</h3>
+                                                    <h4>{!! $representante->email[0] !!}</h4>
                                                     <p><i class="icon-email"></i> email</p>
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <h3>349 5692</h3>
+                                                    <h4>{!! $representante->telefono[0] !!}</h4>
                                                     <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <h3>315 236 5698</h3>
+                                                    <h4>{!! $representante->celular[0] !!}</h4>
                                                     <p><i class="icon-mobile-2"></i> Celular</p>
                                                 </div>
-
                                                 <!-- -->
+                                                @else
+                                                <div class="col-md-12">
+                                                    <h2>No hay contacto Comercial</h2>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
+
 
 
                                     <div role="tabpanel" class="tab-pane" id="comercial">
 
                                         <div class="panel panel-default">
                                             <div class="panel-body">
-                                                <!-- -->
 
+                                                @if ($comercial->nombre[0] && $comercial->email[0] != "")
+                                                {{-- expr --}} 
+                                                <!-- -->
                                                 <div class="col-md-6">
-                                                    <h3>Sra. Maria Alejandra Cardona Villa </h3>
+                                                    <h4>{!! $comercial->trato[0] !!} {!! $comercial->nombre[0] !!}</h4>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>Asistente Comercial</h3>
+                                                    <h4>{!! $comercial->cargo[0] !!}</h4>
                                                     <p><i class="icon-cog-alt"></i> Cargo</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>alejandra.cardona@distriya.com</h3>
+                                                    <h4>{!! $comercial->email[0] !!}</h4>
                                                     <p><i class="icon-email"></i> email</p>
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <h3>349 5672 ext 34</h3>
+                                                    <h4>{!! $comercial->telefono[0] !!}</h4>
                                                     <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <h3>315 236 7848</h3>
+                                                    <h4>{!! $comercial->celular[0] !!}</h4>
                                                     <p><i class="icon-mobile-2"></i> Celular</p>
                                                 </div>
-
                                                 <!-- -->
+                                                @else
+                                                <div class="col-md-12">
+                                                    <h2>No hay datos</h2>
+                                                </div>
+                                                @endif
+
+
+
                                             </div>
                                         </div>
 
@@ -188,33 +222,39 @@
 
                                         <div class="panel panel-default">
                                             <div class="panel-body">
+                                                @if ($soporte->nombre[0] && $soporte->email[0] != "")
                                                 <!-- -->
 
                                                 <div class="col-md-6">
-                                                    <h3>Sr. Santiago Garcia Martinez</h3>
+                                                    <h4>{!! $soporte->trato[0] !!} {!! $soporte->nombre[0] !!}</h4>
                                                     <p><i class="icon-user"></i> Nombre</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>Asesor de Servicio</h3>
+                                                    <h3>{!! $soporte->cargo[0] !!}</h3>
                                                     <p><i class="icon-cog-alt"></i> Cargo</p>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <h3>santiago.garcia@distriya.com</h3>
+                                                    <h3>{!! $soporte->email[0] !!}</h3>
                                                     <p><i class="icon-email"></i> email</p>
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <h3>349 5692 ext 1001</h3>
+                                                    <h3>{!! $soporte->telefono[0] !!}</h3>
                                                     <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <h3>315 236 5698</h3>
+                                                    <h3>{!! $soporte->celular[0] !!}</h3>
                                                     <p><i class="icon-mobile-2"></i> Celular</p>
                                                 </div>
 
                                                 <!-- -->
+                                                @else
+                                                <div class="col-md-12">
+                                                    <h2>No hay datos para Soporte</h2>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
 
@@ -232,251 +272,472 @@
                     <div role="tabpanel" class="tab-pane" id="filosofia">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <h3>Compromiso, Satisfacción, Excelencia, Dinamismo, Servicio</h3>
-                                <p><i class="icon-list-2"></i> Valores Corporativos</p>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                  <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                      <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <i class="icon-bookmark-empty-1"></i> Misión
-                                        </a>
-                                    </h4>
+                                <h3>@foreach (json_decode($data->empresa->valores) as $valor)
+                                    <span class="label label-primary">{!!$valor!!}</span>
+                                    @endforeach</h3>
+                                    <p><i class="icon-list-2"></i> Valores Corporativos</p>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                  <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                          <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="icon-bookmark-empty-1"></i> Misión
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                      <div class="panel-body">
+                                         {!! $data->empresa->mision !!}
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                  <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      <i class="icon-bookmark-empty-1"></i> Visión
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                              <div class="panel-body">
+                                {!! $data->empresa->vision !!}
                             </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                              <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  <i class="icon-bookmark-empty-1"></i> Visión
-                              </a>
-                          </h4>
-                      </div>
-                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                          <div class="panel-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                         </div>
                     </div>
+
+                </div>
+            </div><br>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h3>@foreach (json_decode($data->empresa->intereses) as $interes)
+                    <span class="label label-primary">{!!$interes!!}</span>
+                    @endforeach</h3>
+                    <p><i class="icon-hourglass-1"></i> Intereses</p>
                 </div>
 
             </div>
-        </div><br>
-
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>Crecer, Expander, Afianzar, Colaborar, Donar</h3>
-            <p><i class="icon-hourglass-1"></i> Intereses</p>
         </div>
 
-    </div>
-</div>
+
+        <?php
+// public function icon_red($red)
+// {
+//     switch ($red) {
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+//         case 'value':          break;
+
+//         default:
+//             return true;            break;
+//     }
+// }
+        ?>
+
+
+        <div role="tabpanel" class="tab-pane" id="redes">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <?php
+                $gmail = json_decode($data->empresa->gmail);
+                ?>  
+                @if($gmail->cuenta_1->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-gmail"></i> Gmail</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!! $gmail->cuenta_1->usuario[0] !!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$gmail->cuenta_1->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if($gmail->cuenta_2->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-gmail"></i> Gmail</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if($gmail->cuenta_3->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-gmail"></i> Gmail</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if($gmail->cuenta_4->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-gmail"></i> Gmail</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php
+                $zohomail = json_decode($data->empresa->zohomail);
+                ?>  
+
+
+                @if ($zohomail->cuenta_1->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!!$zohomail->cuenta_1->usuario[0]!!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$zohomail->cuenta_1->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if ($zohomail->cuenta_2->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-mail-5"></i> Facebook</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!!$zohomail->cuenta_2->usuario[0]!!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$zohomail->cuenta_2->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if ($zohomail->cuenta_3->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!!$zohomail->cuenta_3->usuario[0]!!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$zohomail->cuenta_3->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if ($zohomail->cuenta_4->usuario[0] != "")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!!$zohomail->cuenta_4->usuario[0]!!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$zohomail->cuenta_4->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+
+                <?php 
+                $facebook = json_decode($data->empresa->facebook);
+                ?>
+                @if ($facebook->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-facebook-4"></i> Facebook</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!! $facebook->usuario[0] !!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!! $facebook->contraseña[0] !!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* TWITTER */
+                $twitter = json_decode($data->empresa->twitter); ?>
+                @if ($twitter->usuario[0]!="")           
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-twitter-3"></i> Twitter</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $twitter->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!! $twitter->contraseña[0] !!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* YOUTUBE */
+                $youtube = json_decode($data->empresa->youtube); 
+                ?>
+                @if ($youtube->usuario[0]!="")    
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-youtube-2"></i> Youtube</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $youtube->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!! $youtube->contraseña[0] !!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* Instagram */
+                $instagram = json_decode($data->empresa->instagram); 
+                ?>
+                @if ($instagram->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-instagram-1"></i> Instagram</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!! $instagram->usuario[0] !!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$instagram->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* Linkedin */
+                $linkedin = json_decode($data->empresa->linkedin); 
+                ?>
+                @if ($linkedin->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!!$linkedin->usuario[0]!!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* Pinterest */
+                $pinterest = json_decode($data->empresa->pinterest); 
+                ?>
+                @if ($pinterest->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!!$linkedin->usuario[0]!!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* Pinterest */
+                $hootsuite = json_decode($data->empresa->hootsuite); 
+                ?>
+                @if ($hootsuite->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h4><i class="icon-website"></i> Hootsuite</h4>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>{!!$hootsuite->usuario[0]!!}</h4>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>{!!$hootsuite->contraseña[0]!!}</h4>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* AMARILLAS INTERNET */
+                $amarillas_internet = json_decode($data->empresa->amarillas_internet); 
+                ?>          
+                @if ($amarillas_internet->usuario[0]!="")
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-fire-3"></i> A.I</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!!$amarillas_internet->usuario[0]!!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$amarillas_internet->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* PHOTOSNACK */
+                $photosnack = json_decode($data->empresa->photosnack); 
+                ?> 
+                @if ($photosnack->usuario[0]!="")  
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-camera-alt"></i> Photosnack</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>{!!$photosnack->usuario[0]!!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <?php /* FTP */
+                $ftp = json_decode($data->empresa->ftp); 
+                ?> 
+
+                @if ($photosnack->usuario[0]!="") 
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <h3><i class="icon-server"></i> FTP</h3>
+                            <p>Red</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>{!!$photosnack->server[0]!!}</h3>
+                            <p>Server</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>{!!$photosnack->usuario[0]!!}</h3>
+                            <p>Usuario</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                            <p>Contraseña</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
 
 
 
-<div role="tabpanel" class="tab-pane" id="redes">
-    <div class="col-md-12 col-sm-12 col-xs-12">
 
-     <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-gmail"></i> Gmail</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
+
+
+
+
             </div>
         </div>
     </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-facebook-4"></i> Facebook</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-twitter-3"></i> Twitter</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-youtube-2"></i> YouTube</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-instagram-1"></i> Instagram</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-website"></i> Hootsuite</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-fire-3"></i> A.I</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-camera-alt"></i> Photosnack</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-5">
-                <h3>distriya2015@gmail.com</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-3">
-                <h3><i class="icon-server"></i> FTP</h3>
-                <p>Red</p>
-            </div>
-            <div class="col-md-3">
-                <h3>distriklob.com</h3>
-                <p>Server</p>
-            </div>
-            <div class="col-md-3">
-                <h3>distriya2015</h3>
-                <p>Usuario</p>
-            </div>
-            <div class="col-md-3">
-                <h3>Distriya6723</h3>
-                <p>Contraseña</p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -490,82 +751,16 @@
         <a class="btn btn-primary" data-toggle="modal" href='#modal-anotacion'><i class="icon-plus-circle"></i> Anotación</a>
         <a class="btn btn-success" data-toggle="modal" href='#modal-recordatorio'><i class="icon-plus-circle"></i> Recordatorio</a>
         <a class="btn btn-danger" data-toggle="modal" href='#modal-alerta'><i class="icon-plus-circle"></i> Alerta</a>
-        <a type="button" class="btn btn-dark" data-toggle="modal" href='#modal-cobro'><i class="icon-plus-circle"></i> Cartera</a>
+        <a type="button" class="btn btn-orange" data-toggle="modal" href='#modal-cobro'><i class="icon-plus-circle"></i> Cartera</a>
 
         <div class="panel panel-default" id="anotaciones">
-            <div class="panel-body">
-                <div class="content-box biggest-box red-bg">
-                    <div class="pull-left">
-                        <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                        <h3 class="text-uppercase zero-m text-title-note"><i class="icon-attention-4"></i> Alerta</h3><br>
-                        <p class="text-note"> Lorem ipsum dolor sim dolor sit amet, consectetur adipisice nisi inventoreuta, omnis odio dols eveniet! </p>
-                        <span class="pull-right">15/04/2016</span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <!-- Panel -->
-                <div class="content-box biggest-box blue-bg">
-                    <div class="pull-left">
-                       <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                       <span class="pull-right">13/04/2016</span>
-                   </div>
-                   <div class="clearfix"></div>
-               </div>
-               <!-- End panel -->
+            <div class="panel-body" id="contenedor_anotaciones_empresa">
 
-               <!-- Panel -->
-               <div class="content-box biggest-box blue-bg">
-                <div class="pull-left">
-                   <img src="{!! URL::to('img/marlon-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-                   <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-                   <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inveue nisi inventoreuta, omnis odio dolores hic voluptas evenientoreuta, omnis odio dolores hic voluptas eveniet! </p>
-                   <span class="pull-right">10/04/2016</span>
-               </div>
-               <div class="clearfix"></div>
-           </div>
-           <!-- End panel -->
 
-           <!-- Panel -->
-           <div class="content-box biggest-box blue-bg">
-            <div class="pull-left">
-               <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-               <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-               <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-               <span class="pull-right">8/04/2016</span>
-           </div>
-           <div class="clearfix"></div>
-       </div>
-       <!-- End panel -->
 
-       <!-- Panel -->
-       <div class="content-box biggest-box blue-bg">
-        <div class="pull-left">
-           <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-           <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-           <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-           <span class="pull-right">8/04/2016</span>
-       </div>
-       <div class="clearfix"></div>
-   </div>
-   <!-- End panel -->
-
-   <!-- Panel -->
-   <div class="content-box biggest-box blue-bg">
-    <div class="pull-left">
-       <img src="{!! URL::to('img/aura-perfil.jpg') !!}" class="img-responsive img-circle pull-right" width="40px" alt="">                  
-       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
-       <p class="text-note"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque nisi inventoreuta, omnis odio dolores hic voluptas evenieue nisi inventoreuta, omnis odio dolores hic voluptas eveniet! </p>
-       <span class="pull-right">8/04/2016</span>
-   </div>
-   <div class="clearfix"></div>
-</div>
-<!-- End panel -->
-
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>
@@ -579,7 +774,8 @@
             </div>{!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-anotacion','files'=>true));!!}
             <div class="modal-body">
                 <div class="row">
-                <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">                
+                    <input type="hidden" name="tipo" id="" class="form-control" value="comentario">
+                    <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">                
                     <div class="form-group">
                         <div class="col-md-12">
                             <textarea name="nota" id="nota" cols="5" rows="4" value="" class="material form-control"></textarea>
@@ -604,9 +800,10 @@
                 <h4 class="modal-title">Escribe un Recordatorio</h4>
             </div>
             <div class="modal-body">
-            {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-recordatorio','files'=>true));!!}
+                {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-recordatorio','files'=>true));!!}
                 <div class="row">
-<input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
+                    <input type="hidden" name="tipo" id="" class="form-control" value="recordatorio">
+                    <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
                     <div class="col-md-8">
                         <input type="text" name="fecha" id="input" class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" >
 
@@ -635,9 +832,10 @@
                 <h4 class="modal-title">Escribe un alerta</h4>
             </div>
             <div class="modal-body">
-            {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-alerta','files'=>true));!!}
+                {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-alerta','files'=>true));!!}
                 <div class="row">
-<input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
+                    <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+                    <input type="hidden" name="tipo" id="" class="form-control" value="alerta">  
                     <div class="col-md-8">
                         <input type="text" name="fecha"  class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required">
 
@@ -668,22 +866,22 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-cartera','files'=>true));!!}
-                <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
+                    {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-cartera','files'=>true));!!}
+                    <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+                    <input type="hidden" name="tipo" id="" class="form-control" value="cobro">  
                     <div class="col-md-12"> 
-                     <div class="col-md-6">  <br>  
+                       <div class="col-md-6">  <br>  
 
-                     <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+                           <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
 
-                      
-                    </div>
-                    <div class="col-md-6"> <br>                     
+                       </div>
+                       <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                 <div class="col-md-6">
+                   <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
 
@@ -718,6 +916,13 @@
 {!! HTML::script('bower_components/datatables.net-responsive/js/dataTables.responsive.js') !!}
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
 {!! HTML::script('datetimepicker/build/jquery.datetimepicker.full.js') !!}
+
+<script>
+    function load_notes() {
+     $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
+ }
+
+</script>
 <!-- Anotaciones -->
 {!! HTML::script('js/app/anotaciones/anotacion.js') !!}
 {!! HTML::script('js/app/anotaciones/alerta.js') !!}
@@ -727,10 +932,10 @@
 
 <script type="text/javascript">
     $(function(){
+        load_notes();
         $('#date_timepicker_start').datetimepicker({
             format:'Y-m-d H:i:00',
             step:"30",
-
             onShow:function( ct ){
                 this.setOptions({
                     maxDate:$('#date_timepicker_end').val()?$('#date_timepicker_end').val():false
@@ -750,25 +955,29 @@
             lang:'es',
             timepicker:true
         });
-
         $('.datetimepicker3').datetimepicker({
-         i18n:{
-          de:{
-           months:[
-           'Enero','Febrero','Marzo','Abril',
-           'Mayo','Junio','Julio','Agosto',
-           'Septiembre','Octubre','Noviembre','Diciembre',
-           ],
-           dayOfWeek:[
-           "Do", "Lu", "Ma", "Mi", 
-           "Ju", "Vi", "Sa",
-           ]
-       }
-   },
-   timepicker:true,
-   format:'Y-m-d H:i:00'
-});
+           i18n:{
+              de:{
+                 months:[
+                 'Enero','Febrero','Marzo','Abril',
+                 'Mayo','Junio','Julio','Agosto',
+                 'Septiembre','Octubre','Noviembre','Diciembre',
+                 ],
+                 dayOfWeek:[
+                 "Do", "Lu", "Ma", "Mi", 
+                 "Ju", "Vi", "Sa",
+                 ]
+             }
+         },
+         timepicker:true,
+         format:'Y-m-d H:i:00'
+     });
     });
+</script>
+
+<script>
+
+
 </script>
 
 <script type="text/javascript">

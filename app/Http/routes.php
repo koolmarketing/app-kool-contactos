@@ -116,6 +116,11 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'guardar.anotacion', 
 		'uses' => 'AnotacionesController@GuardarAnotacion'
 		]);
+		Route::get('empresa/anotaciones_empresa/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'anotaciones.empresa', 
+		'uses' => 'AnotacionesController@print_anotacion_empresas'
+		]);
 
 		
 });

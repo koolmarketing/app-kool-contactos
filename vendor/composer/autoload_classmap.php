@@ -528,9 +528,9 @@ return array(
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UpdateAnotacionesTable' => $baseDir . '/database/migrations/2016_04_28_194736_update_anotaciones_table.php',
     'UpdateEmpresasTable' => $baseDir . '/database/migrations/2016_04_19_205042_update_empresas_table.php',
-    'UpdateTableEmpresa' => $baseDir . '/database/migrations/2016_04_20_200411_update_table_empresa.php',
     'UpdateTablePersonas' => $baseDir . '/database/migrations/2016_04_22_170438_update_table_personas.php',
     'UpdateTableUsers' => $baseDir . '/database/migrations/2016_04_27_170940_update_table_users.php',
+    'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'ntlm_sasl_client_class' => $vendorDir . '/phpmailer/phpmailer/extras/ntlm_sasl_client.php',
     'phpmailerException' => $vendorDir . '/phpmailer/phpmailer/class.phpmailer.php',
 );

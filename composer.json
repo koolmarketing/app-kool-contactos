@@ -13,8 +13,8 @@
         "laracasts/testdummy": "*",
         "kartik-v/bootstrap-fileinput": "*",
         "psy/psysh": "@stable",
-        "laravelcollective/html": "5.*",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "laravelcollective/html": "5.2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

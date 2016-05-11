@@ -1041,6 +1041,10 @@ body {
   background: #273238 !important;
 }
 
+.orange-bg {
+  background: #4A148C !important;
+}
+
 .grayish-blue-bg {
   background: #37474f !important;
 }
@@ -4614,19 +4618,19 @@ body .ns-effect-loadingcircle {
   border-color: #e2e2e2;
 }
 
-.btn.btn-dark, .open > .dropdown-toggle.btn-dark, .open > .dropdown-toggle.btn-dark:focus {
-  background-color: #A78924;
-  border-color: #313131;
+.btn.btn-orange, .open > .dropdown-toggle.btn-orange, .open > .dropdown-toggle.btn-dark:focus {
+  background-color: #4A148C;
+  border-color: #4A148C;
   color: #fff;
 }
 
-.btn.btn-dark:hover, .open > .dropdown-toggle.btn-dark:hover, .open > .dropdown-toggle.btn-dark:focus:hover {
-  background-color: #A78924;
+.btn.btn-orange:hover, .open > .dropdown-toggle.btn-dark:hover, .open > .dropdown-toggle.btn-dark:focus:hover {
+  background-color: #ff5722;
 }
 
-.btn.btn-dark:focus, .btn.btn-dark:active:focus, .open > .dropdown-toggle.btn-dark:focus, .open > .dropdown-toggle.btn-dark:active:focus, .open > .dropdown-toggle.btn-dark:focus:focus, .open > .dropdown-toggle.btn-dark:focus:active:focus {
-  background-color: #273238;
-  border-color: #273238;
+.btn.btn-orange:focus, .btn.btn-orange:active:focus, .open > .dropdown-toggle.btn-dark:focus, .open > .dropdown-toggle.btn-dark:active:focus, .open > .dropdown-toggle.btn-dark:focus:focus, .open > .dropdown-toggle.btn-dark:focus:active:focus {
+  background-color: #4A148C;
+  border-color: #4A148C;
 }
 
 .btn-rounded {
