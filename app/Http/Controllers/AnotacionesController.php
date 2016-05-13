@@ -92,9 +92,10 @@ class AnotacionesController extends Controller
         }                                  
     } 
 
-    function print_anotacion_empresas($id){
+    function print_anotacion_empresas($id){        
        $carbon = new \Carbon\Carbon();
        $anotaciones = DB::table('anotaciones')
+       ->where('id_perfil','=',''.$id.'')
           ->join('users', 'anotaciones.id_creador', '=', 'users.id')
           ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
           ->select('anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')
@@ -105,6 +106,28 @@ class AnotacionesController extends Controller
 
         
         return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
+    }
+
+
+    /*
+    *
+    * @Imprimir, comentarios según el tipo
+    * Comentarios, alertas, Recordatorios, Cobros
+    *
+    */
+
+    function all_anoaciones($id){
+        $t_a=$id;
+        $carbon = new \Carbon\Carbon();
+        $anotaciones = DB::table('anotaciones')
+        ->where('tipo_anotacion','=',''.$t_a.'')
+        ->join('users', 'anotaciones.id_creador', '=', 'users.id')
+        ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
+        ->select('anotaciones.*', 'empresas.id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
+        ->orderBy('anotaciones.created_at', 'desc')
+        ->get();
+
+        return view('anotaciones.anotaciones_empresas_home',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
     }
 
 

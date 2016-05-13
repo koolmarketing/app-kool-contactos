@@ -8,7 +8,7 @@ foreach ($anotaciones as $anotacion) {
 
         echo '<div class="biggest-box blue-bg">
 
-        <img src="'.URL::to('/').'/img/aura-perfil.jpg" class="img-responsive img-circle pull-right" width="40px" alt="">                  
+        <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                   
         <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Anotación</h3><br>
         <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
         <span class="pull-right" title="'.$anotacion->created_at.'">'.$dt=$carbon->parse($anotacion->created_at)->diffForHumans().'</span>
@@ -28,7 +28,7 @@ foreach ($anotaciones as $anotacion) {
    }
    echo '<div class="content-box biggest-box green-bg">
    
-       <img src="'.URL::to('/').'/img/aura-perfil.jpg" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
+       <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
        <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Recordatorio - <span title="'.$anotacion->fecha_vencimiento.'">'.$dt=$carbon->parse($anotacion->fecha_vencimiento)->diffForHumans().'</span></h3><br>
 
        <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
@@ -46,7 +46,7 @@ case 'alerta':
    }
    echo '<div class="content-box biggest-box red-bg">
    
-       <img src="'.URL::to('/').'/img/aura-perfil.jpg" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
+       <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
        <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Alerta - vence <span title="'.$anotacion->fecha_vencimiento.'">'.$dt=$carbon->parse($anotacion->fecha_vencimiento)->diffForHumans().'</span></h3><br>
 
        <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
@@ -69,7 +69,7 @@ if ($anotacion->estado=="1") {
    }
    echo '<div class="content-box biggest-box orange-bg">
    
-       <img src="'.URL::to('/').'/img/aura-perfil.jpg" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
+       <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
        <h3 class="text-uppercase zero-m text-title-note"><i class=" icon-chart-line-1"></i> Cobro para <span title="'.$anotacion->fecha_cobro.'">'.$dt=$carbon->parse($anotacion->fecha_cobro)->diffForHumans().'</span><br><i class=" icon-calendar-empty"></i>
 '.$inicio.' - '.$fin.'
        <br>

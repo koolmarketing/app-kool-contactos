@@ -121,6 +121,11 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'anotaciones.empresa', 
 		'uses' => 'AnotacionesController@print_anotacion_empresas'
 		]);
+		Route::get('empresa/anotacion_imprimir_tipo/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'anotaciones.anotacion_empresa_imprimir_tipo', 
+		'uses' => 'AnotacionesController@all_anoaciones'
+		]);
 
 		
 });

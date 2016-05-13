@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,gBAAgB;EAAC,OAAO,EAAE,IAAI",
+"mappings": "AAAA,gBAAgB;EAAC,OAAO,EAAE,IAAI;;AAC9B,MAAM;EAAC,UAAU,EAAC,yBAAyB;EAAE,aAAa,EAAE,GAAG",
 "sources": ["camoranns.scss"],
 "names": [],
 "file": "main.css"

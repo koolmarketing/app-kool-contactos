@@ -18,27 +18,52 @@ class UsersTableSeeder extends Seeder
     	"email"          => "soporteweb@koolmarketing.net",
     	"password"       => Hash::make('kool-2016'),
     	"activo"         => 1,
-    	"remember_token" => str_random(60);
+    	"fotografia"     => "carlos.jpg",
+    	"remember_token" => str_random(60)
     	];
 
-    	$carlos = (object) [
+    	$aura = (object) [
     	"name"           => "Aura",
     	"email"          => "aura@koolmarketing.net",
     	"password"       => Hash::make('kool-2016'),
     	"activo"         => 1,
-    	"remember_token" => str_random(60);
+    	"fotografia"     => "aura.jpg",
+    	"remember_token" => str_random(60)
     	]; 
 
     	$marlon = (object) [
     	"name"           => "Marlon",
-    	"email"          => "marlon@koolmarketing.net",
+    	"email"          => "info@koolmarketing.net",
     	"password"       => Hash::make('kool-2016'),
     	"activo"         => 1,
-    	"remember_token" => str_random(60);
+    	"fotografia"     => "marlon.jpg",
+    	"remember_token" => str_random(60)
+    	]; 
+
+    	$luiger = (object) [
+    	"name"           => "Luiger",
+    	"email"          => "soportegrafico@koolmarketing.net",
+    	"password"       => Hash::make('kool-2016'),
+    	"activo"         => 1,
+    	"fotografia"     => "luiger.jpg",
+    	"remember_token" => str_random(60)
     	]; 
 
     	$usuarios->carlos = $carlos;
     	$usuarios->aura   = $aura;
     	$usuarios->marlon = $marlon;
+    	$usuarios->luiger = $luiger;
+
+    	foreach ($usuarios as $usuario) {
+    		DB::table('users')->insert([
+    			'name'           => $usuario->name,
+    			'email'            => $usuario->email,
+    			'password'         => $usuario->password,
+    			'remember_token'   => $usuario->remember_token,
+    			'fotografia'         => $usuario->fotografia,
+    			'activo'		   => $usuario->activo
+    			]);
+
+    	}
     }
 }
