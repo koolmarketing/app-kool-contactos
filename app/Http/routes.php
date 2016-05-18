@@ -136,6 +136,11 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'guardar.servicio', 
 		'uses' => 'ServiciosController@SaveService'
 		]);
+			Route::get('empresa/servicios_imprimir/all', [
+		'middleware' => 'auth',
+		'as'   => 'empresa.servicios.all', 
+		'uses' => 'ServiciosController@All'
+		]);
 
 
 

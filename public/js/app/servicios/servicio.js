@@ -29,7 +29,7 @@
                     headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
                 })
                 
-                var formId = '#form-guardar-alerta';
+                var formId = '#form-guardar-servicio';
                 $.ajax({
                     url: $(formId).attr('action'),
                     type: $(formId).attr('method'),
@@ -43,8 +43,8 @@
                         else{
                             $(formId)[0].reset();
                             console.log(result); 
-                            swal("El servicio se ha registrado con éxito!");
-                            load_notes(); 
+                            swal("El servicio se ha registrado con éxito!"); 
+                            load_servicios();
                         }
                     },
                     error: function(){

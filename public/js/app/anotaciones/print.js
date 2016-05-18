@@ -18,3 +18,7 @@ function load_recordatorios(){
 function load_cobros(){
 	$("#content_cobros").load('/empresa/anotacion_imprimir_tipo/cobro');
 }
+
+function load_servicios(){
+	$("#content_servicios").load('/empresa/servicios_imprimir/all');
+}

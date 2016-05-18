@@ -14,7 +14,8 @@
         "kartik-v/bootstrap-fileinput": "*",
         "psy/psysh": "@stable",
         "phpmailer/phpmailer": "dev-master",
-        "laravelcollective/html": "5.2.*"
+        "laravelcollective/html": "5.2.*",
+        "cknow/laravel-money":"*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

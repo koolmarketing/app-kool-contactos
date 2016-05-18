@@ -18,6 +18,8 @@ class CreateServiciosTable extends Migration
         $table->integer('id_perfil')->nullable();
         $table->integer('id_usuario')->nullable();
         $table->integer('estado')->nullable();
+        $table->string('inicio')->nullable();
+        $table->string('fin')->nullable();
         $table->string('titulo')->nullable();
         $table->integer('valor')->nullable();
         $table->integer('saldo')->nullable();
