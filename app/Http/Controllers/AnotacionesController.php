@@ -102,9 +102,6 @@ class AnotacionesController extends Controller
           ->orderBy('anotaciones.created_at', 'desc')
           ->get();
 
-
-
-        
         return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
     }
 
@@ -129,7 +126,5 @@ class AnotacionesController extends Controller
 
         return view('anotaciones.anotaciones_empresas_home',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
     }
-
-
 }    
 

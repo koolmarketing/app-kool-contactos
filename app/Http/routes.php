@@ -126,6 +126,18 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'as'   => 'anotaciones.anotacion_empresa_imprimir_tipo', 
 		'uses' => 'AnotacionesController@all_anoaciones'
 		]);
+		/**
+		 *
+		 * Servicios
+		 *
+		 */
+		Route::post('adjuntar-servicio', [
+		'middleware' => 'auth',
+		'as'   => 'guardar.servicio', 
+		'uses' => 'ServiciosController@SaveService'
+		]);
+
+
 
 		
 });
