@@ -84,7 +84,7 @@
 					<i class="fa  fa-commenting-o fa-stack-1x fa-inverse"></i>
 				</span>
 				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m">10</h1>
+					<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
 					<span class="block">Comentarios</span>
 				</div>
 				<div class="clearfix"></div>
@@ -100,7 +100,7 @@
 					<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
 				</span>
 				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m">11</h1>
+					<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
 					<span class="block">Recordatorios</span>
 				</div>
 				<div class="clearfix"></div>
@@ -117,7 +117,7 @@
 					<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
 				</span>
 				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m">9</h1>
+					<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
 					<span class="block">Alertas</span>
 				</div>
 				<div class="clearfix"></div>
@@ -134,7 +134,7 @@
 					<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
 				</span>
 				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m">7</h1>
+					<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
 					<span class="block">Cobros</span>
 				</div>
 				<div class="clearfix"></div>
@@ -155,10 +155,11 @@
 {!! HTML::script('js/app/anotaciones/print.js') !!}
 <script>
 	$(document).ready(function() {
-		load_comentarios();
-		load_recordatorios();
-		load_alertas();
-		load_cobros();
+		registerHome();
+		// load_comentarios();
+		// load_recordatorios();
+		// load_alertas();
+		// load_cobros();
 	});
 
 	
