@@ -5,4 +5,19 @@
   background: rgba(255, 255, 255, 0.34);
   border-radius: 0px; }
 
+/* Paneles*/
+.cam-panel-header {
+  background: #ffffff !important;
+  color: #666666 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center; }
+
+.cam-panel-body {
+  padding: 4px; }
+
+.cam-panel-footer {
+  background: #fefefe !important; }
+
 /*# sourceMappingURL=main.css.map */

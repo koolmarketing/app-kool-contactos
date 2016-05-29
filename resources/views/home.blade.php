@@ -8,7 +8,7 @@
 			<div class="content-box ultra-widget">
 				<div class="w-content big-box">
 					<div class="w-progress">
-						<span class="w-amount blue">65000</span>
+						<span class="w-amount blue">0</span>
 						<br>
 						<span class="text-uppercase w-name">Recaudo del Día</span>
 					</div>
@@ -19,7 +19,7 @@
 					</div>
 					<div class="w-status clearfix">
 						<div class="w-status-title pull-left text-uppercase">Progress</div>
-						<div class="w-status-number pull-right text-uppercase">45%</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
 					</div>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 			<div class="content-box ultra-widget">
 				<div class="w-content big-box">
 					<div class="w-progress">
-						<span class="w-amount blue">120500</span>
+						<span class="w-amount blue">0</span>
 						<br>
 						<span class="text-uppercase w-name">Recaudo de la semana</span>
 					</div>
@@ -40,7 +40,7 @@
 					</div>
 					<div class="w-status clearfix">
 						<div class="w-status-title pull-left text-uppercase">Progress</div>
-						<div class="w-status-number pull-right text-uppercase">75%</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 			<div class="content-box ultra-widget">
 				<div class="w-content big-box">
 					<div class="w-progress">
-						<span class="w-amount blue">4505000</span>
+						<span class="w-amount blue">0</span>
 						<br>
 						<span class="text-uppercase w-name">Recaudo del mes</span>
 					</div>
@@ -61,7 +61,7 @@
 					</div>
 					<div class="w-status clearfix">
 						<div class="w-status-title pull-left text-uppercase">Progress</div>
-						<div class="w-status-number pull-right text-uppercase">45%</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
 					</div>
 				</div>
 			</div>
@@ -78,34 +78,42 @@
 	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-12">
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="content-box small-box">
-				<span class="fa-stack fa-2x block pull-left">
-					<i class="fa fa-circle fa-stack-2x blue"></i>
-					<i class="fa  fa-commenting-o fa-stack-1x fa-inverse"></i>
-				</span>
-				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
-					<span class="block">Comentarios</span>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x blue"></i>
+							<i class="fa  fa-commenting-o fa-stack-1x fa-inverse"></i>
+						</span>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
+							<span class="block">Comentarios</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_comentarios">
+					</div>
 				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_comentarios">
 			</div>
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="content-box small-box">
-				<span class="fa-stack fa-2x block pull-left">
-					<i class="fa fa-circle fa-stack-2x green"></i>
-					<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
-				</span>
-				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
-					<span class="block">Recordatorios</span>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x green"></i>
+							<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
+						</span>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
+							<span class="block">Recordatorios</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_recordatorios">
+					</div>
 				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_recordatorios">
 			</div>
 		</div>
 		
