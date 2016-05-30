@@ -807,7 +807,38 @@ $("body").on('click', '#add_red', function(event) {
 
 <?php
  $nombre_comercial = $data_actual->nombre_comercial;
- echo $nombre_comercial;
+ $razon_social     = $data_actual->razon_social;
+ $nit              = $data_actual->nit;
+ $telefono_1       = $data_actual->telefono_1;
+ $telefono_2       = $data_actual->telefono_2;
+ $sitio_web        = $data_actual->sitio_web;
+ $ciudad_pais      = $data_actual->ciudad_pais;
+ $direccion        = $data_actual->direccion;
+ $representante    = $data_actual->representante;
+ $comercial        = $data_actual->comercial;
+ $soporte        = $data_actual->soporte;
+ $valores        = $data_actual->valores;
+ $mision        = $data_actual->mision;
+ $vision        = $data_actual->vision;
+ $intereses        = $data_actual->intereses;
+ $gmail        = $data_actual->gmail;
+ $zohomail        = $data_actual->zohomail;
+ $facebook        = $data_actual->facebook;
+ $twitter        = $data_actual->twitter;
+ $youtube        = $data_actual->youtube;
+ $instagram        = $data_actual->instagram;
+ $linkedin        = $data_actual->linkedin;
+ $pinterest        = $data_actual->pinterest;
+ $hootsuite        = $data_actual->hootsuite;
+ $amarillas_internet        = $data_actual->amarillas_internet;
+ $photosnack        = $data_actual->photosnack;
+ $ftp        = $data_actual->ftp;
+ $foto        = $data_actual->foto;
+ $fecha_fundacion        = $data_actual->fecha_fundacion;
+ $servicios        = $data_actual->servicios;
+ $sector        = $data_actual->sector;
+
+ //var_dump($gmail);
 ?>
 
 
