@@ -59,8 +59,8 @@ break;
 case 'cobro':
 
 $monto  =  $anotacion->monto;
-$inicio =  $carbon->toFormattedDateString($anotacion->fecha_inicio);
-$fin=  $carbon->toFormattedDateString($anotacion->fecha_cobro);
+$inicio =  $anotacion->fecha_inicio;
+$fin=  $anotacion->fecha_cobro;
 
 if ($anotacion->estado=="1") {
        $btn='<button type="button" class="btn btn-xs btn-default"> Reportar Cobro</button>';
@@ -70,7 +70,7 @@ if ($anotacion->estado=="1") {
    echo '<div class="content-box biggest-box orange-bg">
    
        <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
-       <h3 class="text-uppercase zero-m text-title-note"><i class=" icon-chart-line-1"></i> Cobro para <span title="'.$anotacion->fecha_cobro.'">'.$dt=$carbon->parse($anotacion->fecha_cobro)->diffForHumans().'</span><br><i class=" icon-calendar-empty"></i>
+       <h3 class="text-uppercase zero-m text-title-note"><i class=" icon-chart-line-1"></i> Cobro para <span title="'.$anotacion->fecha_cobro.'">'.$dt=$carbon->parse($anotacion->fecha_cobro)->diffForHumans().'</span><br><br><i class=" icon-calendar-empty"></i>
 '.$inicio.' - '.$fin.'
        <br>
        <i class="icon-hash"></i>'.$anotacion->serial.'<br>

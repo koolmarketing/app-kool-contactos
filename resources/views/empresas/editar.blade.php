@@ -801,4 +801,15 @@ $("body").on('click', '#add_red', function(event) {
 
 
 
+
+
+<!-- Edición datos -->
+
+<?php
+ $nombre_comercial = $data_actual->nombre_comercial;
+ echo $nombre_comercial;
+?>
+
+
+
 @stop

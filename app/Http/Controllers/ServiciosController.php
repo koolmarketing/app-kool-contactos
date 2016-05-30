@@ -24,15 +24,18 @@ class ServiciosController extends Controller
 	
 	public function SaveService(Request $data)
 	{
-		if($data->ajax()) {
-			if ($data->hasFile('comprobante')) {
+		if ($data->hasFile('comprobante')) {
 				$file = $data->file('comprobante');
 				$destinationPath = 'uploads/comprobantes';
 				$extension = $file->getClientOriginalExtension();
 				$filename1 = "".str_random(12).".".$extension."";
 				$upload_success = $file->move($destinationPath, $filename1);        
 			}
+
+		if($data->ajax()) {		
+
 			$SR              = new \App\Servicio;
+
 			if (isset($filename1)) {
 				$SR->comprobante = $filename1;
 			}
@@ -48,7 +51,7 @@ class ServiciosController extends Controller
 			$SR->serial       = $data->input('serial');
 			$SR->token       = str_random(10);
 			$SR->save();
-			return $data;
+			return $data->input();
 		}
 
 	}
@@ -59,6 +62,7 @@ class ServiciosController extends Controller
 		$carbon    = new \Carbon\Carbon();
 		$servicios = DB::table('servicios')
 		->join('users', 'users.id', '=', 'servicios.id_usuario')
+		->where('id_perfil', '=', ''.$id.'')
 		->select('servicios.*','users.id', 'users.fotografia')
 		->orderBy('servicios.id','desc')->get();
 

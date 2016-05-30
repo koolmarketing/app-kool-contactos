@@ -98,7 +98,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="panel panel-default">
+			<div class="panel panel-success">
 				<div class="panel-body">
 					<div class="content-box small-box">
 						<span class="fa-stack fa-2x block pull-left">
@@ -119,40 +119,48 @@
 		
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="content-box small-box">
-				<span class="fa-stack fa-2x block pull-left">
-					<i class="fa fa-circle fa-stack-2x red"></i>
-					<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
-				</span>
-				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
-					<span class="block">Alertas</span>
-				</div>
-				<div class="clearfix"></div>
-			</div>
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x red"></i>
+							<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
+						</span>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
+							<span class="block">Alertas</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_alertas">
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_alertas">
+					</div>
+				</div>
 			</div>
 		</div>
 		
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="content-box small-box">
-				<span class="fa-stack fa-2x block pull-left">
-					<i class="fa fa-circle fa-stack-2x purple"></i>
-					<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
-				</span>
-				<div class="pull-left info">
-					<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
-					<span class="block">Cobros</span>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x purple"></i>
+							<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
+						</span>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
+							<span class="block">Cobros</span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_cobros">
+
+					</div>
 				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_cobros">
+
 
 			</div>
 		</div>
-
-
 	</div>
 </div>
 

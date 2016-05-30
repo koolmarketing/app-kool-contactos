@@ -19,6 +19,12 @@ Route::get('empresa/{id}', [
 	'uses' => 'ContactoController@Empresa'
 	]);
 
+Route::get('empresa/editar/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'empresas.id', 
+	'uses' => 'ContactoController@EditarEmpresa'
+	]);
+
 Route::get('nueva-empresa', [
 	'middleware' => 'auth',
 	'as'   => 'nuevo.empresa', 

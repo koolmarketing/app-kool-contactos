@@ -18,6 +18,9 @@
     <div class="col-lg-12">
         <div class="col-lg-12"><br>
             <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
+
+          <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
+      
         </div>
         <!-- Sección panel 1 -->
         <section>
@@ -91,6 +94,7 @@
     <div class="col-md-8">
 
       <!-- Tab Principal -->
+      
       
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
@@ -713,12 +717,15 @@
 <div role="tabpanel" class="tab-pane" id="contrataciones">
   <div class="panel panel-default">
     <div class="panel-body">
-        <div role="tabpanel" class="tab-pane" id="contrataciones">  
+        <div role="tabpanel" class="tab-pane" id="contrataciones"> 
+        <div class="col-md-12"> 
             <div class="row pull-right">
                <div class="col-md-12">
                   <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
+                  <br>
               </div><br><br>
           </div>
+          </div><br>
           <div id="contenedor_servicios_empresa" class="col-md-12">
 
           </div>
@@ -950,7 +957,7 @@
             <div class="col-md-12" style="margin-top: 10px">
                 <div class="col-md-12">
                     <br>
-                    <input type="file" name="comprobante" class="form-control material">
+                    <input type="file" id="comprobante" name="comprobante" class="form-control material">
                 </div>
                 
             </div>

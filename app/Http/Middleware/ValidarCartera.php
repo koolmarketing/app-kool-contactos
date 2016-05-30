@@ -34,6 +34,7 @@ class ValidarCartera
         ->where('id_perfil','=',''.$id.'')
         ->sum('monto');
 
+
         $valor = $total_cobros + $nuevo_cobro;
 
         if ($valor > $saldo_actual) 
