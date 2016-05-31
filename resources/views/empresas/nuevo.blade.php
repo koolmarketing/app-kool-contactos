@@ -214,7 +214,7 @@
                 <div role="tabpanel" class="tab-pane" id="representante">
                   <div class="content-box big-box box-shadow">
                    <div class="form-group col-md-2">                            
-                     <select name="representante[sexo][]" id="" class="form-control material">
+                     <select name="representante[sexo][]" id="datos_representante" class="form-control material">
                       <option value="hombre">Hombre</option>
                       <option value="mujer">Mujer</option>
                     </select>

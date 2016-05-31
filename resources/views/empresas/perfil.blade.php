@@ -58,6 +58,12 @@
     </div>
 </article>
 
+<?php 
+
+$servicios = json_decode($data->empresa->servicios);
+
+?>
+
 
 <article class="col-md-4">
  <div class="content-box box-shadow">
@@ -69,7 +75,7 @@
       <div class="pull-left info">
           <h3 class="text-uppercase zero-m">Servicios</h3>
           <span class="block"><h4>                    
-            @foreach (json_decode ($data->empresa->servicios) as $servicio)
+            @foreach ($servicios as $servicio)
             <h4>{!! $servicio !!}</h4>
             @endforeach
         </h4></span>
@@ -78,6 +84,7 @@
 </div>
 </div> 
 </article>
+
 
 </div>
 </div>

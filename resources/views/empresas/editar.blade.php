@@ -10,7 +10,7 @@
 @section('content')
 
 <div class="container-fluid">
-<div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#datos" aria-controls="datos" role="tab" data-toggle="tab">Datos Básicos</a></li>
@@ -24,7 +24,8 @@
 
 
     <!-- Tab panes -->
-    {!!Form::open(array('action' => 'ContactoController@SaveCompany', 'method' => 'post', 'id' => 'save_company','files'=>true));!!}
+    {!!Form::open(array('action' => 'ContactoController@UpdateCompany', 'method' => 'post', 'id' => 'save_company','files'=>true));!!}
+    {!! Form::hidden('id', $data_actual->id); !!}
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="datos">
         <div class="content-box big-box box-shadow">
@@ -214,14 +215,14 @@
                 <div role="tabpanel" class="tab-pane" id="representante">
                   <div class="content-box big-box box-shadow">
                    <div class="form-group col-md-2">                            
-                     <select name="representante[sexo][]" id="" class="form-control material">
+                     <select name="representante[sexo][]" id="sexo_representante" class="form-control material">
                       <option value="hombre">Hombre</option>
                       <option value="mujer">Mujer</option>
                     </select>
                     <p class="help-text">Sexo</p>
                   </div>
                   <div class="form-group col-md-2">                            
-                    <select name="representante[trato][]" id="" class="form-control material">
+                    <select name="representante[trato][]" id="trato_representante" class="form-control material">
                       <option value="Srta.">Srta.</option>  
                       <option value="Sra.">Sra.</option>  
                       <option value="Sr.">Sr.</option>                                
@@ -259,7 +260,7 @@
                 <div class="content-box big-box box-shadow">
 
                   <div class="form-group col-md-2">                            
-                    <select name="comercial[sexo][]" id="" class="form-control material">
+                    <select name="comercial[sexo][]" id="sexo_comercial" class="form-control material">
                       <option value="hombre">Hombre</option>
                       <option value="mujer">Mujer</option>
                     </select>
@@ -267,7 +268,7 @@
                   </div>
 
                   <div class="form-group col-md-2">                            
-                    <select name="comercial[trato][]" id="" class="form-control material">
+                    <select name="comercial[trato][]" id="trato_comercial" class="form-control material">
                       <option value="Srta.">Srta.</option>  
                       <option value="Sra.">Sra.</option>  
                       <option value="Sr.">Sr.</option>                                
@@ -307,7 +308,7 @@
                 <div class="content-box big-box box-shadow">
 
                   <div class="form-group col-md-2">                            
-                    <select name="soporte[sexo][]" id="" class="form-control material">
+                    <select name="soporte[sexo][]" id="trato_soporte" class="form-control material">
                       <option value="hombre">Hombre</option>
                       <option value="mujer">Mujer</option>
 
@@ -316,7 +317,7 @@
                   </div>
 
                   <div class="form-group col-md-2">                            
-                    <select name="soporte[trato][]" id="" class="form-control material">
+                    <select name="soporte[trato][]" id="trato_soporte" class="form-control material">
                      <option value="Srta.">Srta.</option>  
                      <option value="Sra.">Sra.</option>  
                      <option value="Sr.">Sr.</option>                                
@@ -408,7 +409,7 @@
                 <input type="text" name="gmail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-              <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+              <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
             </div>
             @endfor
 
@@ -427,7 +428,7 @@
                 <input type="text" name="zohomail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-              <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+              <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
             </div>
             
             @endfor
@@ -446,7 +447,7 @@
               <input type="text" name="facebook[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <span class="btn btn-md btn-danger"><i class="icon-cancel"></i></span> </div>
+            <div class="col-md-2"> <span class="btn-red-info btn btn-md "><i class="icon-cancel"></i></span> </div>
           </div>
 
           <!-- Twitter -->
@@ -465,7 +466,7 @@
               <p class="help-text">Contraseña</p>
             </div>
 
-            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
           </div>
           
           <div class="col-lg-12 Youtube" id="youtube" attr-visible="">
@@ -482,7 +483,7 @@
               <input type="text" name="youtube[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
           </div>
 
           <div class="col-lg-12 Instagram" id="instagram" attr-visible="">
@@ -499,7 +500,7 @@
               <input type="text" name="instagram[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
           </div>
 
           <div class="col-lg-12 Linkedin" id="linkedin" attr-visible="">
@@ -516,7 +517,7 @@
               <input type="text" name="linkedin[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
           </div>
 
           <!-- Pinterest -->
@@ -534,7 +535,7 @@
             <input type="text" name="pinterest[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
           </div>
-          <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+          <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
         </div>
 
         <!-- Hootsuite -->
@@ -553,7 +554,7 @@
           <input type="text" name="hootsuite[contraseña][]" class="form-control material">
           <p class="help-text">Contraseña</p>
         </div>
-        <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+        <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
       </div>
       <!-- Amarillas Internet -->
       <div class="col-lg-12 Amarillas_Internet" id="amarillas_internet" attr-visible="">
@@ -568,7 +569,7 @@
         <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
     </div>      
 
 
@@ -586,7 +587,7 @@
         <input type="text" name="photosnack[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-2"> <button class="btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
     </div>
 
     <div class="col-lg-12 FTP" id="ftp" attr-visible="">    
@@ -605,7 +606,7 @@
         <input type="text" name="ftp[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
     </div>
 
 
@@ -638,7 +639,7 @@
     $("#range").ionRangeSlider({
       min: 0,
       max: 6,
-      from: 0.5
+      from: {!! $data_actual->rango !!}
     });
 
     $("#valores").select2();
@@ -689,13 +690,13 @@
       </script>
       <script>
 
-<!-- Ocultar Botones -->
+        <!-- Ocultar Botones -->
 
-$("body").on('click', '.btn-red-info', function(event) {
-  event.preventDefault();
-  var valueBoton = $(this).prop('DataId');
-  alert("Heyyyy ".valueBoton);
-});
+        $("body").on('click', '.btn-red-info', function(event) {
+          event.preventDefault();
+          var valueBoton = $(this).prop('DataId');
+          alert("Heyyyy ".valueBoton);
+        });
 
 
 
@@ -806,40 +807,370 @@ $("body").on('click', '#add_red', function(event) {
 <!-- Edición datos -->
 
 <?php
- $nombre_comercial = $data_actual->nombre_comercial;
- $razon_social     = $data_actual->razon_social;
- $nit              = $data_actual->nit;
- $telefono_1       = $data_actual->telefono_1;
- $telefono_2       = $data_actual->telefono_2;
- $sitio_web        = $data_actual->sitio_web;
- $ciudad_pais      = $data_actual->ciudad_pais;
- $direccion        = $data_actual->direccion;
- $representante    = $data_actual->representante;
- $comercial        = $data_actual->comercial;
- $soporte        = $data_actual->soporte;
- $valores        = $data_actual->valores;
- $mision        = $data_actual->mision;
- $vision        = $data_actual->vision;
- $intereses        = $data_actual->intereses;
- $gmail        = $data_actual->gmail;
- $zohomail        = $data_actual->zohomail;
- $facebook        = $data_actual->facebook;
- $twitter        = $data_actual->twitter;
- $youtube        = $data_actual->youtube;
- $instagram        = $data_actual->instagram;
- $linkedin        = $data_actual->linkedin;
- $pinterest        = $data_actual->pinterest;
- $hootsuite        = $data_actual->hootsuite;
- $amarillas_internet        = $data_actual->amarillas_internet;
- $photosnack        = $data_actual->photosnack;
- $ftp        = $data_actual->ftp;
- $foto        = $data_actual->foto;
- $fecha_fundacion        = $data_actual->fecha_fundacion;
- $servicios        = $data_actual->servicios;
- $sector        = $data_actual->sector;
-
+$nombre_comercial = $data_actual->nombre_comercial;
+$razon_social     = $data_actual->razon_social;
+$nit              = $data_actual->nit;
+$telefono_1       = $data_actual->telefono_1;
+$telefono_2       = $data_actual->telefono_2;
+$sitio_web        = $data_actual->sitio_web;
+$ciudad_pais      = $data_actual->ciudad_pais;
+$direccion        = $data_actual->direccion;
+$representante    = json_decode($data_actual->representante);
+$comercial        = json_decode($data_actual->comercial);
+$soporte          = json_decode($data_actual->soporte);
+$valores          = $data_actual->valores;
+$mision           = $data_actual->mision;
+$vision           = $data_actual->vision;
+$intereses        = $data_actual->intereses;
+$gmail            = json_decode($data_actual->gmail);
+$zohomail         = json_decode($data_actual->zohomail);
+$facebook         = json_decode($data_actual->facebook);
+$twitter          = json_decode($data_actual->twitter);
+$youtube          = json_decode($data_actual->youtube);
+$instagram        = json_decode($data_actual->instagram);
+$linkedin         = json_decode($data_actual->linkedin);
+$pinterest        = json_decode($data_actual->pinterest);
+$hootsuite        = json_decode($data_actual->hootsuite);
+$amarillas_internet  = json_decode($data_actual->amarillas_internet);
+$photosnack       = json_decode($data_actual->photosnack);
+$ftp              = json_decode($data_actual->ftp);
+$foto             = $data_actual->foto;
+$fecha_fundacion        = $data_actual->fecha_fundacion;
+$servicios        = $data_actual->servicios;
+$sector           = $data_actual->sector;
+$rango           = $data_actual->rango;
  //var_dump($gmail);
 ?>
+
+
+
+<!-- 
+Imprimir y seleccionar datos existentes.
+-->
+
+<!-- Datos Empresa -->
+<script>
+  @if (isset($razon_social))
+  $("[name='razon_social']").val('{!!$razon_social!!}');
+  @endif
+  @if (isset($nombre_comercial))
+  $("[name='nombre_comercial']").val('{!!$nombre_comercial!!}');
+  @endif
+  @if (isset($nit))
+  $("[name='nit']").val('{!!$nit!!}');
+  @endif
+  @if (isset($telefono_1))
+  $("[name='telefono_1']").val('{!!$telefono_1!!}');
+  @endif
+  @if (isset($telefono_2))
+  $("[name='telefono_2']").val('{!!$telefono_2!!}');
+  @endif
+  @if (isset($sitio_web))
+  $("[name='sitio_web']").val('{!!$sitio_web!!}');
+  @endif
+  @if (isset($ciudad_pais))
+  $("[name='ciudad_pais']").val('{!!$ciudad_pais!!}');
+  @endif
+  @if (isset($direccion))
+  $("[name='direccion']").val('{!!$direccion!!}');
+  @endif
+  @if (isset($fecha_fundacion))
+  $("[name='fecha_fundacion']").val('{!!$fecha_fundacion!!}');
+  @endif
+  @if (isset($rango))
+  $("[name='rango']").val('{!!$rango!!}');
+  console.log("{!! $rango !!}");
+  @endif
+  @if (isset($mision))
+  $("[name='mision']").val('{!!$mision!!}');
+  @endif
+  @if (isset($vision))
+  $("[name='vision']").val('{!!$vision!!}');
+  @endif
+</script>
+
+
+
+<!-- Valores e Intereses de la empresa -->
+<script>
+//    @if ($valores != "")
+
+
+//   var va = valores_actuales.split(",");
+
+//   $("#valores option").each(function(){
+//     var val = $(this).val();
+//     //console.log(val);
+//     for (var i = 0; i < va.length; i++) {
+//       console.log(va[i]);
+//       if(val==va[i]){
+//         //console.log(va[i]);
+//       $(this).prop('selected', 'selected');
+//     }
+//   };
+// });
+//  @endif
+</script>
+
+<!-- Fin Valores e Intereses de la empresa -->
+
+
+
+<!-- Fin datos Empresa -->
+
+
+
+<!-- Datos Representante -->
+@if($representante->nombre != "")
+<script>
+  sexo_actual = "{!! $representante->sexo[0] !!}";
+  sexo=$("#sexo_representante option:selected" ).val();
+  $("#sexo_representante option").each(function(){
+    var val = $(this).val();
+    if(val==sexo_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  trato_actual = "{!! $representante->trato[0] !!}";
+  trato=$("#trato_representante option:selected" ).val();
+  $("#trato_representante option").each(function(){
+    var val = $(this).val();
+    if(val==trato_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  $("[name='representante[nombre][]']").val('{!! $representante->nombre[0] !!}');
+  $("[name='representante[cargo][]']").val('{!! $representante->cargo[0] !!}');
+  $("[name='representante[email][]']").val('{!! $representante->email[0] !!}');
+  $("[name='representante[celular][]']").val('{!! $representante->celular[0] !!}');
+  $("[name='representante[telefono][]']").val('{!! $representante->telefono[0] !!}');
+ //alert(hola);
+</script>
+
+@endif
+<!-- Fin Datos Representante -->
+
+
+<!-- Datos Comercial -->
+@if($comercial->nombre != "")
+<script>
+  sexo_actual = "{!! $comercial->sexo[0] !!}";
+  sexo=$("#sexo_comercial option:selected" ).val();
+  $("#sexo_comercial option").each(function(){
+    var val = $(this).val();
+    if(val==sexo_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  trato_actual = "{!! $comercial->trato[0] !!}";
+  trato=$("#trato_comercial option:selected" ).val();
+  $("#trato_comercial option").each(function(){
+    var val = $(this).val();
+    if(val==trato_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  $("[name='comercial[nombre][]']").val('{!! $comercial->nombre[0] !!}');
+  $("[name='comercial[cargo][]']").val('{!! $comercial->cargo[0] !!}');
+  $("[name='comercial[email][]']").val('{!! $comercial->email[0] !!}');
+  $("[name='comercial[celular][]']").val('{!! $comercial->celular[0] !!}');
+  $("[name='comercial[telefono][]']").val('{!! $comercial->telefono[0] !!}');
+ //alert(hola);
+</script>
+
+@endif
+<!-- Fin Datos Comercial -->
+
+<!-- Datos Soporte -->
+@if($soporte->nombre != "")
+<script>
+  sexo_actual = "{!! $soporte->sexo[0] !!}";
+  sexo=$("#sexo_soporte option:selected" ).val();
+  $("#sexo_soporte option").each(function(){
+    var val = $(this).val();
+    if(val==sexo_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  trato_actual = "{!! $soporte->trato[0] !!}";
+  trato=$("#trato_soporte option:selected" ).val();
+  $("#trato_soporte option").each(function(){
+    var val = $(this).val();
+    if(val==trato_actual){
+      console.log("este es: "+val);
+      $(this).prop('selected', 'selected');
+    }
+  });
+
+  $("[name='soporte[nombre][]']").val('{!! $soporte->nombre[0] !!}');
+  $("[name='soporte[cargo][]']").val('{!! $soporte->cargo[0] !!}');
+  $("[name='soporte[email][]']").val('{!! $soporte->email[0] !!}');
+  $("[name='soporte[celular][]']").val('{!! $soporte->celular[0] !!}');
+  $("[name='soporte[telefono][]']").val('{!! $soporte->telefono[0] !!}');
+ //alert(hola);
+</script>
+
+@endif
+<!-- Fin Datos Soporte -->
+
+
+<!-- GMAIL -->
+<script>
+  // Gmail 1 
+  @if ($gmail->cuenta_1->usuario[0]!="")
+  name_div = obj_redes["gmail_1"].name;
+  $("#"+name_div+"").show();
+  obj_redes["gmail_1"].active=true;
+  $("[name='gmail_1[usuario][]']").val("{!! $gmail->cuenta_1->usuario[0] !!}");
+  $("[name='gmail_1[contraseña][]']").val("{!! $gmail->cuenta_1->contraseña[0] !!}");
+  @endif
+
+  @if ($gmail->cuenta_2->usuario[0]!="")
+  name_div = obj_redes["gmail_2"].name;
+  $("#"+name_div+"").show();
+  obj_redes["gmail_2"].active=true;
+  $("[name='gmail_2[usuario][]']").val("{!! $gmail->cuenta_2->usuario[0] !!}");
+  $("[name='gmail_2[contraseña][]']").val("{!! $gmail->cuenta_2->contraseña[0] !!}");
+  @endif
+
+  @if ($gmail->cuenta_3->usuario[0]!="")
+  name_div = obj_redes["gmail_3"].name;
+  $("#"+name_div+"").show();
+  obj_redes["gmail_3"].active=true;
+  $("[name='gmail_3[usuario][]']").val("{!! $gmail->cuenta_3->usuario[0] !!}");
+  $("[name='gmail_3[contraseña][]']").val("{!! $gmail->cuenta_3->contraseña[0] !!}");
+  @endif
+
+  @if ($gmail->cuenta_4->usuario[0]!="")
+  name_div = obj_redes["gmail_4"].name;
+  $("#"+name_div+"").show();
+  obj_redes["gmail_4"].active=true;
+  $("[name='gmail_4[usuario][]']").val("{!! $gmail->cuenta_4->usuario[0] !!}");
+  $("[name='gmail_4[contraseña][]']").val("{!! $gmail->cuenta_4->contraseña[0] !!}");
+  @endif
+
+
+
+
+  // Zohomail
+
+  @if ($zohomail->cuenta_1->usuario[0]!="")
+  name_div = obj_redes["zohomail_1"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_1"].active=true;
+  $("[name='zohomail_1[usuario][]']").val("{!! $zohomail->cuenta_1->usuario[0] !!}");
+  $("[name='zohomail_1[contraseña][]']").val("{!! $zohomail->cuenta_1->contraseña[0] !!}");
+  @endif
+
+  @if ($zohomail->cuenta_2->usuario[0]!="")
+  name_div = obj_redes["zohomail_2"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_2"].active=true;
+  $("[name='zohomail_2[usuario][]']").val("{!! $zohomail->cuenta_2->usuario[0] !!}");
+  $("[name='zohomail_2[contraseña][]']").val("{!! $zohomail->cuenta_2->contraseña[0] !!}");
+  @endif
+
+
+  @if ($zohomail->cuenta_3->usuario[0]!="")
+  name_div = obj_redes["zohomail_3"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_3"].active=true;
+  $("[name='zohomail_3[usuario][]']").val("{!! $zohomail->cuenta_3->usuario[0] !!}");
+  $("[name='zohomail_3[contraseña][]']").val("{!! $zohomail->cuenta_3->contraseña[0] !!}");
+  @endif
+
+
+  @if ($zohomail->cuenta_4->usuario[0]!="")
+  name_div = obj_redes["zohomail_4"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_4"].active=true;
+  $("[name='zohomail_4[usuario][]']").val("{!! $zohomail->cuenta_4->usuario[0] !!}");
+  $("[name='zohomail_4[contraseña][]']").val("{!! $zohomail->cuenta_4->contraseña[0] !!}");
+  @endif
+
+
+// Facebook
+
+@if($facebook->usuario!="")
+$("#facebook").show(); obj_redes["facebook"].active=true;
+$("[name='facebook[usuario][]']").val("{!! $facebook->usuario[0] !!}");
+$("[name='facebook[contraseña][]']").val("{!! $facebook->contraseña[0] !!}");
+@endif
+
+
+// Twitter
+@if ($twitter->usuario!="")
+$("#twitter").show(); obj_redes["twitter"].active=true;
+$("[name='twitter[usuario][]']").val("{!! $twitter->usuario[0] !!}");
+$("[name='twitter[contraseña][]']").val("{!! $twitter->contraseña[0] !!}");
+@endif
+
+
+// Youtube
+@if ($youtube->usuario!="")
+$("#youtube").show(); obj_redes["youtube"].active=true;
+$("[name='youtube[usuario][]']").val("{!! $youtube->usuario[0] !!}");
+$("[name='youtube[contraseña][]']").val("{!! $youtube->contraseña[0] !!}");
+@endif
+// Instagram
+@if ($instagram->usuario!="")
+$("#instagram").show(); obj_redes["instagram"].active=true; 
+$("[name='linkedin[usuario][]']").val("{!! $linkedin->usuario[0] !!}");
+$("[name='linkedin[contraseña][]']").val("{!! $linkedin->contraseña[0] !!}");
+@endif
+// Pinterest
+@if ($pinterest->usuario!="")
+$("#pinterest").show(); obj_redes["pinterest"].active=true;
+$("[name='pinterest[usuario][]']").val("{!! $pinterest->usuario[0] !!}");
+$("[name='pinterest[contraseña][]']").val("{!! $pinterest->contraseña[0] !!}");
+@endif
+
+// Hootsuite
+@if ($hootsuite->usuario!="")
+$("#hootsuite").show(); obj_redes["hootsuite"].active=true; 
+$("[name='hootsuite[usuario][]']").val("{!! $hootsuite->usuario[0] !!}");
+$("[name='hootsuite[contraseña][]']").val("{!! $hootsuite->contraseña[0] !!}");
+@endif
+// Amarillas Internet
+
+@if ($amarillas_internet->usuario!="")
+$("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true; 
+$("[name='amarillas_internet[usuario][]']").val("{!! $amarillas_internet->usuario[0] !!}");
+$("[name='amarillas_internet[contraseña][]']").val("{!! $amarillas_internet->contraseña[0] !!}");
+@endif
+
+// Photosnack
+
+@if ($photosnack->usuario!="")
+$("#photosnack").show(); obj_redes["photosnack"].active=true; 
+$("[name='photosnack[usuario][]']").val("{!! $photosnack->usuario[0] !!}");
+$("[name='photosnack[contraseña][]']").val("{!! $photosnack->contraseña[0] !!}");
+@endif
+
+// FTP
+@if ($photosnack->usuario!="")
+$("#ftp").show(); obj_redes["ftp"].active=true;
+$("[name='ftp[server][]']").val("{!! $ftp->server[0] !!}");
+$("[name='ftp[usuario][]']").val("{!! $ftp->usuario[0] !!}");
+$("[name='ftp[contraseña][]']").val("{!! $ftp->contraseña[0] !!}");
+@endif
+
+</script>
+
+
+
+
+
 
 
 

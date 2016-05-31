@@ -6,6 +6,15 @@ Route::post('guardar_empresa', [
 	'uses' => 'ContactoController@SaveCompany'
 	]);
 
+
+Route::post('actualizar_empresa', [
+	'middleware' => 'auth',
+	'as'   => 'home', 
+	'uses' => 'ContactoController@UpdateCompany'
+	]);
+
+
+
 Route::get('empresas', [
 	'middleware' => 'auth',
 	'as'   => 'empresas.index', 
