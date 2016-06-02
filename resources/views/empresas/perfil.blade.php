@@ -383,11 +383,11 @@ $servicios = json_decode($data->empresa->servicios);
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                    <h3>{!! $gmail->cuenta_3->usuario[0] !!}</h3>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                    <h3>{!!$gmail->cuenta_3->contraseña[0]!!}</h3>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -401,11 +401,30 @@ $servicios = json_decode($data->empresa->servicios);
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                    <h3>{!! $gmail->cuenta_4->usuario[0] !!}</h3>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                    <h3>{!!$gmail->cuenta_4->contraseña[0]!!}</h3>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+     @if($gmail->cuenta_5->usuario[0] != "")
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h3>{!! $gmail->cuenta_5->usuario[0] !!}</h3>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>{!!$gmail->cuenta_5->contraseña[0]!!}</h3>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -486,6 +505,25 @@ $servicios = json_decode($data->empresa->servicios);
                 </div>
                 <div class="col-md-4">
                     <h4>{!!$zohomail->cuenta_4->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+                @if ($zohomail->cuenta_5->usuario[0] != "")
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_5->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_5->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>

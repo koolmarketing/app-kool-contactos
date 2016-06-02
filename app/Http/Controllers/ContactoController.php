@@ -87,8 +87,8 @@ class ContactoController extends Controller
         $gmail->cuenta_1 = $request->input('gmail_1');
         $gmail->cuenta_2 = $request->input('gmail_2');
         $gmail->cuenta_3 = $request->input('gmail_3');
-        $gmail->cuenta_3 = $request->input('gmail_4');
-        $gmail->cuenta_4 = $request->input('gmail_5');
+        $gmail->cuenta_4 = $request->input('gmail_4');
+        $gmail->cuenta_5 = $request->input('gmail_5');
         $NC->gmail = json_encode($gmail);
 
         $zohomail = (object) array();
@@ -96,8 +96,8 @@ class ContactoController extends Controller
         $zohomail->cuenta_1 = $request->input('zohomail_1');
         $zohomail->cuenta_2 = $request->input('zohomail_2');
         $zohomail->cuenta_3 = $request->input('zohomail_3');
-        $zohomail->cuenta_3 = $request->input('zohomail_4');
-        $zohomail->cuenta_4 = $request->input('zohomail_5');
+        $zohomail->cuenta_4 = $request->input('zohomail_4');
+        $zohomail->cuenta_5 = $request->input('zohomail_5');
         $NC->zohomail = json_encode($zohomail);
 
         #Redes
@@ -167,8 +167,8 @@ class ContactoController extends Controller
         $gmail->cuenta_1 = $request->input('gmail_1');
         $gmail->cuenta_2 = $request->input('gmail_2');
         $gmail->cuenta_3 = $request->input('gmail_3');
-        $gmail->cuenta_3 = $request->input('gmail_4');
-        $gmail->cuenta_4 = $request->input('gmail_5');
+        $gmail->cuenta_4 = $request->input('gmail_4');
+        $gmail->cuenta_5 = $request->input('gmail_5');
         $NC->gmail = json_encode($gmail);
 
         $zohomail = (object) array();
@@ -176,8 +176,8 @@ class ContactoController extends Controller
         $zohomail->cuenta_1 = $request->input('zohomail_1');
         $zohomail->cuenta_2 = $request->input('zohomail_2');
         $zohomail->cuenta_3 = $request->input('zohomail_3');
-        $zohomail->cuenta_3 = $request->input('zohomail_4');
-        $zohomail->cuenta_4 = $request->input('zohomail_5');
+        $zohomail->cuenta_4 = $request->input('zohomail_4');
+        $zohomail->cuenta_5 = $request->input('zohomail_5');
         $NC->zohomail = json_encode($zohomail);
 
         #Redes

@@ -9,7 +9,48 @@
 @stop
 @section('content')
 
+<!-- Edición datos -->
+
+<?php
+$nombre_comercial = $data_actual->nombre_comercial;
+$razon_social     = $data_actual->razon_social;
+$nit              = $data_actual->nit;
+$telefono_1       = $data_actual->telefono_1;
+$telefono_2       = $data_actual->telefono_2;
+$sitio_web        = $data_actual->sitio_web;
+$ciudad_pais      = $data_actual->ciudad_pais;
+$direccion        = $data_actual->direccion;
+$representante    = json_decode($data_actual->representante);
+$comercial        = json_decode($data_actual->comercial);
+$soporte          = json_decode($data_actual->soporte);
+$valores          = json_decode($data_actual->valores);
+$mision           = $data_actual->mision;
+$vision           = $data_actual->vision;
+$intereses        = json_decode($data_actual->intereses);
+$gmail            = json_decode($data_actual->gmail);
+$zohomail         = json_decode($data_actual->zohomail);
+$facebook         = json_decode($data_actual->facebook);
+$twitter          = json_decode($data_actual->twitter);
+$youtube          = json_decode($data_actual->youtube);
+$instagram        = json_decode($data_actual->instagram);
+$linkedin         = json_decode($data_actual->linkedin);
+$pinterest        = json_decode($data_actual->pinterest);
+$hootsuite        = json_decode($data_actual->hootsuite);
+$amarillas_internet  = json_decode($data_actual->amarillas_internet);
+$photosnack       = json_decode($data_actual->photosnack);
+$ftp              = json_decode($data_actual->ftp);
+$foto             = $data_actual->foto;
+$fecha_fundacion        = $data_actual->fecha_fundacion;
+$servicios        = json_decode($data_actual->servicios);
+$sector           = json_decode($data_actual->sector);
+$rango           = $data_actual->rango;
+ //var_dump($gmail);
+?>
+
+
 <div class="container-fluid">
+
+
   <div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -636,16 +677,86 @@
 
 <script>
   $(document).ready(function() {
-    $("#range").ionRangeSlider({
-      min: 0,
-      max: 6,
-      from: {!! $data_actual->rango !!}
-    });
 
-    $("#valores").select2();
-    $("#sector").select2();
-    $("#servicios").select2();
-    $("#intereses").select2();
+
+    /* Valores e Intereses de la empresa */
+
+    @if ($sector != "")
+    var sector = "<?php echo $sector."."; ?>";
+    var set = sector.split(".");
+    SelectSelect(set,"sector");  
+    @endif
+
+    @if ($servicios != "")
+    var servicios = "<?php foreach ($servicios as $servicio) {echo $servicio.".";} ?>";
+    var ser = servicios.split(".");
+    SelectSelect(ser,"servicios");
+    @endif
+
+    @if ($valores != "")
+    var valores = "<?php foreach ($valores as $valor) {echo $valor.".";} ?>";
+    var valores = valores.split(".");
+    SelectSelect(valores,"valores");
+    @endif
+
+    @if ($intereses != "")
+    var intereses = "<?php foreach ($intereses as $interes) {echo $interes.".";} ?>";
+    var intereses = intereses.split(".");
+    SelectSelect(intereses,"intereses");
+    @endif
+
+    /*   funcion SelectSelect para Select2JS   */
+
+
+      function SelectSelect (arr,id_select) {
+
+        var id_select = id_select;
+        var select    = "#"+id_select+" option";
+        var arr       = arr;
+
+        $(select).each(function(){
+          var val = $(this).val();
+    //console.log(val);
+    for (var i = 0; i < arr.length; i++) {
+      //console.log(ser[i]);
+      if(val==arr[i]){
+        console.log(val);
+        $(this).prop('selected', 'selected');
+      }
+    };
+  });
+
+      }
+
+
+      $("#range").ionRangeSlider({
+        min: 0,
+        max: 6,
+        from: {!! $data_actual->rango !!}
+      });
+
+      $("#valores").select2(
+        { tags: true,
+          tokenSeparators: [",", " "]}
+          );
+      $("#sector").select2(
+        { tags: true,
+          tokenSeparators: [",", " "]}
+          );
+
+      $('#servicios').select2({
+        tags: true,
+        tokenSeparators: [",", " "]
+      }).on("change", function(e) {
+        var isNew = $(this).find('[data-select2-tag="true"]');
+        if(isNew.length){
+          isNew.replaceWith('<option selected value="'+isNew.val()+'">'+isNew.val()+'</option>');
+
+        }
+      });
+
+
+      $("#intereses").select2();
 
             //Mascara
             $('.date').mask('00-00-0000');
@@ -804,43 +915,6 @@ $("body").on('click', '#add_red', function(event) {
 
 
 
-<!-- Edición datos -->
-
-<?php
-$nombre_comercial = $data_actual->nombre_comercial;
-$razon_social     = $data_actual->razon_social;
-$nit              = $data_actual->nit;
-$telefono_1       = $data_actual->telefono_1;
-$telefono_2       = $data_actual->telefono_2;
-$sitio_web        = $data_actual->sitio_web;
-$ciudad_pais      = $data_actual->ciudad_pais;
-$direccion        = $data_actual->direccion;
-$representante    = json_decode($data_actual->representante);
-$comercial        = json_decode($data_actual->comercial);
-$soporte          = json_decode($data_actual->soporte);
-$valores          = $data_actual->valores;
-$mision           = $data_actual->mision;
-$vision           = $data_actual->vision;
-$intereses        = $data_actual->intereses;
-$gmail            = json_decode($data_actual->gmail);
-$zohomail         = json_decode($data_actual->zohomail);
-$facebook         = json_decode($data_actual->facebook);
-$twitter          = json_decode($data_actual->twitter);
-$youtube          = json_decode($data_actual->youtube);
-$instagram        = json_decode($data_actual->instagram);
-$linkedin         = json_decode($data_actual->linkedin);
-$pinterest        = json_decode($data_actual->pinterest);
-$hootsuite        = json_decode($data_actual->hootsuite);
-$amarillas_internet  = json_decode($data_actual->amarillas_internet);
-$photosnack       = json_decode($data_actual->photosnack);
-$ftp              = json_decode($data_actual->ftp);
-$foto             = $data_actual->foto;
-$fecha_fundacion        = $data_actual->fecha_fundacion;
-$servicios        = $data_actual->servicios;
-$sector           = $data_actual->sector;
-$rango           = $data_actual->rango;
- //var_dump($gmail);
-?>
 
 
 
@@ -891,26 +965,7 @@ Imprimir y seleccionar datos existentes.
 
 
 
-<!-- Valores e Intereses de la empresa -->
-<script>
-//    @if ($valores != "")
 
-
-//   var va = valores_actuales.split(",");
-
-//   $("#valores option").each(function(){
-//     var val = $(this).val();
-//     //console.log(val);
-//     for (var i = 0; i < va.length; i++) {
-//       console.log(va[i]);
-//       if(val==va[i]){
-//         //console.log(va[i]);
-//       $(this).prop('selected', 'selected');
-//     }
-//   };
-// });
-//  @endif
-</script>
 
 <!-- Fin Valores e Intereses de la empresa -->
 
@@ -983,6 +1038,10 @@ Imprimir y seleccionar datos existentes.
   $("[name='comercial[email][]']").val('{!! $comercial->email[0] !!}');
   $("[name='comercial[celular][]']").val('{!! $comercial->celular[0] !!}');
   $("[name='comercial[telefono][]']").val('{!! $comercial->telefono[0] !!}');
+
+//  $("[value='Cultivo de arroz']").prop('selected', 'selected');
+
+
  //alert(hola);
 </script>
 
@@ -1059,6 +1118,14 @@ Imprimir y seleccionar datos existentes.
   $("[name='gmail_4[contraseña][]']").val("{!! $gmail->cuenta_4->contraseña[0] !!}");
   @endif
 
+  @if ($gmail->cuenta_5->usuario[0]!="")
+  name_div = obj_redes["gmail_5"].name;
+  $("#"+name_div+"").show();
+  obj_redes["gmail_5"].active=true;
+  $("[name='gmail_5[usuario][]']").val("{!! $gmail->cuenta_5->usuario[0] !!}");
+  $("[name='gmail_5[contraseña][]']").val("{!! $gmail->cuenta_5->contraseña[0] !!}");
+  @endif
+
 
 
 
@@ -1096,6 +1163,14 @@ Imprimir y seleccionar datos existentes.
   obj_redes["zohomail_4"].active=true;
   $("[name='zohomail_4[usuario][]']").val("{!! $zohomail->cuenta_4->usuario[0] !!}");
   $("[name='zohomail_4[contraseña][]']").val("{!! $zohomail->cuenta_4->contraseña[0] !!}");
+  @endif
+
+  @if ($zohomail->cuenta_4->usuario[0]!="")
+  name_div = obj_redes["zohomail_5"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_5"].active=true;
+  $("[name='zohomail_5[usuario][]']").val("{!! $zohomail->cuenta_5->usuario[0] !!}");
+  $("[name='zohomail_5[contraseña][]']").val("{!! $zohomail->cuenta_5->contraseña[0] !!}");
   @endif
 
 
