@@ -361,15 +361,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_2->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_2->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -379,15 +379,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_3->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_3->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_3->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_3->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -397,15 +397,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_4->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_4->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_4->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_4->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -416,15 +416,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_5->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_5->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_5->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_5->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -559,15 +559,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-twitter-3"></i> Twitter</h3>
+                    <h4><i class="icon-twitter-3"></i> Twitter</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $twitter->usuario[0] !!}</h3>
+                    <h4>{!! $twitter->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!! $twitter->contraseña[0] !!}</h3>
+                    <h4>{!! $twitter->contraseña[0] !!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -581,15 +581,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-youtube-2"></i> Youtube</h3>
+                    <h4><i class="icon-youtube-2"></i> Youtube</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $youtube->usuario[0] !!}</h3>
+                    <h4>{!! $youtube->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!! $youtube->contraseña[0] !!}</h3>
+                    <h4>{!! $youtube->contraseña[0] !!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -603,15 +603,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-instagram-1"></i> Instagram</h3>
+                    <h4><i class="icon-instagram-1"></i> Instagram</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $instagram->usuario[0] !!}</h3>
+                    <h4>{!! $instagram->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$instagram->contraseña[0]!!}</h3>
+                    <h4>{!!$instagram->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -625,15 +625,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
+                    <h4><i class="icon-linkedin-3"></i> Linkedin</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$linkedin->usuario[0]!!}</h3>
+                    <h4>{!!$linkedin->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                    <h4>{!!$linkedin->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -647,15 +647,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
+                    <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$linkedin->usuario[0]!!}</h3>
+                    <h4>{!!$linkedin->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                    <h4>{!!$linkedin->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -691,15 +691,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-fire-3"></i> A.I</h3>
+                    <h4><i class="icon-fire-3"></i> A.I</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$amarillas_internet->usuario[0]!!}</h3>
+                    <h4>{!!$amarillas_internet->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$amarillas_internet->contraseña[0]!!}</h3>
+                    <h4>{!!$amarillas_internet->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -713,15 +713,15 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-camera-alt"></i> Photosnack</h3>
+                    <h4><i class="icon-camera-alt"></i> Photosnack</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$photosnack->usuario[0]!!}</h3>
+                    <h4>{!!$photosnack->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                    <h4>{!!$photosnack->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -736,19 +736,19 @@ $servicios = json_decode($data->empresa->servicios);
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-server"></i> FTP</h3>
+                    <h4><i class="icon-server"></i> FTP</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->server[0]!!}</h3>
+                    <h4>{!!$photosnack->server[0]!!}</h4>
                     <p>Server</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->usuario[0]!!}</h3>
+                    <h4>{!!$photosnack->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                    <h4>{!!$photosnack->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>

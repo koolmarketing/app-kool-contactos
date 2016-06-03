@@ -83,6 +83,7 @@ if ($anotacion->estado=="1") {
    
    <div class="clearfix">
     <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
+    <button type="button" class="btn btn-xs btn-default"><i class="icon-calendar"></i></button>
     <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'</div></div><br>';
 break;
 

@@ -14,6 +14,7 @@ foreach ($anotaciones as $anotacion) {
         <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
         <span class="pull-right" title="'.$anotacion->created_at.'">'.$dt=$carbon->parse($anotacion->created_at)->diffForHumans().'</span></div>
         <div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
+        
          <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button></div>
        </div><br>';
 
@@ -36,6 +37,7 @@ foreach ($anotaciones as $anotacion) {
            <span class="pull-right" title="'.$anotacion->created_at.'">'.$dt=$carbon->parse($anotacion->created_at)->diffForHumans().'</span></div>
            <div class="panel-footer cam-panel-footer">
             <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
+            <button type="button" class="btn btn-xs btn-default"><i class="icon-calendar"></i></button>
             <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'</div></div><br>';
             break;
 
@@ -57,6 +59,7 @@ foreach ($anotaciones as $anotacion) {
 
              <div class="panel-footer cam-panel-footer">
               <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
+              <button type="button" class="btn btn-xs btn-default"><i class="icon-calendar"></i></button>
               <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'
             </div>
           </div><br>';
@@ -83,6 +86,7 @@ foreach ($anotaciones as $anotacion) {
         </div>
         <div class="panel-footer cam-panel-footer">
           <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
+          <button type="button" class="btn btn-xs btn-default"><i class="icon-calendar"></i></button>
           <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'</div></div><br>';
           break;
 

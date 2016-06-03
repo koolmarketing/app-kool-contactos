@@ -740,8 +740,8 @@ $rango           = $data_actual->rango;
           tokenSeparators: [",", " "]}
           );
       $("#sector").select2(
-        { tags: true,
-          tokenSeparators: [",", " "]}
+        // { tags: true,
+        //   tokenSeparators: [",", " "]}
           );
 
       $('#servicios').select2({
