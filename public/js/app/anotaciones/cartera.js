@@ -19,22 +19,24 @@
                     }
                     else{
                         $(formId)[0].reset();
+
+                        resultado = jQuery.parseJSON(result);
                         alert(result);
-                        var resultado = result; 
-                        if (resultado=="excede") {
-                            swal("Tu cobro excede el saldo del cliente");
-                        }else
-                        {
-                            
+                        
+
+                        if (resultado.tipo=="Error") {
+                            swal(resultado.mensaje);
+                        }
+                        else{                                                        
                             swal("Tú cobro ha sido guardado!");
                             load_notes();  
-                            load_modal_cartera();}
-                            
-                        }
-                    },
-                    error: function(){
-                        console.log('Error');
+                            load_modal_cartera();
+                        }                            
                     }
-                });                    
-        });
+                },
+                error: function(){
+                    console.log('Error');
+                }
+            });                    
+    });
 //      END SAVE AJAX    <---

@@ -1,7 +1,7 @@
 /bootstrap/compiled.php
 .env.*.php
 .env.php
-.env
+#.env
 
 # =========================
 # Operating System Files

@@ -32,7 +32,7 @@ class ServiciosController extends Controller
 				$upload_success = $file->move($destinationPath, $filename1);        
 			}
 
-		if($data->ajax()) {		
+		//if($data->ajax()) {		
 
 			$SR              = new \App\Servicio;
 
@@ -52,7 +52,7 @@ class ServiciosController extends Controller
 			$SR->token       = str_random(10);
 			$SR->save();
 			return $data->input();
-		}
+		//}
 
 	}
 	public function All($id){

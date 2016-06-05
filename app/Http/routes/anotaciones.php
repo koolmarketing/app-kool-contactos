@@ -1,7 +1,7 @@
 <?php
 
 Route::post('nueva-anotacion', [
-	'middleware' => ['auth','web','validarcartera'],
+	'middleware' => ['auth','web','validarcartera','validarserial'],
 	'as'   => 'guardar.anotacion', 
 	'uses' => 'AnotacionesController@GuardarAnotacion'
 	]);

@@ -49,5 +49,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'validarcartera' =>  \App\Http\Middleware\ValidarCartera::class,
+        'validarserial' =>  \App\Http\Middleware\ValidarSerial::class,
     ];
 }
