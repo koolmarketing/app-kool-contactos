@@ -24,7 +24,7 @@
         //      SAVE AJAX   
 
         $('body').on('click', '#btn-guardar-servicio', function(event) {
-           // event.preventDefault();
+            event.preventDefault();
                 $.ajaxSetup({
                     headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
                 })

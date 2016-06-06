@@ -1,5 +1,6 @@
   
 <?php $carbon->setLocale('es'); ?>
+ <?php use Clicknow\Money\Money; ?>
 <?php 
 
 foreach ($anotaciones as $anotacion) {
@@ -61,28 +62,29 @@ $monto  =  $anotacion->monto;
 $inicio =  $anotacion->fecha_inicio;
 $fin=  $anotacion->fecha_cobro;
 
-$input_id = Form::hidden('id', $anotacion->id);
+$input_id_empresa   = Form::hidden('id_empresa', $anotacion->id);
+$input_id_anotacion = Form::hidden('id_anotacion', $anotacion->anotacion_id);
 
-$inicio_form = Form::open(array('action' => 'AnotacionesController@updateCobro','class'=>'update_cobro', 'method' => 'post', 'id' => 'form-actualizar-cobro_'.$anotacion->id.'','files'=>true));
+$inicio_form = Form::open(array('action' => 'AnotacionesController@updateCobro','class'=>'update_cobro', 'method' => 'post', 'id' => 'form-actualizar-cobro_'.$anotacion->anotacion_id.'','files'=>true));
 
 $fin_form = Form::close();
 
 if ($anotacion->estado=="0" && empty($anotacion->comprobante)) {
-$alerta = '<div class="alert alert-warning cabecera-comprobante-cobro"><strong>:(</strong> No hay comprobante<button type="button" data-id="'.$anotacion->id.'" class="btn btn-xs pull-right btn-default"><i class="icon-upload-2"></i>Cargar</button></div>';
+$alerta = '<div class="alert alert-warning cabecera-comprobante-cobro"><strong>:(</strong> No hay comprobante<button type="button" data-id="'.$anotacion->anotacion_id.'" class="btn btn-xs pull-right btn-default"><i class="icon-upload-2"></i>Cargar</button></div>';
 }else{$alerta = '';}
 if ($anotacion->estado=="1") {
-       $btn='<button type="button" class="btn btn-xs btn-default btn-reportar" data-id="'.$anotacion->id.'" data-serial="'.$anotacion->serial.'"> Reportar Cobro</button>';
+       $btn='<button type="button" class="btn btn-xs btn-default btn-reportar" data-id="'.$anotacion->anotacion_id.'" data-serial="'.$anotacion->serial.'"> Reportar Cobro</button>';
    }else{
        $btn='<button type="button" class="btn btn-xs btn-default"> Fue Cobrado</button>';
    }
    echo
-    $inicio_form.$input_id.'<div class="content-box biggest-box orange-bg">'.$alerta.'  
+    $inicio_form.$input_id_empresa.$input_id_anotacion.'<div class="content-box biggest-box orange-bg">'.$alerta.'  
    <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                            
        <h3 class="text-uppercase zero-m text-title-note"><i class=" icon-chart-line-1"></i> Cobro para <span title="'.$anotacion->fecha_cobro.'">'.$dt=$carbon->parse($anotacion->fecha_cobro)->diffForHumans().'</span><br><br><i class=" icon-calendar-empty"></i>
 '.$inicio.' - '.$fin.'
        <br>
        <i class="icon-hash"></i>'.$anotacion->serial.'<br>
-       <i class="icon-dollar"></i>'.$monto.'
+       <i class="icon-dollar"></i>'.Money::COP($monto, true).'
        </h3><br>
        <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
        <span class="pull-right" title="'.$anotacion->created_at.'">'.$dt=$carbon->parse($anotacion->created_at)->diffForHumans().'</span>   

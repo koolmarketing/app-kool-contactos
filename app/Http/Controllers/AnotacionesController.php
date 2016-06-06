@@ -96,13 +96,7 @@ class AnotacionesController extends Controller
 
     function print_anotacion_empresas($id){        
      $carbon = new \Carbon\Carbon();
-     $anotaciones = DB::table('anotaciones')
-     ->where('id_perfil','=',''.$id.'')
-     ->join('users', 'anotaciones.id_creador', '=', 'users.id')
-     ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
-     ->select('anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')
-     ->orderBy('anotaciones.created_at', 'desc')
-     ->get();
+     $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
 
      return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
  }
@@ -167,7 +161,32 @@ function get_cobros(){
 }
 
 function updateCobro(Request $request){
-   return response()->json(['mensaje' => 'Se efectuo el reporte de pago','tipo'=>'Exito']);
+    // Descontar del servicio
+   
+    $id_empresa   = $request->input('id_empresa');
+    $id_anotacion = $request->input('id_anotacion');
+    
+     // $id_anotacion = 7;
+    $cobro          = \App\Anotacion::find($id_anotacion);
+    $servicio_activo=  DB::table('servicios')->where('serial', ''.$cobro->serial.'')->first(); $monto_cobro    = $cobro->monto;    
+
+    $nuevo_saldo = $servicio_activo->saldo - $monto_cobro;
+
+    $servicio_activo->saldo = $nuevo_saldo;
+
+    DB::table('servicios')
+          ->where('id', $servicio_activo->id)
+          ->update(['saldo' => $nuevo_saldo]);
+
+    DB::table('anotaciones')
+          ->where('id', $cobro->id)
+          ->update(['estado' => 0]);
+
+    
+
+    //return response()->json($cobro);
+   return response()->json(['mensaje' => 'Se efectuo el reporte de pago: nuevo saldo para la orden de servicio #'.$cobro->serial.': '.$nuevo_saldo.'','tipo'=>'Exito']);
+    
 
 }
 

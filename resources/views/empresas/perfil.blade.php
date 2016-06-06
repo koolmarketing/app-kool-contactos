@@ -998,7 +998,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="submit" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
+        <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
         {!! Form::close() !!}
     </div>
 </div>

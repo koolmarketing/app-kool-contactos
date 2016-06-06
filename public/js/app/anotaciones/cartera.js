@@ -63,9 +63,15 @@ $('body').on('click', '.btn-reportar', function(event) {
                         //alert(result);                    
                         if (resultado.tipo=="Error") {
                             swal(resultado.mensaje);
+                            
+                        }else if(resultado.tipo=="Exito"){
+                            swal(resultado.mensaje);
+                            load_notes();  
+                            load_modal_cartera();
+                            load_servicios();
                         }
                         else{                                                        
-                            console.log('OK deducir');
+                            
                         }                            
                     
                 },
