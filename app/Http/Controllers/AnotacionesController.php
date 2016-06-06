@@ -166,7 +166,10 @@ function get_cobros(){
     return $total;
 }
 
+function updateCobro(Request $request){
+   return response()->json(['mensaje' => 'Se efectuo el reporte de pago','tipo'=>'Exito']);
 
+}
 
 }    
 

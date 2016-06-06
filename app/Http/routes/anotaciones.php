@@ -44,4 +44,15 @@ Route::get('anotaciones/empresa/contar-recordatorios', [
 	'uses' => 'AnotacionesController@get_recordatorios'
 	]);
 
+/*
+*
+*  Update Cartera
+*
+*/
+
+Route::post('update/cobro', [
+	'middleware' => ['auth','web'], 
+	'uses' => 'AnotacionesController@updateCobro'
+	]);
+
 	?>

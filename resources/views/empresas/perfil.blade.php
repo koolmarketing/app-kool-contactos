@@ -15,6 +15,7 @@
 
     <div class="col-lg-12">
         <div class="col-lg-12"><br>
+        <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
           <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
           <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
       </div>
@@ -1008,7 +1009,11 @@
 
 
 {{-- Reportar Cobro --}}
-<div class="modal fade" id="reporte-de-cobro" style="z-index:1000;">
+
+{{-- End Reportar Cobro --}}
+
+
+<div class="modal fade" id="modal-id">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -1016,16 +1021,19 @@
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                
+                    {!!Form::open(array('action' => 'AnotacionesController@updateCobro', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+<input type="text" name="id" value="10" placeholder="">
+
+
+             
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="input" class="btn btn-primary">Save changes</button>{!! Form::close() !!}
             </div>
         </div>
     </div>
 </div>
-{{-- End Reportar Cobro --}}
 
 
 @stop
