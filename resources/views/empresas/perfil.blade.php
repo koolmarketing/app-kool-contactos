@@ -15,68 +15,68 @@
 
     <div class="col-lg-12">
         <div class="col-lg-12"><br>
-        <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
-          <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
-          <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
-      </div>
-      <!-- Sección panel 1 -->
-      <section>
-        <div class="panel panel-default">
-            <div class="panel-body">
-              <article class="col-md-4">
-                  <div class="col-lg-12 col-xs-12">
-                    <div class="content-box profile-sidebar box-shadow company-block-1">
-                        <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
-                        <div class="profile-usertitle">
-                            <div class="profile-usertitle-name">
-                                <h4>{!! $data->empresa->razon_social !!}</h4>
+            <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
+            <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
+            <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
+        </div>
+        <!-- Sección panel 1 -->
+        <section>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                  <article class="col-md-4">
+                      <div class="col-lg-12 col-xs-12">
+                        <div class="content-box profile-sidebar box-shadow company-block-1">
+                            <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
+                            <div class="profile-usertitle">
+                                <div class="profile-usertitle-name">
+                                    <h4>{!! $data->empresa->razon_social !!}</h4>
+                                </div>
+                                <div class="profile-usertitle-job">
+                                    {!! $data->empresa->nit !!}
+                                </div>
                             </div>
-                            <div class="profile-usertitle-job">
-                                {!! $data->empresa->nit !!}
-                            </div>
-                        </div>
-                    </div>            
-                </div>
-            </article>
+                        </div>            
+                    </div>
+                </article>
 
-            <article class="col-md-4">
-              <div class="content-box box-shadow">
-                <div class="content-box small-box">
-                    <span class="fa-stack fa-2x block pull-left">
-                      <i class="fa fa-circle fa-stack-2x blue"></i>
-                      <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <div class="pull-left info">
-                    <h3 class="text-uppercase zero-m">Sector</h3>
-                    <span class="block"><h4>{!! $data->empresa->sector !!}</h4></span>
+                <article class="col-md-4">
+                  <div class="content-box box-shadow">
+                    <div class="content-box small-box">
+                        <span class="fa-stack fa-2x block pull-left">
+                          <i class="fa fa-circle fa-stack-2x blue"></i>
+                          <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <div class="pull-left info">
+                        <h3 class="text-uppercase zero-m">Sector</h3>
+                        <span class="block"><h4>{!! $data->empresa->sector !!}</h4></span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
             </div>
-        </div>
-    </article>
+        </article>
 
-    <?php 
-    $servicios = json_decode($data->empresa->servicios);
-    ?>
+        <?php 
+        $servicios = json_decode($data->empresa->servicios);
+        ?>
 
-    <article class="col-md-4">
-       <div class="content-box box-shadow">
-        <div class="content-box small-box">
-            <span class="fa-stack fa-2x block pull-left">
-              <i class="fa fa-circle fa-stack-2x blue"></i>
-              <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-          </span>
-          <div class="pull-left info">
-              <h3 class="text-uppercase zero-m">Servicios</h3>
-              <span class="block"><h4>                    
-                @foreach ($servicios as $servicio)
-                <h4>{!! $servicio !!}</h4>
-                @endforeach
-            </h4></span>
+        <article class="col-md-4">
+         <div class="content-box box-shadow">
+            <div class="content-box small-box">
+                <span class="fa-stack fa-2x block pull-left">
+                  <i class="fa fa-circle fa-stack-2x blue"></i>
+                  <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
+              </span>
+              <div class="pull-left info">
+                  <h3 class="text-uppercase zero-m">Servicios</h3>
+                  <span class="block"><h4>                    
+                    @foreach ($servicios as $servicio)
+                    <h4>{!! $servicio !!}</h4>
+                    @endforeach
+                </h4></span>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
-    </div>
-</div> 
+    </div> 
 </article>
 </div>
 </div>
@@ -88,175 +88,175 @@
 
 <section class="row">
     <div class="col-md-8">
-    <div class="tabbable tabs-with-bg big-tabs">
-      <!-- Tab Principal -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
-        <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
-        <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
-        <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
-    </ul>    
-    
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <!-- Inicio Contactos -->
-        <div role="tabpanel" class="tab-pane active" id="contactos">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <?php 
-                    $representante = json_decode($data->empresa->representante);
-                    $comercial     = json_decode($data->empresa->comercial);
-                    $soporte       = json_decode($data->empresa->soporte); 
-                    ?>
-                    {{-- expr --}}
-                    <!-- Info Contactos Empresas -->
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <h3>{!! $data->empresa->ciudad_pais !!}</h3>
-                            <p><i class="icon-globe-6"></i> Ciudad, País</p>
-                            <hr>
+        <div class="tabbable tabs-with-bg big-tabs">
+          <!-- Tab Principal -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
+            <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
+            <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
+            <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
+        </ul>    
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Inicio Contactos -->
+            <div role="tabpanel" class="tab-pane active" id="contactos">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <?php 
+                        $representante = json_decode($data->empresa->representante);
+                        $comercial     = json_decode($data->empresa->comercial);
+                        $soporte       = json_decode($data->empresa->soporte); 
+                        ?>
+                        {{-- expr --}}
+                        <!-- Info Contactos Empresas -->
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <h3>{!! $data->empresa->ciudad_pais !!}</h3>
+                                <p><i class="icon-globe-6"></i> Ciudad, País</p>
+                                <hr>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h3>{!! $data->empresa->direccion !!}</h3>
+                                <p><i class="icon-location-5"></i> Dirección</p>
+                                <hr>
+                            </div>
                         </div>
+                        <!-- Fin Contactos Empresas -->
+                        <br>
+                        <!-- Inicio tab Contactos -->
+                        <div>
 
-                        <div class="col-md-6">
-                            <h3>{!! $data->empresa->direccion !!}</h3>
-                            <p><i class="icon-location-5"></i> Dirección</p>
-                            <hr>
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab">Representante</a></li>
+                            <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab">Comercial</a></li>
+                            <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte</a></li>
+
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="representante">
+                               <div class="panel panel-default">
+                                <div class="panel-body">
+                                    @if ($representante->nombre[0] && $representante->email[0] != "")
+                                    <!-- -->
+                                    <div class="col-md-6">
+                                        <h4>{!! $representante->trato[0] !!} {!! $representante->nombre[0] !!}</h4>
+                                        <p><i class="icon-user"></i> Nombre</p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4>{!! $representante->cargo[0] !!}</h4>
+                                        <p><i class="icon-cog-alt"></i> Cargo</p>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4>{!! $representante->email[0] !!}</h4>
+                                        <p><i class="icon-email"></i> email</p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <h4>{!! $representante->telefono[0] !!}</h4>
+                                        <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h4>{!! $representante->celular[0] !!}</h4>
+                                        <p><i class="icon-mobile-2"></i> Celular</p>
+                                    </div>
+                                    <!-- -->
+                                    @else
+                                    <div class="col-md-12">
+                                        <h2>No hay contacto Comercial</h2>
+                                    </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Fin Contactos Empresas -->
-                    <br>
-                    <!-- Inicio tab Contactos -->
-                    <div>
-
-                      <!-- Nav tabs -->
-                      <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab">Representante</a></li>
-                        <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab">Comercial</a></li>
-                        <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte</a></li>
-
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="representante">
-                         <div class="panel panel-default">
+                        <div role="tabpanel" class="tab-pane" id="comercial">
+                          <div class="panel panel-default">
                             <div class="panel-body">
-                                @if ($representante->nombre[0] && $representante->email[0] != "")
+
+                                @if ($comercial->nombre[0] && $comercial->email[0] != "")
+                                {{-- expr --}} 
                                 <!-- -->
                                 <div class="col-md-6">
-                                    <h4>{!! $representante->trato[0] !!} {!! $representante->nombre[0] !!}</h4>
+                                    <h4>{!! $comercial->trato[0] !!} {!! $comercial->nombre[0] !!}</h4>
                                     <p><i class="icon-user"></i> Nombre</p>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <h4>{!! $representante->cargo[0] !!}</h4>
+                                    <h4>{!! $comercial->cargo[0] !!}</h4>
                                     <p><i class="icon-cog-alt"></i> Cargo</p>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <h4>{!! $representante->email[0] !!}</h4>
+                                    <h4>{!! $comercial->email[0] !!}</h4>
                                     <p><i class="icon-email"></i> email</p>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <h4>{!! $representante->telefono[0] !!}</h4>
+                                    <h4>{!! $comercial->telefono[0] !!}</h4>
                                     <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h4>{!! $representante->celular[0] !!}</h4>
+                                    <h4>{!! $comercial->celular[0] !!}</h4>
                                     <p><i class="icon-mobile-2"></i> Celular</p>
                                 </div>
                                 <!-- -->
                                 @else
                                 <div class="col-md-12">
-                                    <h2>No hay contacto Comercial</h2>
+                                    <h2>No hay datos</h2>
                                 </div>
                                 @endif
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="comercial">
-                      <div class="panel panel-default">
+                    <div role="tabpanel" class="tab-pane" id="soporte">
+                       <div class="panel panel-default">
                         <div class="panel-body">
-
-                            @if ($comercial->nombre[0] && $comercial->email[0] != "")
-                            {{-- expr --}} 
+                            @if ($soporte->nombre[0] && $soporte->email[0] != "")
                             <!-- -->
+
                             <div class="col-md-6">
-                                <h4>{!! $comercial->trato[0] !!} {!! $comercial->nombre[0] !!}</h4>
+                                <h4>{!! $soporte->trato[0] !!} {!! $soporte->nombre[0] !!}</h4>
                                 <p><i class="icon-user"></i> Nombre</p>
                             </div>
 
                             <div class="col-md-6">
-                                <h4>{!! $comercial->cargo[0] !!}</h4>
+                                <h4>{!! $soporte->cargo[0] !!}</h4>
                                 <p><i class="icon-cog-alt"></i> Cargo</p>
                             </div>
 
                             <div class="col-md-6">
-                                <h4>{!! $comercial->email[0] !!}</h4>
+                                <h4>{!! $soporte->email[0] !!}</h4>
                                 <p><i class="icon-email"></i> email</p>
                             </div>
 
                             <div class="col-md-3">
-                                <h4>{!! $comercial->telefono[0] !!}</h4>
+                                <h4>{!! $soporte->telefono[0] !!}</h4>
                                 <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
                             </div>
                             <div class="col-md-3">
-                                <h4>{!! $comercial->celular[0] !!}</h4>
+                                <h4>{!! $soporte->celular[0] !!}</h4>
                                 <p><i class="icon-mobile-2"></i> Celular</p>
                             </div>
+
                             <!-- -->
                             @else
                             <div class="col-md-12">
-                                <h2>No hay datos</h2>
+                                <h2>No hay datos para Soporte</h2>
                             </div>
                             @endif
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="soporte">
-                 <div class="panel panel-default">
-                    <div class="panel-body">
-                        @if ($soporte->nombre[0] && $soporte->email[0] != "")
-                        <!-- -->
-
-                        <div class="col-md-6">
-                            <h4>{!! $soporte->trato[0] !!} {!! $soporte->nombre[0] !!}</h4>
-                            <p><i class="icon-user"></i> Nombre</p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <h4>{!! $soporte->cargo[0] !!}</h4>
-                            <p><i class="icon-cog-alt"></i> Cargo</p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <h4>{!! $soporte->email[0] !!}</h4>
-                            <p><i class="icon-email"></i> email</p>
-                        </div>
-
-                        <div class="col-md-3">
-                            <h4>{!! $soporte->telefono[0] !!}</h4>
-                            <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4>{!! $soporte->celular[0] !!}</h4>
-                            <p><i class="icon-mobile-2"></i> Celular</p>
-                        </div>
-
-                        <!-- -->
-                        @else
-                        <div class="col-md-12">
-                            <h2>No hay datos para Soporte</h2>
-                        </div>
-                        @endif
-                    </div>
-                </div>
             </div>
-        </div>
 
-    </div>
-</div><!-- Panel Body  -->
+        </div>
+    </div><!-- Panel Body  -->
 </div><!-- Panel defaul -->
 </div>
 <!-- Fin Contactos -->
@@ -284,24 +284,24 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                       <div class="panel-body">
-                         {!! $data->empresa->mision !!}
-                     </div>
-                 </div>
-             </div>
-             <div class="panel panel-primary">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      <i class="icon-bookmark-empty-1"></i> Visión
-                  </a>
-              </h4>
-          </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="panel-body">
-                {!! $data->empresa->vision !!}
-            </div>
+                       {!! $data->empresa->mision !!}
+                   </div>
+               </div>
+           </div>
+           <div class="panel panel-primary">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="icon-bookmark-empty-1"></i> Visión
+              </a>
+          </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            {!! $data->empresa->vision !!}
         </div>
     </div>
+</div>
 </div>
 </div>
 <br>
@@ -748,21 +748,17 @@
 <div role="tabpanel" class="tab-pane" id="contrataciones">
   <div class="panel panel-default">
     <div class="panel-body">
-        <div role="tabpanel" class="tab-pane" id="contrataciones"> 
-            <div class="col-md-12"> 
-                <div class="row pull-right">
-                 <div class="col-md-12">
-                  <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
-                  <br>
-              </div><br><br>
-          </div>
-      </div><br>
-      <div id="contenedor_servicios_empresa" class="col-md-12">
+        <div role="tabpanel" class="tab-pane" id="contrataciones">
+               <div class="pull-right">
+                   <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
+               </div>
+               <br><br><br>
+           </div><br>
+           <div id="contenedor_servicios_empresa" class="col-md-12">
 
-      </div>
-
-  </div>
-</div>
+           </div>
+       </div>
+   
 
 </div>
 </div>
@@ -913,18 +909,18 @@
                     <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
                     <input type="hidden" name="tipo" id="" class="form-control" value="cobro">  
                     <div class="col-md-12"> 
-                       <div class="col-md-6">  <br>  
+                     <div class="col-md-6">  <br>  
 
-                           <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+                         <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
 
-                       </div>
-                       <div class="col-md-6"> <br>                     
+                     </div>
+                     <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                   <div class="col-md-6">
+                 <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
 
@@ -970,16 +966,16 @@
                         </div>
                     </div>                   
                     <div class="col-md-12">
-                       <div class="col-md-6">  <br>  
-                           <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-                       </div>
-                       <div class="col-md-6"> <br>                     
+                     <div class="col-md-6">  <br>  
+                         <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+                     </div>
+                     <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                   <div class="col-md-6">
+                 <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
                 </div>
@@ -1021,11 +1017,11 @@
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                    {!!Form::open(array('action' => 'AnotacionesController@updateCobro', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-<input type="text" name="id" value="10" placeholder="">
+                {!!Form::open(array('action' => 'AnotacionesController@updateCobro', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+                <input type="text" name="id" value="10" placeholder="">
 
 
-             
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1051,9 +1047,9 @@
 
 <script>
     function load_notes() {
-     $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
- }
- function load_servicios(){
+       $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
+   }
+   function load_servicios(){
     $("#contenedor_servicios_empresa").load("/empresa/servicios_imprimir/all/{!! $data->empresa->id !!}");
     $("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }
@@ -1100,22 +1096,22 @@ function load_modal_cartera(){
             timepicker:true
         });
         $('.datetimepicker3').datetimepicker({
-           i18n:{
-              de:{
-                 months:[
-                 'Enero','Febrero','Marzo','Abril',
-                 'Mayo','Junio','Julio','Agosto',
-                 'Septiembre','Octubre','Noviembre','Diciembre',
-                 ],
-                 dayOfWeek:[
-                 "Do", "Lu", "Ma", "Mi", 
-                 "Ju", "Vi", "Sa",
-                 ]
-             }
-         },
-         timepicker:true,
-         format:'Y-m-d H:i:00'
-     });
+         i18n:{
+          de:{
+           months:[
+           'Enero','Febrero','Marzo','Abril',
+           'Mayo','Junio','Julio','Agosto',
+           'Septiembre','Octubre','Noviembre','Diciembre',
+           ],
+           dayOfWeek:[
+           "Do", "Lu", "Ma", "Mi", 
+           "Ju", "Vi", "Sa",
+           ]
+       }
+   },
+   timepicker:true,
+   format:'Y-m-d H:i:00'
+});
     });
 </script>
 

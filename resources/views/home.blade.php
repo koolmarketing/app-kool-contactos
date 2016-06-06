@@ -14,7 +14,7 @@
 					</div>
 					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
 					<div class="progress progress-bar-sm zero-m">
-						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 						</div>
 					</div>
 					<div class="w-status clearfix">
@@ -35,7 +35,7 @@
 					</div>
 					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
 					<div class="progress progress-bar-sm zero-m">
-						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 						</div>
 					</div>
 					<div class="w-status clearfix">
@@ -56,7 +56,7 @@
 					</div>
 					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
 					<div class="progress progress-bar-sm zero-m">
-						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
 						</div>
 					</div>
 					<div class="w-status clearfix">
@@ -87,7 +87,7 @@
 						</span>
 						<div class="pull-left info">
 							<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
-							<span class="block">Comentarios</span>
+							<span class="block">Anotaciones</span>
 						</div>
 						<div class="clearfix"></div>
 					</div>

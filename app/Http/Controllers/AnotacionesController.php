@@ -181,6 +181,18 @@ function updateCobro(Request $request){
     DB::table('anotaciones')
           ->where('id', $cobro->id)
           ->update(['estado' => 0]);
+        
+    $id_user=Auth::id();
+
+    $user_reporte = new \stdClass;
+
+    $user_reporte->user = Auth::id();
+
+    $usr_reporte = json_encode($user_reporte);
+
+        DB::table('anotaciones')
+          ->where('id', $cobro->id)
+          ->update(['involucrados' => ''.$usr_reporte.'']);
 
     
 
