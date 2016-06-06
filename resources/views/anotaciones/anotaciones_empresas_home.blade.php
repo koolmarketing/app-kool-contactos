@@ -71,7 +71,7 @@ foreach ($anotaciones as $anotacion) {
           $fin=  $carbon->toFormattedDateString($anotacion->fecha_cobro);
 
           if ($anotacion->estado=="1") {
-           $btn='<button type="button" class="btn btn-xs btn-default"> Reportar Cobro</button>';
+           $btn='<button type="button" class="btn btn-xs btn-default" data-serial="'.$anotacion->serial.'"> Reportar Cobro</button>';
          }else{
            $btn='<button type="button" class="btn btn-xs btn-default"> Fue Cobrado</button>';
          }

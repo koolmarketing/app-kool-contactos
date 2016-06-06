@@ -23,7 +23,7 @@ class ValidarSerial
         if ($request->input('tipo')=="cobro") 
         {
             $serial_cobro = $request->input('serial');
-            $saldo_cobro  = $request->input('monto');
+            $monto_cobro  = $request->input('monto');
 
             $serial_servicio =
             DB::table('servicios')
@@ -36,13 +36,18 @@ class ValidarSerial
                 ->where('serial','=',''.$serial_cobro.'')
                 ->sum('saldo');
 
-                if ($saldo_cobro > $saldo_servicio) {
-                    return response()->json(['mensaje' => 'El monto del cobro es superior al saldo del servicio =(','tipo'=>'Error']);
+                $suma_cobros = DB::table('anotaciones')
+                ->where('serial','=',''.$serial_cobro.'')
+                ->sum('monto');
+
+                if ($monto_cobro > $saldo_servicio) {
+                    return response()->json(['mensaje' => 'El monto del cobro es superior al saldo del cliente =(','tipo'=>'Error']);
+                }elseif ($suma_cobros + $monto_cobro > $saldo_servicio) {
+                    return response()->json(['mensaje' => 'El monto del cobro es superior al saldo del servicio prestado =(','tipo'=>'Error']);
                 }
                 
             }else{
               return response()->json(['mensaje' => 'El serial no corresponde a ningún servicio =(','tipo'=>'Error']);
-
           }
 
           return $next($request);

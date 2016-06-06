@@ -87,6 +87,7 @@
 
 <section class="row">
     <div class="col-md-8">
+    <div class="tabbable tabs-with-bg big-tabs">
       <!-- Tab Principal -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
@@ -769,6 +770,7 @@
 
 </div>
 </div>
+</div>
 <!-- Fin Tab Principal -->
 
 
@@ -1003,6 +1005,27 @@
 </div>
 
 <!-- END Service -->
+
+
+{{-- Reportar Cobro --}}
+<div class="modal fade" id="reporte-de-cobro" style="z-index:1000;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- End Reportar Cobro --}}
 
 
 @stop

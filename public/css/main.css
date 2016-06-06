@@ -26,4 +26,9 @@
 .panel-rojo {
   background: #E9585B; }
 
+.cabecera-comprobante-cobro {
+  background: white !important;
+  color: gray !important;
+  border: none; }
+
 /*# sourceMappingURL=main.css.map */
