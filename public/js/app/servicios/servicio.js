@@ -53,3 +53,11 @@
                 });                    
         });
 //      END SAVE AJAX    <---
+
+
+$('body').on('click', '.btn-comprobante-servicio', function(event) {
+    event.preventDefault();
+    id_anotacion = $(this).attr('data-id');
+    $('#id_anotacion_cobro').val(id_anotacion);
+    $('#comprobante-cobro').modal('show');
+});

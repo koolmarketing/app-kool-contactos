@@ -63,7 +63,7 @@ class ServiciosController extends Controller
 		$servicios = DB::table('servicios')
 		->join('users', 'users.id', '=', 'servicios.id_usuario')
 		->where('id_perfil', '=', ''.$id.'')
-		->select('servicios.*','users.id', 'users.fotografia')
+		->select('servicios.id AS id_servicio','servicios.*','users.id', 'users.fotografia')
 		->orderBy('servicios.id','desc')->get();
 
 		$saldo = DB::table('servicios')->where('id_perfil', '=', ''.$id.'')->sum('saldo');

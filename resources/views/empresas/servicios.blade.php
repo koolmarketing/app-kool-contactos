@@ -24,18 +24,24 @@ echo '<h4> Saldo Actual: '.Money::COP($saldo, true).'</h4>';
                     @endif<br>
                     <b>Valor:</b> {!! Money::COP($servicio->valor, true); !!}<br>
                     <b>Saldo:</b> {!! Money::COP($servicio->saldo, true); !!}<br>
-<hr>
+<hr>  
+                    @if($servicio->comprobante=="")
+                    <button class="btn btn-danger btn-xs pull-right btn-comprobante-servicio" data-id="{!! $servicio->id_servicio  !!}"><i class="icon-upload"></i> Cargar Comprobante</button>
+                    @endif
+                                        @if($servicio->comprobante!="") 
+                    <a href="{!! URL::to('/') !!}/uploads/comprobantes/{!! $servicio->comprobante !!}" target="_blank"  class="btn btn-xs btn-success pull-right">Comprobante</a>               
+                    @endif
                     @if($servicio->serial!="")
                     <i class="icon-hash"></i><b>Serial:</b> {!! $servicio->serial !!}<br>
                     @endif
+
+                  
                     
                     <i class="icon-check"></i><b class="text-success">Inicia:</b> {!! $servicio->inicio !!}<br>
                     <i class="icon-cancel-circled2-1"></i><b class="text-danger">Finaliza:</b> {!! $servicio->fin !!}<br><br>
-                    @if($servicio->comprobante!="") 
-                    <a href="{!! URL::to('/') !!}/uploads/comprobantes/{!! $servicio->comprobante !!}" class="btn btn-xs btn-default">Comprobante</a>
-                    @else
-                    Sin comprobante
-                    @endif
+
+
+
                    
 
                 </p>
