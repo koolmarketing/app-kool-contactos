@@ -15,7 +15,7 @@
 
     <div class="col-lg-12">
         <div class="col-lg-12"><br>
-            <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
+            
             <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
             <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
         </div>
@@ -56,7 +56,10 @@
         </article>
 
         <?php 
-        $servicios = json_decode($data->empresa->servicios);
+        if(!empty($data->empresa->servicios))
+        {
+            $servicios = json_decode($data->empresa->servicios);
+        }
         ?>
 
         <article class="col-md-4">
@@ -68,16 +71,20 @@
               </span>
               <div class="pull-left info">
                   <h3 class="text-uppercase zero-m">Servicios</h3>
-                  <span class="block"><h4>                    
-                    @foreach ($servicios as $servicio)
-                    <h4>{!! $servicio !!}</h4>
-                    @endforeach
-                </h4></span>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div> 
-</article>
+                  <span class="block"><h4>  
+                      @if (!empty($servicios))
+                      @foreach ($servicios as $servicio)
+                      <h4>{!! $servicio !!}</h4>
+                      @endforeach                
+                      @endif                 
+
+
+                  </h4></span>
+              </div>
+              <div class="clearfix"></div>
+          </div>
+      </div> 
+  </article>
 </div>
 </div>
 </section>
@@ -141,7 +148,7 @@
                             <div role="tabpanel" class="tab-pane active" id="representante">
                                <div class="panel panel-default">
                                 <div class="panel-body">
-                                    @if ($representante->nombre[0] && $representante->email[0] != "")
+                                    @if ($representante->nombre[0]  != "")
                                     <!-- -->
                                     <div class="col-md-6">
                                         <h4>{!! $representante->trato[0] !!} {!! $representante->nombre[0] !!}</h4>
@@ -179,7 +186,7 @@
                           <div class="panel panel-default">
                             <div class="panel-body">
 
-                                @if ($comercial->nombre[0] && $comercial->email[0] != "")
+                                @if ($comercial->nombre[0]  != "")
                                 {{-- expr --}} 
                                 <!-- -->
                                 <div class="col-md-6">
@@ -217,7 +224,7 @@
                     <div role="tabpanel" class="tab-pane" id="soporte">
                        <div class="panel panel-default">
                         <div class="panel-body">
-                            @if ($soporte->nombre[0] && $soporte->email[0] != "")
+                            @if ($soporte->nombre[0]  != "")
                             <!-- -->
 
                             <div class="col-md-6">
@@ -266,9 +273,20 @@
   <div class="panel panel-default">
     <div class="panel-body">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>@foreach (json_decode($data->empresa->valores) as $valor)
+            <?php 
+            if(!empty($data->empresa->valores))
+                {
+                    $valores = json_decode($data->empresa->valores);
+                }
+        
+            ?>
+            <h3>@if (!empty($valores))
+
+
+                @foreach ( $valores as $valor)
                 <span class="label label-primary">{!!$valor!!}</span>
                 @endforeach</h3>
+                @endif
                 <p><i class="icon-list-2"></i> Valores Corporativos</p>
 
                 <br>
@@ -284,31 +302,44 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                       <div class="panel-body">
-                       {!! $data->empresa->mision !!}
-                   </div>
-               </div>
-           </div>
-           <div class="panel panel-primary">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <i class="icon-bookmark-empty-1"></i> Visión
-              </a>
-          </h4>
+                          @if(!empty($data->empresa->mision))
+                          {!! $data->empresa->mision !!}
+                          @endif
+                      </div>
+                  </div>
+              </div>
+              <div class="panel panel-primary">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="icon-bookmark-empty-1"></i> Visión
+                  </a>
+              </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                  @if (!empty($data->empresa->vision))
+                  {!! $data->empresa->vision !!}
+                  @endif
+
+              </div>
+          </div>
       </div>
-      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            {!! $data->empresa->vision !!}
-        </div>
-    </div>
-</div>
-</div>
+  </div>
 </div>
 <br>
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <h3>@foreach (json_decode($data->empresa->intereses) as $interes)
+    <?php 
+    if(!empty($data->empresa->intereses)){
+        $intereses = json_decode($data->empresa->intereses);
+    } ?>
+    <h3>
+    @if (!empty($intereses))
+        @foreach ($intereses as $interes)
         <span class="label label-primary">{!!$interes!!}</span>
-        @endforeach</h3>
+        @endforeach
+    @endif
+    </h3>
         <p><i class="icon-hourglass-1"></i> Intereses</p>
     </div>
 
@@ -749,16 +780,16 @@
   <div class="panel panel-default">
     <div class="panel-body">
         <div role="tabpanel" class="tab-pane" id="contrataciones">
-               <div class="pull-right">
-                   <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
-               </div>
-               <br><br><br>
-           </div><br>
-           <div id="contenedor_servicios_empresa" class="col-md-12">
-
+           <div class="pull-right">
+               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
            </div>
+           <br><br><br>
+       </div><br>
+       <div id="contenedor_servicios_empresa" class="col-md-12">
+
        </div>
-   
+   </div>
+
 
 </div>
 </div>
@@ -880,8 +911,8 @@
 </div>
 
 <!--====  Stat Cartera  ====-->
-<div class="modal fade" id="modal-cobro">
-    <div class="modal-dialog">
+<div class="modal fade " id="modal-cobro">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -898,11 +929,7 @@
                             <span class="pull-right" id="saldo"></span>
                         </div>
                         <div id="modal_cartera" class="col-md-12">
-
-                        </div>
-                        
-
-
+                        </div>                      
                     </div>
 
                     {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-cartera','files'=>true));!!}
@@ -1008,28 +1035,6 @@
 
 {{-- End Reportar Cobro --}}
 
-
-<div class="modal fade" id="modal-id">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                {!!Form::open(array('action' => 'AnotacionesController@updateCobro', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-                <input type="text" name="id" value="10" placeholder="">
-
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="input" class="btn btn-primary">Save changes</button>{!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-</div>
 
 
 @stop

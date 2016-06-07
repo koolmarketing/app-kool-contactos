@@ -357,7 +357,7 @@
             <div role="tabpanel" class="tab-pane" id="filosofia">
               <div class="content-box big-box box-shadow">
                 <div class="form-group col-md-12">
-                  <select id="valores" name="valores" class="form-control" multiple="multiple" style="width: 100%;">
+                  <select id="valores" name="valores[]" class="form-control" multiple="multiple" style="width: 100%;">
                    @foreach ($data->valores as $valor)
                    <option value="{!! $valor !!}">{!! $valor !!}</option>
                    @endforeach

@@ -925,10 +925,10 @@ Imprimir y seleccionar datos existentes.
 <!-- Datos Empresa -->
 <script>
   @if (isset($razon_social))
-  $("[name='razon_social']").val('{!!$razon_social!!}');
+  $("[name='razon_social']").val("{!!$razon_social!!}");
   @endif
   @if (isset($nombre_comercial))
-  $("[name='nombre_comercial']").val('{!!$nombre_comercial!!}');
+  $("[name='nombre_comercial']").val("{!!$nombre_comercial!!}");
   @endif
   @if (isset($nit))
   $("[name='nit']").val('{!!$nit!!}');
@@ -956,10 +956,10 @@ Imprimir y seleccionar datos existentes.
   console.log("{!! $rango !!}");
   @endif
   @if (isset($mision))
-  $("[name='mision']").val('{!!$mision!!}');
+  $("[name='mision']").val("{!!$mision!!}");
   @endif
   @if (isset($vision))
-  $("[name='vision']").val('{!!$vision!!}');
+  $("[name='vision']").val("{!!$vision!!}");
   @endif
 </script>
 
