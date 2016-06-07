@@ -202,5 +202,33 @@ function updateCobro(Request $request){
 
 }
 
+public function updateCobroComprobante(Request $request)
+{
+    
+     $destinationPath = 'uploads/comprobantes/';
+       if ($request->hasFile('comprobante')) {
+        $file = $request->file('comprobante');
+        $destinationPath = 'uploads/comprobantes';
+        $extension = $file->getClientOriginalExtension();
+        $filename1 = "".str_random(12).".".$extension."";
+        $upload_success = $file->move($destinationPath, $filename1);           
+    }
+
+if (!empty($filename1)) {
+    $cobro = \App\Anotacion::find($request->input('id_anotacion'));
+    $cobro->comprobante = $filename1;
+    $cobro->save();
+
+    Session::flash('mensaje', "Se ha guardado el comprobante correctamente");
+    return Redirect::back();
+}else{
+    echo "error";
+}
+    
+
+
+    
+}
+
 }    
 

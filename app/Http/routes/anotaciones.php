@@ -55,4 +55,10 @@ Route::post('update/cobro', [
 	'uses' => 'AnotacionesController@updateCobro'
 	]);
 
+Route::post('update/cobro/comprobante', [
+	'middleware' => ['auth','web'], 
+	'uses' => 'AnotacionesController@updateCobroComprobante'
+	]);
+
+
 	?>

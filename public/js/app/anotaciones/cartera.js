@@ -101,3 +101,13 @@ swal(
         }
         else {     swal("Cancelado!", "El reporte ha sido cancelado", "error");   } });
 });
+
+
+// Modal Comprobante
+
+$('body').on('click', '.btn-comprobante-cobro', function(event) {
+    event.preventDefault();
+    id_anotacion = $(this).attr('data-id');
+    $('#id_anotacion_cobro').val(id_anotacion);
+    $('#comprobante-cobro').modal('show');
+});

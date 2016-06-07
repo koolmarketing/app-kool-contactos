@@ -15,6 +15,10 @@
 
     <div class="col-lg-12">
         <div class="col-lg-12"><br>
+            @if (Session::has('mensaje'))
+            <div class="alert alert-info">{{ Session::get('mensaje') }}</div>
+            <script type="text/javascript">alert("Hola");</script>
+            @endif
             
             <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
             <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
@@ -63,7 +67,7 @@
         ?>
 
         <article class="col-md-4">
-         <div class="content-box box-shadow">
+           <div class="content-box box-shadow">
             <div class="content-box small-box">
                 <span class="fa-stack fa-2x block pull-left">
                   <i class="fa fa-circle fa-stack-2x blue"></i>
@@ -146,7 +150,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="representante">
-                               <div class="panel panel-default">
+                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     @if ($representante->nombre[0]  != "")
                                     <!-- -->
@@ -222,7 +226,7 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="soporte">
-                       <div class="panel panel-default">
+                     <div class="panel panel-default">
                         <div class="panel-body">
                             @if ($soporte->nombre[0]  != "")
                             <!-- -->
@@ -275,10 +279,10 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <?php 
             if(!empty($data->empresa->valores))
-                {
-                    $valores = json_decode($data->empresa->valores);
-                }
-        
+            {
+                $valores = json_decode($data->empresa->valores);
+            }
+
             ?>
             <h3>@if (!empty($valores))
 
@@ -334,14 +338,14 @@
         $intereses = json_decode($data->empresa->intereses);
     } ?>
     <h3>
-    @if (!empty($intereses))
+        @if (!empty($intereses))
         @foreach ($intereses as $interes)
         <span class="label label-primary">{!!$interes!!}</span>
         @endforeach
-    @endif
+        @endif
     </h3>
-        <p><i class="icon-hourglass-1"></i> Intereses</p>
-    </div>
+    <p><i class="icon-hourglass-1"></i> Intereses</p>
+</div>
 
 </div>
 </div>
@@ -780,15 +784,15 @@
   <div class="panel panel-default">
     <div class="panel-body">
         <div role="tabpanel" class="tab-pane" id="contrataciones">
-           <div class="pull-right">
-               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
-           </div>
-           <br><br><br>
-       </div><br>
-       <div id="contenedor_servicios_empresa" class="col-md-12">
+         <div class="pull-right">
+             <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
+         </div>
+         <br><br><br>
+     </div><br>
+     <div id="contenedor_servicios_empresa" class="col-md-12">
 
-       </div>
-   </div>
+     </div>
+ </div>
 
 
 </div>
@@ -936,18 +940,18 @@
                     <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
                     <input type="hidden" name="tipo" id="" class="form-control" value="cobro">  
                     <div class="col-md-12"> 
-                     <div class="col-md-6">  <br>  
+                       <div class="col-md-6">  <br>  
 
-                         <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+                           <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
 
-                     </div>
-                     <div class="col-md-6"> <br>                     
+                       </div>
+                       <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                 <div class="col-md-6">
+                   <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
 
@@ -993,16 +997,16 @@
                         </div>
                     </div>                   
                     <div class="col-md-12">
-                     <div class="col-md-6">  <br>  
-                         <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-                     </div>
-                     <div class="col-md-6"> <br>                     
+                       <div class="col-md-6">  <br>  
+                           <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+                       </div>
+                       <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                 <div class="col-md-6">
+                   <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
                 </div>
@@ -1013,7 +1017,6 @@
             <div class="col-md-12" style="margin-top: 10px">
                 <div class="col-md-12">
                     <br>
-                    <input type="file" id="comprobante" name="comprobante" class="form-control material">
                 </div>
                 
             </div>
@@ -1029,6 +1032,53 @@
 </div>
 
 <!-- END Service -->
+
+<!------------  Load Comprobante Cobro  ------------>
+<div class="modal fade" id="comprobante-cobro">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+
+              <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" class="form-control" value="">
+              <input type="file" name="comprobante" class="form-control">              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
+            {!! Form::close() !!}
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!------------  Load Comprobante Servicio  ------------>
+<div class="modal fade" id="comprobante-cobro">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+
+              <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" class="form-control" value="">
+              <input type="file" name="comprobante" class="form-control">              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
+            {!! Form::close() !!}
+        </div>
+    </div>
+</div>
+</div>
 
 
 {{-- Reportar Cobro --}}
@@ -1052,9 +1102,9 @@
 
 <script>
     function load_notes() {
-       $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
-   }
-   function load_servicios(){
+     $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
+ }
+ function load_servicios(){
     $("#contenedor_servicios_empresa").load("/empresa/servicios_imprimir/all/{!! $data->empresa->id !!}");
     $("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }
@@ -1101,22 +1151,22 @@ function load_modal_cartera(){
             timepicker:true
         });
         $('.datetimepicker3').datetimepicker({
-         i18n:{
-          de:{
-           months:[
-           'Enero','Febrero','Marzo','Abril',
-           'Mayo','Junio','Julio','Agosto',
-           'Septiembre','Octubre','Noviembre','Diciembre',
-           ],
-           dayOfWeek:[
-           "Do", "Lu", "Ma", "Mi", 
-           "Ju", "Vi", "Sa",
-           ]
-       }
-   },
-   timepicker:true,
-   format:'Y-m-d H:i:00'
-});
+           i18n:{
+              de:{
+                 months:[
+                 'Enero','Febrero','Marzo','Abril',
+                 'Mayo','Junio','Julio','Agosto',
+                 'Septiembre','Octubre','Noviembre','Diciembre',
+                 ],
+                 dayOfWeek:[
+                 "Do", "Lu", "Ma", "Mi", 
+                 "Ju", "Vi", "Sa",
+                 ]
+             }
+         },
+         timepicker:true,
+         format:'Y-m-d H:i:00'
+     });
     });
 </script>
 
