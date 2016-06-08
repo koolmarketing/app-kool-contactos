@@ -68,8 +68,8 @@ $input_id_anotacion = Form::hidden('id_anotacion', $anotacion->anotacion_id);
 $inicio_form = Form::open(array('action' => 'AnotacionesController@updateCobro','class'=>'update_cobro', 'method' => 'post', 'id' => 'form-actualizar-cobro_'.$anotacion->anotacion_id.'','files'=>true));
 
 $fin_form = Form::close();
-
-if (empty($anotacion->comprobante)) {
+if($anotacion->estado=="1"){$alerta="";}
+else if (empty($anotacion->comprobante) && $anotacion->estado=="0") {
 $alerta = '<div class="alert alert-warning cabecera-comprobante-cobro"><strong>:(</strong> No hay comprobante<button type="button" data-id="'.$anotacion->anotacion_id.'" class="btn btn-xs pull-right btn-default btn-comprobante-cobro" data-id="'.$anotacion->anotacion_id.'" ><i class="icon-upload-2"></i>Cargar</button></div>';
 }else{
   $alerta = '<div class="alert alert-warning cabecera-comprobante-cobro">Ver Comprobante <a type="button" href="'.URL::to('/').'/uploads/comprobantes/'.$anotacion->comprobante.'" target="_blank"  class="btn btn-xs pull-right btn-default" ><i class="icon-eye-3"></i>Ver Comprobante</a></div>';

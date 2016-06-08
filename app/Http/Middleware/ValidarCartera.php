@@ -31,10 +31,11 @@ class ValidarCartera
             DB::table('anotaciones')
             ->where('tipo_anotacion','=','cobro')
             ->where('id_perfil','=',''.$id.'')
+            ->where('estado','=','1')
             ->sum('monto');
             $valor = $total_cobros + $nuevo_cobro;
 
-            if ($valor < $saldo_actual) 
+            if ($valor > $saldo_actual) 
             {
                 //return response('excede');
                 return response()->json(['mensaje' => 'Excede el Saldo Total del cliente','tipo'=>'Error']);
