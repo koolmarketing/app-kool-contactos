@@ -29,7 +29,7 @@ echo '<h4> Saldo Actual: '.Money::COP($saldo, true).'</h4>';
                     <button class="btn btn-danger btn-xs pull-right btn-comprobante-servicio" data-id="{!! $servicio->id_servicio  !!}"><i class="icon-upload"></i> Cargar Comprobante</button>
                     @endif
                                         @if($servicio->comprobante!="") 
-                    <a href="{!! URL::to('/') !!}/uploads/comprobantes/{!! $servicio->comprobante !!}" target="_blank"  class="btn btn-xs btn-success pull-right">Comprobante</a>               
+                    <a href="{!! URL::to('/') !!}/uploads/comprobantes/{!! $servicio->comprobante !!}" target="_blank"  class="btn btn-xs btn-success pull-right"><i class="icon-eye-4"></i> Ver Comprobante</a>               
                     @endif
                     @if($servicio->serial!="")
                     <i class="icon-hash"></i><b>Serial:</b> {!! $servicio->serial !!}<br>

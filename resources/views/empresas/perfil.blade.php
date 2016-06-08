@@ -14,11 +14,22 @@
 <div class="row">
 
     <div class="col-lg-12">
-        <div class="col-lg-12"><br>
-            @if (Session::has('mensaje'))
-            <div class="alert alert-info">{{ Session::get('mensaje') }}</div>
-            <script type="text/javascript">alert("Hola");</script>
-            @endif
+<h3>
+<!-- <?php $fecha = $carbon->now();
+$carbon->setTestNow($fecha); 
+?> -->
+<?php 
+$domingo = new \Carbon\Carbon('this sunday');
+$dt = \Carbon\Carbon::now();
+$lunes = new \Carbon\Carbon('last monday');
+$first_day = $dt->format('\\of F Y '); 
+$f_d = "first day $first_day";
+echo $f_d;
+ ?>
+
+   
+</h3>
+            <div class="col-lg-12"><br>
             
             <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
             <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
@@ -67,7 +78,7 @@
         ?>
 
         <article class="col-md-4">
-           <div class="content-box box-shadow">
+         <div class="content-box box-shadow">
             <div class="content-box small-box">
                 <span class="fa-stack fa-2x block pull-left">
                   <i class="fa fa-circle fa-stack-2x blue"></i>
@@ -150,7 +161,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="representante">
-                             <div class="panel panel-default">
+                               <div class="panel panel-default">
                                 <div class="panel-body">
                                     @if ($representante->nombre[0]  != "")
                                     <!-- -->
@@ -226,7 +237,7 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="soporte">
-                     <div class="panel panel-default">
+                       <div class="panel panel-default">
                         <div class="panel-body">
                             @if ($soporte->nombre[0]  != "")
                             <!-- -->
@@ -382,15 +393,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_2->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_2->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_2->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_2->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -400,15 +411,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_3->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_3->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_3->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_3->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -418,15 +429,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_4->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_4->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_4->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_4->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -437,15 +448,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-gmail"></i> Gmail</h3>
+                    <h4><i class="icon-gmail"></i> Gmail</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $gmail->cuenta_5->usuario[0] !!}</h3>
+                    <h4>{!! $gmail->cuenta_5->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$gmail->cuenta_5->contraseña[0]!!}</h3>
+                    <h4>{!!$gmail->cuenta_5->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -551,6 +562,101 @@
         </div>
         @endif
 
+        @if (!empty($zohomail->cuenta_6->usuario[0] ))
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_6->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_6->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if (!empty($zohomail->cuenta_7->usuario[0]))
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_7->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_7->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if (!empty($zohomail->cuenta_8->usuario[0]))
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_8->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_8->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if (!empty($zohomail->cuenta_9->usuario[0]))
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_9->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_9->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if (!empty($zohomail->cuenta_10->usuario[0]))
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <h4><i class="icon-mail-5"></i> Zohomail</h4>
+                    <p>Red</p>
+                </div>
+                <div class="col-md-5">
+                    <h4>{!!$zohomail->cuenta_10->usuario[0]!!}</h4>
+                    <p>Usuario</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>{!!$zohomail->cuenta_10->contraseña[0]!!}</h4>
+                    <p>Contraseña</p>
+                </div>
+            </div>
+        </div>
+        @endif
+
 
         <?php 
         $facebook = json_decode($data->empresa->facebook);
@@ -580,15 +686,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-twitter-3"></i> Twitter</h3>
+                    <h4><i class="icon-twitter-3"></i> Twitter</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $twitter->usuario[0] !!}</h3>
+                    <h4>{!! $twitter->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!! $twitter->contraseña[0] !!}</h3>
+                    <h4>{!! $twitter->contraseña[0] !!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -602,15 +708,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-youtube-2"></i> Youtube</h3>
+                    <h4><i class="icon-youtube-2"></i> Youtube</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $youtube->usuario[0] !!}</h3>
+                    <h4>{!! $youtube->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!! $youtube->contraseña[0] !!}</h3>
+                    <h4>{!! $youtube->contraseña[0] !!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -624,15 +730,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-instagram-1"></i> Instagram</h3>
+                    <h4><i class="icon-instagram-1"></i> Instagram</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!! $instagram->usuario[0] !!}</h3>
+                    <h4>{!! $instagram->usuario[0] !!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$instagram->contraseña[0]!!}</h3>
+                    <h4>{!!$instagram->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -646,15 +752,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-linkedin-3"></i> Linkedin</h3>
+                    <h4><i class="icon-linkedin-3"></i> Linkedin</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$linkedin->usuario[0]!!}</h3>
+                    <h4>{!!$linkedin->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                    <h4>{!!$linkedin->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -668,15 +774,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-pinterest-2"></i> Pinterest</h3>
+                    <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$linkedin->usuario[0]!!}</h3>
+                    <h4>{!!$linkedin->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$linkedin->contraseña[0]!!}</h3>
+                    <h4>{!!$linkedin->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -712,15 +818,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-fire-3"></i> A.I</h3>
+                    <h4><i class="icon-fire-3"></i> A.I</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$amarillas_internet->usuario[0]!!}</h3>
+                    <h4>{!!$amarillas_internet->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$amarillas_internet->contraseña[0]!!}</h3>
+                    <h4>{!!$amarillas_internet->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -734,15 +840,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-camera-alt"></i> Photosnack</h3>
+                    <h4><i class="icon-camera-alt"></i> Photosnack</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-5">
-                    <h3>{!!$photosnack->usuario[0]!!}</h3>
+                    <h4>{!!$photosnack->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                    <h4>{!!$photosnack->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -757,19 +863,19 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-3">
-                    <h3><i class="icon-server"></i> FTP</h3>
+                    <h4><i class="icon-server"></i> FTP</h4>
                     <p>Red</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->server[0]!!}</h3>
+                    <h4>{!!$photosnack->server[0]!!}</h4>
                     <p>Server</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->usuario[0]!!}</h3>
+                    <h4>{!!$photosnack->usuario[0]!!}</h4>
                     <p>Usuario</p>
                 </div>
                 <div class="col-md-3">
-                    <h3>{!!$photosnack->contraseña[0]!!}</h3>
+                    <h4>{!!$photosnack->contraseña[0]!!}</h4>
                     <p>Contraseña</p>
                 </div>
             </div>
@@ -784,15 +890,15 @@
   <div class="panel panel-default">
     <div class="panel-body">
         <div role="tabpanel" class="tab-pane" id="contrataciones">
-         <div class="pull-right">
-             <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
-         </div>
-         <br><br><br>
-     </div><br>
-     <div id="contenedor_servicios_empresa" class="col-md-12">
+           <div class="pull-right">
+               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
+           </div>
+           <br><br><br>
+       </div><br>
+       <div id="contenedor_servicios_empresa" class="col-md-12">
 
-     </div>
- </div>
+       </div>
+   </div>
 
 
 </div>
@@ -940,18 +1046,18 @@
                     <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
                     <input type="hidden" name="tipo" id="" class="form-control" value="cobro">  
                     <div class="col-md-12"> 
-                       <div class="col-md-6">  <br>  
+                     <div class="col-md-6">  <br>  
 
-                           <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+                         <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
 
-                       </div>
-                       <div class="col-md-6"> <br>                     
+                     </div>
+                     <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                   <div class="col-md-6">
+                 <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
 
@@ -997,16 +1103,16 @@
                         </div>
                     </div>                   
                     <div class="col-md-12">
-                       <div class="col-md-6">  <br>  
-                           <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-                       </div>
-                       <div class="col-md-6"> <br>                     
+                     <div class="col-md-6">  <br>  
+                         <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+                     </div>
+                     <div class="col-md-6"> <br>                     
                         <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
                     </div>
                     <br><br>
                 </div>                
                 <div class="col-md-12" style="margin-top: 20px;"> 
-                   <div class="col-md-6">
+                 <div class="col-md-6">
 
                     <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
                 </div>
@@ -1039,7 +1145,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">Cargar comprobante de Cobro</h4>
             </div>
             <div class="modal-body">
               {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
@@ -1058,17 +1164,17 @@
 
 
 <!------------  Load Comprobante Servicio  ------------>
-<div class="modal fade" id="comprobante-cobro">
+<div class="modal fade" id="modal-comprobante-servicio">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">Cargar Comprobante de Servicio</h4>
             </div>
             <div class="modal-body">
-              {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+              {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
 
-              <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" class="form-control" value="">
+              <input type="hidden" name="id_anotacion" id="id_anotacion_servicio" class="form-control" value="">
               <input type="file" name="comprobante" class="form-control">              
           </div>
           <div class="modal-footer">
@@ -1102,9 +1208,9 @@
 
 <script>
     function load_notes() {
-     $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
- }
- function load_servicios(){
+       $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
+   }
+   function load_servicios(){
     $("#contenedor_servicios_empresa").load("/empresa/servicios_imprimir/all/{!! $data->empresa->id !!}");
     $("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }
@@ -1151,22 +1257,22 @@ function load_modal_cartera(){
             timepicker:true
         });
         $('.datetimepicker3').datetimepicker({
-           i18n:{
-              de:{
-                 months:[
-                 'Enero','Febrero','Marzo','Abril',
-                 'Mayo','Junio','Julio','Agosto',
-                 'Septiembre','Octubre','Noviembre','Diciembre',
-                 ],
-                 dayOfWeek:[
-                 "Do", "Lu", "Ma", "Mi", 
-                 "Ju", "Vi", "Sa",
-                 ]
-             }
-         },
-         timepicker:true,
-         format:'Y-m-d H:i:00'
-     });
+         i18n:{
+          de:{
+           months:[
+           'Enero','Febrero','Marzo','Abril',
+           'Mayo','Junio','Julio','Agosto',
+           'Septiembre','Octubre','Noviembre','Diciembre',
+           ],
+           dayOfWeek:[
+           "Do", "Lu", "Ma", "Mi", 
+           "Ju", "Vi", "Sa",
+           ]
+       }
+   },
+   timepicker:true,
+   format:'Y-m-d H:i:00'
+});
     });
 </script>
 

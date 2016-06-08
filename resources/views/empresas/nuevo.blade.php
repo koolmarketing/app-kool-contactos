@@ -413,7 +413,7 @@
             @endfor
 
 
-            @for ($i = 1; $i <= 5; $i++)
+            @for ($i = 1; $i <= 10; $i++)
             <div class="col-lg-12 Zohomail" id="zohomail_{!!$i!!}" attr-visible="">
               <div class="form-group col-md-2">
                 <h4><i class="icon-mail"></i> Zohomail</h4>
@@ -714,6 +714,11 @@ $("body").on('click', '.btn-red-info', function(event) {
         obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
         obj_redes.zohomail_4 = {title:"Zohoomail", name:"zohomail_4", position:4, active:false}; 
         obj_redes.zohomail_5 = {title:"Zohoomail", name:"zohomail_5", position:5, active:false};
+        obj_redes.zohomail_6 = {title:"Zohoomail", name:"zohomail_6", position:6, active:false};
+        obj_redes.zohomail_7 = {title:"Zohoomail", name:"zohomail_7", position:7, active:false};
+        obj_redes.zohomail_8 = {title:"Zohoomail", name:"zohomail_8", position:8, active:false};
+        obj_redes.zohomail_9 = {title:"Zohoomail", name:"zohomail_9", position:9, active:false};
+        obj_redes.zohomail_10= {title:"Zohoomail", name:"zohomail_10", position:10, active:false};
 
         obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
         obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};

@@ -455,7 +455,7 @@ $rango           = $data_actual->rango;
             @endfor
 
 
-            @for ($i = 1; $i <= 5; $i++)
+            @for ($i = 1; $i <= 10; $i++)
             <div class="col-lg-12 Zohomail" id="zohomail_{!!$i!!}" attr-visible="">
               <div class="form-group col-md-2">
                 <h4><i class="icon-mail"></i> Zohomail</h4>
@@ -826,6 +826,11 @@ $rango           = $data_actual->rango;
         obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
         obj_redes.zohomail_4 = {title:"Zohoomail", name:"zohomail_4", position:4, active:false}; 
         obj_redes.zohomail_5 = {title:"Zohoomail", name:"zohomail_5", position:5, active:false};
+        obj_redes.zohomail_6 = {title:"Zohoomail", name:"zohomail_6", position:6, active:false};
+        obj_redes.zohomail_7 = {title:"Zohoomail", name:"zohomail_7", position:7, active:false};
+        obj_redes.zohomail_8 = {title:"Zohoomail", name:"zohomail_8", position:8, active:false};
+        obj_redes.zohomail_9 = {title:"Zohoomail", name:"zohomail_9", position:9, active:false};
+        obj_redes.zohomail_10= {title:"Zohoomail", name:"zohomail_10", position:10, active:false};
 
         obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
         obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};
@@ -1165,13 +1170,54 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_4[contraseña][]']").val("{!! $zohomail->cuenta_4->contraseña[0] !!}");
   @endif
 
-  @if ($zohomail->cuenta_4->usuario[0]!="")
+  @if ($zohomail->cuenta_5->usuario[0]!="")
   name_div = obj_redes["zohomail_5"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_5"].active=true;
   $("[name='zohomail_5[usuario][]']").val("{!! $zohomail->cuenta_5->usuario[0] !!}");
   $("[name='zohomail_5[contraseña][]']").val("{!! $zohomail->cuenta_5->contraseña[0] !!}");
   @endif
+
+    @if (!empty($zohomail->cuenta_6->usuario[0]))
+  name_div = obj_redes["zohomail_6"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_6"].active=true;
+  $("[name='zohomail_6[usuario][]']").val("{!! $zohomail->cuenta_6->usuario[0] !!}");
+  $("[name='zohomail_6[contraseña][]']").val("{!! $zohomail->cuenta_6->contraseña[0] !!}");
+  @endif
+
+    @if (!empty($zohomail->cuenta_7->usuario[0]))
+  name_div = obj_redes["zohomail_7"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_7"].active=true;
+  $("[name='zohomail_7[usuario][]']").val("{!! $zohomail->cuenta_7->usuario[0] !!}");
+  $("[name='zohomail_7[contraseña][]']").val("{!! $zohomail->cuenta_7->contraseña[0] !!}");
+  @endif
+
+    @if (!empty($zohomail->cuenta_8->usuario[0]))
+  name_div = obj_redes["zohomail_8"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_8"].active=true;
+  $("[name='zohomail_8[usuario][]']").val("{!! $zohomail->cuenta_8->usuario[0] !!}");
+  $("[name='zohomail_8[contraseña][]']").val("{!! $zohomail->cuenta_8->contraseña[0] !!}");
+  @endif
+
+    @if (!empty($zohomail->cuenta_9->usuario[0]))
+  name_div = obj_redes["zohomail_9"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_9"].active=true;
+  $("[name='zohomail_9[usuario][]']").val("{!! $zohomail->cuenta_9->usuario[0] !!}");
+  $("[name='zohomail_9[contraseña][]']").val("{!! $zohomail->cuenta_9->contraseña[0] !!}");
+  @endif
+
+      @if (!empty($zohomail->cuenta_10->usuario[0]))
+  name_div = obj_redes["zohomail_10"].name;
+  $("#"+name_div+"").show();
+  obj_redes["zohomail_10"].active=true;
+  $("[name='zohomail_10[usuario][]']").val("{!! $zohomail->cuenta_10->usuario[0] !!}");
+  $("[name='zohomail_10[contraseña][]']").val("{!! $zohomail->cuenta_10->contraseña[0] !!}");
+  @endif
+
 
 
 // Facebook

@@ -95,11 +95,11 @@ class AnotacionesController extends Controller
     } 
 
     function print_anotacion_empresas($id){        
-     $carbon = new \Carbon\Carbon();
-     $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
+       $carbon = new \Carbon\Carbon();
+       $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
 
-     return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
- }
+       return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
+   }
 
 
     /*
@@ -162,7 +162,7 @@ function get_cobros(){
 
 function updateCobro(Request $request){
     // Descontar del servicio
-   
+ 
     $id_empresa   = $request->input('id_empresa');
     $id_anotacion = $request->input('id_anotacion');
     
@@ -175,13 +175,13 @@ function updateCobro(Request $request){
     $servicio_activo->saldo = $nuevo_saldo;
 
     DB::table('servicios')
-          ->where('id', $servicio_activo->id)
-          ->update(['saldo' => $nuevo_saldo]);
+    ->where('id', $servicio_activo->id)
+    ->update(['saldo' => $nuevo_saldo]);
 
     DB::table('anotaciones')
-          ->where('id', $cobro->id)
-          ->update(['estado' => 0]);
-        
+    ->where('id', $cobro->id)
+    ->update(['estado' => 0]);
+    
     $id_user=Auth::id();
 
     $user_reporte = new \stdClass;
@@ -190,14 +190,14 @@ function updateCobro(Request $request){
 
     $usr_reporte = json_encode($user_reporte);
 
-        DB::table('anotaciones')
-          ->where('id', $cobro->id)
-          ->update(['involucrados' => ''.$usr_reporte.'']);
+    DB::table('anotaciones')
+    ->where('id', $cobro->id)
+    ->update(['involucrados' => ''.$usr_reporte.'']);
 
     
 
     //return response()->json($cobro);
-   return response()->json(['mensaje' => 'Se efectuo el reporte de pago: nuevo saldo para la orden de servicio #'.$cobro->serial.': '.$nuevo_saldo.'','tipo'=>'Exito']);
+    return response()->json(['mensaje' => 'Se efectuo el reporte de pago: nuevo saldo para la orden de servicio #'.$cobro->serial.': '.$nuevo_saldo.'','tipo'=>'Exito']);
     
 
 }
@@ -205,14 +205,14 @@ function updateCobro(Request $request){
 public function updateCobroComprobante(Request $request)
 {
     
-     $destinationPath = 'uploads/comprobantes/';
-       if ($request->hasFile('comprobante')) {
-        $file = $request->file('comprobante');
-        $destinationPath = 'uploads/comprobantes';
-        $extension = $file->getClientOriginalExtension();
-        $filename1 = "".str_random(12).".".$extension."";
-        $upload_success = $file->move($destinationPath, $filename1);           
-    }
+   $destinationPath = 'uploads/comprobantes/';
+   if ($request->hasFile('comprobante')) {
+    $file = $request->file('comprobante');
+    $destinationPath = 'uploads/comprobantes';
+    $extension = $file->getClientOriginalExtension();
+    $filename1 = "".str_random(12).".".$extension."";
+    $upload_success = $file->move($destinationPath, $filename1);           
+}
 
 if (!empty($filename1)) {
     $cobro = \App\Anotacion::find($request->input('id_anotacion'));
@@ -224,10 +224,10 @@ if (!empty($filename1)) {
 }else{
     echo "error";
 }
-    
 
 
-    
+
+
 }
 
 }    

@@ -69,7 +69,7 @@ $inicio_form = Form::open(array('action' => 'AnotacionesController@updateCobro',
 
 $fin_form = Form::close();
 
-if ($anotacion->estado=="0" && empty($anotacion->comprobante)) {
+if (empty($anotacion->comprobante)) {
 $alerta = '<div class="alert alert-warning cabecera-comprobante-cobro"><strong>:(</strong> No hay comprobante<button type="button" data-id="'.$anotacion->anotacion_id.'" class="btn btn-xs pull-right btn-default btn-comprobante-cobro" data-id="'.$anotacion->anotacion_id.'" ><i class="icon-upload-2"></i>Cargar</button></div>';
 }else{
   $alerta = '<div class="alert alert-warning cabecera-comprobante-cobro">Ver Comprobante <a type="button" href="'.URL::to('/').'/uploads/comprobantes/'.$anotacion->comprobante.'" target="_blank"  class="btn btn-xs pull-right btn-default" ><i class="icon-eye-3"></i>Ver Comprobante</a></div>';

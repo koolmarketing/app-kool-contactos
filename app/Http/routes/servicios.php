@@ -19,5 +19,11 @@ Route::get('empresa/imprimir/saldo/{id}', [
 	]);
 
 
+Route::post('update/comprobante_servicio', [
+	'middleware' => 'auth',
+	'as'   => 'update.comprobante_servicio', 
+	'uses' => 'ServiciosController@UpdateComprobanteServicio'
+	]);
+
 
 	?>

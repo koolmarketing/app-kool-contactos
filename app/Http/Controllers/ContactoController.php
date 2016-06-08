@@ -98,6 +98,11 @@ class ContactoController extends Controller
         $zohomail->cuenta_3 = $request->input('zohomail_3');
         $zohomail->cuenta_4 = $request->input('zohomail_4');
         $zohomail->cuenta_5 = $request->input('zohomail_5');
+        $zohomail->cuenta_6 = $request->input('zohomail_6');
+        $zohomail->cuenta_7 = $request->input('zohomail_7');
+        $zohomail->cuenta_8 = $request->input('zohomail_8');
+        $zohomail->cuenta_9 = $request->input('zohomail_9');
+        $zohomail->cuenta_10 = $request->input('zohomail_10');
         $NC->zohomail = json_encode($zohomail);
 
         #Redes
@@ -125,97 +130,102 @@ class ContactoController extends Controller
     }
 
     public function UpdateCompany(Request $request){
-         $id=$request->input('id');
-         $NC = \App\Empresa::find($id);
-         $destinationPath = 'uploads/fotos/';
+       $id=$request->input('id');
+       $NC = \App\Empresa::find($id);
+       $destinationPath = 'uploads/fotos/';
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $destinationPath = 'uploads/fotos';
-            $extension = $file->getClientOriginalExtension();
-            $filename1 = "".str_random(12).".".$extension."";
-            $upload_success = $file->move($destinationPath, $filename1);            
+       if ($request->hasFile('foto')) {
+        $file = $request->file('foto');
+        $destinationPath = 'uploads/fotos';
+        $extension = $file->getClientOriginalExtension();
+        $filename1 = "".str_random(12).".".$extension."";
+        $upload_success = $file->move($destinationPath, $filename1);            
 
-        }
+    }
 
-        if (isset($filename1)) { $NC->foto= $filename1;}
+    if (isset($filename1)) { $NC->foto= $filename1;}
 
         #Values
-        $NC->fecha_fundacion  = $request->input('fecha_fundacion');
-        $NC->rango            = $request->input('rango');
-        $NC->nombre_comercial = $request->input('nombre_comercial');
-        $NC->razon_social     = $request->input('razon_social');
-        $NC->nit              = $request->input('nit');
-        $NC->servicios        = json_encode($request->input('servicios'));
-        $NC->sector           = $request->input('sector');
-        $NC->telefono_1       = $request->input('telefono_1');
-        $NC->telefono_2       = $request->input('telefono_2');
-        $NC->sitio_web        = $request->input('sitio_web');
-        $NC->ciudad_pais      = $request->input('ciudad_pais');
-        $NC->direccion        = $request->input('direccion');
-        $NC->representante    = json_encode($request->input('representante'));
-        $NC->comercial        = json_encode($request->input('comercial'));
-        $NC->soporte          = json_encode($request->input('soporte'));
-        $NC->valores          = json_encode($request->input('valores'));
-        $NC->mision           = $request->input('mision');
-        $NC->vision           = $request->input('vision');
-        $NC->intereses        = json_encode($request->input('intereses'));
+    $NC->fecha_fundacion  = $request->input('fecha_fundacion');
+    $NC->rango            = $request->input('rango');
+    $NC->nombre_comercial = $request->input('nombre_comercial');
+    $NC->razon_social     = $request->input('razon_social');
+    $NC->nit              = $request->input('nit');
+    $NC->servicios        = json_encode($request->input('servicios'));
+    $NC->sector           = $request->input('sector');
+    $NC->telefono_1       = $request->input('telefono_1');
+    $NC->telefono_2       = $request->input('telefono_2');
+    $NC->sitio_web        = $request->input('sitio_web');
+    $NC->ciudad_pais      = $request->input('ciudad_pais');
+    $NC->direccion        = $request->input('direccion');
+    $NC->representante    = json_encode($request->input('representante'));
+    $NC->comercial        = json_encode($request->input('comercial'));
+    $NC->soporte          = json_encode($request->input('soporte'));
+    $NC->valores          = json_encode($request->input('valores'));
+    $NC->mision           = $request->input('mision');
+    $NC->vision           = $request->input('vision');
+    $NC->intereses        = json_encode($request->input('intereses'));
 
 
-        $gmail = (object) array();
+    $gmail = (object) array();
 
-        $gmail->cuenta_1 = $request->input('gmail_1');
-        $gmail->cuenta_2 = $request->input('gmail_2');
-        $gmail->cuenta_3 = $request->input('gmail_3');
-        $gmail->cuenta_4 = $request->input('gmail_4');
-        $gmail->cuenta_5 = $request->input('gmail_5');
-        $NC->gmail = json_encode($gmail);
+    $gmail->cuenta_1 = $request->input('gmail_1');
+    $gmail->cuenta_2 = $request->input('gmail_2');
+    $gmail->cuenta_3 = $request->input('gmail_3');
+    $gmail->cuenta_4 = $request->input('gmail_4');
+    $gmail->cuenta_5 = $request->input('gmail_5');
+    $NC->gmail = json_encode($gmail);
 
-        $zohomail = (object) array();
+    $zohomail = (object) array();
 
         $zohomail->cuenta_1 = $request->input('zohomail_1');
         $zohomail->cuenta_2 = $request->input('zohomail_2');
         $zohomail->cuenta_3 = $request->input('zohomail_3');
         $zohomail->cuenta_4 = $request->input('zohomail_4');
         $zohomail->cuenta_5 = $request->input('zohomail_5');
-        $NC->zohomail = json_encode($zohomail);
+        $zohomail->cuenta_6 = $request->input('zohomail_6');
+        $zohomail->cuenta_7 = $request->input('zohomail_7');
+        $zohomail->cuenta_8 = $request->input('zohomail_8');
+        $zohomail->cuenta_9 = $request->input('zohomail_9');
+        $zohomail->cuenta_10 = $request->input('zohomail_10');
+    $NC->zohomail = json_encode($zohomail);
 
         #Redes
         //$NC->gmail               = json_encode($request->input('gmail'));
         //$NC->zohomail            = json_encode($request->input('zohomail'));
 
-        $NC->facebook            = json_encode($request->input('facebook'));
-        $NC->twitter             = json_encode($request->input('twitter'));
-        $NC->youtube             = json_encode($request->input('youtube'));
-        $NC->instagram           = json_encode($request->input('instagram'));
-        $NC->linkedin            = json_encode($request->input('linkedin'));
-        $NC->pinterest           = json_encode($request->input('pinterest'));
-        $NC->hootsuite           = Json_encode($request->input('hootsuite'));
-        $NC->amarillas_internet  = json_encode($request->input('amarillas_internet'));
-        $NC->photosnack          = json_encode($request->input('photosnack'));
-        $NC->ftp                 = json_encode($request->input('ftp'));
+    $NC->facebook            = json_encode($request->input('facebook'));
+    $NC->twitter             = json_encode($request->input('twitter'));
+    $NC->youtube             = json_encode($request->input('youtube'));
+    $NC->instagram           = json_encode($request->input('instagram'));
+    $NC->linkedin            = json_encode($request->input('linkedin'));
+    $NC->pinterest           = json_encode($request->input('pinterest'));
+    $NC->hootsuite           = Json_encode($request->input('hootsuite'));
+    $NC->amarillas_internet  = json_encode($request->input('amarillas_internet'));
+    $NC->photosnack          = json_encode($request->input('photosnack'));
+    $NC->ftp                 = json_encode($request->input('ftp'));
 
-        $NC->save();
-        return redirect()->action('ContactoController@Empresas');
-        
-    }
+    $NC->save();
+    return redirect()->action('ContactoController@Empresas');
+
+}
 
 
 
-    public function NewCompany()
-    {
+public function NewCompany()
+{
 
-       $sectores = app\Sertor_Economia::all();
+ $sectores = app\Sertor_Economia::all();
 
-       $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
+ $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
 
-       $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
+ $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
 
-       $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
-       return view('empresas.nuevo',['data' => $data]);
-   }
-   public function Empresa ($id)
-   {
+ $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
+ return view('empresas.nuevo',['data' => $data]);
+}
+public function Empresa ($id)
+{
     $carbon = new \Carbon\Carbon();
     $empresa=\App\Empresa::find($id);
     $data = (object) array("page" => "Empresa","empresa"=>$empresa);
@@ -226,11 +236,11 @@ public function GuardarClientes (Request $request) {
 
 
     if($request->ajax()) {  
-       $NP = new \App\Persona;
+     $NP = new \App\Persona;
 
-       $destinationPath = 'uploads/fotos/';
+     $destinationPath = 'uploads/fotos/';
 
-       if ($request->hasFile('foto')) {
+     if ($request->hasFile('foto')) {
         $file = $request->file('foto');
         $destinationPath = 'uploads/fotos';
         $extension = $file->getClientOriginalExtension();
@@ -362,7 +372,7 @@ public function GetReporte(){
     return $reportes;
 }
 
- 
+
 public function EditarEmpresa($id){
     $data_actual = \App\Reporte::find($id);
    // return view('empresas.editar',['data'=>$data]);
@@ -371,12 +381,12 @@ public function EditarEmpresa($id){
 
     $sectores = app\Sertor_Economia::all();
 
-       $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
+    $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
 
-        $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
+    $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
 
-       $data = (object) array("page" => "Edidar Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
-       return view('empresas.editar',['data' => $data,'data_actual'=>$data_actual]);
+    $data = (object) array("page" => "Edidar Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
+    return view('empresas.editar',['data' => $data,'data_actual'=>$data_actual]);
 }
 
 
