@@ -67,17 +67,91 @@
 			</div>
 		</div>
 
-		<div class="col-lg-6">
-			<div class="content-box big-box box-shadow">
-				
-				
+
+		<div class="col-md-2">
+			<div class="content-box ultra-widget">
+				<div class="w-content big-box">
+					<div class="w-progress">
+						<span class="w-amount blue">0</span>
+						<br>
+						<span class="text-uppercase w-name">Recaudo del Trimestre</span>
+					</div>
+					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
+					<div class="progress progress-bar-sm zero-m">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+						</div>
+					</div>
+					<div class="w-status clearfix">
+						<div class="w-status-title pull-left text-uppercase">Progress</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
+					</div>
+				</div>
 			</div>
 		</div>
+
+
+		<div class="col-md-2">
+			<div class="content-box ultra-widget">
+				<div class="w-content big-box">
+					<div class="w-progress">
+						<span class="w-amount blue">0</span>
+						<br>
+						<span class="text-uppercase w-name">Recaudo del Semestre</span>
+					</div>
+					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
+					<div class="progress progress-bar-sm zero-m">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+						</div>
+					</div>
+					<div class="w-status clearfix">
+						<div class="w-status-title pull-left text-uppercase">Progress</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-2">
+			<div class="content-box ultra-widget">
+				<div class="w-content big-box">
+					<div class="w-progress">
+						<span class="w-amount blue">0</span>
+						<br>
+						<span class="text-uppercase w-name">Recaudo del Año</span>
+					</div>
+					<span class="w-refresh w-p-icon"><i class="fa fa-usd"></i></span>
+					<div class="progress progress-bar-sm zero-m">
+						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+						</div>
+					</div>
+					<div class="w-status clearfix">
+						<div class="w-status-title pull-left text-uppercase">Progress</div>
+						<div class="w-status-number pull-right text-uppercase">0%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-12">
 
+
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget blue-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+
+						<span class="text-uppercase w-name">Recordatorios</span>
+						<br><br>
+
+					</div>
+				</div>
+			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="content-box small-box">
@@ -88,9 +162,25 @@
 						<div class="pull-left info">
 							<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
 							<span class="block">Anotaciones</span>
+							<br>
+							
+							<div class="col-md-12">	
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" class="btn btn-default">Hoy</button>
+									<button type="button" class="btn btn-default">Semana</button>
+									<button type="button" class="btn btn-default">Mes</button>
+									<button type="button" class="btn btn-default">El año</button>
+								</div>
+							</div>
+
 						</div>
+
 						<div class="clearfix"></div>
 					</div>
+
+
+					<div class="clearfix"></div>
+
 					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_comentarios">
 					</div>
 				</div>
@@ -98,6 +188,16 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget green-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+
+						<span class="text-uppercase w-name">Recordatorios</span>
+						<br><br>
+
+					</div>
+				</div>
+			</div>
 			<div class="panel panel-success">
 				<div class="panel-body">
 					<div class="content-box small-box">
@@ -108,6 +208,17 @@
 						<div class="pull-left info">
 							<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
 							<span class="block">Recordatorios</span>
+							<br>
+
+							<div class="col-md-12">	
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" class="btn btn-default">Hoy</button>
+									<button type="button" class="btn btn-default">Semana</button>
+									<button type="button" class="btn btn-default">Mes</button>
+									<button type="button" class="btn btn-default">El año</button>
+								</div>
+							</div>
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -116,9 +227,19 @@
 				</div>
 			</div>
 		</div>
-		
+
 
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget red-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+
+						<span class="text-uppercase w-name">Alertas</span>
+						<br><br>
+
+					</div>
+				</div>
+			</div>
 			<div class="panel panel-danger">
 				<div class="panel-body">
 					<div class="content-box small-box">
@@ -129,6 +250,15 @@
 						<div class="pull-left info">
 							<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
 							<span class="block">Alertas</span>
+							<br>
+							<div class="col-md-12">	
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" class="btn btn-default">Hoy</button>
+									<button type="button" class="btn btn-default">Semana</button>
+									<button type="button" class="btn btn-default">Mes</button>
+									<button type="button" class="btn btn-default">El año</button>
+								</div>
+							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -138,8 +268,19 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+			<div class="content-box ultra-widget orange-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+
+						<span class="text-uppercase w-name">Cobros</span>
+						<br><br>
+
+					</div>
+				</div>
+			</div>
 			<div class="panel panel-success">
 				<div class="panel-body">
 					<div class="content-box small-box">
@@ -150,6 +291,15 @@
 						<div class="pull-left info">
 							<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
 							<span class="block">Cobros</span>
+							<br>
+							<div class="col-md-12">	
+								<div class="btn-group" role="group" aria-label="...">
+									<button type="button" class="btn btn-default">Hoy</button>
+									<button type="button" class="btn btn-default">Semana</button>
+									<button type="button" class="btn btn-default">Mes</button>
+									<button type="button" class="btn btn-default">El año</button>
+								</div>
+							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -178,7 +328,7 @@
 		// load_cobros();
 	});
 
-	
+
 </script>
 
 @stop

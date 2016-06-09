@@ -86,20 +86,37 @@ class CarteraController extends Controller
 			case 'dia':      
 			
 			$meta_dia_actual_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
+
 			$meta_dia_actual_recaudo   = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
+
+			return $meta_dia_actual_total;
 			break;
+
 			case 'semana':   
 			$meta_semana_actual_total         = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);
+
 			$meta_semana_actual_recaudado     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);	
+			return $meta_semana_actual_total;
+
 			break;
+
 			case 'mes':
 			$meta_mes_actual_total             = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro"  and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
+
+			$meta_mes_actual_total = \App\Anotacion::whereBetween('fecha_cobro', array($inicio_primer_semestre, $fin_del_primer_semestre))
+			->where('tipo_anotacion','=','cobro')
+			->count();
+
 			$metas_mes_actual_cumplimiento     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
+
+			return $fin_del_primer_semestre;
 			break;
+
 			case 'primer_trimestre':
 			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
 			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
 			break;
+
 			case 'segundo_trimestre':
 			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
 			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
