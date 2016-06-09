@@ -84,70 +84,60 @@ class CarteraController extends Controller
 
 		switch ($tipo) {
 			case 'dia':      
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_dia, $fin_del_dia])
-			->sum('monto');	
+			
+			$meta_dia_actual_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
+			$meta_dia_actual_recaudo   = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
 			break;
 			case 'semana':   
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_semana, $fin_de_la_semana])
-			->sum('monto');	
+			$meta_semana_actual_total         = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);
+			$meta_semana_actual_recaudado     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);	
 			break;
 			case 'mes':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_mes, $fin_del_mes])
-			->sum('monto');
+			$meta_mes_actual_total             = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro"  and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
+			$metas_mes_actual_cumplimiento     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
+			break;
 			case 'primer_trimestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_primer_trimestre, $fin_primer_trimestre])
-			->sum('monto');	
+			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
+			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
 			break;
 			case 'segundo_trimestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_segundo_trimestre, $fin_segundo_trimestre])
-			->sum('monto');	
+			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
+			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
+			
 			break;
 			case 'tercer_trimestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_tercer_trimestre, $fin_tercer_trimestre])
-			->sum('monto');	
+			$meta_tercer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_tercer_trimestre,$fin_tercer_trimestre]);
+			$meta_tercer_trimestre_recaudado = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_tercer_trimestre,$fin_tercer_trimestre]);
 			break;
 			case 'cuarto_trimestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_cuarto_trimestre, $fin_cuarto_trimestre])
-			->sum('monto');	
+			$meta_cuarto_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_cuarto_trimestre,$fin_cuarto_trimestre]);
+			$meta_cuarto_trimestre_recaudado     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_cuarto_trimestre,$fin_cuarto_trimestre]);
 			break;
 			case 'primer_semestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_primer_semestre, $fin_del_primer_semestre])
-			->sum('monto');	
+			$meta_primer_semestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_semestre,$fin_primer_semestre]);
+			$meta_primer_semestre_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_semestre,$fin_primer_trimestre]);
 			break;
 			case 'segundo_semestre':
-			$respuesta = DB::table('anotaciones')
-			->where('tipo_anotacion','=','cobro')
-			->whereBetween('fecha_cobro', [$inicio_segundo_semestre, $fin_cuarto_trimestre])
-			->sum('monto');	
+			$meta_segundo_semestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_semestre,$fin_segundo_trimestre]);
+			$meta_segundo_semestre_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_semestre,$fin_segundo_trimestre]);	
 			break;
-	case 'año':      # code...	break;
-	
-	default:
-		# code...
-	break;
-}
+			case 'año':
+			$meta_año_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" AND fecha_cobro BETWEEN ? AND ? ', [$inicio_año,$fin_de_año]);
+			$meta_año_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_año,$fin_de_año]);	
+			
+			break;      
 
 
-}
+			default:
+			$respuesta = 0;
+			break;
+		}
+
+
+	}
 
 
 
 
-/*Recaudo para "hoy"*/
+	/*Recaudo para "hoy"*/
 }
