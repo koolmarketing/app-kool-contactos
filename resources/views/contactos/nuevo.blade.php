@@ -10,17 +10,12 @@
 
 <div class="container-fluid">
 
-
-
-
-
-    <div class="col-lg-6 col-lg-offset-3">
-
+    <div class="col-lg-10 col-lg-offset-1">
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Datos Básicos</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Iformación Profesional</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Información Profesional</a></li>
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Datos de Contacto</a></li>
             <li role="presentation"><a href="#familia" aria-controls="familia" role="tab" data-toggle="tab">Familia</a></li>
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Información Personal</a></li>
@@ -97,12 +92,7 @@
                     <input name="cargo" type="text" class="form-control material">
                     <p class="help-text">Cargo</p>
                 </div>
-
-
-
-
             </div>
-
         </div>
 
         <div role="tabpanel" class="tab-pane" id="messages">

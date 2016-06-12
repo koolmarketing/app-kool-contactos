@@ -2,12 +2,12 @@ $(function () {
 /* Make some random data for the Chart*/
     
     var d1 = [];
-    for (var i = 0; i <= 10; i += 1) {
-        d1.push([i, parseInt(Math.random() * 40)]);
+    for (var i = 0; i <= 30; i += 1) {
+        d1.push([i, parseInt(Math.random() * 2000000)]);
     }
     var d2 = [];
-    for (var i = 0; i <= 10; i += 1) {
-        d2.push([i, parseInt(Math.random() * 40)]);
+    for (var i = 0; i <= 30; i += 1) {
+        d2.push([i, parseInt(Math.random() * 400000)]);
     }    
     
     /* Chart Options */

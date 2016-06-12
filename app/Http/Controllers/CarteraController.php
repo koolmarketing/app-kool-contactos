@@ -11,6 +11,7 @@ use Session;
 use Validator;
 use Redirect;
 use App\Http\Requests;
+use Carbon\carbon;
 
 class CarteraController extends Controller
 /*
@@ -28,133 +29,152 @@ class CarteraController extends Controller
 		return view('anotaciones.cartera_modal',['cobros'=>$cobros]);
 	}
 
-
 	/* Calcular Recaudo */
 	public function Calcular_Recaudo($tipo)
-	{
+	{	
+		function CalcularValores($inicio,$fin)
+		{
+			$respuesta = new \stdClass;
 
-		$ahora = \Carbon\Carbon::now();
+			$meta_total =  DB::table('anotaciones')
+			->select(DB::raw('SUM(monto) as total'))
+			->whereBetween('fecha_cobro', [$inicio, $fin])
+			->where('tipo_anotacion', '=', 'cobro')
+			->get();
+			$meta_actual = DB::table('anotaciones')
+			->select(DB::raw('SUM(monto) as total'))
+			->whereBetween('fecha_cobro', [$inicio, $fin])
+			->where('tipo_anotacion', '=', 'cobro')
+			->where('estado', '=', '0')
+			->get();
+			$respuesta->inicio = $inicio;
+			$respuesta->final  = $fin;
+			$respuesta->meta_total  = $meta_total;
+			$respuesta->meta_actual = $meta_actual;
+			return $respuesta;
+		}
+		if ($tipo == "home") {
 
-// !AÑO
-		$inicio_año  = $ahora->startOfYear(); 
-		$fin_de_año   = $ahora->endOfYear(); 
-// !DIA
-		$inicio_dia  = $ahora->startOfDay();
-		$fin_del_dia  = $ahora->endOfDay();
-// !SEMANA
-		$inicio_semana    = $ahora->startOfWeek(); 
-		$fin_de_la_semana = $ahora->endOfWeek();
-// !MES
-		$inicio_mes  = $ahora->startOfMonth();
-		$fin_del_mes = $ahora->endOfMonth();
+			function calculardia(){
+				$dia = new \stdClass;
+				$inicio = \Carbon\carbon::now()->startOfDay();
+				$fin    = \Carbon\carbon::now()->endOfDay();
+				$respuesta = CalcularValores($inicio,$fin);			
+				return $respuesta;
 
+			}
+			function calcularsemana(){  
+				$semana = new \stdClass;
+				$inicio = Carbon::now()->startOfWeek();
+				$fin    = Carbon::now()->endOfWeek();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
+			/* Fin Semana*/
 
-// !SEMESTRES 
+			/*   Mes Actual     */
 
-//PRIMER 
-		$inicio_primer_semestre  = $inicio_año;
-		$fin_del_primer_semestre = $inicio_año->addMonths(6)->endOfMonth(); 
+			function calcularmes(){		
+				$mes = new \stdClass;
+				$inicio = Carbon::now()->startOfMonth();
+				$fin    = Carbon::now()->endOfMonth();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
-//SEGUNDO
-		$inicio_segundo_semestre  = $fin_del_primer_semestre;
-		$fin_del_segundo_semestre = $fin_de_año;
+			/* Fin mes Actual   */
 
-// !TRIMESTRES
+			/*   Primer Trimstre     */
 
-//PRIMER
-		$inicio_primer_trimestre = $inicio_año; 
-		$fin_primer_trimestre    = $inicio_año->addMonths(3)->endOfMonth();
+			function calcularprimertrimestre(){	
+				$primetrimestre= new \stdClass;
+				$inicio = Carbon::now()->startOfYear();
+				$fin    = Carbon::now()->startOfYear()->addMonths(3)->endOfMonth();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
+			/*   Primer Trimstre     */
+			function calcularsegundotrimestre(){
+				$segundotrimestre= new \stdClass;
+				$inicio = Carbon::now()->startOfYear()->addMonths(4);
+				$fin    = Carbon::now()->startOfYear()->addMonths(6)->endOfMonth();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
-//SEGUDO
-		$inicio_segundo_trimestre = $inicio_año->addMonths(4); 
-		$fin_segundo_trimestre    = $inicio_segundo_trimestre->addMonths(2)->endOfMonth();
-
-//TERCERO
-		$inicio_tercer_trimestre = $inicio_año->addMonths(7); 
-		$fin_tercer_trimestre    = $inicio_tercer_trimestre->addMonths(2)->endOfMonth();
-
-//CUARTO
-		$inicio_cuarto_trimestre = $inicio_año->addMonths(10);  
-		$fin_cuarto_trimestre    = $fin_de_año;
-
-
-//
-		
-
-		switch ($tipo) {
-			case 'dia':      
 			
-			$meta_dia_actual_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
+			function calculartercertrimestre(){
+				$tercertrimestre= new \stdClass;
+				$inicio = Carbon::now()->startOfYear()->addMonths(7);
+				$fin    = Carbon::now()->startOfYear()->addMonths(9)->endOfMonth();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
 
-			$meta_dia_actual_recaudo   = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_dia,$fin_del_dia]);
+			}
 
-			return $meta_dia_actual_total;
-			break;
+			function calcularcuartotrimestre(){
+				$cuartotrimestre= new \stdClass;
+				$inicio = Carbon::now()->startOfYear()->addMonths(10);
+				$fin    = Carbon::now()->endOfYear();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
-			case 'semana':   
-			$meta_semana_actual_total         = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);
+			function calcularprimersemestre(){
+				$primersemestre = new \stdClass;
+				$inicio = Carbon::now()->startOfYear();
+				$fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
-			$meta_semana_actual_recaudado     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_semana,$fin_de_la_semana]);	
-			return $meta_semana_actual_total;
+			function calcularsegundosemestre(){
+				$segundosemestre = new \stdClass;
+				$inicio = Carbon::now()->startOfYear()->addMonths(6);
+				$fin    = Carbon::now()->endOfYear();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;
+			}
 
-			break;
-
-			case 'mes':
-			$meta_mes_actual_total             = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro"  and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
-
-			$meta_mes_actual_total = \App\Anotacion::whereBetween('fecha_cobro', array($inicio_primer_semestre, $fin_del_primer_semestre))
-			->where('tipo_anotacion','=','cobro')
-			->count();
-
-			$metas_mes_actual_cumplimiento     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_mes,$fin_del_mes]);
-
-			return $fin_del_primer_semestre;
-			break;
-
-			case 'primer_trimestre':
-			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
-			$meta_primer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_trimestre,$fin_primer_trimestre]);
-			break;
-
-			case 'segundo_trimestre':
-			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
-			$meta_segundo_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_trimestre,$fin_segundo_trimestre]);
-			
-			break;
-			case 'tercer_trimestre':
-			$meta_tercer_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_tercer_trimestre,$fin_tercer_trimestre]);
-			$meta_tercer_trimestre_recaudado = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_tercer_trimestre,$fin_tercer_trimestre]);
-			break;
-			case 'cuarto_trimestre':
-			$meta_cuarto_trimestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_cuarto_trimestre,$fin_cuarto_trimestre]);
-			$meta_cuarto_trimestre_recaudado     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and estado = 0 and fecha_cobro BETWEEN ? and ? ', [$inicio_cuarto_trimestre,$fin_cuarto_trimestre]);
-			break;
-			case 'primer_semestre':
-			$meta_primer_semestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_semestre,$fin_primer_semestre]);
-			$meta_primer_semestre_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_primer_semestre,$fin_primer_trimestre]);
-			break;
-			case 'segundo_semestre':
-			$meta_segundo_semestre_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_semestre,$fin_segundo_trimestre]);
-			$meta_segundo_semestre_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_segundo_semestre,$fin_segundo_trimestre]);	
-			break;
-			case 'año':
-			$meta_año_total     = DB::select('select SUM(monto) from anotaciones where tipo_anotacion = "cobro" AND fecha_cobro BETWEEN ? AND ? ', [$inicio_año,$fin_de_año]);
-			$meta_año_recaudado = DB::select('select SUM(monto) from anotaciones where estado = 0 and tipo_anotacion = "cobro" and fecha_cobro BETWEEN ? and ? ', [$inicio_año,$fin_de_año]);	
-			
-			break;      
+			function calcularano(){
+				$ano = new \stdClass;
+				$inicio = Carbon::now()->startOfYear();
+				$fin    = Carbon::now()->endOfYear();
+				$respuesta = CalcularValores($inicio,$fin);
+				return $respuesta;							
+			}  
 
 
-			default:
-			$respuesta = 0;
-			break;
+			$valores = array(
+				'dia' => calculardia(), 
+				'semana' => calcularsemana(), 
+				'mes' => calcularmes(), 
+				'primer_trimestre' => calcularprimertrimestre(), 
+				'segundo_trimestre' => calcularsegundotrimestre(), 
+				'tercer_trimestre' => calculartercertrimestre(), 
+				'cuarto_trimestre' => calcularcuartotrimestre(), 
+				'primer_semestre' => calcularprimersemestre(), 
+				'segundo_semestre' => calcularsegundosemestre(), 
+				'ano' => calcularano() 
+				);
+
+			return  response()->json($valores);
+
+
+
+
+
+
 		}
 
 
+
 	}
-
-
-
-
-	/*Recaudo para "hoy"*/
 }
+
+
+
+
+/*Recaudo para "hoy"*/
+

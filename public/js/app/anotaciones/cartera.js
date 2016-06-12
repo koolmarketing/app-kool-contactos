@@ -5,7 +5,6 @@
             $.ajaxSetup({
                 headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
             })
-
             var formId = '#form-guardar-cartera';
             $.ajax({
                 url: $(formId).attr('action'),
@@ -35,7 +34,7 @@
                     console.log('Error');
                 }
             });                    
-    });
+        });
 //      END SAVE AJAX    <---
 
 
@@ -48,18 +47,18 @@ $('body').on('click', '.btn-reportar', function(event) {
     console.log("serial: "+serial+" id:"+id);
 
     function deducirCobro(id){
-            event.preventDefault();
-            $.ajaxSetup({
-                headers: { 'X-CSRF-Token' : $('input[name=_token]').attr('content') }
-            })
-            var formId = '#form-actualizar-cobro_'+id;
-            $.ajax({
-                url: '/update/cobro',
-                type: 'POST',
-                data: $(formId).serialize(),
-                dataType: 'html',
-                success: function(result){                    
-                        resultado = jQuery.parseJSON(result);
+        event.preventDefault();
+        $.ajaxSetup({
+            headers: { 'X-CSRF-Token' : $('input[name=_token]').attr('content') }
+        })
+        var formId = '#form-actualizar-cobro_'+id;
+        $.ajax({
+            url: '/update/cobro',
+            type: 'POST',
+            data: $(formId).serialize(),
+            dataType: 'html',
+            success: function(result){                    
+                resultado = jQuery.parseJSON(result);
                         //alert(result);                    
                         if (resultado.tipo=="Error") {
                             swal(resultado.mensaje);
@@ -72,36 +71,33 @@ $('body').on('click', '.btn-reportar', function(event) {
                         }
                         else{                                                        
                             
-                        }                            
-                    
-                },
-                error: function(){
-                    console.log('Error');
-                }
-            });                    
+                        }                                   
+                    },
+                    error: function(){
+                        console.log('Error');
+                    }
+                });                    
     }
-swal(
-{   
-    title: "¿Estas seguro?",
-    text: "Estas por reportar el ingreso de dinero",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#DD6B55",
-    confirmButtonText: "Si!, Confirmo Pago",
-    cancelButtonText: "No",
-    closeOnConfirm: false,
-    closeOnCancel: false },
+    swal(
+    {   
+        title: "¿Estas seguro?",
+        text: "Estas por reportar el ingreso de dinero",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Si!, Confirmo Pago",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: false },
 
-    function(isConfirm){ 
-      if (isConfirm) {
+        function(isConfirm){ 
+          if (isConfirm) {
             //$('#reporte-de-cobro').modal('show');
             swal("Reportado!", "El pago se ha ingresado en el sistema", "success");
             deducirCobro(id);
-
         }
         else {     swal("Cancelado!", "El reporte ha sido cancelado", "error");   } });
 });
-
 
 // Modal Comprobante
 
@@ -111,3 +107,7 @@ $('body').on('click', '.btn-comprobante-cobro', function(event) {
     $('#id_anotacion_cobro').val(id_anotacion);
     $('#comprobante-cobro').modal('show');
 });
+
+
+
+

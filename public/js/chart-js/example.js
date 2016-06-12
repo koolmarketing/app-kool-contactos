@@ -1,3 +1,5 @@
+$( document ).ready(function() {
+    
 var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 
 	var barChartData = {
@@ -203,3 +205,5 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
           responsive: true
       });
   }
+
+});
