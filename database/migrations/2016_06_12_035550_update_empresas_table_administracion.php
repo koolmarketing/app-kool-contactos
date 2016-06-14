@@ -14,7 +14,7 @@ class UpdateEmpresasTableAdministracion extends Migration
     {
         Schema::table('empresas', function($table)
        {         
-        $table->string('administracion')->nullable();   
+        $table->integer('administracion')->nullable();   
 
     });
    }

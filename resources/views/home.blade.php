@@ -262,18 +262,7 @@
 							</span>
 
 
-							<div class="btn-group pull-right" style="z-index:1000">
-								<button class="btn waves btn-default waves-effect waves-float" type="button"><i class="icon-calendar-7"></i></button>
-								<button data-toggle="dropdown" class="btn waves btn-default dropdown-toggle waves-effect waves-float" type="button" aria-expanded="false">
-									<span class="caret"></span></button>
-									<ul class="dropdown-menu" style="z-index:999999">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
+						<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
 								<div class="pull-left info">
 
 									<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
@@ -311,7 +300,7 @@
 									<i class="fa fa-circle fa-stack-2x green"></i>
 									<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
 								</span>
-								<button class="btn btn-md btn-default pull-right">Hello</button>
+								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
 								<div class="pull-left info">
 									<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
 									<span class="block">Recordatorios</span>
@@ -344,7 +333,7 @@
 									<i class="fa fa-circle fa-stack-2x red"></i>
 									<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
 								</span>
-								<button class="btn btn-md btn-default pull-right">Hello</button>
+								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
 								<div class="pull-left info">
 									<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
 									<span class="block">Alertas</span>
@@ -379,7 +368,7 @@
 									<i class="fa fa-circle fa-stack-2x purple"></i>
 									<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
 								</span>
-								<button class="btn btn-md btn-default pull-right">Hello</button>
+								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
 								<div class="pull-left info">
 									<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
 									<span class="block">Cobros</span>

@@ -99,19 +99,19 @@ if (meta_total_semana==null) { meta_total_mes = 0;}
 
   meta_total_segundotrimestre  = data.segundo_trimestre.meta_total[0].total;
   meta_actual_segundotrimestre = data.segundo_trimestre.meta_actual[0].total;
-  porcentaje_segundotrimestre  = meta_actual_mes*100/meta_total_segundotrimestre;
+  porcentaje_segundotrimestre  = meta_actual_segundotrimestre*100/meta_total_segundotrimestre;
 if (meta_total_segundotrimestre==null) { meta_total_segundotrimestre = 0;}
   $('#meta_trimestre_total').html($.number( meta_total_segundotrimestre,0 ));
   $('#recaudo_trimestre').attr('aria-valuenow', porcentaje_segundotrimestre).css('width', parseInt(porcentaje_segundotrimestre)+"%");
   $('#tile-porcentaje_trimestre').html(parseInt(porcentaje_segundotrimestre)+"%");
 
-  meta_total_segundosemestre  = data.segundo_semestre.meta_total[0].total;
-  meta_actual_segundosemestre = data.segundo_semestre.meta_actual[0].total;
-  porcentaje_segundosemestre  = meta_actual_segundosemestre*100/meta_total_segundosemestre;
-if (meta_total_semana==null) { meta_total_segundosemestre = 0;}
-  $('#meta_semestre_total').html($.number( meta_total_segundosemestre,0 ));
-  $('#recaudo_semestre').attr('aria-valuenow', porcentaje_segundosemestre).css('width', parseInt(porcentaje_segundosemestre)+"%");
-  $('#tile-porcentaje_semestre').html(parseInt(porcentaje_segundosemestre)+"%");
+  meta_total_primersemestre  = data.primer_semestre.meta_total[0].total;
+  meta_actual_primersemestre = data.primer_semestre.meta_actual[0].total;
+  porcentaje_primersemestre  = meta_actual_primersemestre*100/meta_total_primersemestre;
+if (meta_total_primersemestre==null) { meta_total_primersemestre = 0;}
+  $('#meta_semestre_total').html($.number( meta_total_primersemestre,0 ));
+  $('#recaudo_semestre').attr('aria-valuenow', porcentaje_primersemestre).css('width', parseInt(porcentaje_primersemestre)+"%");
+  $('#tile-porcentaje_semestre').html(parseInt(porcentaje_primersemestre)+"%");
 
    meta_total_ano  = data.ano.meta_total[0].total;
   meta_actual_ano = data.ano.meta_actual[0].total;
