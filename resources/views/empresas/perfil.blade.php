@@ -103,6 +103,9 @@
         <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
         <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
         <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
+         @if ($data->empresa->administracion =="1")
+         <li role="presentation"><a href="#costos" aria-controls="costos" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Costos</a></li>
+         @endif
       </ul>    
 
       <!-- Tab panes -->
@@ -892,6 +895,33 @@
 
      <!-- Fin Contrataciones -->
 
+     @if ($data->empresa->administracion =="1")
+
+      <!-- Inicio Costos -->
+
+      <div role="tabpanel" class="tab-pane" id="costos">
+        <div class="panel panel-default">
+          <div class="panel-body">
+           
+             <div class="pull-right">
+               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>agregar un Costo</button>
+             </div>
+             <br><br><br>
+           <br>
+           <div id="contenedor_servicios_empresa" class="col-md-12">
+
+           </div>
+         </div>
+
+
+       </div>
+     </div>
+
+       <!-- Fin Costos -->
+
+       
+     @endif
+
    </div>
  </div>
 </div>
@@ -1187,6 +1217,89 @@
 {{-- Reportar Cobro --}}
 
 {{-- End Reportar Cobro --}}
+
+<!------------  Load Comprobante Costo  ------------>
+<div class="modal fade" id="modal-comprobante-costo">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cargar Comprobante de Costo</h4>
+      </div>
+      <div class="modal-body">
+        {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+
+        <input type="hidden" name="id_anotacion" id="id_anotacion_costo" class="form-control" value="">
+        <input type="file" name="comprobante" class="form-control">              
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        <button type="input" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
+        {!! Form::close() !!}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{-- Reportar Cobro --}}
+
+<!--====  Stat Costo  ====-->
+<div class="modal fade" id="costos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Adjuntar un Costo</h4>
+
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          {!!Form::open(array('action' => 'ServiciosController@SaveService', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+
+          <div class="col-md-12">
+            <div class="col-md-12"> <br>                     
+              <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" value="" required="required">
+            </div>
+          </div>                   
+          <div class="col-md-12">
+           <div class="col-md-6">  <br>  
+             <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+           </div>
+           <div class="col-md-6"> <br>                     
+            <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
+          </div>
+          <br><br>
+        </div>                
+        <div class="col-md-12" style="margin-top: 20px;"> 
+         <div class="col-md-6">
+
+          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
+        </div>
+        <div class="col-md-6">
+          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor del servicio" value="" required="required" step="any">
+        </div>
+      </div>
+      <div class="col-md-12" style="margin-top: 10px">
+        <div class="col-md-12">
+          <br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+    <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
+    {!! Form::close() !!}
+  </div>
+</div>
+</div>
+</div>
+
+<!-- END Costo -->
 
 
 
