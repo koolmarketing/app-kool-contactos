@@ -534,6 +534,7 @@ return array(
     'UpdateServiciosTable' => $baseDir . '/database/migrations/2016_05_25_162236_update_servicios_table.php',
     'UpdateTablePersonas' => $baseDir . '/database/migrations/2016_04_22_170438_update_table_personas.php',
     'UpdateTableUsers' => $baseDir . '/database/migrations/2016_04_27_170940_update_table_users.php',
+    'UpsateCostosTableComentariosCosto' => $baseDir . '/database/migrations/2016_06_16_220319_upsate_costos_table_comentarios_costo.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'ntlm_sasl_client_class' => $vendorDir . '/phpmailer/phpmailer/extras/ntlm_sasl_client.php',
     'phpmailerException' => $vendorDir . '/phpmailer/phpmailer/class.phpmailer.php',

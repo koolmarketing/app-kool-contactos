@@ -93,6 +93,13 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		 */
 
 		require __DIR__ . '/routes/servicios.php';
+		/**
+		 *
+		 * Servicios
+		 *
+		 */
+
+		require __DIR__ . '/routes/costos.php';
 
 
 		/**

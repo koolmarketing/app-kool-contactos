@@ -904,16 +904,14 @@
           <div class="panel-body">
            
              <div class="pull-right">
-               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>agregar un Costo</button>
+               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-costos'>Agregar un Costo</button>
              </div>
              <br><br><br>
            <br>
-           <div id="contenedor_servicios_empresa" class="col-md-12">
+           <div id="contenedor_costos_empresa" class="col-md-12">
 
            </div>
          </div>
-
-
        </div>
      </div>
 
@@ -1200,7 +1198,6 @@
       </div>
       <div class="modal-body">
         {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-
         <input type="hidden" name="id_anotacion" id="id_anotacion_servicio" class="form-control" value="">
         <input type="file" name="comprobante" class="form-control">              
       </div>
@@ -1227,14 +1224,15 @@
         <h4 class="modal-title">Cargar Comprobante de Costo</h4>
       </div>
       <div class="modal-body">
-        {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+        {!!Form::open(array('action' => 'CostosController@UpdateComprobanteCosto', 'method' => 'post', 'id' => 'form-guardar-comprobante-costo','files'=>true));!!}
 
-        <input type="hidden" name="id_anotacion" id="id_anotacion_costo" class="form-control" value="">
+        <input type="hidden" name="id_anotacion_costo" id="id_anotacion_costo" class="form-control" value="">
+
         <input type="file" name="comprobante" class="form-control">              
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="input" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
+        <button type="submit" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
         {!! Form::close() !!}
       </div>
     </div>
@@ -1245,54 +1243,54 @@
 {{-- Reportar Cobro --}}
 
 <!--====  Stat Costo  ====-->
-<div class="modal fade" id="costos">
+<div class="modal fade" id="modal-costos">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Adjuntar un Costo</h4>
-
       </div>
       <div class="modal-body">
         <div class="row">
 
-          {!!Form::open(array('action' => 'ServiciosController@SaveService', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+          {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
           <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
 
           <div class="col-md-12">
             <div class="col-md-12"> <br>                     
-              <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" value="" required="required">
+              <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
             </div>
           </div>                   
           <div class="col-md-12">
            <div class="col-md-6">  <br>  
-             <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+             <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
            </div>
            <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
+            <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
           </div>
           <br><br>
         </div>                
         <div class="col-md-12" style="margin-top: 20px;"> 
          <div class="col-md-6">
-
           <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
         </div>
         <div class="col-md-6">
-          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor del servicio" value="" required="required" step="any">
+          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
         </div>
+
+        <div class="col-md-12"><br>
+        <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
       </div>
       <div class="col-md-12" style="margin-top: 10px">
         <div class="col-md-12">
           <br>
         </div>
-
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-    <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
+    <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
     {!! Form::close() !!}
   </div>
 </div>
@@ -1324,6 +1322,10 @@
   $("#contenedor_servicios_empresa").load("/empresa/servicios_imprimir/all/{!! $data->empresa->id !!}");
   $("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }
+ function load_costos(){
+  $("#contenedor_costos_empresa").load("/empresa/costo_imprimir/all/{!! $data->empresa->id !!}");
+  //$("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
+}
 function load_modal_cartera(){
   $("#modal_cartera").load("/load-cartera/{!! $data->empresa->id !!}");
 }
@@ -1334,16 +1336,22 @@ function load_modal_cartera(){
 {!! HTML::script('js/app/anotaciones/cartera.js') !!}
 {!! HTML::script('js/app/anotaciones/recordatorio.js') !!}
 
-<!-- Servicio -->
+<!-- Servicios : servicios prestados -->
 
 {!! HTML::script('js/app/servicios/servicio.js') !!}
 
+<!-- Costos -->
+
+{!! HTML::script('js/app/costos/costo.js') !!}
 
 <script type="text/javascript">
   $(function(){
+
     load_notes();
     load_servicios();
     load_modal_cartera();
+    load_costos();
+
     $('#date_timepicker_start').datetimepicker({
       format:'Y-m-d H:i:00',
       step:"30",

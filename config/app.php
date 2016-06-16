@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Clicknow\Money\MoneyServiceProvider::class,
+        Sleimanx2\Plastic\PlasticServiceProvider::class,
 
         /*
          * Application Service Providers...
