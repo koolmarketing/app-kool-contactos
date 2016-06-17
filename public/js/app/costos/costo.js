@@ -3,7 +3,7 @@
             step:"30",
             onShow:function( ct ){
                 this.setOptions({
-                    maxDate:$('#fin_costo').val()?$('#fin_servicio').val():false
+                    maxDate:$('#fin_costo').val()?$('#fin_costo').val():false
                 })
             },
             lang:'es',
@@ -14,7 +14,7 @@
             format:'Y-m-d H:i:00',
             onShow:function( ct ){
                 this.setOptions({
-                    minDate:$('#inicio_costo').val()?$('#inicio_servicio').val():false
+                    minDate:$('#inicio_costo').val()?$('#inicio_costo').val():false
                 })
             },
             lang:'es',

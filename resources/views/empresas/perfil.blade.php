@@ -97,15 +97,24 @@
 <section class="row">
   <div class="col-md-8">
     <div class="tabbable tabs-with-bg big-tabs">
+
+      <!--  -->
+
+
+
+      <!-- html comment -->
+
+
+
       <!-- Tab Principal -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
         <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
         <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
         <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
-         @if ($data->empresa->administracion =="1")
-         <li role="presentation"><a href="#costos" aria-controls="costos" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Costos</a></li>
-         @endif
+        @if ($data->empresa->administracion =="1")
+        <li role="presentation"><a href="#costos" aria-controls="costos" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Costos</a></li>
+        @endif
       </ul>    
 
       <!-- Tab panes -->
@@ -897,31 +906,31 @@
 
      @if ($data->empresa->administracion =="1")
 
-      <!-- Inicio Costos -->
+     <!-- Inicio Costos -->
 
-      <div role="tabpanel" class="tab-pane" id="costos">
-        <div class="panel panel-default">
-          <div class="panel-body">
-           
-             <div class="pull-right">
-               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-costos'>Agregar un Costo</button>
-             </div>
-             <br><br><br>
-           <br>
-           <div id="contenedor_costos_empresa" class="col-md-12">
+     <div role="tabpanel" class="tab-pane" id="costos">
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-           </div>
+         <div class="pull-right">
+           <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-costos'>Agregar un Costo</button>
+         </div>
+         <br><br><br>
+         <br>
+         <div id="contenedor_costos_empresa" class="col-md-12">
+
          </div>
        </div>
      </div>
-
-       <!-- Fin Costos -->
-
-       
-     @endif
-
    </div>
+
+   <!-- Fin Costos -->
+
+
+   @endif
+
  </div>
+</div>
 </div>
 <!-- Fin Tab Principal -->
 
@@ -1137,27 +1146,44 @@
           <br><br>
         </div>                
         <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-6">
+         <div class="col-md-5">
 
           <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor del servicio" value="" required="required" step="any">
         </div>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px">
-        <div class="col-md-12">
-          <br>
+        <div class="col-md-2">
+           <input type="number" name="iva" id="input" class="form-control material" placeholder="IVA" value="" required="required" step="any">
         </div>
+        <div class="col-md-12"><br>
+        <div class="col-md-1">
 
+          <button type="button" class="btn btn-info btn-xs"><i class="icon-info"></i></button>
+        </div>
+          <div class="col-md-11"><select name="" id="input" class="form-control material" required="required">
+          <option value="">Tipo de Retención</option>
+            @foreach ($retencion as $retencion)            
+            <option value="">{!! $retencion->concepto !!} - <b class="text-danger">{!! $retencion->tarifas !!}%</b></option>            
+            @endforeach
+          </select>
+        </div>
       </div>
+
+    </div>
+    <div class="col-md-12" style="margin-top: 10px">
+      <div class="col-md-12">
+        <br>
+      </div>
+
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-    <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
-    {!! Form::close() !!}
-  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+  <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
+  {!! Form::close() !!}
+</div>
 </div>
 </div>
 </div>
@@ -1279,21 +1305,21 @@
         </div>
 
         <div class="col-md-12"><br>
-        <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px">
-        <div class="col-md-12">
-          <br>
+          <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
+        </div>
+        <div class="col-md-12" style="margin-top: 10px">
+          <div class="col-md-12">
+            <br>
+          </div>
         </div>
       </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+      <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
+      {!! Form::close() !!}
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-    <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
-    {!! Form::close() !!}
-  </div>
-</div>
 </div>
 </div>
 
@@ -1322,7 +1348,7 @@
   $("#contenedor_servicios_empresa").load("/empresa/servicios_imprimir/all/{!! $data->empresa->id !!}");
   $("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }
- function load_costos(){
+function load_costos(){
   $("#contenedor_costos_empresa").load("/empresa/costo_imprimir/all/{!! $data->empresa->id !!}");
   //$("#saldo").load("/empresa/imprimir/saldo/{!! $data->empresa->id !!}");
 }

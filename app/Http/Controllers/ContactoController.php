@@ -9,6 +9,7 @@ Use App;
 // use App\Persona;
 // use App\Reporte;
 // use App\SectorEconomia;
+use App\Retencion;
 use DB;
 use Auth;
 use Session;
@@ -24,6 +25,7 @@ class ContactoController extends Controller
 {     
     public function index()
     {
+       
         $data = (object) array("page" => "Home");
         return view('home',['data' => $data]);
     }
@@ -227,9 +229,10 @@ public function NewCompany()
 public function Empresa ($id)
 {
     $carbon = new \Carbon\Carbon();
+     $retencion = Retencion::all();
     $empresa=\App\Empresa::find($id);
     $data = (object) array("page" => "Empresa","empresa"=>$empresa);
-    return view('empresas.perfil',['data' => $data, 'carbon' => $carbon]);
+    return view('empresas.perfil',['data' => $data, 'carbon' => $carbon,'retencion'=>$retencion]);
 }
 
 public function GuardarClientes (Request $request) {
