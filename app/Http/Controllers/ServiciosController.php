@@ -36,20 +36,29 @@ class ServiciosController extends Controller
 
 		$SR              = new \App\Servicio;
 
-		if (isset($filename1)) {
-			$SR->comprobante = $filename1;
-		}
+			// if (isset($filename1)) {
+			// 	$SR->comprobante = $filename1;
+			// }
 
-		$SR->id_perfil   = $data->input('id_perfil');
-		$SR->id_usuario  = Auth::id();
-		$SR->estado      = 1;
-		$SR->inicio      = $data->input('inicio');
-		$SR->fin         = $data->input('fin');
-		$SR->titulo      = $data->input('titulo');
-		$SR->valor       = $data->input('valor');
-		$SR->saldo       = $data->input('valor');
-		$SR->serial       = $data->input('serial');
-		$SR->token       = str_random(10);
+		$SR->id_perfil          = $data->input('id_perfil');
+		$SR->id_usuario         = Auth::id();
+		$SR->estado             = 1;
+		$SR->inicio             = $data->input('inicio');
+		$SR->fin                = $data->input('fin');
+		$SR->titulo             = $data->input('titulo');
+		$SR->valor              = $data->input('valor');
+		$SR->saldo              = $data->input('valor');
+		$SR->serial      	    = $data->input('serial');
+		$SR->titulo_retencion   = $data->input('retencion');
+		$SR->iva 				= $data->input('iva');
+		$SR->valor_retencion	= $data->input('valor_retencion');
+		$SR->valor_iva      	= $data->input('valor_iva');
+		$SR->costos         	= $data->input('costos');
+		if ($data->input('comentarios_servicio')=="Observación") {$SR->comentarios_servicio = "";}
+		else{$SR->comentarios_servicio   	= $data->input('comentarios_servicio');}
+		
+		$SR->utilidad_neta   	= $data->input('utilidad_neta');
+		$SR->token              = str_random(10);
 		$SR->save();
 		return $data->input();
 		//}

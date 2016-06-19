@@ -18,8 +18,7 @@
                     }
                     else{
                         $(formId)[0].reset();
-                        resultado = jQuery.parseJSON(result);
-                        //alert(result);                    
+                        resultado = jQuery.parseJSON(result);                                          
                         if (resultado.tipo=="Error") {
                             swal(resultado.mensaje);
                         }

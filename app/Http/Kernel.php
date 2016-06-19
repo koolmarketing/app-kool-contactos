@@ -50,5 +50,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'validarcartera' =>  \App\Http\Middleware\ValidarCartera::class,
         'validarserial' =>  \App\Http\Middleware\ValidarSerial::class,
+        'validarservicio' => \App\Http\Middleware\ValidarServicio::class,
     ];
 }

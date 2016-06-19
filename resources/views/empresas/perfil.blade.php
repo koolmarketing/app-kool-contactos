@@ -1118,7 +1118,7 @@
 
 <!--====  Stat Service  ====-->
 <div class="modal fade" id="modal-service">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -1146,29 +1146,60 @@
           <br><br>
         </div>                
         <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-5">
+         <div class="col-md-3">
 
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
+          <input type="text" name="serial" id="input" class="form-control material" placeholder="# Comprobante" value="" required="required">
         </div>
-        <div class="col-md-5">
-          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor del servicio" value="" required="required" step="any">
+        <div class="col-md-4">
+          <input type="number" name="valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio" value="" required="required">
+        </div>
+        <div class="col-md-3">
+          <input type="number" name="costos" id="costos_operativos" class="form-control material" placeholder="Costos" value="" required="required" step="any">
         </div>
         <div class="col-md-2">
-           <input type="number" name="iva" id="input" class="form-control material" placeholder="IVA" value="" required="required" step="any">
-        </div>
-        <div class="col-md-12"><br>
+         <input type="number" name="iva" id="iva" min="0" step="0.05" class="form-control material" placeholder="IVA" value="" required="required" step="any">
+       </div>
+       <div class="col-md-12"><br>
         <div class="col-md-1">
 
-          <button type="button" class="btn btn-info btn-xs"><i class="icon-info"></i></button>
+          <button type="button" id="btn-retencion" class="btn btn-info btn-xs"><i class="icon-info"></i></button>
         </div>
-          <div class="col-md-11"><select name="" id="input" class="form-control material" required="required">
-          <option value="">Tipo de Retención</option>
+        <div class="col-md-11">
+          <select name="retencion" id="retencion_select" class="form-control material" required="required">
+            <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
+            <option value="Sin Retención" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
             @foreach ($retencion as $retencion)            
-            <option value="">{!! $retencion->concepto !!} - <b class="text-danger">{!! $retencion->tarifas !!}%</b></option>            
+            <option value="{!! $retencion->concepto !!}" data-tarifas="{!! $retencion->tarifas !!}" data-baseuvt="{!! $retencion->base_uvt !!}" data-basepesos="{!! $retencion->base_pesos !!}" value="">{!! $retencion->concepto !!} - <b class="text-danger">[ {!! $retencion->tarifas !!}% ]</b></option>            
             @endforeach
           </select>
         </div>
       </div>
+      <br>
+
+
+
+      <div class="col-md-12">
+        <br>
+        <ul class="list-group">
+          <li class="list-group-item"><b>IVA</b>
+          <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
+          <span class="pull-right" id="container_iva">          
+          </span></li>
+          <li class="list-group-item"><b>Retención</b>
+           <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
+           <span class="pull-right" id="container_RT"></span></li>
+
+           <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
+           <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
+           <span class="pull-right" id="container_utilidad"></span></li>
+         </ul>
+       </div><br>
+       <div class="form-group">
+        <div class="col-md-12">
+          <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observación</textarea>
+        </div>
+      </div>
+
 
     </div>
     <div class="col-md-12" style="margin-top: 10px">
@@ -1326,6 +1357,29 @@
 <!-- END Costo -->
 
 
+{{--  --}}
+
+
+
+<div class="modal fade" id="tabla-retencion">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 @stop
 
@@ -1355,6 +1409,7 @@ function load_costos(){
 function load_modal_cartera(){
   $("#modal_cartera").load("/load-cartera/{!! $data->empresa->id !!}");
 }
+
 </script>
 <!-- Anotaciones -->
 {!! HTML::script('js/app/anotaciones/anotacion.js') !!}
@@ -1377,6 +1432,8 @@ function load_modal_cartera(){
     load_servicios();
     load_modal_cartera();
     load_costos();
+
+    $('.money').mask('000.000.000.000.000,00', {reverse: true});
 
     $('#date_timepicker_start').datetimepicker({
       format:'Y-m-d H:i:00',
@@ -1421,6 +1478,11 @@ function load_modal_cartera(){
 </script>
 
 <script>
+//data-tarifas
+//data-baseuvt
+//data-basepesos
+
+
 </script>
 
 <script type="text/javascript">

@@ -1,7 +1,7 @@
 <?php	
 
 Route::post('adjuntar-servicio', [
-	'middleware' => 'auth',
+	'middleware' => ['auth','validarservicio'],
 	'as'   => 'guardar.servicio', 
 	'uses' => 'ServiciosController@SaveService'
 	]);
