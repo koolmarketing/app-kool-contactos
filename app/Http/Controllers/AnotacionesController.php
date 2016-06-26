@@ -95,11 +95,11 @@ class AnotacionesController extends Controller
     } 
 
     function print_anotacion_empresas($id){        
-       $carbon = new \Carbon\Carbon();
-       $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
+     $carbon = new \Carbon\Carbon();
+     $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
 
-       return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
-   }
+     return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
+ }
 
 
     /*
@@ -162,7 +162,7 @@ function get_cobros(){
 
 function updateCobro(Request $request){
     // Descontar del servicio
- 
+   
     $id_empresa   = $request->input('id_empresa');
     $id_anotacion = $request->input('id_anotacion');
     
@@ -205,8 +205,8 @@ function updateCobro(Request $request){
 public function updateCobroComprobante(Request $request)
 {
     
-   $destinationPath = 'uploads/comprobantes/';
-   if ($request->hasFile('comprobante')) {
+ $destinationPath = 'uploads/comprobantes/';
+ if ($request->hasFile('comprobante')) {
     $file = $request->file('comprobante');
     $destinationPath = 'uploads/comprobantes';
     $extension = $file->getClientOriginalExtension();
@@ -224,11 +224,6 @@ if (!empty($filename1)) {
 }else{
     echo "error";
 }
-
-
-
-
 }
-
 }    
 

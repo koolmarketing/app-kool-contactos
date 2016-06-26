@@ -60,5 +60,21 @@ Route::post('update/cobro/comprobante', [
 	'uses' => 'AnotacionesController@updateCobroComprobante'
 	]);
 
+Route::post('filtrar/tarjetas', [
+	'middleware' => ['auth','web'], 
+	'uses' => 'TarjetasController@FiltrarTarjetasHome'
+	]);
+
+
+/**/
+
+Route::get('get-calendar/{inicio}/{fin}', [
+	'middleware' => 'auth', 
+	'uses' => 'TarjetasController@FiltarTarjeta'
+	]);
 
 	?>
+
+
+
+

@@ -1199,14 +1199,11 @@
           <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observación</textarea>
         </div>
       </div>
-
-
     </div>
     <div class="col-md-12" style="margin-top: 10px">
       <div class="col-md-12">
         <br>
       </div>
-
     </div>
   </div>
 </div>

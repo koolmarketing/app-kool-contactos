@@ -1,6 +1,6 @@
 <?php 
 use Clicknow\Money\Money;
-echo '<h4> Saldo Actual: '.Money::COP($saldo, true).'</h4>'; 
+echo '<h4> Costos Operativos: '.Money::COP($saldo, true).'</h4>'; 
 ?>
 @foreach ($costos as $costo)
 <div class="col-md-12">

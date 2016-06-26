@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('add_styles')
 <link rel="stylesheet" href="bower_components/c3/c3.min.css">
+{!! HTML::style('datetimepicker/build/jquery.datetimepicker.min.css') !!}
 @stop
 @section('content')
 
 <div class="row">
-
 	<disv class="col-lg-12">
 		<div class="tabbable white-bg box-shadow vertical-tabs" id="tenth-tabs">
 			<div class="row">
@@ -182,236 +182,287 @@
 							</div>
 							<div class="tab-pane fade" id="102">
 								<div class="col-md-12"><div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn waves btn-default waves-effect waves-float">Día</button>
-              <button type="button" class="btn waves btn-default waves-effect waves-float">Semana</button>
-              <button type="button" class="btn waves btn-default waves-effect waves-float">Mes</button>
-              
-
-              <div class="btn-group" role="group">
-                <button type="button" class="btn waves btn-default dropdown-toggle waves-effect waves-float" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Trimestre
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Enero - Marzo</a></li>
-                  <li><a href="#">Abril - Junio</a></li>
-                  <li><a href="#">Julio - Septiembre</a></li>
-                  <li><a href="#">Octubre - Diciembre</a></li>
-                </ul>
-              </div>
-              <div class="btn-group" role="group">
-                <button type="button" class="btn waves btn-default dropdown-toggle waves-effect waves-float" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Semestre
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Enero - Junio</a></li>
-                  <li><a href="#">Julio - Diciembre</a></li>
-                </ul>
-              </div>
-              <button type="button" class="btn waves btn-default waves-effect waves-float">Año</button>
-              <button type="button" class="btn waves btn-default waves-effect waves-float"><i class="icon-calendar-empty"></i></button>
-            </div>
+									<button type="button" class="btn waves btn-default waves-effect waves-float">Día</button>
+									<button type="button" class="btn waves btn-default waves-effect waves-float">Semana</button>
+									<button type="button" class="btn waves btn-default waves-effect waves-float">Mes</button>
 
 
-            <br><br>
-								<div id="container" style="min-width:900px;"></div>
+									<div class="btn-group" role="group">
+										<button type="button" class="btn waves btn-default dropdown-toggle waves-effect waves-float" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Trimestre
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#">Enero - Marzo</a></li>
+											<li><a href="#">Abril - Junio</a></li>
+											<li><a href="#">Julio - Septiembre</a></li>
+											<li><a href="#">Octubre - Diciembre</a></li>
+										</ul>
+									</div>
+									<div class="btn-group" role="group">
+										<button type="button" class="btn waves btn-default dropdown-toggle waves-effect waves-float" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Semestre
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#">Enero - Junio</a></li>
+											<li><a href="#">Julio - Diciembre</a></li>
+										</ul>
+									</div>
+									<button type="button" class="btn waves btn-default waves-effect waves-float">Año</button>
+									<button type="button" class="btn waves btn-default waves-effect waves-float"><i class="icon-calendar-empty"></i></button>
 								</div>
-								
 
+
+								<br><br>
+								<div id="container" style="min-width:900px;"></div>
 							</div>
-							<div class="tab-pane fade" id="103">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consectetur consequatur vel quo sed, molestiae!</p>
-							</div>
+
+
 						</div>
+						<div class="tab-pane fade" id="103">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consectetur consequatur vel quo sed, molestiae!</p>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+				<div class="col-sm-12">
+					<div class="navigation">
+
+						<button class="btn btn-success waves prevtab waves-effect waves-float" type="button">Prev</button>
+						<button class="btn btn-success waves nexttab waves-effect waves-float" type="button">Next</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-12">
+
+
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget blue-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+						<span class="text-uppercase w-name">Anotaciones</span>
+						<br><br>
+
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x blue"></i>
+							<i class="fa  fa-commenting-o fa-stack-1x fa-inverse"></i>
+						</span>
+
+
+						<button class="btn btn-md btn-default pull-right" data-tarjetas="comentario" id="calendario-anotaciones"><i class="icon-calendar"></i></button>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
+							<span class="block">Anotaciones</span>
+							<br>
+						</div>
+						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_comentarios">
+					</div>
+				</div>
+			</div>
+		</div>
 
-					<div class="col-sm-12">
-						<div class="navigation">
-
-							<button class="btn btn-success waves prevtab waves-effect waves-float" type="button">Prev</button>
-							<button class="btn btn-success waves nexttab waves-effect waves-float" type="button">Next</button>
-
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget green-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+						<span class="text-uppercase w-name">Recordatorios</span>
+						<br><br>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x green"></i>
+							<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
+						</span>
+						<button class="btn btn-md btn-default pull-right" data-tarjetas="recordatorio" id="calendario-recordatorios"><i class="icon-calendar"></i></button>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
+							<span class="block">Recordatorios</span>
+							<br>				
 						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_recordatorios">
 					</div>
 				</div>
 			</div>
 		</div>
 
 
-		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-12">
-
-
-			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				<div class="content-box ultra-widget blue-bg">
-					<div class="w-content text-center">
-						<div class="w-descr simple">
-							<span class="text-uppercase w-name">Anotaciones</span>
-							<br><br>
-
-						</div>
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<div class="content-box ultra-widget red-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+						<span class="text-uppercase w-name">Alertas</span>
+						<br><br>
 					</div>
 				</div>
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="content-box small-box">
-							<span class="fa-stack fa-2x block pull-left">
-								<i class="fa fa-circle fa-stack-2x blue"></i>
-								<i class="fa  fa-commenting-o fa-stack-1x fa-inverse"></i>
-							</span>
-
-
-						<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
-								<div class="pull-left info">
-
-									<h1 class="text-uppercase zero-m" id="get_comentarios"></h1>
-									<span class="block">Anotaciones</span>
-									<br>
-								</div>
-
-								<div class="clearfix"></div>
-							</div>
-
-
-							<div class="clearfix"></div>
-
-							<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_comentarios">
-							</div>
+			</div>
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x red"></i>
+							<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
+						</span>
+						<button class="btn btn-md btn-default pull-right" data-tarjetas="alerta" id="calendario-alertas"><i class="icon-calendar"></i></button>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
+							<span class="block">Alertas</span>
+							<br>
 						</div>
+						<div class="clearfix"></div>
 					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					<div class="content-box ultra-widget green-bg">
-						<div class="w-content text-center">
-							<div class="w-descr simple">
-
-								<span class="text-uppercase w-name">Recordatorios</span>
-								<br><br>
-
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-success">
-						<div class="panel-body">
-							<div class="content-box small-box">
-								<span class="fa-stack fa-2x block pull-left">
-									<i class="fa fa-circle fa-stack-2x green"></i>
-									<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
-								</span>
-								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
-								<div class="pull-left info">
-									<h1 class="text-uppercase zero-m" id="get_recordatorios"></h1>
-									<span class="block">Recordatorios</span>
-									<br>				
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_recordatorios">
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					<div class="content-box ultra-widget red-bg">
-						<div class="w-content text-center">
-							<div class="w-descr simple">
-
-								<span class="text-uppercase w-name">Alertas</span>
-								<br><br>
-
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-danger">
-						<div class="panel-body">
-							<div class="content-box small-box">
-								<span class="fa-stack fa-2x block pull-left">
-									<i class="fa fa-circle fa-stack-2x red"></i>
-									<i class="fa fa-heartbeat fa-stack-1x fa-inverse"></i>
-								</span>
-								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
-								<div class="pull-left info">
-									<h1 class="text-uppercase zero-m" id="get_alertas"></h1>
-									<span class="block">Alertas</span>
-									<br>
-
-								</div>
-								<div class="clearfix"></div>
-							</div>
-
-							<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_alertas">
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-
-					<div class="content-box ultra-widget orange-bg">
-						<div class="w-content text-center">
-							<div class="w-descr simple">
-
-								<span class="text-uppercase w-name">Cobros</span>
-								<br><br>
-
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-success">
-						<div class="panel-body">
-							<div class="content-box small-box">
-								<span class="fa-stack fa-2x block pull-left">
-									<i class="fa fa-circle fa-stack-2x purple"></i>
-									<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
-								</span>
-								<button class="btn btn-md btn-default pull-right"><i class="icon-calendar"></i></button>
-								<div class="pull-left info">
-									<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
-									<span class="block">Cobros</span>
-									<br>
-
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_cobros">
-
-							</div>
-						</div>
-
-
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_alertas">
 					</div>
 				</div>
 			</div>
 		</div>
 
-		@stop
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+			<div class="content-box ultra-widget orange-bg">
+				<div class="w-content text-center">
+					<div class="w-descr simple">
+						<span class="text-uppercase w-name">Cobros</span>
+						<br><br>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<div class="content-box small-box">
+						<span class="fa-stack fa-2x block pull-left">
+							<i class="fa fa-circle fa-stack-2x purple"></i>
+							<i class="fa  fa-usd fa-stack-1x fa-inverse"></i>
+						</span>
+						<button class="btn btn-md btn-default pull-right" data-tarjetas="cobro" id="calendario-cobros"><i class="icon-calendar"></i></button>
+						<div class="pull-left info">
+							<h1 class="text-uppercase zero-m" id="get_cobros"></h1>
+							<span class="block">Cobros</span>
+							<br>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_cobros">
+					</div>
+				</div>
 
 
-		@section('add_scripts')
-		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-		{!! HTML::script('js/app/anotaciones/print.js') !!}
-		{!! HTML::script('js/jquery-number-master/jquery.number.min.js') !!}
-
-		<script src="https://code.highcharts.com/highcharts.js"></script>
-		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+			</div>
+		</div>
+	</div>
+</div>
 
 
+<div class="modal fade" id="calendario-tarjetas">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+				<div class="btn-group" role="group">
+					<button type="button" id="btn-get-calendario-dia" data-inicio="{!! \Carbon\carbon::now()->startOfDay() !!}" data-fin="{!! \Carbon\carbon::now()->endOfDay() !!}" class="btn-filtro btn btn-default btn-lg">Día</button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" data-inicio="{!! \Carbon\carbon::now()->startOfWeek() !!}" data-fin="{!! \Carbon\carbon::now()->endOfWeek() !!}" id="btn-get-calendario-semana" class="btn-filtro btn btn-default btn-lg">Semana</button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" data-inicio="{!! \Carbon\carbon::now()->startOfMonth() !!}" data-fin="{!! \Carbon\carbon::now()->endOfMonth() !!}" id="btn-get-calendario-mes" class="btn-filtro btn btn-default btn-lg">Mes</button>
+				</div>
+			
+			</div>
+			
+
+			<div class="modal-body">
+				
+				<br>
+				{!!Form::open(array('action' => 'TarjetasController@FiltrarTarjetasHome', 'method' => 'post', 'id' => 'form-filtrar','files'=>true));!!}
+				<div class="col-md-12"> 
+				<div class="col-md-12">  <br> 
+				<input type="hidden" id="tipo_tarjeta" name="tarjeta" value="">
+						<input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
+					</div>
+					<div class="col-md-12"> <br>                     
+						<input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
+					</div>
+					<br><br>
+				</div>   
+				<div class="modal-footer"><br>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+					<button type="button" id="filtar-tajetas-btn" class="btn btn-primary">Filtrar</button>
+				</div>
+				{!! Form::close() !!}
+			</div>
+		</div>
+	</div>
+
+	@stop
+
+
+	@section('add_scripts')
+	{!! HTML::script('datetimepicker/build/jquery.datetimepicker.full.js') !!}
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	{!! HTML::script('js/app/anotaciones/print.js') !!}
+	{!! HTML::script('js/jquery-number-master/jquery.number.min.js') !!}
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 
 
 
-		<script>
-			$(document).ready(function() {
-				registerHome();
 
 
-				$('#container').highcharts({
-					title: {
-						text: 'Monthly Average Temperature',
+	<script>
+		$(document).ready(function() {
+			registerHome();
+
+			$('#date_timepicker_start').datetimepicker({
+				format:'Y-m-d H:i:00',
+				step:"30",
+				onShow:function( ct ){
+					this.setOptions({
+						maxDate:$('#date_timepicker_end').val()?$('#date_timepicker_end').val():false
+					})
+				},
+				lang:'es',
+				timepicker:true
+			});
+			$('#date_timepicker_end').datetimepicker({
+				step:"30",
+				format:'Y-m-d H:i:00',
+				onShow:function( ct ){
+					this.setOptions({
+						minDate:$('#date_timepicker_start').val()?$('#date_timepicker_start').val():false
+					})
+				},
+				lang:'es',
+				timepicker:true
+			});
+
+
+			$('#container').highcharts({
+				title: {
+					text: 'Monthly Average Temperature',
             x: -20 //center
         },
         subtitle: {
