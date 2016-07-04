@@ -535,6 +535,7 @@ return array(
     'UpdateEmpresasTableAdministracion' => $baseDir . '/database/migrations/2016_06_12_035550_update_empresas_table_administracion.php',
     'UpdateServicioTableRetencionIva' => $baseDir . '/database/migrations/2016_06_19_003853_update_servicio_table_retencion_iva.php',
     'UpdateServiciosTable' => $baseDir . '/database/migrations/2016_05_25_162236_update_servicios_table.php',
+    'UpdateTableAnotacionesComentariosDatenew' => $baseDir . '/database/migrations/2016_07_04_204015_update_table_anotaciones_comentarios_datenew.php',
     'UpdateTablePersonas' => $baseDir . '/database/migrations/2016_04_22_170438_update_table_personas.php',
     'UpdateTableUsers' => $baseDir . '/database/migrations/2016_04_27_170940_update_table_users.php',
     'UpsateCostosTableComentariosCosto' => $baseDir . '/database/migrations/2016_06_16_220319_upsate_costos_table_comentarios_costo.php',

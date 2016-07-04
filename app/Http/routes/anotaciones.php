@@ -68,12 +68,17 @@ Route::post('filtrar/tarjetas', [
 
 /**/
 
-Route::get('get-calendar/{inicio}/{fin}', [
+Route::post('get-calendar/tarjetas', [
 	'middleware' => 'auth', 
-	'uses' => 'TarjetasController@FiltarTarjeta'
+	'uses' => 'TarjetasController@FiltrarTarjetasHome'
 	]);
 
+Route::post('get-calendar/tarjetas/home', [
+	'middleware' => ['auth','web'],  
+	'uses' => 'TarjetasController@GetFiltarTarjeta'
+	]);
 	?>
+
 
 
 

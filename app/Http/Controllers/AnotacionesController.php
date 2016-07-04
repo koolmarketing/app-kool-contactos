@@ -12,6 +12,7 @@ use Validator;
 use Redirect;
 use App\Http\Requests;
 
+
 class AnotacionesController extends Controller
 {
     /**
@@ -42,7 +43,9 @@ class AnotacionesController extends Controller
                 $AN->tipo_anotacion       = $request->input('tipo');
                 $AN->estado        = 1;
                 $AN->tipo_perfil       = "empresa";  
-                $AN->id_perfil         = $request->input('id_perfil'); 
+                $AN->id_perfil         = $request->input('id_perfil');
+                //America/Bogota 
+                $AN->fecha_comentario  = \Carbon\Carbon::now();
                 $AN->save();
                 return $request->input();
                 break;
@@ -119,9 +122,12 @@ class AnotacionesController extends Controller
         ->select('anotaciones.*', 'empresas.id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
         ->orderBy('anotaciones.created_at', 'desc')
         ->get();
+//{"tipo_tarjeta":"comentario","inicio":"2016-07-01 00:00:00","fin":"2016-07-31 23:59:59"}
+        
 
         return view('anotaciones.anotaciones_empresas_home',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
     }
+
 
 
 

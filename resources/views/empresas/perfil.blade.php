@@ -857,7 +857,7 @@
             $ftp = json_decode($data->empresa->ftp); 
             ?> 
 
-            @if ($photosnack->usuario[0]!="") 
+            @if ($ftp->usuario[0]!="") 
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="col-md-3">
@@ -865,15 +865,15 @@
                   <p>Red</p>
                 </div>
                 <div class="col-md-3">
-                  <h4>{!!$photosnack->server[0]!!}</h4>
+                  <h4>{!!$ftp->server[0]!!}</h4>
                   <p>Server</p>
                 </div>
                 <div class="col-md-3">
-                  <h4>{!!$photosnack->usuario[0]!!}</h4>
+                  <h4>{!!$ftp->usuario[0]!!}</h4>
                   <p>Usuario</p>
                 </div>
                 <div class="col-md-3">
-                  <h4>{!!$photosnack->contraseña[0]!!}</h4>
+                  <h4>{!!$ftp->contraseña[0]!!}</h4>
                   <p>Contraseña</p>
                 </div>
               </div>

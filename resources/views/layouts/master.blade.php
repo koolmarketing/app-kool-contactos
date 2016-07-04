@@ -91,6 +91,9 @@
                                 <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
                             </li> -->
                             <li>
+                                <a href="#"><i class="icon-user-3"></i> Mi Cuenta</a>
+                            </li>
+                            <li>
                                 <a href="{!! URL::to('usuarios') !!}"><i class="fa fa-wrench"></i> Configuración</a>
                             </li>
 
