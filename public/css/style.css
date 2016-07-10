@@ -4521,15 +4521,15 @@ body .ns-effect-loadingcircle {
 .btn-icon {
   -webkit-border-radius: 50%;
           border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   text-align: center;
 }
 
 .btn-icon i {
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 12px;
+  line-height: 32px;
 }
 
 .btn.btn-warning, .open > .dropdown-toggle.btn-warning, .open > .dropdown-toggle.btn-warning:focus {
@@ -4611,10 +4611,12 @@ body .ns-effect-loadingcircle {
   background-color: #fff;
   border-color: #e2e2e2;
   color: #76828E;
+  font-size: 0.7em;
 }
 
 .btn.btn-default:hover, .open > .dropdown-toggle.btn-default:hover, .open > .dropdown-toggle.btn-default:focus:hover {
   background-color: #fff;
+  font-size: 0.7em;
 }
 
 .btn.btn-default:focus, .btn.btn-default:active:focus, .open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default:active:focus, .open > .dropdown-toggle.btn-default:focus:focus, .open > .dropdown-toggle.btn-default:focus:active:focus {

@@ -77,13 +77,14 @@
                                 <input placeholder="Buscar" type="search" class="gn-search">
                                 <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
                             </li>
+                      
                             <li>
-                                <a href="{!! URL::to('clientes') !!}"><i class="fa fa-child"></i> Clientes</a>
-                            </li>
-                            <li>
-                                <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Empresas
+                                <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Contactos
                                 </a>
                             </li> 
+                                  <li>
+                                <a href="{!! URL::to('crm') !!}"><i class="fa fa-child"></i> CRM</a>
+                            </li>
                             <li>
                                 <a href="{!! URL::to('nuevo-reporte') !!}"><i class="fa fa-bar-chart"></i> Reportes</a>
                             </li>
@@ -146,14 +147,8 @@
                         <li><a href="{!! URL::to('/') !!}">Home</a></li>
                         <li>{!! $data->page !!}</li>
                     </ol>
-                    @endif
-
-
-
-                    
-
+                    @endif                 
                 </div>
-
             </div>
         </div>
 

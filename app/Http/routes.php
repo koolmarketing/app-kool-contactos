@@ -109,7 +109,16 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		 */
 		require __DIR__ . '/routes/usuarios.php';
 
+	/**
+		 *
+		 * Usuarios
+		 *
+		 */
 
 
-		
-	});
+	require __DIR__ . '/routes/crm.php';
+
+
+
+	
+});

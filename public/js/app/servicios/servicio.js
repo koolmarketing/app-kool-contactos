@@ -79,13 +79,15 @@ $('body').on('click', '#btn-retencion', function(event) {
 $("#costos_operativos, #valor_servicio, #iva, #retencion_select").change(function(){
  $( "#retencion_select option:selected" ).each(function() {
    tarifa=$(this).attr('data-tarifas');
-     vs=$("#valor_servicio").val(); //valor Servicio
-     iva=$("#iva").val(); // I.V.A
+     vs=parseFloat($("#valor_servicio").val()); //valor Servicio
+     iva=parseFloat($("#iva").val()); // I.V.A
      costos =$("#costos_operativos").val(); // costos operativos
      val_rt = vs * tarifa / 100; //valor retención
-     val_iva= vs * iva / 100; //valor IVA
+     val_iva= (vs*iva)/100; //valor IVA
 
      utilidad_neta = vs - val_rt - val_iva - costos ;
+
+     valor_total = val_rt + val_iva + vs;
 
      //container_RT
      //container_iva

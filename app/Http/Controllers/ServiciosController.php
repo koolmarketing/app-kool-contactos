@@ -36,10 +36,6 @@ class ServiciosController extends Controller
 
 		$SR              = new \App\Servicio;
 
-			// if (isset($filename1)) {
-			// 	$SR->comprobante = $filename1;
-			// }
-
 		$SR->id_perfil          = $data->input('id_perfil');
 		$SR->id_usuario         = Auth::id();
 		$SR->estado             = 1;
@@ -54,6 +50,7 @@ class ServiciosController extends Controller
 		$SR->valor_retencion	= $data->input('valor_retencion');
 		$SR->valor_iva      	= $data->input('valor_iva');
 		$SR->costos         	= $data->input('costos');
+		
 		if ($data->input('comentarios_servicio')=="Observación") {$SR->comentarios_servicio = "";}
 		else{$SR->comentarios_servicio   	= $data->input('comentarios_servicio');}
 		
