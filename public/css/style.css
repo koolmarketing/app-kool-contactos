@@ -1848,6 +1848,7 @@ body {
           border-radius: 5px 0 0 5px;
   margin-right: 0;
   display: block;
+  background: #ffffff;
 }
 
 .tabs-right > li > a {

@@ -1,90 +1,217 @@
 <?php Use Carbon\carbon; ?>
+<?php use Clicknow\Money\Money; ?>
 <div class="row"><br>
 	<div class="col-md-12">
-		<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-			<ul class="list-group col-md-12 list-crm">
-				<li class="list-group-item list-crm-li"><i class="icon-male"></i> Ricardo Sannín</li>
-				<li class="list-group-item list-crm-li">Status: <label class="label label-success">ON</label></li>
-				<li class="list-group-item list-crm-li">Categoría</li>
-				<li class="list-group-item list-crm-li">Calificación</li>
-				<li class="list-group-item list-crm-li">Teléfono</li>
-				<li class="list-group-item list-crm-li">Teléfono</li>
-				<li class="list-group-item list-crm-li">Celular</li>
-				<li class="list-group-item list-crm-li">Celular</li>
-				<li class="list-group-item list-crm-li">Dirección</li>
-			</ul><button type="button" class="btn btn-info">button</button>
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			<ul class="list-group list-crm">
+				<li class="list-group-item list-group-item-info list-crm-li"><i class="icon-male"></i> <span class="pull-right"><b>Ricardo Sannín</b></span></li>
+				<li class="list-group-item list-crm-li">Status: <span class="pull-right"><label class="label label-success">ON</label></span></li>
+				<li class="list-group-item list-crm-li">Categoría: <span class="pull-right">Prospecto</span></li>
+				<li class="list-group-item list-crm-li">
+					Calificación:<span class="pull-right">4/5</span>
+				</li>
+				<li class="list-group-item list-crm-li">Empresa: <span class="pull-right">Nombre </span></li>
+				<li class="list-group-item list-crm-li">Cargo: <span class="pull-right">Nombre </span></li>
+				<li class="list-group-item list-crm-li">Email: <span class="pull-right">user@correo.com</span></li>
+				<li class="list-group-item list-crm-li">Teléfono 1: <span class="pull-right">7893241</span></li>
+				<li class="list-group-item list-crm-li">Teléfono 2: <span class="pull-right">3206789</span></li>
+				<li class="list-group-item list-crm-li">Celular 1: <span class="pull-right">3006739390</span></li>
+				<li class="list-group-item list-crm-li">Celular 2: <span class="pull-right">3180987823</span></li>
+				<li class="list-group-item list-crm-li">Dirección: <span class="pull-right">Calle 5 # 45 - 78</span></li>
+			</ul>
+			{{--  --}}
+			<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="fa fa-refresh"></i></button>
+			{{--  --}}
 		</div>
 
-		<div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
 			<div class="col-lg-12">
 				<div class="tabbable white-bg box-shadow vertical-tabs" id="tenth-tabs">
 					<div class="row">
-
-
-						<div class="col-lg-8 col-xs-8">
+						{{-- Panel central --}}
+						<div class="col-lg-8 col-xs-10 col-sm-10">
 							<div class="tab-content">
-								<div class="tab-pane fade" id="101">
-									<button type="button" class="btn waves btn-labeled btn-warning btn-sm text-uppercase waves-effect waves-float">
-										<span class="btn-label"><i class="icon-plus-2"></i></span> agregar
-									</button><br><br>
-									{{--  --}}
-									<div class="tab-pane fade active in" id="102">
-										<div class="content-box biggest-box blue-bg tab-crm-list">
-											<div class="pull-left">
-												<span class="block"><?php echo Carbon::now()->subSeconds(5)->diffForHumans();  ?></span>
 
+								{{--  --}}
+								<div class="tab-pane fade active in" id="llamadas">
+									<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="icon-plus-3"></i></button><br><br>
+									<div class="content-items-modal">
+
+										{{-- Box Info --}}
+										<div class="content-box big-box box-shadow panel-box panel-success tab-crm-list">
+											<div class="btn-group pull-right" role="group" aria-label="...">
+												<button type="button" class="btn btn-default btn-xs">Editar</button>
+												<button type="button" class="btn btn-default btn-xs">Archivar</button>
 											</div>
-											<span class="pull-right"><button type="button" class="btn btn-xs btn-default"><i class="icon-info-3"></i></button></span>
-											<div class="clearfix"></div>
+											<span data-toggle="tooltip" data-placement="bottom" title="<?php echo Carbon::now()->subMinutes(78);?>"><i class="icon-clock-2"></i> <?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<p>Solicitud de cita</p>
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th>Duración</th>
+														<th>Resultado</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>6 minutos</td>
+														<td>No concretado</td>
+													</tr>
+												</tbody>
+											</table>											
 										</div>
-										<div class="content-box biggest-box green-bg tab-crm-list">
-											<div class="pull-left">
-											<span class="block"><?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>											
-											</div><span class="pull-right"><button type="button" class="btn btn-xs btn-default"><i class="icon-info-3"></i></button></span>
-											
-											<div class="clearfix"></div>
-										</div>										
-										<div class="content-box biggest-box red-bg tab-crm-list">
-												<div class="pull-left">
-											<span class="block"><?php echo Carbon::now()->subHours(45)->diffForHumans();  ?></span>											
-											</div><span class="pull-right"><button type="button" class="btn btn-xs btn-default"><i class="icon-info-3"></i></button></span>
-											<div class="clearfix"></div>
+										{{-- End Fin Box --}}
+
+
+
+										{{-- Box Info --}}
+										<div class="content-box big-box box-shadow panel-box panel-success tab-crm-list">
+											<div class="btn-group pull-right" role="group" aria-label="...">
+												<button type="button" class="btn btn-default btn-xs">Editar</button>
+												<button type="button" class="btn btn-default btn-xs">Archivar</button>
+											</div>
+											<span title="<?php echo Carbon::now()->subMinutes(78);?>"><?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<p>Solicitud de cita</p>
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th>Duración</th>
+														<th>Resultado</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>6 minutos</td>
+														<td>Aceptado</td>
+													</tr>
+												</tbody>
+											</table>										
 										</div>
+										{{-- End Fin Box --}}
+
+
 									</div>
+								</div>								
 
-									{{--  --}}
 
-									
+								<div class="tab-pane fade" id="correos">
+									<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="icon-plus-3"></i></button><br><br>
 
-									{{--  --}}
+									<div class="content-items-modal">
+										{{-- Box Info --}}
+										<div class="content-box big-box box-shadow panel-box panel-success tab-crm-list">
+											<div class="btn-group pull-right" role="group" aria-label="...">
+												<button type="button" class="btn btn-default btn-xs">Editar</button>
+												<button type="button" class="btn btn-default btn-xs">Archivar</button>
+											</div>
+											<span title="<?php echo Carbon::now()->subMinutes(78);?>"><?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<p>Correo de seguimiento de la solicitud</p>
+											<label class="label label-success">Enviado</label>	
+										</div>
+										{{-- End Fin Box --}}
+									</div>
 								</div>
 
-								<div class="tab-pane fade" id="103">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis consectetur consequatur vel quo sed, molestiae!</p>
+
+								
+								<div class="tab-pane fade" id="visitas">
+									<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="icon-plus-3"></i></button><br><br>
+									<div class="content-items-modal">
+										{{-- Box Info --}}
+										<div class="content-box big-box box-shadow panel-box panel-success tab-crm-list">
+											<div class="btn-group pull-right" role="group" aria-label="...">
+												<button type="button" class="btn btn-default btn-xs">Editar</button>
+												<button type="button" class="btn btn-default btn-xs">Archivar</button>
+											</div>
+											<span title="<?php echo Carbon::now()->subMinutes(78);?>"><?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<p>Solicitud de cita</p>
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th>Fecha</th>
+														<th>Duración</th>
+														<th>Resultado</th>
+													</tr>
+													
+												</thead>
+												<tbody>
+													<tr>
+														<td>08-07-2017 11:30</td>
+														<td>45 minutos</td>
+														<td><label class="label label-success">Concretada</label>	</td>
+													</tr>									
+												</tbody>
+											</table>
+											
+										</div>
+										{{-- End Fin Box --}}
+									</div>
 								</div>
+								
+
+								<div class="tab-pane fade" id="cotizaciones">
+									<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="icon-plus-3"></i></button><br><br>
+									<div class="content-items-modal">
+										{{-- Box Info --}}
+										<div class="content-box big-box box-shadow panel-box panel-success tab-crm-list">
+											<div class="btn-group pull-right" role="group" aria-label="...">
+												<button type="button" class="btn btn-default btn-xs">Editar</button>
+												<button type="button" class="btn btn-default btn-xs">Archivar</button>
+											</div>
+											<span title="<?php echo Carbon::now()->subMinutes(78);?>"><?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<p>Descripción de servicios cotizados</p>
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th>Fecha</th>
+														<th>Monto</th>
+														<th>Estado</th>
+														<th><i class="icon-doc-text"></i></th>
+													</tr>
+													
+												</thead>
+												<tbody>
+													<tr>
+														<td>08-07-2017 11:30</td>
+														<td>{!!Money::COP(460000000, true)!!}</td>
+														<td><label class="label label-success">En espera</label>	</td>
+														<td> <button class=" btn btn-xs icon-eye-1"></button> </td>
+													</tr>									
+												</tbody>
+											</table>
+											
+										</div>
+										{{-- End Fin Box --}}
+									</div>
+								</div>
+
+								<div class="tab-pane fade" id="negociacion">
+									<h3>NEGOCIACIÓN</h3>
+								</div>
+
 							</div>
 						</div>
-						<div class="col-lg-4 col-xs-4">
+						<div class="col-lg-4 col-xs-2 col-sm-2">
 							<ul class="nav nav-tabs tabs-with-bg tabs-left">
 								<li class="">
-									<a href="#101" data-toggle="tab" aria-expanded="false">
-										<i class="icon-mail"></i> Correos</a>
+									<a href="#correos" data-toggle="tab" aria-expanded="false">
+										<i class="icon-mail"></i> <span class="hidden-sm hidden-xs">Correos</span></a>
 									</li>
-									<li class="">
-										<a href="#101" data-toggle="tab" aria-expanded="false">
-											<i class="icon-phone-3"></i> Llamadas</a>
+									<li class="active">
+										<a href="#llamadas" data-toggle="tab" aria-expanded="false">
+											<i class="icon-phone-3"></i> <span class="hidden-sm hidden-xs">Llamadas</span></a>
 										</li>
-										<li class="active">
-											<a href="#102" data-toggle="tab" aria-expanded="true">
-												<i class="icon-person"></i> Visitas</a>
+										<li >
+											<a href="#visitas" data-toggle="tab" aria-expanded="true">
+												<i class="icon-person"></i> <span class="hidden-sm hidden-xs">Visitas</span></a>
 											</li>
 											<li class="">
-												<a href="#103" data-toggle="tab" aria-expanded="false">              
-													<i class="icon-clipboard-2"></i> Cotizaciones</a>
+												<a href="#cotizaciones" data-toggle="tab" aria-expanded="false">              
+													<i class="icon-clipboard-2"></i> <span class="hidden-sm hidden-xs">Cotizaciones</span></a>
 												</li>
 
 												<li class="">
-													<a href="#103" data-toggle="tab" aria-expanded="false"><i class="icon-resize-small-3"></i> Negociacion
+													<a href="#negociacion" data-toggle="tab" aria-expanded="false"><i class="icon-resize-small-3"></i> <span class="hidden-sm hidden-xs">Negociacion</span>
 													</a>
 												</li>
 											</ul>

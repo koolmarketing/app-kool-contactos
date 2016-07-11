@@ -255,6 +255,7 @@ $(document).ready(
   function() { 
 
     $("#anotaciones").niceScroll({cursorcolor:"#63A8EB"});
+    $('[data-toggle="tooltip"]').tooltip();
 
   }
 

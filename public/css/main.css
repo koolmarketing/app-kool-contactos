@@ -41,4 +41,9 @@
 .tab-crm-list {
   padding: 7px 5px 7px 8px; }
 
+.content-items-modal {
+  min-height: 200px;
+  max-height: 360px;
+  overflow: auto; }
+
 /*# sourceMappingURL=main.css.map */
