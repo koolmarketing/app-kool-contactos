@@ -77,22 +77,23 @@
                                 <input placeholder="Buscar" type="search" class="gn-search">
                                 <a class="search-icon"><i class="fa fa-search"></i><span>Buscar</span></a>
                             </li>
-                      
+
                             <li>
                                 <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Contactos
                                 </a>
                             </li> 
-                                  <li>
+                            <li>
                                 <a href="{!! URL::to('crm') !!}"><i class="fa fa-child"></i> CRM</a>
+                            </li>
+                            <li>
+                            <a href="{!! URL::to('documentos') !!}"><i class="icon-doc-text"></i> Documentos</a>
                             </li>
                             <li>
                                 <a href="{!! URL::to('nuevo-reporte') !!}"><i class="fa fa-bar-chart"></i> Reportes</a>
                             </li>
-                           <!--  <li>
-                                <a href="#"><i class="fa fa-area-chart"></i> Campañas</a>
-                            </li> -->
+                     
                             <li>
-                                <a href="#"><i class="icon-user-3"></i> Mi Cuenta</a>
+                                <a href="{!! URL::to('mi_cuenta') !!}"><i class="icon-user-3"></i> Mi Cuenta</a>
                             </li>
                             <li>
                                 <a href="{!! URL::to('usuarios') !!}"><i class="fa fa-wrench"></i> Configuración</a>

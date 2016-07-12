@@ -4,20 +4,26 @@
 	<div class="col-md-12">
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 			<ul class="list-group list-crm">
-				<li class="list-group-item list-group-item-info list-crm-li"><i class="icon-male"></i> <span class="pull-right"><b>Ricardo Sannín</b></span></li>
+				<li class="list-group-item list-group-item-success list-crm-li-nombre"><i class="icon-male"></i> <span class="pull-right"><b>Ricardo Sannín</b></span></li>
 				<li class="list-group-item list-crm-li">Status: <span class="pull-right"><label class="label label-success">ON</label></span></li>
 				<li class="list-group-item list-crm-li">Categoría: <span class="pull-right">Prospecto</span></li>
 				<li class="list-group-item list-crm-li">
 					Calificación:<span class="pull-right">4/5</span>
-				</li>
-				<li class="list-group-item list-crm-li">Empresa: <span class="pull-right">Nombre </span></li>
-				<li class="list-group-item list-crm-li">Cargo: <span class="pull-right">Nombre </span></li>
-				<li class="list-group-item list-crm-li">Email: <span class="pull-right">user@correo.com</span></li>
-				<li class="list-group-item list-crm-li">Teléfono 1: <span class="pull-right">7893241</span></li>
-				<li class="list-group-item list-crm-li">Teléfono 2: <span class="pull-right">3206789</span></li>
-				<li class="list-group-item list-crm-li">Celular 1: <span class="pull-right">3006739390</span></li>
-				<li class="list-group-item list-crm-li">Celular 2: <span class="pull-right">3180987823</span></li>
-				<li class="list-group-item list-crm-li">Dirección: <span class="pull-right">Calle 5 # 45 - 78</span></li>
+				</li>				
+			</ul>
+
+			<ul class="list-group list-crm">
+				<li class="list-group-item list-crm-li list-crm-li-empresa">Empresa: <span class="pull-right">Nombre de la empresa del contacto S.A.S</span></li>
+				<li class="list-group-item list-crm-li"><i class="icon-briefcase-1"></i>Cargo: <span class="pull-right">Nombre </span></li>				
+			</ul>
+
+			<ul class="list-group list-crm">
+				<li class="list-group-item list-crm-li"><i class="icon-email"></i> <span class="pull-right">user@correo.com</span></li>
+				<li class="list-group-item list-crm-li"><i class=" icon-phone"></i> <span class="pull-right">7893241</span></li>
+				<li class="list-group-item list-crm-li"><i class=" icon-phone"></i> <span class="pull-right">3206789</span></li>
+				<li class="list-group-item list-crm-li"><i class="icon-mobile-2"></i> <span class="pull-right">3006739390</span></li>
+				<li class="list-group-item list-crm-li"><i class="icon-mobile-2"></i> <span class="pull-right">3180987823</span></li>
+				<li class="list-group-item list-crm-li"><i class="icon-location-2"></i> <span class="pull-right">Calle 5 # 45 - 78</span></li>
 			</ul>
 			{{--  --}}
 			<button type="button" class="btn btn-default btn-icon waves waves-circle waves-effect waves-float"><i class="fa fa-refresh"></i></button>
@@ -43,7 +49,7 @@
 												<button type="button" class="btn btn-default btn-xs">Editar</button>
 												<button type="button" class="btn btn-default btn-xs">Archivar</button>
 											</div>
-											<span data-toggle="tooltip" data-placement="bottom" title="<?php echo Carbon::now()->subMinutes(78);?>"><i class="icon-clock-2"></i> <?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></span>
+											<span data-toggle="tooltip" data-placement="bottom" title="<?php echo Carbon::now()->subMinutes(78);?>"><small><i class="icon-clock-2"></i> <?php echo Carbon::now()->subMinutes(78)->diffForHumans();  ?></small></span>
 											<p>Solicitud de cita</p>
 											<table class="table table-striped table-hover">
 												<thead>
@@ -173,7 +179,7 @@
 												<tbody>
 													<tr>
 														<td>08-07-2017 11:30</td>
-														<td>{!!Money::COP(460000000, true)!!}</td>
+														<td>{!!Money::COP(46000000, true)!!}</td>
 														<td><label class="label label-success">En espera</label>	</td>
 														<td> <button class=" btn btn-xs icon-eye-1"></button> </td>
 													</tr>									
@@ -228,8 +234,7 @@
 						<div class="col-md-12 content-box small-box">
 							<div class="clearfix"></div>
 							<div class="container">
-								<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-								<button type="button" class="btn btn-primary">Guardar Cambios</button>
+								<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Salir</button>								
 							</div>
 						</div>
 					</div>

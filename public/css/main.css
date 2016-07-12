@@ -46,4 +46,12 @@
   max-height: 360px;
   overflow: auto; }
 
+.list-crm-li-empresa {
+  min-height: 65px; }
+  .list-crm-li-empresa span {
+    line-height: 97%; }
+
+.list-crm-li-nombre {
+  min-height: 40px; }
+
 /*# sourceMappingURL=main.css.map */
