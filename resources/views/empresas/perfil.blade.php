@@ -96,7 +96,7 @@
 
 <section class="row">
   <div class="col-md-8">
-    <div class="tabbable tabs-with-bg big-tabs">
+    <div class="tabbable tabs-with-bg">
 
       <!--  -->
 
@@ -111,10 +111,13 @@
         <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
         <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
         <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
+        @if ($data->empresa->administracion !="1")
         <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
+        @endif
         @if ($data->empresa->administracion =="1")
         <li role="presentation"><a href="#costos" aria-controls="costos" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Costos</a></li>
         @endif
+        <li role="presentation"><a href="#documentos" aria-controls="documentos" role="tab" data-toggle="tab"><i class="icon-doc"></i> Documentos</a></li>
       </ul>    
 
       <!-- Tab panes -->
@@ -889,7 +892,7 @@
           <div class="panel-body">
             <div role="tabpanel" class="tab-pane" id="contrataciones">
              <div class="pull-right">
-               <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-service'>Agregar un servicio</button>
+               <button class="btn btn-md btn-primary" data-toggle="modal" href='#modal-service'>Agregar un servicio</button> 
              </div>
              <br><br><br>
            </div><br>
@@ -913,7 +916,7 @@
         <div class="panel-body">
 
          <div class="pull-right">
-           <button class="btn btn-md btn-danger" data-toggle="modal" href='#modal-costos'>Agregar un Costo</button>
+           <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
          </div>
          <br><br><br>
          <br>
@@ -929,7 +932,82 @@
 
    @endif
 
- </div>
+   <div role="tabpanel" class="tab-pane" id="documentos">
+    <div class="panel panel-default">
+      <div class="panel-body">
+       <div class="pull-right">
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
+         <i class="icon-plus"></i> Agregar un documento
+        </button>
+      </div>
+      <br><br><br><br>
+
+      <!-- Modal -->
+      <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><i class="icon-upload"></i> Subir Documento</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+               {!!Form::open(array('action' => 'DocumentosController@GuardarDocumentoEmpresa', 'method' => 'post', 'id' => 'form-guardar-documento-cliente','files'=>true));!!}
+               <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+
+               <div class="col-md-12"> 
+                 <div class="col-md-12"> <br> 
+                   <input type="text"  name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
+                 </div>
+                 <div class="col-md-12"> <br>                     
+                  <input type="file" name="archivo" id=""  class="form-control material" value="" required="required">
+                </div>
+                <br><br>
+              </div>                
+
+              <div class="col-md-12" style="margin-top: 10px">
+                <textarea name="descripcion" id="" cols="5" rows="4" class="material form-control"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+            <button type="submit" id="" class="btn btn-primary">Guardar Documento</button>
+            {!! Form::close() !!}              
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contenedor_documentos_empresa" class="col-md-12">
+
+
+{{--       <div class="content-box small-box">
+        <span class="fa-stack fa-2x block pull-left">
+          <i class="fa fa-circle fa-stack-2x green"></i>
+          <i class="fa fa-file-pdf-o fa-stack-1x fa-inverse"></i>
+        </span>
+        <div class="pull-left info">
+          <h4 class="text-uppercase zero-m">Rut Koolmarketing</h4>
+          <span class="block"><i class="icon-clock-2"></i> 12-07-2016 11:43</span>
+        </div>
+        <div class="pull-right info">
+          <button class="btn-xs btn btn-default"><i class=" icon-download-5"></i>Descargar</button>
+          <button class="btn-xs btn btn-default"><i class="icon-pencil"></i></button>
+          <button class="btn-xs btn btn-default"><i class="icon-cancel"></i></button>
+        </div>
+        <div class="clearfix"></div>          
+      </div> --}}
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <!-- Fin Tab Principal -->
@@ -937,7 +1015,6 @@
 
 <div class="col-md-4">
   <div class="content-box big-box">
-
     <div class="btn-group btn-group-justified">
       <div class="btn-group" role="group">
         <a data-toggle="modal" href='#modal-anotacion' type="button" class="btn waves btn-primary waves-effect waves-float">Anotación</a>
@@ -959,7 +1036,6 @@
     </div>
   </div>
 </div>
-
 </section>
 
 
@@ -1011,7 +1087,6 @@
           </div>
         </div>
       </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
         <button id="btn-guardar-recordatorio" type="button" class="btn btn-primary">Guardar Recordatorio</button>
@@ -1027,7 +1102,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Escribe un alerta</h4>
+        <h4 class="modal-title">Escribe una alerta</h4>
       </div>
       <div class="modal-body">
         {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-alerta','files'=>true));!!}
@@ -1182,37 +1257,37 @@
         <br>
         <ul class="list-group">
           <li class="list-group-item"><b>IVA</b>
-          <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
-          <span class="pull-right" id="container_iva">          
-          </span></li>
-          <li class="list-group-item"><b>Retención</b>
-           <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
-           <span class="pull-right" id="container_RT"></span></li>
+            <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
+            <span class="pull-right" id="container_iva">          
+            </span></li>
+            <li class="list-group-item"><b>Retención</b>
+             <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
+             <span class="pull-right" id="container_RT"></span></li>
 
-           <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
-           <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
-           <span class="pull-right" id="container_utilidad"></span></li>
-         </ul>
-       </div><br>
-       <div class="form-group">
-        <div class="col-md-12">
-          <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observación</textarea>
+             <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
+               <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
+               <span class="pull-right" id="container_utilidad"></span></li>
+             </ul>
+           </div><br>
+           <div class="form-group">
+            <div class="col-md-12">
+              <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observación</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="margin-top: 10px">
+          <div class="col-md-12">
+            <br>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-12" style="margin-top: 10px">
-      <div class="col-md-12">
-        <br>
-      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+      <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
+      {!! Form::close() !!}
     </div>
   </div>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-  <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
-  {!! Form::close() !!}
-</div>
-</div>
 </div>
 </div>
 
@@ -1356,8 +1431,6 @@
 
 {{--  --}}
 
-
-
 <div class="modal fade" id="tabla-retencion">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -1376,7 +1449,68 @@
   </div>
 </div>
 
+{{--  --}}
 
+{{-- Reportar Cobro --}}
+
+<!--====  Stat Archivo Cliente  ====-->
+<div class="modal fade" id="archivos_cliente">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Adjuntar un Costo</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
+          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+
+          <div class="col-md-12">
+            <div class="col-md-12"> <br>                     
+              <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
+            </div>
+          </div>                   
+          <div class="col-md-12">
+           <div class="col-md-6">  <br>  
+             <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+           </div>
+           <div class="col-md-6"> <br>                     
+            <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
+          </div>
+          <br><br>
+        </div>                
+        <div class="col-md-12" style="margin-top: 20px;"> 
+         <div class="col-md-6">
+          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
+        </div>
+        <div class="col-md-6">
+          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
+        </div>
+
+        <div class="col-md-12"><br>
+          <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
+        </div>
+        <div class="col-md-12" style="margin-top: 10px">
+          <div class="col-md-12">
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+      <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
+      {!! Form::close() !!}
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- END Archivo Cliente -->
+
+{{--  --}}
 
 @stop
 
@@ -1429,6 +1563,10 @@ function load_modal_cartera(){
     load_servicios();
     load_modal_cartera();
     load_costos();
+    
+    $("#contenedor_documentos_empresa").load("{!! URL::to('/') !!}/documentos_empresa_perfil/{!! $data->empresa->id !!}");
+
+    
 
     $('.money').mask('000.000.000.000.000,00', {reverse: true});
 
@@ -1474,31 +1612,8 @@ function load_modal_cartera(){
   });
 </script>
 
-<script>
-//data-tarifas
-//data-baseuvt
-//data-basepesos
 
 
-</script>
 
-<script type="text/javascript">
-/**
- * Cargar/recargar (.html) anotaciones correspondientes al perfil {id}
- * 
- * Activar modal correspondiente
- * Captar evento de clase btn y leer su atributo id [switch]
- * serializar data, enviar y recibir respuesta. Recargar Anotaciones
- *
- *
- */
-//  $(document).ready(function() {
-//     function recargar_anotaciones() {
-//     /**     
-//      * Get data  + .html   
-//      */  
-//  }
-// });
-</script>
 
 @stop

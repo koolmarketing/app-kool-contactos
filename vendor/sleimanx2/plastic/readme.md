@@ -4,7 +4,7 @@
 > Elasticsearch, by providing a fluent syntax for mapping, querying, and storing eloquent models.
 
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/sleimanx2/plastic)
-[![Build Status](https://travis-ci.org/sleimanx2/plastic.svg?branch=master&&refresh=1)](https://travis-ci.org/sleimanx2/plastic)
+[![Build Status](https://travis-ci.org/sleimanx2/plastic.svg?branch=master&&refresh=2)](https://travis-ci.org/sleimanx2/plastic)
 [![StyleCI](https://styleci.io/repos/58264395/shield)](https://styleci.io/repos/58264395)
 
 > This package is still under active development and prone to changes
@@ -25,8 +25,6 @@ php artisan vendor:publish
 ```
 
 This will create a config file at ```config/plastic.php``` and a mapping directory at ```database/mappings```.
-
-Finally
 
 ##Usage
 - [Defining Searchable Models](#searchable-models)
@@ -74,10 +72,10 @@ public function buildDocument()
 
 #####Custom elastic type name
 
-By the default Plastic will use the model table name as the model type however we can customize it by adding a type property to our model.
+By the default Plastic will use the model table name as the model type however we can customize it by adding a ```$documentType``` property to our model.
 
 ```php
-public $type = 'custom_type';
+public $documentType = 'custom_type';
 ```
 
 ###<a name="store-content"/>Storing Model Content</a>
@@ -326,7 +324,7 @@ Plastic is open-sourced software licensed under the [MIT license](LICENSE.md).
 
 [] implement TopHits aggregation
 
-######Mappings
+######Mapping
 
 [] Find a seamless way to update field mappings with zero downtime with aliases
 

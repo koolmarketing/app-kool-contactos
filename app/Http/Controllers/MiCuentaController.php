@@ -14,4 +14,8 @@ class MiCuentaController extends Controller
 		return view('configuracion.index',['data' => $data]);
 
 	}
+	public function UpdatePassword(Request $request)
+	{
+		
+	}
 }
