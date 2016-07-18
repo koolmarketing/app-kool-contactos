@@ -24,8 +24,8 @@ class UpdatePasswordUser extends Request
     public function rules()
     {
         return [
-        'email' => 'email|max:35',
-        'password' => 'required|min:3',
+        'email' => 'email|max:35|min:6',
+        'password' => 'required|min:3|confirmed',
         'password_confirmation' => 'required|min:3'
         ];
     }
