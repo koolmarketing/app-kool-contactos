@@ -123,6 +123,8 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 
 	require __DIR__ . '/routes/configuracion.php';
 
+	require __DIR__ . '/routes/mi_cuenta.php';
+
 
 	
 });
