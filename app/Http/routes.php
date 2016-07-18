@@ -118,7 +118,6 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 
 	require __DIR__ . '/routes/crm.php';
 
-
 	require __DIR__ . '/routes/documentos.php';
 
 	require __DIR__ . '/routes/configuracion.php';
