@@ -82,12 +82,10 @@
                                 <a href="{!! URL::to('empresas') !!}"><i class="fa fa-building-o"></i> Contactos
                                 </a>
                             </li> 
-                            <li>
+                           {{--  <li>
                                 <a href="{!! URL::to('crm') !!}"><i class="fa fa-child"></i> CRM</a>
-                            </li>
-                            <li>
-                            <a href="{!! URL::to('documentos') !!}"><i class="icon-doc-text"></i> Documentos</a>
-                            </li>
+                            </li> --}}
+                           
                             <li>
                                 <a href="{!! URL::to('nuevo-reporte') !!}"><i class="fa fa-bar-chart"></i> Reportes</a>
                             </li>

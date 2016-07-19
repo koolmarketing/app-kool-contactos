@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Las credenciales de autenticación no son validad.',
+    'failed' => 'Las credenciales de autenticación no son validas.',
     'throttle' => 'Ha realizado muchos intentos, Intentelo de nuevo en :seconds segundos.',
 
 ];

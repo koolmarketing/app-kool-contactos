@@ -28,6 +28,7 @@ $mision           = $data_actual->mision;
 $vision           = $data_actual->vision;
 $intereses        = json_decode($data_actual->intereses);
 $gmail            = json_decode($data_actual->gmail);
+$redes_adicionales= json_decode($data_actual->redes_adicionales);
 $zohomail         = json_decode($data_actual->zohomail);
 $facebook         = json_decode($data_actual->facebook);
 $twitter          = json_decode($data_actual->twitter);
@@ -39,8 +40,10 @@ $hootsuite        = json_decode($data_actual->hootsuite);
 $amarillas_internet  = json_decode($data_actual->amarillas_internet);
 $photosnack       = json_decode($data_actual->photosnack);
 $ftp              = json_decode($data_actual->ftp);
+$wordpress        = json_decode($data_actual->wordpress);
+$prestashop       = json_decode($data_actual->prestashop);
 $foto             = $data_actual->foto;
-$fecha_fundacion        = $data_actual->fecha_fundacion;
+$fecha_fundacion  = $data_actual->fecha_fundacion;
 $servicios        = json_decode($data_actual->servicios);
 $sector           = json_decode($data_actual->sector);
 $rango           = $data_actual->rango;
@@ -49,8 +52,6 @@ $rango           = $data_actual->rango;
 
 
 <div class="container-fluid">
-
-
   <div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -631,6 +632,44 @@ $rango           = $data_actual->rango;
       <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
     </div>
 
+    <div class="col-lg-12 Prestashop" id="prestashop" attr-visible="">    
+      <div class="form-group col-md-2">
+        <h4><i class="icon-shop"></i> Prestashop</h4>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="prestashop[url][]" class="form-control material">
+        <p class="help-text">Server</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="prestashop[usuario][]" class="form-control material">
+        <p class="help-text">Usuario</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="prestashop[contraseña][]" class="form-control material">
+        <p class="help-text">Contraseña</p>
+      </div>
+      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+    </div>
+
+    <div class="col-lg-12 Wordpress" id="wordpress" attr-visible="">    
+      <div class="form-group col-md-2">
+        <h4><i class="icon-wordpress-3"></i> Wordpress</h4>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="wordpress[url][]" class="form-control material">
+        <p class="help-text">Server</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="wordpress[usuario][]" class="form-control material">
+        <p class="help-text">Usuario</p>
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" name="wordpress[contraseña][]" class="form-control material">
+        <p class="help-text">Contraseña</p>
+      </div>
+      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+    </div>
+
     <div class="col-lg-12 FTP" id="ftp" attr-visible="">    
       <div class="form-group col-md-2">
         <h4>FTP</h4>
@@ -708,14 +747,14 @@ $rango           = $data_actual->rango;
     /*   funcion SelectSelect para Select2JS   */
 
 
-      function SelectSelect (arr,id_select) {
+    function SelectSelect (arr,id_select) {
 
-        var id_select = id_select;
-        var select    = "#"+id_select+" option";
-        var arr       = arr;
+      var id_select = id_select;
+      var select    = "#"+id_select+" option";
+      var arr       = arr;
 
-        $(select).each(function(){
-          var val = $(this).val();
+      $(select).each(function(){
+        var val = $(this).val();
     //console.log(val);
     for (var i = 0; i < arr.length; i++) {
       //console.log(ser[i]);
@@ -726,37 +765,37 @@ $rango           = $data_actual->rango;
     };
   });
 
-      }
+    }
 
 
-      $("#range").ionRangeSlider({
-        min: 0,
-        max: 6,
-        from: {!! $data_actual->rango !!}
-      });
+    $("#range").ionRangeSlider({
+      min: 0,
+      max: 6,
+      from: {!! $data_actual->rango !!}
+    });
 
-      $("#valores").select2(
-        { tags: true,
-          tokenSeparators: [",", " "]}
-          );
-      $("#sector").select2(
+    $("#valores").select2(
+      { tags: true,
+        tokenSeparators: [",", " "]}
+        );
+    $("#sector").select2(
         // { tags: true,
         //   tokenSeparators: [",", " "]}
-          );
+        );
 
-      $('#servicios').select2({
-        tags: true,
-        tokenSeparators: [",", " "]
-      }).on("change", function(e) {
-        var isNew = $(this).find('[data-select2-tag="true"]');
-        if(isNew.length){
-          isNew.replaceWith('<option selected value="'+isNew.val()+'">'+isNew.val()+'</option>');
+    $('#servicios').select2({
+      tags: true,
+      tokenSeparators: [",", " "]
+    }).on("change", function(e) {
+      var isNew = $(this).find('[data-select2-tag="true"]');
+      if(isNew.length){
+        isNew.replaceWith('<option selected value="'+isNew.val()+'">'+isNew.val()+'</option>');
 
-        }
-      });
+      }
+    });
 
 
-      $("#intereses").select2();
+    $("#intereses").select2();
 
             //Mascara
             $('.date').mask('00-00-0000');
@@ -767,81 +806,81 @@ $rango           = $data_actual->rango;
             $(".multi_tags").select2();
 
           });
-        </script>
+</script>
 
-        <script>
-         $.log = function(message){
-          var $logger = $("#logger");
-          $logger.html($logger.html() + "\n * " + message );
-        }
-        $(function(){
+<script>
+ $.log = function(message){
+  var $logger = $("#logger");
+  $logger.html($logger.html() + "\n * " + message );
+}
+$(function(){
 
-          $("#geocomplete").geocomplete()
-          .bind("geocode:result", function(event, result){
-            $.log("Result: " + result.formatted_address);
-          })
-          .bind("geocode:error", function(event, status){
-            $.log("ERROR: " + status);
-          })
-          .bind("geocode:multiple", function(event, results){
-            $.log("Multiple: " + results.length + " results found");
-          });
+  $("#geocomplete").geocomplete()
+  .bind("geocode:result", function(event, result){
+    $.log("Result: " + result.formatted_address);
+  })
+  .bind("geocode:error", function(event, status){
+    $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function(event, results){
+    $.log("Multiple: " + results.length + " results found");
+  });
 
-          $("#find").click(function(){
-            $("#geocomplete").trigger("geocode");
-          });
-
-
-          $("#examples a").click(function(){
-            $("#geocomplete").val($(this).text()).trigger("geocode");
-            return false;
-          });
-
-        });
-      </script>
-      <script>
-
-        <!-- Ocultar Botones -->
-
-        $("body").on('click', '.btn-red-info', function(event) {
-          event.preventDefault();
-          var valueBoton = $(this).prop('DataId');
-          alert("Heyyyy ".valueBoton);
-        });
+  $("#find").click(function(){
+    $("#geocomplete").trigger("geocode");
+  });
 
 
+  $("#examples a").click(function(){
+    $("#geocomplete").val($(this).text()).trigger("geocode");
+    return false;
+  });
+
+});
+</script>
+<script>
+
+  <!-- Ocultar Botones -->
+
+  $("body").on('click', '.btn-red-info', function(event) {
+    event.preventDefault();
+    var valueBoton = $(this).prop('DataId');
+    alert("Heyyyy ".valueBoton);
+  });
 
 
-        var redes = ["Gmail", "Zohomail", "Facebook", "Twitter", "Youtube", "Instagram", "Linkedin", "Pinterest", "Hootsuite", "Amarillas_Internet", "Photosnack", "FTP"];
-        var obj_redes= new Object;
 
-        obj_redes.gmail_1 = {title:"Gmail", name:"gmail_1", position:1, active:false};
-        obj_redes.gmail_2 = {title:"Gmail", name:"gmail_2", position:2, active:false};
-        obj_redes.gmail_3 = {title:"Gmail", name:"gmail_3", position:3, active:false};
-        obj_redes.gmail_4 = {title:"Gmail", name:"gmail_4", position:4, active:false};
-        obj_redes.gmail_5 = {title:"Gmail", name:"gmail_5", position:5, active:false};
 
-        obj_redes.zohomail_1 = {title:"Zohoomail", name:"zohomail_1", position:1, active:false};  
-        obj_redes.zohomail_2 = {title:"Zohoomail", name:"zohomail_2", position:2, active:false}; 
-        obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
-        obj_redes.zohomail_4 = {title:"Zohoomail", name:"zohomail_4", position:4, active:false}; 
-        obj_redes.zohomail_5 = {title:"Zohoomail", name:"zohomail_5", position:5, active:false};
-        obj_redes.zohomail_6 = {title:"Zohoomail", name:"zohomail_6", position:6, active:false};
-        obj_redes.zohomail_7 = {title:"Zohoomail", name:"zohomail_7", position:7, active:false};
-        obj_redes.zohomail_8 = {title:"Zohoomail", name:"zohomail_8", position:8, active:false};
-        obj_redes.zohomail_9 = {title:"Zohoomail", name:"zohomail_9", position:9, active:false};
-        obj_redes.zohomail_10= {title:"Zohoomail", name:"zohomail_10", position:10, active:false};
+  var redes = ["Gmail", "Zohomail", "Facebook", "Twitter", "Youtube", "Instagram", "Linkedin", "Pinterest", "Hootsuite", "Amarillas_Internet", "Photosnack", "FTP"];
+  var obj_redes= new Object;
 
-        obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
-        obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};
-        obj_redes.youtube   = {title:"Youtube", name:"youtube", position:1, active:false};
-        obj_redes.instagram = {title:"Instagram", name:"instagram", position:1, active:false};
-        obj_redes.linkedin  = {title:"Linkedin", name:"linkedin", position:1, active:false};
-        obj_redes.pinterest = {title:"Pinterest", name:"pinterest", position:1, active:false};
-        obj_redes.hootsuite = {title:"Hootsuite", name:"hootsuite", position:1, active:false};
-        obj_redes.amarillas_internet = {title:"Amarillas_Internet", name:"amarillas_internet", position:1, active:false};
-        obj_redes.photosnack= {title:"Photosnack", name:"photosnack", position:1, active:false};
-        obj_redes.ftp       = {title:"FTP",name:"ftp", position:1, active:false};
+  obj_redes.gmail_1 = {title:"Gmail", name:"gmail_1", position:1, active:false};
+  obj_redes.gmail_2 = {title:"Gmail", name:"gmail_2", position:2, active:false};
+  obj_redes.gmail_3 = {title:"Gmail", name:"gmail_3", position:3, active:false};
+  obj_redes.gmail_4 = {title:"Gmail", name:"gmail_4", position:4, active:false};
+  obj_redes.gmail_5 = {title:"Gmail", name:"gmail_5", position:5, active:false};
+
+  obj_redes.zohomail_1 = {title:"Zohoomail", name:"zohomail_1", position:1, active:false};  
+  obj_redes.zohomail_2 = {title:"Zohoomail", name:"zohomail_2", position:2, active:false}; 
+  obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
+  obj_redes.zohomail_4 = {title:"Zohoomail", name:"zohomail_4", position:4, active:false}; 
+  obj_redes.zohomail_5 = {title:"Zohoomail", name:"zohomail_5", position:5, active:false};
+  obj_redes.zohomail_6 = {title:"Zohoomail", name:"zohomail_6", position:6, active:false};
+  obj_redes.zohomail_7 = {title:"Zohoomail", name:"zohomail_7", position:7, active:false};
+  obj_redes.zohomail_8 = {title:"Zohoomail", name:"zohomail_8", position:8, active:false};
+  obj_redes.zohomail_9 = {title:"Zohoomail", name:"zohomail_9", position:9, active:false};
+  obj_redes.zohomail_10= {title:"Zohoomail", name:"zohomail_10", position:10, active:false};
+
+  obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
+  obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};
+  obj_redes.youtube   = {title:"Youtube", name:"youtube", position:1, active:false};
+  obj_redes.instagram = {title:"Instagram", name:"instagram", position:1, active:false};
+  obj_redes.linkedin  = {title:"Linkedin", name:"linkedin", position:1, active:false};
+  obj_redes.pinterest = {title:"Pinterest", name:"pinterest", position:1, active:false};
+  obj_redes.hootsuite = {title:"Hootsuite", name:"hootsuite", position:1, active:false};
+  obj_redes.amarillas_internet = {title:"Amarillas_Internet", name:"amarillas_internet", position:1, active:false};
+  obj_redes.photosnack= {title:"Photosnack", name:"photosnack", position:1, active:false};
+  obj_redes.ftp       = {title:"FTP",name:"ftp", position:1, active:false};
 
 //  Arreglo redes
 var arr_redes=(Object.keys(obj_redes));
@@ -1178,7 +1217,7 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_5[contraseña][]']").val("{!! $zohomail->cuenta_5->contraseña[0] !!}");
   @endif
 
-    @if (!empty($zohomail->cuenta_6->usuario[0]))
+  @if (!empty($zohomail->cuenta_6->usuario[0]))
   name_div = obj_redes["zohomail_6"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_6"].active=true;
@@ -1186,7 +1225,7 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_6[contraseña][]']").val("{!! $zohomail->cuenta_6->contraseña[0] !!}");
   @endif
 
-    @if (!empty($zohomail->cuenta_7->usuario[0]))
+  @if (!empty($zohomail->cuenta_7->usuario[0]))
   name_div = obj_redes["zohomail_7"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_7"].active=true;
@@ -1194,7 +1233,7 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_7[contraseña][]']").val("{!! $zohomail->cuenta_7->contraseña[0] !!}");
   @endif
 
-    @if (!empty($zohomail->cuenta_8->usuario[0]))
+  @if (!empty($zohomail->cuenta_8->usuario[0]))
   name_div = obj_redes["zohomail_8"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_8"].active=true;
@@ -1202,7 +1241,7 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_8[contraseña][]']").val("{!! $zohomail->cuenta_8->contraseña[0] !!}");
   @endif
 
-    @if (!empty($zohomail->cuenta_9->usuario[0]))
+  @if (!empty($zohomail->cuenta_9->usuario[0]))
   name_div = obj_redes["zohomail_9"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_9"].active=true;
@@ -1210,7 +1249,7 @@ Imprimir y seleccionar datos existentes.
   $("[name='zohomail_9[contraseña][]']").val("{!! $zohomail->cuenta_9->contraseña[0] !!}");
   @endif
 
-      @if (!empty($zohomail->cuenta_10->usuario[0]))
+  @if (!empty($zohomail->cuenta_10->usuario[0]))
   name_div = obj_redes["zohomail_10"].name;
   $("#"+name_div+"").show();
   obj_redes["zohomail_10"].active=true;

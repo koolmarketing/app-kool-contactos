@@ -83,7 +83,6 @@ class ContactoController extends Controller
 
 
         $gmail = (object) array();
-
         $gmail->cuenta_1 = $request->input('gmail_1');
         $gmail->cuenta_2 = $request->input('gmail_2');
         $gmail->cuenta_3 = $request->input('gmail_3');
@@ -91,8 +90,8 @@ class ContactoController extends Controller
         $gmail->cuenta_5 = $request->input('gmail_5');
         $NC->gmail = json_encode($gmail);
 
-        $zohomail = (object) array();
 
+        $zohomail = (object) array();
         $zohomail->cuenta_1 = $request->input('zohomail_1');
         $zohomail->cuenta_2 = $request->input('zohomail_2');
         $zohomail->cuenta_3 = $request->input('zohomail_3');
@@ -105,9 +104,30 @@ class ContactoController extends Controller
         $zohomail->cuenta_10 = $request->input('zohomail_10');
         $NC->zohomail = json_encode($zohomail);
 
+
+        $redes_adicionales = (object) array();
+        $redes_adicionales->cuenta_1 =  $request->input('red_adicional_1');
+        $redes_adicionales->cuenta_2 =  $request->input('red_adicional_2');
+        $redes_adicionales->cuenta_3 =  $request->input('red_adicional_3');
+        $redes_adicionales->cuenta_4 =  $request->input('red_adicional_4');
+        $redes_adicionales->cuenta_5 =  $request->input('red_adicional_5');
+        $redes_adicionales->cuenta_6 =  $request->input('red_adicional_6');
+        $redes_adicionales->cuenta_7 =  $request->input('red_adicional_7');
+        $redes_adicionales->cuenta_8 =  $request->input('red_adicional_8');
+        $redes_adicionales->cuenta_9 =  $request->input('red_adicional_9');
+        $redes_adicionales->cuenta_10 = $request->input('red_adicional_10');
+        $redes_adicionales->cuenta_11 = $request->input('red_adicional_11');
+        $redes_adicionales->cuenta_12 = $request->input('red_adicional_12');
+        $redes_adicionales->cuenta_13 = $request->input('red_adicional_13');
+        $NC->redes_adicionales = json_encode($redes_adicionales);
+
+
         #Redes
         //$NC->gmail               = json_encode($request->input('gmail'));
         //$NC->zohomail            = json_encode($request->input('zohomail'));
+
+        $NC->prestashop            = json_encode($request->input('prestashop'));
+        $NC->wordpress             = json_encode($request->input('wordpress'));
 
         $NC->facebook            = json_encode($request->input('facebook'));
         $NC->twitter             = json_encode($request->input('twitter'));
