@@ -245,11 +245,7 @@
 {!! HTML::script('js/common.js') !!}
 {!! HTML::script('bower_components/sweetalert/dist/sweetalert.min.js') !!}
 
-
-
-
 @yield('add_scripts')
-
 
 </body>
 

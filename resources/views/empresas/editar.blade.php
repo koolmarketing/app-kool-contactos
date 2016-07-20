@@ -52,6 +52,9 @@ $rango           = $data_actual->rango;
 
 
 <div class="container-fluid">
+<pre>
+  {!! $facebook->contraseña[0] !!}
+</pre>
   <div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -435,7 +438,7 @@ $rango           = $data_actual->rango;
           <div class="content-box big-box box-shadow"><br>
             <div class="col-lg-12">
               <div class="col-lg-10"> <select id="lista_redes" class="form-control material"></select></div>
-              <div class="col-lg-2"><button id="add_red" class="btn btn-primary">Agregar Medio</button></div>
+              <div class="col-lg-2"><a id="btn_add_red" class="btn btn-success">Agregar Medio</a></div>
               <br><br><br>
             </div>
             @for ($i = 1; $i <= 5; $i++)
@@ -471,9 +474,34 @@ $rango           = $data_actual->rango;
                 <p class="help-text">Contraseña</p>
               </div>
               <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
-            </div>
-            
+            </div>            
             @endfor
+
+
+            @for ($i = 1; $i <= 13; $i++)
+            <div class="col-lg-12 Red" id="red_adicional_{!!$i!!}" attr-visible="">
+              <div class="form-group col-md-2">
+                <h4><i class="icon-globe-2"></i> Red</h4>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="red_adicional_{!!$i!!}[url][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="red_adicional_{!!$i!!}[usuario][]" class="form-control material">
+                <p class="help-text">Usuario</p>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input type="text" name="red_adicional_{!!$i!!}[contraseña][]" class="form-control material">
+                <p class="help-text">Contraseña</p>
+              </div>
+              <div class="col-md-1"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button></div>
+            </div>            
+            @endfor
+
 
             <div class="col-lg-12 Facebook" id="facebook" attr-visible="">
              <div class="form-group col-md-2">
@@ -707,7 +735,7 @@ $rango           = $data_actual->rango;
 {!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
 {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
 {!! HTML::script('js/mask.js') !!}
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+{{-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> --}}
 {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
 {!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
 {!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
@@ -796,15 +824,11 @@ $rango           = $data_actual->rango;
 
 
     $("#intereses").select2();
-
             //Mascara
             $('.date').mask('00-00-0000');
-
             $('#thebox').picEdit();
-
             $(".form_tags").tagsinput('items');
             $(".multi_tags").select2();
-
           });
 </script>
 
@@ -813,34 +837,34 @@ $rango           = $data_actual->rango;
   var $logger = $("#logger");
   $logger.html($logger.html() + "\n * " + message );
 }
-$(function(){
+// $(function(){
 
-  $("#geocomplete").geocomplete()
-  .bind("geocode:result", function(event, result){
-    $.log("Result: " + result.formatted_address);
-  })
-  .bind("geocode:error", function(event, status){
-    $.log("ERROR: " + status);
-  })
-  .bind("geocode:multiple", function(event, results){
-    $.log("Multiple: " + results.length + " results found");
-  });
+//   $("#geocomplete").geocomplete()
+//   .bind("geocode:result", function(event, result){
+//     $.log("Result: " + result.formatted_address);
+//   })
+//   .bind("geocode:error", function(event, status){
+//     $.log("ERROR: " + status);
+//   })
+//   .bind("geocode:multiple", function(event, results){
+//     $.log("Multiple: " + results.length + " results found");
+//   });
 
-  $("#find").click(function(){
-    $("#geocomplete").trigger("geocode");
-  });
+//   $("#find").click(function(){
+//     $("#geocomplete").trigger("geocode");
+//   });
 
 
-  $("#examples a").click(function(){
-    $("#geocomplete").val($(this).text()).trigger("geocode");
-    return false;
-  });
+//   $("#examples a").click(function(){
+//     $("#geocomplete").val($(this).text()).trigger("geocode");
+//     return false;
+//   });
+// });
 
-});
 </script>
 <script>
 
-  <!-- Ocultar Botones -->
+ //Ocultar Botones 
 
   $("body").on('click', '.btn-red-info', function(event) {
     event.preventDefault();
@@ -851,7 +875,7 @@ $(function(){
 
 
 
-  var redes = ["Gmail", "Zohomail", "Facebook", "Twitter", "Youtube", "Instagram", "Linkedin", "Pinterest", "Hootsuite", "Amarillas_Internet", "Photosnack", "FTP"];
+  var redes = ["Gmail", "Zohomail", "Facebook", "Twitter", "Youtube", "Instagram", "Linkedin", "Pinterest","Prestashop","Wordpress","Hootsuite", "Amarillas_Internet", "Photosnack", "FTP", "Red"];
   var obj_redes= new Object;
 
   obj_redes.gmail_1 = {title:"Gmail", name:"gmail_1", position:1, active:false};
@@ -859,7 +883,6 @@ $(function(){
   obj_redes.gmail_3 = {title:"Gmail", name:"gmail_3", position:3, active:false};
   obj_redes.gmail_4 = {title:"Gmail", name:"gmail_4", position:4, active:false};
   obj_redes.gmail_5 = {title:"Gmail", name:"gmail_5", position:5, active:false};
-
   obj_redes.zohomail_1 = {title:"Zohoomail", name:"zohomail_1", position:1, active:false};  
   obj_redes.zohomail_2 = {title:"Zohoomail", name:"zohomail_2", position:2, active:false}; 
   obj_redes.zohomail_3 = {title:"Zohoomail", name:"zohomail_3", position:3, active:false}; 
@@ -870,32 +893,58 @@ $(function(){
   obj_redes.zohomail_8 = {title:"Zohoomail", name:"zohomail_8", position:8, active:false};
   obj_redes.zohomail_9 = {title:"Zohoomail", name:"zohomail_9", position:9, active:false};
   obj_redes.zohomail_10= {title:"Zohoomail", name:"zohomail_10", position:10, active:false};
-
-  obj_redes.facebook  = {title:"Facebook", name:"facebook", position:1, active:false};
-  obj_redes.twitter   = {title:"Twitter", name:"twitter", position:1, active:false};
-  obj_redes.youtube   = {title:"Youtube", name:"youtube", position:1, active:false};
+  obj_redes.facebook  = {title:"Facebook", name:"facebook",   position:1, active:false};
+  obj_redes.twitter   = {title:"Twitter", name:"twitter",     position:1, active:false};
+  obj_redes.youtube   = {title:"Youtube", name:"youtube",     position:1, active:false};
   obj_redes.instagram = {title:"Instagram", name:"instagram", position:1, active:false};
-  obj_redes.linkedin  = {title:"Linkedin", name:"linkedin", position:1, active:false};
+  obj_redes.linkedin  = {title:"Linkedin", name:"linkedin",   position:1, active:false};
   obj_redes.pinterest = {title:"Pinterest", name:"pinterest", position:1, active:false};
   obj_redes.hootsuite = {title:"Hootsuite", name:"hootsuite", position:1, active:false};
   obj_redes.amarillas_internet = {title:"Amarillas_Internet", name:"amarillas_internet", position:1, active:false};
   obj_redes.photosnack= {title:"Photosnack", name:"photosnack", position:1, active:false};
   obj_redes.ftp       = {title:"FTP",name:"ftp", position:1, active:false};
+  // Redes
+  obj_redes.red_adicional_1  = {title:"Red", name:"red_adicional_1",  position:1, active:false};
+  obj_redes.red_adicional_2  = {title:"Red", name:"red_adicional_2",  position:2, active:false}; 
+  obj_redes.red_adicional_3  = {title:"Red", name:"red_adicional_3",  position:3, active:false}; 
+  obj_redes.red_adicional_4  = {title:"Red", name:"red_adicional_4",  position:4, active:false}; 
+  obj_redes.red_adicional_5  = {title:"Red", name:"red_adicional_5",  position:5, active:false}; 
+  obj_redes.red_adicional_6  = {title:"Red", name:"red_adicional_6",  position:6, active:false}; 
+  obj_redes.red_adicional_7  = {title:"Red", name:"red_adicional_7",  position:7, active:false}; 
+  obj_redes.red_adicional_8  = {title:"Red", name:"red_adicional_8",  position:8, active:false}; 
+  obj_redes.red_adicional_9  = {title:"Red", name:"red_adicional_9",  position:9, active:false}; 
+  obj_redes.red_adicional_10 = {title:"Red", name:"red_adicional_10", position:10, active:false}; 
+  obj_redes.red_adicional_11 = {title:"Red", name:"red_adicional_11", position:11, active:false}; 
+  obj_redes.red_adicional_12 = {title:"Red", name:"red_adicional_12", position:12, active:false}; 
+  obj_redes.red_adicional_13 = {title:"Red", name:"red_adicional_13", position:13, active:false};   
+
+  // Prestashop y Wordpress
+  obj_redes.prestashop  = {title:"Prestashop", name:"prestashop",  position:1, active:false};
+  obj_redes.wordpress  = {title:"Wordpress", name:"wordpress",  position:2, active:false}; 
 
 //  Arreglo redes
 var arr_redes=(Object.keys(obj_redes));
-// 
+
+// HIDE REDES SOCIALES.
+
 for (var i = 0; i < arr_redes.length; i++) {  
   $("#"+arr_redes[i]+"").attr('attr-visible', 'false');
   $("#"+arr_redes[i]+"").hide();
 }
+
+
 for (var i = 0; i < redes.length; i++) {
   $("#lista_redes").append("<option value='"+redes[i]+"'>"+redes[i]+"</option>");
 }
+</script>
 
-$("body").on('click', '#add_red', function(event) {
+
+<script>
+  $("body").on('click', '#btn_add_red', function(event) {
   event.preventDefault();
+
   var val=$("#lista_redes").val();
+  alert(val);
   if (val=="Gmail") {
    x=1;
    encontrado=false;
@@ -919,8 +968,21 @@ $("body").on('click', '#add_red', function(event) {
       encontrado=true;
       var name_div = obj_redes["zohomail_"+x+""].name;
       $("#"+name_div+"").show();
-    } 
-    else {x+=1;}
+    } else {x+=1;}
+  }
+}
+  else if(val=="Red"){
+    x=1;
+    encontrado=false;
+    while (encontrado==false || x==13) {
+        value = obj_redes["red_adicional_"+x+""].active;
+        if (value==false) {
+          obj_redes["red_adicional_"+x+""].active=true;
+          encontrado=true;
+          var name_div = obj_redes["red_adicional_"+x+""].name;
+          $("#"+name_div+"").show();
+      } 
+      else {x+=1;}
   }
 }else{
   switch(val) {
@@ -945,26 +1007,11 @@ $("body").on('click', '#add_red', function(event) {
     case "FTP": $("#ftp").show(); obj_redes["ftp"].active=true; 
     break;
     default: console.log("error");
-
   }
-}
-}
-);
-
-
-
+}});
 </script>
 
-
-
-
-
-
-
-
-<!-- 
-Imprimir y seleccionar datos existentes.
--->
+<!-- Imprimir y seleccionar datos existentes. -->
 
 <!-- Datos Empresa -->
 <script>
@@ -1125,213 +1172,6 @@ Imprimir y seleccionar datos existentes.
 
 @endif
 <!-- Fin Datos Soporte -->
-
-
-<!-- GMAIL -->
-<script>
-  // Gmail 1 
-  @if ($gmail->cuenta_1->usuario[0]!="")
-  name_div = obj_redes["gmail_1"].name;
-  $("#"+name_div+"").show();
-  obj_redes["gmail_1"].active=true;
-  $("[name='gmail_1[usuario][]']").val("{!! $gmail->cuenta_1->usuario[0] !!}");
-  $("[name='gmail_1[contraseña][]']").val("{!! $gmail->cuenta_1->contraseña[0] !!}");
-  @endif
-
-  @if ($gmail->cuenta_2->usuario[0]!="")
-  name_div = obj_redes["gmail_2"].name;
-  $("#"+name_div+"").show();
-  obj_redes["gmail_2"].active=true;
-  $("[name='gmail_2[usuario][]']").val("{!! $gmail->cuenta_2->usuario[0] !!}");
-  $("[name='gmail_2[contraseña][]']").val("{!! $gmail->cuenta_2->contraseña[0] !!}");
-  @endif
-
-  @if ($gmail->cuenta_3->usuario[0]!="")
-  name_div = obj_redes["gmail_3"].name;
-  $("#"+name_div+"").show();
-  obj_redes["gmail_3"].active=true;
-  $("[name='gmail_3[usuario][]']").val("{!! $gmail->cuenta_3->usuario[0] !!}");
-  $("[name='gmail_3[contraseña][]']").val("{!! $gmail->cuenta_3->contraseña[0] !!}");
-  @endif
-
-  @if ($gmail->cuenta_4->usuario[0]!="")
-  name_div = obj_redes["gmail_4"].name;
-  $("#"+name_div+"").show();
-  obj_redes["gmail_4"].active=true;
-  $("[name='gmail_4[usuario][]']").val("{!! $gmail->cuenta_4->usuario[0] !!}");
-  $("[name='gmail_4[contraseña][]']").val("{!! $gmail->cuenta_4->contraseña[0] !!}");
-  @endif
-
-  @if ($gmail->cuenta_5->usuario[0]!="")
-  name_div = obj_redes["gmail_5"].name;
-  $("#"+name_div+"").show();
-  obj_redes["gmail_5"].active=true;
-  $("[name='gmail_5[usuario][]']").val("{!! $gmail->cuenta_5->usuario[0] !!}");
-  $("[name='gmail_5[contraseña][]']").val("{!! $gmail->cuenta_5->contraseña[0] !!}");
-  @endif
-
-
-
-
-  // Zohomail
-
-  @if ($zohomail->cuenta_1->usuario[0]!="")
-  name_div = obj_redes["zohomail_1"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_1"].active=true;
-  $("[name='zohomail_1[usuario][]']").val("{!! $zohomail->cuenta_1->usuario[0] !!}");
-  $("[name='zohomail_1[contraseña][]']").val("{!! $zohomail->cuenta_1->contraseña[0] !!}");
-  @endif
-
-  @if ($zohomail->cuenta_2->usuario[0]!="")
-  name_div = obj_redes["zohomail_2"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_2"].active=true;
-  $("[name='zohomail_2[usuario][]']").val("{!! $zohomail->cuenta_2->usuario[0] !!}");
-  $("[name='zohomail_2[contraseña][]']").val("{!! $zohomail->cuenta_2->contraseña[0] !!}");
-  @endif
-
-
-  @if ($zohomail->cuenta_3->usuario[0]!="")
-  name_div = obj_redes["zohomail_3"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_3"].active=true;
-  $("[name='zohomail_3[usuario][]']").val("{!! $zohomail->cuenta_3->usuario[0] !!}");
-  $("[name='zohomail_3[contraseña][]']").val("{!! $zohomail->cuenta_3->contraseña[0] !!}");
-  @endif
-
-
-  @if ($zohomail->cuenta_4->usuario[0]!="")
-  name_div = obj_redes["zohomail_4"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_4"].active=true;
-  $("[name='zohomail_4[usuario][]']").val("{!! $zohomail->cuenta_4->usuario[0] !!}");
-  $("[name='zohomail_4[contraseña][]']").val("{!! $zohomail->cuenta_4->contraseña[0] !!}");
-  @endif
-
-  @if ($zohomail->cuenta_5->usuario[0]!="")
-  name_div = obj_redes["zohomail_5"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_5"].active=true;
-  $("[name='zohomail_5[usuario][]']").val("{!! $zohomail->cuenta_5->usuario[0] !!}");
-  $("[name='zohomail_5[contraseña][]']").val("{!! $zohomail->cuenta_5->contraseña[0] !!}");
-  @endif
-
-  @if (!empty($zohomail->cuenta_6->usuario[0]))
-  name_div = obj_redes["zohomail_6"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_6"].active=true;
-  $("[name='zohomail_6[usuario][]']").val("{!! $zohomail->cuenta_6->usuario[0] !!}");
-  $("[name='zohomail_6[contraseña][]']").val("{!! $zohomail->cuenta_6->contraseña[0] !!}");
-  @endif
-
-  @if (!empty($zohomail->cuenta_7->usuario[0]))
-  name_div = obj_redes["zohomail_7"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_7"].active=true;
-  $("[name='zohomail_7[usuario][]']").val("{!! $zohomail->cuenta_7->usuario[0] !!}");
-  $("[name='zohomail_7[contraseña][]']").val("{!! $zohomail->cuenta_7->contraseña[0] !!}");
-  @endif
-
-  @if (!empty($zohomail->cuenta_8->usuario[0]))
-  name_div = obj_redes["zohomail_8"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_8"].active=true;
-  $("[name='zohomail_8[usuario][]']").val("{!! $zohomail->cuenta_8->usuario[0] !!}");
-  $("[name='zohomail_8[contraseña][]']").val("{!! $zohomail->cuenta_8->contraseña[0] !!}");
-  @endif
-
-  @if (!empty($zohomail->cuenta_9->usuario[0]))
-  name_div = obj_redes["zohomail_9"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_9"].active=true;
-  $("[name='zohomail_9[usuario][]']").val("{!! $zohomail->cuenta_9->usuario[0] !!}");
-  $("[name='zohomail_9[contraseña][]']").val("{!! $zohomail->cuenta_9->contraseña[0] !!}");
-  @endif
-
-  @if (!empty($zohomail->cuenta_10->usuario[0]))
-  name_div = obj_redes["zohomail_10"].name;
-  $("#"+name_div+"").show();
-  obj_redes["zohomail_10"].active=true;
-  $("[name='zohomail_10[usuario][]']").val("{!! $zohomail->cuenta_10->usuario[0] !!}");
-  $("[name='zohomail_10[contraseña][]']").val("{!! $zohomail->cuenta_10->contraseña[0] !!}");
-  @endif
-
-
-
-// Facebook
-
-@if($facebook->usuario!="")
-$("#facebook").show(); obj_redes["facebook"].active=true;
-$("[name='facebook[usuario][]']").val("{!! $facebook->usuario[0] !!}");
-$("[name='facebook[contraseña][]']").val("{!! $facebook->contraseña[0] !!}");
-@endif
-
-
-// Twitter
-@if ($twitter->usuario!="")
-$("#twitter").show(); obj_redes["twitter"].active=true;
-$("[name='twitter[usuario][]']").val("{!! $twitter->usuario[0] !!}");
-$("[name='twitter[contraseña][]']").val("{!! $twitter->contraseña[0] !!}");
-@endif
-
-
-// Youtube
-@if ($youtube->usuario!="")
-$("#youtube").show(); obj_redes["youtube"].active=true;
-$("[name='youtube[usuario][]']").val("{!! $youtube->usuario[0] !!}");
-$("[name='youtube[contraseña][]']").val("{!! $youtube->contraseña[0] !!}");
-@endif
-// Instagram
-@if ($instagram->usuario!="")
-$("#instagram").show(); obj_redes["instagram"].active=true; 
-$("[name='linkedin[usuario][]']").val("{!! $linkedin->usuario[0] !!}");
-$("[name='linkedin[contraseña][]']").val("{!! $linkedin->contraseña[0] !!}");
-@endif
-// Pinterest
-@if ($pinterest->usuario!="")
-$("#pinterest").show(); obj_redes["pinterest"].active=true;
-$("[name='pinterest[usuario][]']").val("{!! $pinterest->usuario[0] !!}");
-$("[name='pinterest[contraseña][]']").val("{!! $pinterest->contraseña[0] !!}");
-@endif
-
-// Hootsuite
-@if ($hootsuite->usuario!="")
-$("#hootsuite").show(); obj_redes["hootsuite"].active=true; 
-$("[name='hootsuite[usuario][]']").val("{!! $hootsuite->usuario[0] !!}");
-$("[name='hootsuite[contraseña][]']").val("{!! $hootsuite->contraseña[0] !!}");
-@endif
-// Amarillas Internet
-
-@if ($amarillas_internet->usuario!="")
-$("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true; 
-$("[name='amarillas_internet[usuario][]']").val("{!! $amarillas_internet->usuario[0] !!}");
-$("[name='amarillas_internet[contraseña][]']").val("{!! $amarillas_internet->contraseña[0] !!}");
-@endif
-
-// Photosnack
-
-@if ($photosnack->usuario!="")
-$("#photosnack").show(); obj_redes["photosnack"].active=true; 
-$("[name='photosnack[usuario][]']").val("{!! $photosnack->usuario[0] !!}");
-$("[name='photosnack[contraseña][]']").val("{!! $photosnack->contraseña[0] !!}");
-@endif
-
-// FTP
-@if ($photosnack->usuario!="")
-$("#ftp").show(); obj_redes["ftp"].active=true;
-$("[name='ftp[server][]']").val("{!! $ftp->server[0] !!}");
-$("[name='ftp[usuario][]']").val("{!! $ftp->usuario[0] !!}");
-$("[name='ftp[contraseña][]']").val("{!! $ftp->contraseña[0] !!}");
-@endif
-
-</script>
-
-
-
-
-
-
 
 
 @stop
