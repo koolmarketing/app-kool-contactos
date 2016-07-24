@@ -39,6 +39,21 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 	});
 
 
+	Route::get('test_log', function()
+	{
+
+		 Activity::log([
+        'contentId'   => Auth::id(),
+        'contentType' => 'User',
+        'action'      => 'Create',
+        'description' => 'Created a User',
+        'details'     => 'Username: '.Auth::user(),
+        'updated'     => (bool) Auth::id(),
+    ]);
+		 return "OK";
+	});
+
+
 
 	Route::get('', [
 		'middleware' => 'auth',

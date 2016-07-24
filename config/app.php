@@ -150,6 +150,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Clicknow\Money\MoneyServiceProvider::class,
         Sleimanx2\Plastic\PlasticServiceProvider::class,
+        Regulus\ActivityLog\ActivityLogServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -206,6 +207,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
+        'Activity' => Regulus\ActivityLog\Models\Activity::class,
 
     ],
 

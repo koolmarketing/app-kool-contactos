@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b976ab5331edd3bb800b4c820b432d0d",
-    "content-hash": "0937576cb13e484bcf32e78df2426fa8",
+    "hash": "d11d7675439cb4135b8bb91a9cd49179",
+    "content-hash": "b4be1390734a65a5df3930ab46b95e9a",
     "packages": [
         {
             "name": "cknow/laravel-money",
