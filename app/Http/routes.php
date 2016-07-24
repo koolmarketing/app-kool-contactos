@@ -15,8 +15,6 @@
 // 	return view('welcome');
 // });
 
-
-
 // Route::get('/home', 'HomeController@index');
 // Route::get('/clientes','ContactoController@Clientes');
 // Route::get('/empresas','ContactoController@Empresas');
@@ -26,9 +24,21 @@
 // Route::get('/nueva-empresa','ContactoController@NewCompany');
 
 
+
+
 Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 { 
 	Route::auth();
+
+	Route::get('enviar_mail', function()
+	{
+		Mail::later(5, 'emails.queue_email', ['name'=>'Carlos'], function($message){
+			$message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('welcome!!');
+		});
+		return "Mail enviado en 5 segundos";
+	});
+
+
 
 	Route::get('', [
 		'middleware' => 'auth',

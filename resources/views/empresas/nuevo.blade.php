@@ -71,7 +71,6 @@
 
               <div class="form-group col-md-3">
                   <select name="numero_empleados" id="numero_empleados" class="form-control material">
-
                     <option value="" selected=""></option>
                     <option value="A">1</option>
                     <option value="B">2-10</option>
@@ -80,7 +79,6 @@
                     <option value="E">501-1000</option>
                     <option value="F">1001-5000</option><option value="G">5001-10000</option>
                     <option value="H">+10001</option>
-
                 </select>
                 <p class="help-text">Tamaño de la Empresa</p> 
             </div>
@@ -103,6 +101,7 @@
             </select>
             <p class="help-text">Tipo de Empresa</p>
         </div>
+        
         <div class="form-group col-md-6">
           <select id="sector" name="sector" class="form-control material">
             <option value="" selected=""></option>
@@ -768,22 +767,17 @@
       max: 6,
       from: 0.5
   });
-
     $("#valores").select2();
     $("#sector").select2();
     $("#servicios").select2();
     $("#tipo_empresa").select2();
     $("#intereses").select2();
     $("#numero_empleados").select2();
-
             //Mascara
             $('.date').mask('00-00-0000');
-
             $('#thebox').picEdit();
-
             $(".form_tags").tagsinput('items');
             $(".multi_tags").select2();
-
         });
 </script>
 
@@ -793,7 +787,6 @@
   $logger.html($logger.html() + "\n * " + message );
 }
 $(function(){
-
   $("#geocomplete").geocomplete()
   .bind("geocode:result", function(event, result){
     $.log("Result: " + result.formatted_address);
@@ -804,12 +797,9 @@ $(function(){
   .bind("geocode:multiple", function(event, results){
     $.log("Multiple: " + results.length + " results found");
 });
-
   $("#find").click(function(){
     $("#geocomplete").trigger("geocode");
 });
-
-
   $("#examples a").click(function(){
     $("#geocomplete").val($(this).text()).trigger("geocode");
     return false;

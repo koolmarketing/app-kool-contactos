@@ -758,6 +758,8 @@ class SearchBuilder
      * Append a query.
      *
      * @param $query
+     *
+     * @return $this
      */
     public function append($query)
     {
@@ -766,6 +768,8 @@ class SearchBuilder
         } else {
             $this->query->addQuery($query, $this->getBoolState());
         }
+
+        return $this;
     }
 
     /**
@@ -775,6 +779,6 @@ class SearchBuilder
      */
     protected function getCurrentPage()
     {
-        return \Input::get('page') ? (int) \Input::get('page') : 1;
+        return \Request::get('page') ? (int) \Request::get('page') : 1;
     }
 }

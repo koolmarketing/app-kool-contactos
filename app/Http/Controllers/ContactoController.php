@@ -66,8 +66,12 @@ class ContactoController extends Controller
         $NC->nombre_comercial = $request->input('nombre_comercial');
         $NC->razon_social     = $request->input('razon_social');
         $NC->nit              = $request->input('nit');
-        $NC->servicios        = json_encode($request->input('servicios'));
+        //$NC->servicios        = json_encode($request->input('servicios'));
+        
+        $NC->tipo_empresa     = $request->input('tipo_empresa');
+        $NC->numero_empleados = $request->input('numero_empleados');
         $NC->sector           = $request->input('sector');
+
         $NC->telefono_1       = $request->input('telefono_1');
         $NC->telefono_2       = $request->input('telefono_2');
         $NC->sitio_web        = $request->input('sitio_web');

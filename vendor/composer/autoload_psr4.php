@@ -29,6 +29,8 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
     'Sleimanx2\\Plastic\\' => array($vendorDir . '/sleimanx2/plastic/src'),
+    'Regulus\\TetraText\\' => array($vendorDir . '/regulus/tetra-text/src', $vendorDir . '/regulus/activity-log/src'),
+    'Regulus\\ActivityLog\\' => array($vendorDir . '/regulus/activity-log/src'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
