@@ -4,10 +4,6 @@
 
     <div class="container-fluid">
 
-
-
-
-
         <div class="col-lg-7">
 
 

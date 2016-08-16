@@ -2,10 +2,856 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e458bd1a-9a6a-46b4-be54-069a6c61531c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/app-kool-contactos.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_05_25_162236_update_servicios_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.github/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.github/ISSUE_TEMPLATE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.github/PULL_REQUEST_TEMPLATE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.gitmodules" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.php_cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/NOTICE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/benchmarks/Elasticsearch/Benchmarks/AsyncVsSyncIndexingEvent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/benchmarks/Elasticsearch/Benchmarks/SequentialIndexingEvent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/breaking-changes.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Client.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/ClientBuilder.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/CatNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/ClusterNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/IndicesNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/NodesNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/SnapshotNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/Elasticsearch/Namespaces/TaskNamespace.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/PROJECT_VERSION" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/SAMI_VERSION" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/classes.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/interfaces.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/namespaces.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/build/renderer.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/community.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/configuration.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/connection-pool.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/crud.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/futures.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/index-operations.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/index.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/installation.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/namespaces.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/overview.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/per-request-configuration.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/php-version-requirement.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/php_json_objects.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/quickstart.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/search-operations.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/security.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/selectors.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/serializers.asciidoc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Client.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ClientBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/EmptyLogger.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/AlreadyExpiredException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/BadMethodCallException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/BadRequest400Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/ClientErrorResponseException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Conflict409Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Curl/CouldNotConnectToHost.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Curl/CouldNotResolveHostException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Curl/OperationTimeoutException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/ElasticsearchException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Forbidden403Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/InvalidArgumentException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/MaxRetriesException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Missing404Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/NoDocumentsToGetException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/NoNodesAvailableException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/NoShardAvailableException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/RequestTimeout408Exception.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/RoutingMissingException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/RuntimeException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/ScriptLangNotSupportedException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/Serializer/JsonErrorException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/ServerErrorResponseException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/TransportException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Common/Exceptions/UnexpectedValueException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/AbstractConnectionPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/ConnectionPoolInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/Selectors/RandomSelector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/Selectors/RoundRobinSelector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/Selectors/SelectorInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/Selectors/StickyRoundRobinSelector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/SimpleConnectionPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/SniffingConnectionPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/StaticConnectionPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/StaticNoPingConnectionPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/Connection.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/ConnectionFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/ConnectionFactoryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/ConnectionInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/AbstractEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Bulk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/BulkEndpointInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Aliases.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Allocation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Count.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/FieldData.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Health.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Help.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Indices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Master.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/NodeAttrs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Nodes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/PendingTasks.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Plugins.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Recovery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Repositories.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Segments.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Shards.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/Snapshots.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cat/ThreadPool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/ClearScroll.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/Health.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/PendingTasks.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/Reroute.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/Settings/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/Settings/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/State.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Cluster/Stats.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Count.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/CountPercolate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/DeleteByQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Exists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Explain.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/FieldStats.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Alias/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Alias/Exists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Alias/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Alias/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Aliases/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Aliases/Update.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Analyze.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Cache/Clear.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Close.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Create.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Exists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Exists/Types.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Field/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Flush.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/ForceMerge.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Gateway/Snapshot.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Mapping/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Mapping/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Mapping/GetField.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Mapping/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Open.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Optimize.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Recovery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Refresh.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Seal.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Segments.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Settings/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Settings/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/ShardStores.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Stats.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Status.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Template/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Template/Exists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Template/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Template/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Type/Exists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Upgrade/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Upgrade/Post.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Validate/Query.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Warmer/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Warmer/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Indices/Warmer/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Info.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/MGet.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/MPercolate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/MSearch.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/MTermVectors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Mlt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Nodes/AbstractNodesEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Nodes/HotThreads.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Nodes/Info.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Nodes/Shutdown.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Nodes/Stats.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Percolate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Ping.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/ReIndex.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/RenderSearchTemplate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Script/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Script/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Script/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Scroll.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Search.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/SearchExists.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/SearchShards.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/SearchTemplate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Create.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Repository/Create.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Repository/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Repository/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Restore.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/Status.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Snapshot/VerifyRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Source/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Suggest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Tasks/Cancel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Tasks/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Template/Delete.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Template/Get.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Template/Put.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/TermVectors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/Update.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Endpoints/UpdateByQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Helper/Iterators/SearchHitIterator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Helper/Iterators/SearchResponseIterator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/AbstractNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/BooleanRequestWrapper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/CatNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/ClusterNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/IndicesNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/NodesNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/SnapshotNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Namespaces/TasksNamespace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Serializers/ArrayToJSONSerializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Serializers/EverythingToJSONSerializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Serializers/SerializerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Serializers/SmartSerializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Transport.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ClientTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/Selectors/RoundRobinSelectorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/Selectors/StickyRoundRobinSelectorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/SniffingConnectionPoolIntegrationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/SniffingConnectionPoolTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/StaticConnectionPoolTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/Helper/Iterators/SearchResponseIteratorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/Serializers/ArrayToJSONSerializerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/Serializers/EverythingToJSONSerializerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/YamlRunnerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/travis/download_and_run_es.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/travis/generate_docs.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/EnsureClusterAlive.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/RestSpecRunner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/SpecParser.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docsConfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/layout/base.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/macros.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/manifest.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/pages/class.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/pages/classes.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/pages/interfaces.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/docstheme/pages/namespaces.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/util/templates/endpoint.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/README.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/client_handlers.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/client_middleware.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/conf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/futures.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/index.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/requirements.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/spec.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/docs/testing.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/ClientUtils.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/CurlFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/CurlHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/CurlMultiHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/Middleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/MockHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Client/StreamHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Core.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Exception/CancelledException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Exception/CancelledFutureAccessException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Exception/ConnectException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Exception/RingException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/BaseFutureTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/CompletedFutureArray.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/CompletedFutureValue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/FutureArray.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/FutureArrayInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/FutureInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/FutureValue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/src/Future/MagicFutureTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/CurlFactoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/CurlHandlerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/CurlMultiHandlerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/MiddlewareTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/MockHandlerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/Server.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/StreamHandlerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Client/server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/CoreTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Future/CompletedFutureArrayTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Future/CompletedFutureValueTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Future/FutureArrayTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/Future/FutureValueTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/ringphp/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/CHANGELOG.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/README.rst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/AppendStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/AsyncReadStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/BufferStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/CachingStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/DroppingStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/Exception/CannotAttachException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/Exception/SeekException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/FnStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/GuzzleStreamWrapper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/InflateStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/LazyOpenStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/LimitStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/MetadataStreamInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/NoSeekStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/NullStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/PumpStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/Stream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/StreamDecoratorTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/StreamInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/src/Utils.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/AppendStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/AsyncReadStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/BufferStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/CachingStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/DroppingStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/Exception/SeekExceptionTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/FnStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/GuzzleStreamWrapperTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/InflateStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/LazyOpenStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/LimitStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/NoSeekStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/NullStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/PumpStreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/StreamDecoratorTraitTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/StreamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/streams/tests/UtilsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/.coveralls.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Avg.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Cardinality.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Children.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/DateHistogram.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/DateRange.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/ExtendedStats.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Filter.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Filters.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/GeoBounds.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/GeoDistance.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/GeoHashGrid.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Global.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Histogram.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Ipv4Range.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Max.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Min.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Missing.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Nested.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/PercentileRanks.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Percentiles.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Range.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/ReverseNested.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/SignificantTerms.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Stats.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Sum.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/Terms.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/TopHits.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/ValueCount.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Aggregation/index.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/HowTo/CustomParameters.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/HowTo/HowToSearch.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Bool.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Boosting.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/CommonTerms.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/ConstantScore.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/DisMax.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/FunctionScore.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Fuzzy.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/HasChild.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/HasParent.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Ids.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Indices.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Match.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/MatchAll.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/MoreLikeThis.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/MultiMatch.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Nested.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Prefix.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/QueryString.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Range.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Regexp.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/SimpleQueryString.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Term.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Terms.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/Wildcard.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Query/index.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/Suggest/index.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/docs/index.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/AbstractAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/AvgAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/CardinalityAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/ChildrenAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/DateHistogramAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/DateRangeAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/ExtendedStatsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/FilterAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/FiltersAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/GeoBoundsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/GeoDistanceAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/GeoHashGridAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/GlobalAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/HistogramAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/Ipv4RangeAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/MaxAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/MinAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/MissingAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/NestedAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/PercentileRanksAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/PercentilesAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/RangeAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/ReverseNestedAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/SignificantTermsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/StatsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/SumAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/TermsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/TopHitsAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/Type/BucketingTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/Type/MetricTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Aggregation/ValueCountAggregation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/BuilderBag.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/BuilderInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Highlight/Highlight.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/NameAwareTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/ParametersTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/BoolQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/BoostingQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/CommonTermsQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/ConstantScoreQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/DisMaxQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/ExistsQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/FunctionScoreQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/FuzzyQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeoBoundingBoxQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeoDistanceQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeoDistanceRangeQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeoPolygonQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeoShapeQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/GeohashCellQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/HasChildQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/HasParentQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/IdsQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/IndicesQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/LimitQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MatchAllQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MatchPhrasePrefixQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MatchPhraseQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MatchQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MissingQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MoreLikeThisQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/MultiMatchQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/NestedQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/PrefixQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/QueryStringQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/RangeQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/RegexpQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/ScriptQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/SimpleQueryStringQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanFirstQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanMultiTermQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanNearQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanNotQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanOrQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanQueryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/Span/SpanTermQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/TermQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/TermsQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/TypeQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Query/WildcardQuery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/ScriptAwareTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Search.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/AbstractSearchEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/AggregationsEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/FilterEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/HighlightEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/PostFilterEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/QueryEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/SearchEndpointFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/SearchEndpointInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/SortEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/SearchEndpoint/SuggestEndpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Serializer/Normalizer/AbstractNormalizable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Serializer/Normalizer/CustomReferencedNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Serializer/Normalizer/OrderedNormalizerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Serializer/OrderedSerializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Sort/FieldSort.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Suggest/CompletionSuggest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/src/Suggest/TermSuggest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/CardinalityAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/ChildrenAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/DateHistogramAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/DateRangeAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/FilterAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/FiltersAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/GeoBoundsAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/GeoDistanceAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/GeoHashGridAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/GlobalAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/Ipv4RangeAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/MissingAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/NestedAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/PercentileRanksAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/PercentilesAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/RangeAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/ReverseNestedAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/SignificantTermsAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/StatsAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/TermsAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Aggregation/TopHitsAggregationTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/BuilderBagTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Highlight/HighlightTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Integration/SearchTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/ParametersTraitTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/BoolQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/BoostingQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/CommonTermsQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/ConstantScoreQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/DisMaxQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/ExistsQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/FunctionScoreQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/FuzzyQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeoBoundingBoxQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeoDistanceQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeoDistanceRangeQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeoPolygonQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeoShapeQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/GeohashCellQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/HasChildQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/HasParentQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/IdsQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/IndicesQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/LimitQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MatchAllQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MatchPhrasePrefixQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MatchPhraseQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MatchQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MissingQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MoreLikeThisQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/MultiMatchQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/NestedQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/PrefixQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/QueryStringQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/RangeQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/RegexpQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/ScriptQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/SimpleQueryStringQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanFirstQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanMultiTermQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanNearQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanNotQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanOrQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/Span/SpanTermQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/TermQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/TermsQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/TypeQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Query/WildcardQueryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/AggregationsEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/FilterEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/HighlightEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/PostFilterEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/QueryEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/SearchEndpointFactoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/SortEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchEndpoint/SuggestEndpointTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/SearchTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Suggest/CompletionSuggestTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/ongr/elasticsearch-dsl/tests/Suggest/TermSuggestTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/CancellablePromiseInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/CancellationQueue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/Deferred.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/Exception/LengthException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/ExtendedPromiseInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/FulfilledPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/LazyPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/Promise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/PromiseInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/PromisorInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/RejectedPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/UnhandledRejectionException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/src/functions_include.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/CancellationQueueTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/DeferredTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FulfilledPromiseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionAllTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionAnyTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionCheckTypehintTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionMapTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionRaceTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionReduceTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionRejectTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionResolveTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/FunctionSomeTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/LazyPromiseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseAdapter/CallbackPromiseAdapter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseAdapter/PromiseAdapterInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/CancelTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/FullTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/NotifyTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/PromiseFulfilledTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/PromisePendingTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/PromiseRejectedTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/PromiseSettledTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/RejectTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/PromiseTest/ResolveTestTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/RejectedPromiseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/Stub/CallableStub.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/TestCase.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/fixtures/SimpleFulfilledTestPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/fixtures/SimpleFulfilledTestThenable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/fixtures/SimpleRejectedTestPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/fixtures/SimpleTestCancellable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/react/promise/tests/fixtures/SimpleTestCancellableThenable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/docs/aggregation.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/docs/mapping.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/docs/search.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Connection.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/BaseCommand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/Install.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/Make.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/ReRun.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/Reset.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Console/Mapping/Run.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/DSL/AggregationBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/DSL/SearchBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/DSL/SuggestionBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Exception/InvalidArgumentException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Exception/MissingArgumentException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Facades/Map.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Facades/Plastic.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Fillers/EloquentFiller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Fillers/FillerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Map/Blueprint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Map/Builder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Map/Grammar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/MappingServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Mappings/Creator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Mappings/Mapper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Mappings/Mapping.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Mappings/Mappings.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Mappings/stubs/default.stub" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Persistence/EloquentPersistence.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Persistence/PersistenceAbstract.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/PlasticManager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/PlasticPaginator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/PlasticResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/PlasticServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Resources/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Resources/database/mappings/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/src/Searchable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Console/MappingInstallCommandTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Console/MappingMakeCommandTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Console/MappingResetCommandTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Console/MappingRunCommandTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/DSL/AggregationBuilderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/DSL/SearchBuilderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/DSL/SuggestionBuilderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Map/MapBlueprintTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Map/MapBuilderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Map/MapGrammarTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Mappings/MappingAbstractTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Mappings/MappingCreatorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Mappings/MappingMapperTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Mappings/MappingRepositoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/Persistence/EloquentPersistenceTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/PlasticConnectionTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/PlasticPaginatorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/PlasticResultTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/sleimanx2/plastic/tests/SearchableTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Annotation/Groups.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Annotation/MaxDepth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/ChainDecoder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/ChainEncoder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/DecoderInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/EncoderInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/JsonDecode.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/JsonEncode.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/JsonEncoder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/NormalizationAwareInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/SerializerAwareEncoder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Encoder/XmlEncoder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/BadMethodCallException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/CircularReferenceException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/ExceptionInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/InvalidArgumentException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/LogicException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/MappingException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/RuntimeException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/UnexpectedValueException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Exception/UnsupportedException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/AttributeMetadata.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/AttributeMetadataInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/ClassMetadata.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/ClassMetadataInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Factory/CacheClassMetadataFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Factory/ClassMetadataFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Factory/ClassMetadataFactoryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Factory/ClassResolverTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/AnnotationLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/FileLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/LoaderChain.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/LoaderInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/XmlFileLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/YamlFileLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Mapping/Loader/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/NameConverter/CamelCaseToSnakeCaseNameConverter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/NameConverter/NameConverterInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/AbstractNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/AbstractObjectNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/ArrayDenormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/CustomNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DataUriNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DateTimeNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DenormalizableInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DenormalizerAwareInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DenormalizerAwareTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/DenormalizerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/GetSetMethodNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/JsonSerializableNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/NormalizableInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/NormalizerAwareInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/NormalizerAwareTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/NormalizerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/ObjectNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/PropertyNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Normalizer/SerializerAwareNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Serializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/SerializerAwareInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/SerializerAwareTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/SerializerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Annotation/GroupsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Annotation/MaxDepthTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/ChainDecoderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/ChainEncoderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/JsonDecodeTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/JsonEncodeTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/JsonEncoderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Encoder/XmlEncoderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/AbstractNormalizerDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/CircularReferenceDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/DenormalizableDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/Dummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/GroupDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/GroupDummyInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/GroupDummyParent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/JsonSerializableDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/MaxDepthDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/NormalizableTraversableDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/PropertyCircularReferenceDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/PropertySiblingHolder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/ProxyDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/ScalarDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/SiblingHolder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/ToBeProxyfiedDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/TraversableDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/VariadicConstructorArgsDummy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/empty-mapping.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/invalid-mapping.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/serialization.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/serialization.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/test.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Fixtures/test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/AttributeMetadataTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/ClassMetadataTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/Factory/CacheMetadataFactoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/Factory/ClassMetadataFactoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/Loader/AnnotationLoaderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/Loader/XmlFileLoaderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/Loader/YamlFileLoaderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Mapping/TestClassMetadataFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/NameConverter/CamelCaseToSnakeCaseNameConverterTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/AbstractNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/AbstractObjectNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/ArrayDenormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/CustomNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/DataUriNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/DateTimeNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/GetSetMethodNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/JsonSerializableNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/ObjectNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/PropertyNormalizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/TestDenormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/Normalizer/TestNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/Tests/SerializerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/serializer/phpunit.xml.dist" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/empresas/nuevo.blade.php" afterPath="$PROJECT_DIR$/resources/views/empresas/nuevo.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Anotacion.php" afterPath="$PROJECT_DIR$/app/Anotacion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Empresa.php" afterPath="$PROJECT_DIR$/app/Empresa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_05_16_182301_create_servicios_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_05_16_182301_create_servicios_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRM/iniciocrm.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRM/iniciocrm.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/empresas/perfil.blade.php" afterPath="$PROJECT_DIR$/resources/views/empresas/perfil.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
     </list>
     <ignored path="kool-contactos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,7 +863,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -26,104 +871,45 @@
     <favorites_list name="kool-contactos" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContactoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perfil.blade.php" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="perfil.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/empresas/perfil.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="76" column="160" selection-start-line="76" selection-start-column="160" selection-end-line="76" selection-end-column="160" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perfil.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/contactos/perfil.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="123" column="45" selection-start-line="121" selection-start-column="17" selection-end-line="125" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lista.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/contactos/lista.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="106" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datatables.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theme/v1.3.0/datatables.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6613">
-              <caret line="804" column="21" selection-start-line="799" selection-start-column="4" selection-end-line="809" selection-end-column="7" />
+            <state relative-caret-position="527">
+              <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#63380#67130#0#HTML" expanded="false" />
+                <marker date="1469771744801" expanded="true" signature="67816:67836" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nuevo.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/empresas/nuevo.blade.php">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="191" column="51" selection-start-line="191" selection-start-column="51" selection-end-line="191" selection-end-column="51" />
+            <state relative-caret-position="340">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nuevo.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/contactos/nuevo.blade.php">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4029">
-              <caret line="237" column="38" selection-start-line="229" selection-start-column="0" selection-end-line="251" selection-end-column="5" />
+            <state relative-caret-position="782">
+              <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="1606" column="16" selection-start-line="1606" selection-start-column="16" selection-end-line="1606" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+            <state relative-caret-position="405">
+              <caret line="426" column="27" selection-start-line="426" selection-start-column="4" selection-end-line="427" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -156,8 +942,8 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <gulpfiles>
@@ -165,6 +951,7 @@
         <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
       </GulpfileState>
     </gulpfiles>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
@@ -173,8 +960,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -187,9 +974,9 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="false" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -198,108 +985,81 @@
       <autoscrollFromSource />
       <sortByType />
       <manualOrder />
-      <foldersAlwaysOnTop value="true" />
+      <foldersAlwaysOnTop value="false" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="C:">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="xampp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="htdocs">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            <PATH_ELEMENT USER_OBJECT="app-kool-contactos">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            <PATH_ELEMENT USER_OBJECT="app-kool-contactos">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kool-contactos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            <PATH_ELEMENT USER_OBJECT="config">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+        <subPane subId="Default" />
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="SearchEverywhereHistoryKey" value="style&#9;FILE&#9;file://C:/xampp/htdocs/kool-contactos/public/css/style.css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webkoolmarketing" />
+    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -329,6 +1089,19 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -349,25 +1122,36 @@
       <workItem from="1460392670094" duration="17093000" />
       <workItem from="1460470407887" duration="16670000" />
       <workItem from="1460554890408" duration="3184000" />
+      <workItem from="1469756149023" duration="1092000" />
+      <workItem from="1469757406032" duration="14352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65154000" />
+    <option name="totallyTimeSpent" value="80598000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22254759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="584" y="23" width="198" height="682" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3015873" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -395,30 +1179,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/contactos/nuevo.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="251" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18887">
-          <caret line="1111" column="1" selection-start-line="1111" selection-start-column="1" selection-end-line="1111" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -431,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -450,18 +1209,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html" />
     <entry file="file://$PROJECT_DIR$/resources/views/contactos/nuevo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3077">
           <caret line="181" column="55" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -469,7 +1221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -492,7 +1243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3774">
           <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -508,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,18 +1276,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html" />
     <entry file="file://$PROJECT_DIR$/resources/views/contactos/nuevo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3077">
           <caret line="181" column="55" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -546,7 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -569,7 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3774">
           <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -585,7 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -593,7 +1332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -601,17 +1339,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="922" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html" />
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -633,20 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/mask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -654,13 +1371,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/Mis lugares Web/koo-contactos/91.234.35.26/renaissance-admin/v1.3.0/index.html" />
     <entry file="file://$PROJECT_DIR$/public/vendor/icheck-1.x/icheck.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-854">
@@ -686,7 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,9 +1418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6613">
           <caret line="804" column="21" selection-start-line="799" selection-start-column="4" selection-end-line="809" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,7 +1425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="106" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -726,62 +1432,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContactoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
+        <state relative-caret-position="374">
           <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contactos/nuevo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4029">
-          <caret line="237" column="38" selection-start-line="229" selection-start-column="0" selection-end-line="251" selection-end-column="5" />
-          <folding />
+          <caret line="237" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="251" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/contactos/perfil.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="123" column="45" selection-start-line="121" selection-start-column="17" selection-end-line="125" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="2091">
+          <caret line="123" column="30" selection-start-line="121" selection-start-column="17" selection-end-line="125" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="27302">
           <caret line="1606" column="16" selection-start-line="1606" selection-start-column="16" selection-end-line="1606" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/empresas/nuevo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
+        <state relative-caret-position="594">
           <caret line="191" column="51" selection-start-line="191" selection-start-column="51" selection-end-line="191" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="426" column="27" selection-start-line="426" selection-start-column="4" selection-end-line="427" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/empresas/perfil.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="76" column="160" selection-start-line="76" selection-start-column="160" selection-end-line="76" selection-end-column="160" />
+        <state relative-caret-position="527">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding>
+            <element signature="e#63380#67130#0#HTML" expanded="false" />
+            <marker date="1469771744801" expanded="true" signature="67816:67836" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="92" column="39" selection-start-line="90" selection-start-column="0" selection-end-line="94" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="154" column="10" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
           <folding />
         </state>
       </provider>

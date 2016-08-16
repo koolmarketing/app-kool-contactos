@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
+        "illuminate/database": "^5.2",
         "nesbot/carbon": "^1.21",
         "illuminate/html": "*",
         "thujohn/pdf": "*",
@@ -17,13 +18,9 @@
         "laravelcollective/html": "5.2.*",
         "cknow/laravel-money":"*",
         "predis/predis": "^1.1",
-        "regulus/activity-log": "0.6.*",
-        "sleimanx2/plastic":"*",
-        "isswp101/elasticsearch-eloquent":"*",
-        "madewithlove/elasticsearcher":"*",
-        "elasticquent/elasticquent":"*",
-        "spatie/searchindex":"*"
-       
+        "regulus/activity-log": "0.6.*"
+        
+
         
     },
     "require-dev": {

@@ -61,6 +61,8 @@ Route::group(['prefix' => '/', 'middleware' => 'web'], function()
 		'uses' => 'HomeController@index'
 		]);
 
+	require __DIR__ . '/routes/api.php';
+
 		/**
 		 *
 		 * Empresas

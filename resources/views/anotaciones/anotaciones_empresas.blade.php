@@ -38,24 +38,7 @@ foreach ($anotaciones as $anotacion) {
     <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
     <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'</div></div><br>';
 break;
-case 'alerta':
-   if ($anotacion->estado=="1") {
-       $btn='<button type="button" class="btn btn-xs btn-default">Resolver</button>';
-   }else{
-       $btn='<button type="button" class="btn btn-xs btn-default">Ya fue resuelto</button>';
-   }
-   echo '<div class="content-box biggest-box red-bg">
-   
-       <img src="'.URL::to('/').'/uploads/fotos/'.$anotacion->fotografia.'" class="img-responsive img-circle pull-right" width="40px" alt="">                                 
-       <h3 class="text-uppercase zero-m text-title-note"><i class="icon-pencil-2"></i> Alerta - vence <span title="'.$anotacion->fecha_vencimiento.'">'.$dt=$carbon->parse($anotacion->fecha_vencimiento)->diffForHumans().'</span></h3><br>
 
-       <p class="text-note col-lg-12"> '.$anotacion->mensaje.' </p>
-       <span class="pull-right" title="'.$anotacion->created_at.'">'.$dt=$carbon->parse($anotacion->created_at)->diffForHumans().'</span>
-   
-   <div class="clearfix">
-    <button type="button" class="btn btn-xs btn-default"><i class="icon-cancel-2"></i></button>
-    <button type="button" class="btn btn-xs btn-default"><i class="icon-mail"></i></button> '.$btn.'</div></div><br>';
-break;
 case 'cobro':
 
 $monto  =  $anotacion->monto;

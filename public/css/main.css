@@ -19,6 +19,8 @@
 
 .cam-panel-footer {
   background: #fefefe !important; }
+  .cam-panel-footer button {
+    margin-left: 5px; }
 
 .panel-verde {
   background: rgba(66, 179, 130, 0.1); }
@@ -53,5 +55,8 @@
 
 .list-crm-li-nombre {
   min-height: 40px; }
+
+.search-target {
+  padding-top: 7px; }
 
 /*# sourceMappingURL=main.css.map */

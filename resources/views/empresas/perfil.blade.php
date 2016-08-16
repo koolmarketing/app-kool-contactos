@@ -14,17 +14,18 @@
 <div class="row">
 
   <div class="col-lg-12">
-
+    <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Todas las empresas</a>
+    <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
     <div class="col-lg-12"><br>
 
-      <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Ver Todos</a>
-      <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
+
     </div>
     <!-- Sección panel 1 -->
     <section>
       <div class="panel panel-default">
         <div class="panel-body">
-          <article class="col-md-4">
+
+          <article class="col-md-5">
             <div class="col-lg-12 col-xs-12">
               <div class="content-box profile-sidebar box-shadow company-block-1">
                 <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
@@ -38,23 +39,11 @@
                 </div>
               </div>            
             </div>
+
+
           </article>
 
-          <article class="col-md-4">
-            <div class="content-box box-shadow">
-              <div class="content-box small-box">
-                <span class="fa-stack fa-2x block pull-left">
-                  <i class="fa fa-circle fa-stack-2x blue"></i>
-                  <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-                </span>
-                <div class="pull-left info">
-                  <h3 class="text-uppercase zero-m">Sector</h3>
-                  <span class="block"><h4>{!! $data->empresa->sector !!}</h4></span>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-            </div>
-          </article>
+
 
           <?php 
           if(!empty($data->empresa->servicios))
@@ -63,35 +52,163 @@
           }
           ?>
 
-          <article class="col-md-4">
-           <div class="content-box box-shadow">
-            <div class="content-box small-box">
-              <span class="fa-stack fa-2x block pull-left">
-                <i class="fa fa-circle fa-stack-2x blue"></i>
-                <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="pull-left info">
-                <h3 class="text-uppercase zero-m">Servicios</h3>
-                <span class="block"><h4>  
-                  @if (!empty($servicios))
-                  @foreach ($servicios as $servicio)
-                  <h4>{!! $servicio !!}</h4>
-                  @endforeach                
-                  @endif                 
-
-
-                </h4></span>
+          <article class="col-md-3">
+            <div class="col-md-12">
+              <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                  <span class="fa-stack fa-2x block pull-left">
+                    <i class="fa fa-circle fa-stack-2x blue"></i>
+                    <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+                    @if (!empty($servicios))
+                    @foreach ($servicios as $servicio)
+                    <h3>{!! $servicio !!}</h3>
+                    @endforeach
+                    @endif
+                    <span class="block">
+                      <h5 class="text-uppercase zero-m">Sector</h5>
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div class="clearfix"></div>
             </div>
-          </div> 
-        </article>
-      </div>
-    </div>
-  </section>
-  <!-- Fin Sección panel 1 -->
 
-</div>
+            <div class="col-md-12">
+              <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                  <span class="fa-stack fa-2x block pull-left">
+                    <i class="fa fa-circle fa-stack-2x blue"></i>
+                    <i class="icon-briefcase-3 fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+
+                    <span class="block">
+                      @if (!empty($servicios))
+                      @foreach ($servicios as $servicio)
+                      <h3>{!! $servicio !!}</h3>
+                      @endforeach
+                      @endif
+                    </span>
+                    <h5 class="text-uppercase zero-m">Tipo de Empresa</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-12">
+              <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                  <span class="fa-stack fa-2x block pull-left">
+                    <i class="fa fa-circle fa-stack-2x blue"></i>
+                    <i class="icon-users-1 fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+                    <span class="block">
+
+                      @if (!empty($servicios))
+                      @foreach ($servicios as $servicio)
+                      <h3>{!! $servicio !!}</h3>
+                      @endforeach
+                      @endif
+
+                    </span>
+                    <h5 class="text-uppercase zero-m">Tamaño</h5>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="col-md-4">
+            <div class="col-md-12">
+              <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                  <span class="fa-stack fa-2x block pull-left">
+                    <i class="fa fa-circle fa-stack-2x blue"></i>
+                    <i class="icon-calendar fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+                    @if (!empty($data->empresa->fecha_fundacion))                     
+                    <h3>{!! $data->empresa->fecha_fundacion !!}</h3>                    
+                    @endif
+                    <span class="block">
+                      <h5 class="text-uppercase zero-m">Fecha Fundación</h5>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="content-box box-shadow">
+                <div class="content-box small-box">
+                  <span class="fa-stack fa-2x block pull-left">
+                    <i class="fa fa-circle fa-stack-2x blue"></i>
+                    <i class=" icon-location-8 fa-stack-1x fa-inverse"></i>
+                  </span>
+                  <div class="pull-left info">
+
+                    <span class="block">
+                     @if (!empty($data->empresa->direccion))                        
+                     <h3>{!! $data->empresa->direccion !!} {!! $data->empresa->ciudad_pais !!}</h3>                       
+                     @endif
+                   </span>
+                   <h5 class="text-uppercase zero-m">Dirección</h5>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+
+           <div class="col-md-12">
+            <div class="content-box box-shadow">
+              <div class="content-box small-box">
+                <span class="fa-stack fa-2x block pull-left">
+                  <i class="fa fa-circle fa-stack-2x blue"></i>
+                  <i class=" icon-phone fa-stack-1x fa-inverse"></i>
+                </span>
+                <div class="pull-left info">
+                  <span class="block">
+
+                    @if (!empty($data->empresa->telefono_1))
+
+                    <h3>{!! $data->empresa->telefono_1 !!} - {!! $data->empresa->telefono_2 !!}</h3>
+
+                    @endif
+
+                  </span>
+                  <h5 class="text-uppercase zero-m">Telefonos</h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!--  <article class="col-md-6">
+            <div class="col-md-12" id="vida_cliente">
+            </div>
+          </article> -->
+
+
+          <div class="col-lg-6">
+
+
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    <!-- Fin Sección panel 1 -->
+
+  </div>
 </div>
 
 <section class="row">
@@ -133,19 +250,7 @@
               ?>
               {{-- expr --}}
               <!-- Info Contactos Empresas -->
-              <div class="col-md-12">
-                <div class="col-md-6">
-                  <h3>{!! $data->empresa->ciudad_pais !!}</h3>
-                  <p><i class="icon-globe-6"></i> Ciudad, País</p>
-                  <hr>
-                </div>
 
-                <div class="col-md-6">
-                  <h3>{!! $data->empresa->direccion !!}</h3>
-                  <p><i class="icon-location-5"></i> Dirección</p>
-                  <hr>
-                </div>
-              </div>
               <!-- Fin Contactos Empresas -->
               <br>
               <!-- Inicio tab Contactos -->
@@ -891,7 +996,20 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div role="tabpanel" class="tab-pane" id="contrataciones">
-             <div class="pull-right">
+              <div class="pull-left">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label class="sr-only" for=""></label>
+                    <input type="text" class="form-control" id="" placeholder="Inicio">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for=""></label>
+                    <input type="text" class="form-control" id="" placeholder="Final">
+                  </div>
+                  <button type="submit" class="btn btn-default">Filtrar</button>
+                </form>
+              </div>
+              <div class="pull-right">
                <button class="btn btn-md btn-primary" data-toggle="modal" href='#modal-service'>Agregar un servicio</button> 
              </div>
              <br><br><br>
@@ -915,7 +1033,21 @@
       <div class="panel panel-default">
         <div class="panel-body">
 
-         <div class="pull-right">
+          <div class="pull-left">
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only" for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Inicio">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Final">
+              </div>
+              <button type="submit" class="btn btn-default">Filtrar</button>
+            </form>
+          </div>
+
+          <div class="pull-right">
            <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
          </div>
          <br><br><br>
@@ -938,13 +1070,13 @@
        <div class="pull-right">
          <!-- Button trigger modal -->
          <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
-         <i class="icon-plus"></i> Agregar un documento
-        </button>
-      </div>
-      <br><br><br><br>
+           <i class="icon-plus"></i> Agregar un documento
+         </button>
+       </div>
+       <br><br><br><br>
 
-      <!-- Modal -->
-      <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+       <!-- Modal -->
+       <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -1022,9 +1154,7 @@
       <div class="btn-group" role="group">
         <button data-toggle="modal" href='#modal-recordatorio' type="button" class="btn waves btn-success waves-effect waves-float">Recordatorio</button>
       </div>
-      <div class="btn-group" role="group">
-        <button data-toggle="modal" href='#modal-alerta' type="button" class="btn waves btn-danger waves-effect waves-float">Alerta</button>
-      </div>
+      
       <div class="btn-group" role="group">
         <button data-toggle="modal" href='#modal-cobro' type="button" class="btn waves btn-orange waves-effect waves-float">Cartera</button>
       </div>
@@ -1525,7 +1655,177 @@
 {!! HTML::script('bower_components/datatables-tabletools/js/dataTables.tableTools.js') !!}
 {!! HTML::script('datetimepicker/build/jquery.datetimepicker.full.js') !!}
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 <script>
+  $(function () {
+    $('#vida_cliente').highcharts({
+      chart: {
+        type: 'spline'
+      },
+      title: {
+        text: 'Linea de Vida'
+      },
+
+      xAxis: {
+        type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+            month: '%e. %b',
+            year: '%b'
+          },
+          title: {
+            text: 'Date'
+          }
+        },
+        yAxis: {
+          title: {
+            text: 'Snow depth (m)'
+          },
+          min: 0
+        },
+        tooltip: {
+          headerFormat: '<b>{series.name}</b><br>',
+          pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+        },
+
+        plotOptions: {
+          spline: {
+            marker: {
+              enabled: true
+            }
+          }
+        },
+
+        series: [{
+          name: 'Cartera',
+            // Define the data points. All series have a dummy year
+            // of 1970/71 in order to be compared on the same x axis. Note
+            // that in JavaScript, months start at 0 for January, 1 for February etc.
+            data: [
+            [Date.UTC(1970, 9, 21), 1],
+            [Date.UTC(1970, 10, 4), 1],
+            [Date.UTC(1970, 10, 9), 1],
+            [Date.UTC(1970, 10, 27), 0.2],
+            [Date.UTC(1970, 11, 2), 0.28],
+            [Date.UTC(1970, 11, 26), 0.28],
+            [Date.UTC(1970, 11, 29), 0.47],
+            [Date.UTC(1971, 0, 11), 0.79],
+            [Date.UTC(1971, 0, 26), 0.72],
+            [Date.UTC(1971, 1, 3), 1.02],
+            [Date.UTC(1971, 1, 11), 1.12],
+            [Date.UTC(1971, 1, 25), 1.2],
+            [Date.UTC(1971, 2, 11), 1.18],
+            [Date.UTC(1971, 3, 11), 1.19],
+            [Date.UTC(1971, 4, 1), 1.85],
+            [Date.UTC(1971, 4, 5), 2.22],
+            [Date.UTC(1971, 4, 19), 1.15],
+            [Date.UTC(1971, 5, 3), 0]
+            ]
+          }, {
+            name: 'Winter 2013-2014',
+            data: [
+            [Date.UTC(1970, 9, 29), 0],
+            [Date.UTC(1970, 10, 9), 0.4],
+            [Date.UTC(1970, 11, 1), 0.25],
+            [Date.UTC(1971, 0, 1), 1.66],
+            [Date.UTC(1971, 0, 10), 1.8],
+            [Date.UTC(1971, 1, 19), 1.76],
+            [Date.UTC(1971, 2, 25), 2.62],
+            [Date.UTC(1971, 3, 19), 2.41],
+            [Date.UTC(1971, 3, 30), 2.05],
+            [Date.UTC(1971, 4, 14), 1.7],
+            [Date.UTC(1971, 4, 24), 1.1],
+            [Date.UTC(1971, 5, 10), 0]
+            ]
+          }, {
+            name: 'Servicios',
+            data: [
+            [Date.UTC(1970, 10, 25), 0],
+            [Date.UTC(1970, 11, 6), 0.25],
+            [Date.UTC(1970, 11, 20), 1.41],
+            [Date.UTC(1970, 11, 25), 1.64],
+            [Date.UTC(1971, 0, 4), 1.6],
+            [Date.UTC(1971, 0, 17), 2.55],
+            [Date.UTC(1971, 0, 24), 2.62],
+            [Date.UTC(1971, 1, 4), 2.5],
+            [Date.UTC(1971, 1, 14), 2.42],
+            [Date.UTC(1971, 2, 6), 2.74],
+            [Date.UTC(1971, 2, 14), 2.62],
+            [Date.UTC(1971, 2, 24), 2.6],
+            [Date.UTC(1971, 3, 2), 2.81],
+            [Date.UTC(1971, 3, 12), 2.63],
+            [Date.UTC(1971, 3, 28), 2.77],
+            [Date.UTC(1971, 4, 5), 2.68],
+            [Date.UTC(1971, 4, 10), 2.56],
+            [Date.UTC(1971, 4, 15), 2.39],
+            [Date.UTC(1971, 4, 20), 2.3],
+            [Date.UTC(1971, 5, 5), 2],
+            [Date.UTC(1971, 5, 10), 1.85],
+            [Date.UTC(1971, 5, 15), 1.49],
+            [Date.UTC(1971, 5, 23), 1.08]
+            ]
+          }]
+        });
+});
+</script>
+
+<script>
+  $(function () {
+
+    $('#calificacion').highcharts({
+
+      chart: {
+        polar: true,
+        type: 'line'
+      },
+
+      title: {
+        text: 'Budget vs spending',
+        x: -80
+      },
+
+      pane: {
+        size: '80%'
+      },
+
+      xAxis: {
+        categories: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
+        tickmarkPlacement: 'on',
+        lineWidth: 0
+      },
+
+      yAxis: {
+        gridLineInterpolation: 'polygon',
+        lineWidth: 0,
+        min: 0
+      },
+
+      tooltip: {
+        shared: true,
+        pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+      },
+
+      legend: {
+        align: 'right',
+        verticalAlign: 'top',
+        y: 70,
+        layout: 'vertical'
+      },
+
+      series: [ {
+        name: 'Actual Spending',
+        data: [40, 60, 35, 78, 24, 92, 30, 67, 80],
+        pointPlacement: 'on'
+      }]
+
+    });
+  });
+</script>
+<script>
+
+
   function load_notes() {
    $("#contenedor_anotaciones_empresa").load("anotaciones_empresa/{!! $data->empresa->id !!}");
  }

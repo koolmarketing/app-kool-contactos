@@ -97,12 +97,79 @@ class AnotacionesController extends Controller
         }                                  
     } 
 
-    function print_anotacion_empresas($id){        
-     $carbon = new \Carbon\Carbon();
-     $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
+    function UpdateAnotacion(Request $request, $id)
+    {
+        return true;
+        // if($request->ajax()) { 
+        //     switch ($request->input('tipo')) {
+        //         case 'comentario':
+        //         $AN             =  \App\Anotacion::find($id);
+        //         $AN->id_creador = Auth::id();
+        //         $AN->mensaje    = $request->input('nota');
+        //         $AN->tipo_anotacion       = $request->input('tipo');
+        //         $AN->estado        = 1;
+        //         $AN->tipo_perfil       = "empresa";  
+        //         $AN->id_perfil         = $request->input('id_perfil');
+        //         //America/Bogota 
+        //         $AN->fecha_comentario  = \Carbon\Carbon::now($id);
+        //         $AN->save();
+        //         return $request->input();
+        //         break;
+        //         case 'recordatorio':
+        //         $AN                    = \App\Anotacion::find($id);
+        //         $AN->id_creador        = Auth::id();
+        //         $AN->fecha_vencimiento = $request->input('fecha');
+        //         $AN->mensaje           = $request->input('nota');
+        //         $AN->tipo_anotacion              = $request->input('tipo');
+        //         $AN->estado            = 1; 
+        //         $AN->id_perfil         = $request->input('id_perfil'); 
+        //         $AN->tipo_perfil       = "empresa"; 
+        //         $AN->save();
+        //         return $request->input();
+        //         break;
+        //         case 'alerta':
+        //         $AN                    = \App\Anotacion::find($id);
+        //         $AN->id_creador        = Auth::id();
+        //         $AN->fecha_vencimiento = $request->input('fecha');
+        //         $AN->mensaje           = $request->input('nota');
+        //         $AN->tipo_anotacion              = $request->input('tipo');
+        //         $AN->estado            = 1; 
+        //         $AN->id_perfil         = $request->input('id_perfil'); 
+        //         $AN->tipo_perfil       = "empresa"; 
+        //         $AN->save();
+        //         return $request->input();
+        //         break;
+        //         case 'cobro':
+        //         $AN                    = \App\Anotacion::find();
+        //         $AN->id_creador        = Auth::id();
+        //         $AN->fecha_inicio      = $request->input('inicio');
+        //         $AN->fecha_cobro       = $request->input('fin');
+        //         $AN->serial            = $request->input('serial');
+        //         $AN->monto             = $request->input('monto'); 
+        //         $AN->tipo_anotacion    = $request->input('tipo');
+        //         $AN->estado            = 1;  
+        //         $AN->id_perfil         = $request->input('id_perfil'); 
+        //         $AN->tipo_perfil       = "empresa";  
+        //         $AN->mensaje           = $request->input('nota');                
+        //         $AN->save();
+        //         return $request->input();
+        //         break;
+                
+        //         default:
+        //         return "nope";
+        //         break;
+        //     }      
+        // }                                  
+    } 
 
-     return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
- }
+
+
+    function print_anotacion_empresas($id){        
+       $carbon = new \Carbon\Carbon();
+       $anotaciones = DB::table('anotaciones')->where('id_perfil','=',''.$id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.id AS anotacion_id','anotaciones.*', 'empresas.id', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->get();
+
+       return view('anotaciones.anotaciones_empresas',['anotaciones' => $anotaciones,'carbon'=>$carbon]);
+   }
 
 
     /*
@@ -168,7 +235,7 @@ function get_cobros(){
 
 function updateCobro(Request $request){
     // Descontar del servicio
-   
+
     $id_empresa   = $request->input('id_empresa');
     $id_anotacion = $request->input('id_anotacion');
     
@@ -210,9 +277,9 @@ function updateCobro(Request $request){
 
 public function updateCobroComprobante(Request $request)
 {
-    
- $destinationPath = 'uploads/comprobantes/';
- if ($request->hasFile('comprobante')) {
+
+   $destinationPath = 'uploads/comprobantes/';
+   if ($request->hasFile('comprobante')) {
     $file = $request->file('comprobante');
     $destinationPath = 'uploads/comprobantes';
     $extension = $file->getClientOriginalExtension();

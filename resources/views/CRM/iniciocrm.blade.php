@@ -123,7 +123,7 @@
 							<div class="content-box ultra-widget blue-bg">
 								<div class="w-content text-center">
 									<div class="w-descr simple">
-										<span class="text-uppercase w-name">Low</span>
+										<span class="text-uppercase w-name"><i class="icon-level-down"></i> Frio</span>
 										<br><br>
 									</div>
 								</div>
@@ -158,7 +158,7 @@
 							<div class="content-box ultra-widget green-bg">
 								<div class="w-content text-center">
 									<div class="w-descr simple">
-										<span class="text-uppercase w-name">Middle</span>
+										<span class="text-uppercase w-name"><i class="icon-resize-horizontal"></i> Medio</span>
 										<br><br>
 									</div>
 								</div>
@@ -224,7 +224,7 @@
 							<div class="content-box ultra-widget red-bg">
 								<div class="w-content text-center">
 									<div class="w-descr simple">
-										<span class="text-uppercase w-name">High</span>
+										<span class="text-uppercase w-name"><i class=" icon-level-up"></i> Alto</span>
 										<br><br>
 									</div>
 								</div>

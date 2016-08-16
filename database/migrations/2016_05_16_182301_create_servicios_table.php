@@ -25,6 +25,7 @@ class CreateServiciosTable extends Migration
         $table->integer('saldo')->nullable();
         $table->string('token')->nullable();
         $table->string('comprobante')->nullable();
+        $table->string('serial')->nullable();
         $table->timestamps();
        });
     }
