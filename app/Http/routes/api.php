@@ -25,5 +25,16 @@ Route::post('api/update/note/{id}',[
 	'uses' => 'AnotacionesController@UpdateAnotacion'
 	]);
 
+Route::get('api/recaudo',[
+'middleware' => 'auth',
+'as' => 'all.recaudo',
+'uses' => 'ApiAsteroidController@GetRecaudo'
+	]);
+Route::get('api/finanzas',[
+'middleware' => 'auth',
+'as' => 'all.finanzas',
+'uses' => 'ApiAsteroidController@GetFinanzas'
+	]);
+
 Route::patch('/card/{id}', ['as' => 'card.update', 'uses'=>'ApiAsteroidController@update']);
 Route::resource('card', 'ApiAsteroidController');

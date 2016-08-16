@@ -6,12 +6,11 @@
 @section('content')
 
 <div id="app-home">
-	<pre>	
-		@{{anotacion_inicio }}
-		@{{anotacion_final}}
-		@{{tarjetas | json}}
 
+	<pre>
+		@{{ arr_meta_mes | json }}
 	</pre>
+
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="tabbable white-bg box-shadow vertical-tabs" id="tenth-tabs">
@@ -44,18 +43,20 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_dia_total">0</span>
+														<span class="w-amount blue" id="meta_dia_total">@{{valores_recaudo.dia.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Día</span>
 													</div>
 
+													
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_dia" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.dia.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.dia.porcentaje + '%'}" >
 														</div>
 													</div>
+
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_dia"></div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_dia">@{{valores_recaudo.dia.porcentaje}}</div>
 													</div>
 												</div>
 											</div>
@@ -65,18 +66,18 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_semana_total">0</span>
+														<span class="w-amount blue" id="meta_semana_total">@{{valores_recaudo.semana.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Semana</span>
 													</div>
 
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.semana.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.semana.porcentaje + '%'}" >
 														</div>
 													</div>
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_semana">0%</div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_semana">@{{valores_recaudo.dia.porcentaje}}%</div>
 													</div>
 												</div>
 											</div>
@@ -86,18 +87,18 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_mes_total">0</span>
+														<span class="w-amount blue" id="meta_mes_total">@{{valores_recaudo.mes.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Mes</span>
 													</div>
 
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_mes" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.mes.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.mes.porcentaje + '%'}" >
 														</div>
 													</div>
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_mes">0%</div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_mes">@{{valores_recaudo.mes.porcentaje}}%</div>
 													</div>
 												</div>
 											</div>
@@ -108,18 +109,18 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_trimestre_total">0</span>
+														<span class="w-amount blue" id="meta_trimestre_total">@{{valores_recaudo.trimestre_actual.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Trimestre</span>
 													</div>
 
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_trimestre" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.mes.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.trimestre_actual.porcentaje + '%'}" >
 														</div>
 													</div>
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_trimestre">0%</div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_trimestre">@{{valores_recaudo.trimestre_actual.porcentaje}}%</div>
 													</div>
 												</div>
 											</div>
@@ -130,18 +131,19 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_semestre_total">0</span>
+														<span class="w-amount blue" id="meta_semestre_total">@{{valores_recaudo.semestre_actual.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Semestre</span>
 													</div>
 
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_semestre" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.mes.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.semestre_actual.porcentaje + '%'}" >
 														</div>
 													</div>
+
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_semestre">0%</div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_semestre">@{{valores_recaudo.semestre_actual.porcentaje}}%</div>
 													</div>
 												</div>
 											</div>
@@ -151,18 +153,20 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_ano_total">0</span>
+														<span class="w-amount blue" id="meta_ano_total">@{{valores_recaudo.ano.actual}}</span>
 														<br>
 														<span class="text-uppercase w-name">Año</span>
 													</div>
 
+
 													<div class="progress progress-bar-sm zero-m">
-														<div class="progress-bar progress-bar-info" id="recaudo_ano" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+														<div class="progress-bar progress-bar-info" id="recaudo_semana" role="progressbar" aria-valuenow="@{{valores_recaudo.mes.porcentaje}}" aria-valuemin="0" aria-valuemax="100" v-bind:style="{width: valores_recaudo.ano.porcentaje + '%'}" >
 														</div>
 													</div>
+
 													<div class="w-status clearfix">
 														<div class="w-status-title pull-left text-uppercase">Progress</div>
-														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_ano">0%</div>
+														<div class="w-status-number pull-right text-uppercase" id="tile-porcentaje_ano">@{{valores_recaudo.ano.porcentaje}}%</div>
 													</div>
 												</div>
 											</div>
@@ -221,20 +225,20 @@
 									</div>
 									<div class="clearfix"></div>
 								</div>
-								<div v-for="anotacion in anotaciones" v-if="anotacion.tipo_anotacion=='comentario'">
+								<div v-for="tarjeta in tarjetas" v-if="tarjeta.tipo_anotacion=='comentario'">
 									<div id="tarjeta_recordatorio" class="panel panel-default">
 										<div class="panel-heading cam-panel-header">  
 
-											<a href="/empresa/@{{anotacion.empresa_id}}">
-												<img v-bind:src="'/uploads/fotos/'+anotacion.foto" class="img-responsive" width="100px" alt="" />
+											<a href="/empresa/@{{tarjeta.empresa_id}}">
+												<img v-bind:src="'/uploads/fotos/'+tarjeta.foto" class="img-responsive" width="100px" alt="" />
 											</a>
 
 										</div>
 										<div class="panel-body">
-											<img :src="'/uploads/fotos/'+anotacion.fotografia" class="img-responsive img-circle" width="40px" alt=""> <br>												<br>
-											<p class="text-note col-lg-12">@{{anotacion.mensaje}}</p>
-											<span class="pull-right" title="@{{anotacion.created_at | DateSmall}}">@{{anotacion.created_at | DateSmall}}</span></div>
-											<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger" @click="delete_note(anotacion.id)"><i class="icon-cancel-2"></i></button><button @click="EnviarRecordatorio(anotacion.id,anotacion.tipo_anotacion)" type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>  <button type="button" class="btn btn-xs btn-primary" @click="EditAnotacion(anotacion.id,anotacion.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
+											<img v-bind:src="'/uploads/fotos/'+tarjeta.fotografia" class="img-responsive img-circle" width="40px" alt=""> <br>												<br>
+											<p class="text-note col-lg-12">@{{tarjeta.mensaje}}</p>
+											<span class="pull-right" title="@{{tarjeta.created_at | DateSmall}}">@{{tarjeta.created_at | DateSmall}}</span></div>
+											<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger" @click="delete_note(tarjeta.id)"><i class="icon-cancel-2"></i></button><button @click="EnviarRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)" type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>  <button type="button" class="btn btn-xs btn-primary" @click="EditAnotacion(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
 										</div>
 									</div>
 									<div class="clearfix"></div>
@@ -264,18 +268,18 @@
 									</div>
 
 									<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_recordatorios">
-										<div v-for="anotacion in anotaciones | filterBy tipo_recordatorio">
+										<div v-for="tarjeta in tarjetas | filterBy tipo_recordatorio">
 
 											<div id="tarjeta_recordatorio" class="panel panel-default">
-												<div class="panel-heading cam-panel-header">  <a href="/empresa/@{{anotacion.empresa_id}}"><img :src="'/uploads/fotos/'+anotacion.foto" class="img-responsive" width="100px" alt="" /></a>
+												<div class="panel-heading cam-panel-header">  <a href="/empresa/@{{tarjeta.empresa_id}}"><img :src="'/uploads/fotos/'+tarjeta.foto" class="img-responsive" width="100px" alt="" /></a>
 												</div>
 												<div class="panel-body">
-													<img :src="'/uploads/fotos/'+anotacion.fotografia" class="img-responsive img-circle" width="40px" alt=""> <br>
-													<h3 class="text-uppercase zero-m text-title-note"><span>Vence: @{{anotacion.fecha_vencimiento | DateSmall}}</span></h3>                                
+													<img :src="'/uploads/fotos/'+tarjeta.fotografia" class="img-responsive img-circle" width="40px" alt=""> <br>
+													<h3 class="text-uppercase zero-m text-title-note"><span>Vence: @{{tarjeta.fecha_vencimiento | DateSmall}}</span></h3>                                
 													<br>
-													<p class="text-note col-lg-12">@{{anotacion.mensaje}}</p>
-													<span class="pull-right" title="@{{anotacion.created_at | DateSmall}}">@{{anotacion.created_at | DateSmall}}</span></div>
-													<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(anotacion.id,anotacion.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
+													<p class="text-note col-lg-12">@{{tarjeta.mensaje}}</p>
+													<span class="pull-right" title="@{{tarjeta.created_at | DateSmall}}">@{{tarjeta.created_at | DateSmall}}</span></div>
+													<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
 												</div>
 											</div>
 										</div>
@@ -305,18 +309,18 @@
 											<div class="clearfix"></div>
 										</div>
 										<div class="col-xs-12 col-sm-6 col-md-12 col-lg-12" id="content_cobros">					
-											<div v-for="anotacion in anotaciones | filterBy tipo_cobro">
+											<div v-for="tarjeta in tarjetas | filterBy tipo_cobro">
 												<div id="tarjeta_cobro" class="panel panel-default">
-													<div class="panel-heading cam-panel-header"><a href="/empresa/@{{anotacion.empresa_id}}"><img :src="'/uploads/fotos/'+anotacion.foto" class="img-responsive" width="100px" alt="" /></a>
+													<div class="panel-heading cam-panel-header"><a href="/empresa/@{{tarjeta.empresa_id}}"><img :src="'/uploads/fotos/'+tarjeta.foto" class="img-responsive" width="100px" alt="" /></a>
 													</div>
-													<div class="panel-body"><img :src="'/uploads/fotos/'+anotacion.fotografia" class="img-responsive img-circle" width="40px" alt=""><br>
-														<h3 class="text-uppercase zero-m text-title-note"><i class=" icon-danger"></i> <span title="'@{{anotacion.fecha_cobro}}'">@{{ anotacion.fecha_cobro | fromNow }}
-														</span><br><br>Período:	@{{anotacion.fecha_inicio | DateSmall}} - @{{anotacion.fecha_cobro | DateSmall}} <br> Orden N°: @{{anotacion.serial}}<br> Valor: @{{anotacion.monto | currency}}
-													</h3><br> <p class="text-note col-lg-12"> @{{anotacion.mensaje}} </p>
+													<div class="panel-body"><img :src="'/uploads/fotos/'+tarjeta.fotografia" class="img-responsive img-circle" width="40px" alt=""><br>
+														<h3 class="text-uppercase zero-m text-title-note"><i class=" icon-danger"></i> <span title="'@{{tarjeta.fecha_cobro}}'">@{{ tarjeta.fecha_cobro | fromNow }}
+														</span><br><br>Período:	@{{tarjeta.fecha_inicio | DateSmall}} - @{{tarjeta.fecha_cobro | DateSmall}} <br> Orden N°: @{{tarjeta.serial}}<br> Valor: @{{tarjeta.monto | currency}}
+													</h3><br> <p class="text-note col-lg-12"> @{{tarjeta.mensaje}} </p>
 
 												</div>
 												<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>
-													<button type="button" @click="EnviarCobro(anotacion.id,anotacion.tipo_anotacion)" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary"  @click="EditCobro(anotacion.id,anotacion.tipo_anotacion)"><i class="icon-pencil-2"></i>Editar</button>
+													<button type="button" @click="EnviarCobro(tarjeta.id,tarjeta.tipo_anotacion)" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary"  @click="EditCobro(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i>Editar</button>
 													<button type="button" class="btn btn-xs btn-success pull-right"><i class="icon-upload"></i> Reportar</button>
 												</div>
 											</div>
@@ -511,74 +515,9 @@
 				lang:'es',
 				timepicker:true
 			});
-
-			
-
-
-			$('#grafica_ventas').highcharts({
-				chart: {
-					type: 'column'
-				},
-				title: {
-					text: 'Nuevas Contrataciones'
-				},
-
-				xAxis: {
-					categories: [
-					'Ene',
-					'Feb',
-					'Mar',
-					'Abr',
-					'May',
-					'Jun',
-					'Jul',
-					'Ago',
-					'Sep',
-					'Oct',
-					'Nov',
-					'Dec'
-					],
-					crosshair: true
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Millones de Pesos'
-					}
-				},
-				tooltip: {
-					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-					'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-					footerFormat: '</table>',
-					shared: true,
-					useHTML: true
-				},
-				plotOptions: {
-					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
-					}
-				},
-				series: [{
-					name: 'Contrataciones',
-					data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-				}, {
-					name: 'Costos',
-					data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-				}, {
-					name: 'Pagos Programados',
-					data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-				}, {
-					name: 'Pagos Efectuados',
-					data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-				}]
-			});
 });
+
+
 
 </script>
 
