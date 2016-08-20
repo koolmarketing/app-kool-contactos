@@ -142,14 +142,57 @@ class ApiAsteroidController extends Controller
         
 
 
-        $data = (object) array('tarjeta' => $tarjeta);
-// var_dump($data);
+        $data = new \stdClass;
+        //$data = [];
 
-        Mail::later(5, 'emails.anotacion_mail',  $data, function($message){
+        $data->id_tarjeta        = $tarjeta->id;
+        $data->mensaje           = $tarjeta->mensaje;
+        $data->id_creador        = $tarjeta->id_creador;
+        $data->fecha_vencimiento = $tarjeta->fecha_vencimiento;
+        $data->serial            = $tarjeta->serial;
+        $data->monto             = $tarjeta->monto;
+        $data->estado            = $tarjeta->estado;
+        $data->created_at        = $tarjeta->created_at;
+        $data->updated_at        = $tarjeta->updated_at;
+        $data->fecha_inicio      = $tarjeta->fecha_inicio;
+        $data->involucrados      = $tarjeta->involucrados;
+        $data->id_perfil         = $tarjeta->id_perfil;
+        $data->tipo_perfil       = $tarjeta->tipo_perfil;
+        $data->tipo_anotacion    = $tarjeta->tipo_anotacion;
+        $data->comprobante       = $tarjeta->comprobante;
+        $data->fecha_comentario  = $tarjeta->fecha_comentario;
+        $data->empresa_id        = $tarjeta->empresa_id;
+        $data->foto              = $tarjeta->foto;
+        $data->nombre_comercial  = $tarjeta->nombre_comercial;
+        $data->fotografia        = $tarjeta->fotografia;
+        $data->nota_mail         = $mensaje;
+        $data->fecha_cobro       = $tarjeta->fecha_cobro;
+
+switch ($tarjeta->tipo_anotacion) {
+    case 'comentario':
+          Mail::later(5, 'emails.anotacion_mail', ['msm'=>$data], function($message){
             $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
         });
+        break;
+    case 'recordatorio':
+        Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+        });
+        break;
+    case 'cobro':
+         Mail::later(5, 'emails.cobro_mail', ['msm'=>$data], function($message){
+            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+        });
+        break;
+    
+    default:
+        return "Error de Datos";
+        break;
+}
 
-        return $request->input('Send !!');
+      
+
+        //return $request->input('Send !!');
     }
 
     public function FiltroFecha($ini,$fin){

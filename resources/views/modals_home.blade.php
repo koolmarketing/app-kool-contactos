@@ -195,7 +195,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button"  class="btn btn-primary">Enviar correo</button>
+						<button type="button" @click="envio_tarjeta('cobro')" class="btn btn-primary">Enviar correo</button>
 					</div>
 				</div>
 			</div>
