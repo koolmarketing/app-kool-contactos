@@ -6,12 +6,10 @@
 @section('content')
 
 <div id="app-home">
-
-	<pre>
-		@{{ arr_meta_mes | json }}
-	</pre>
-
 	<div class="row">
+	<pre>
+		@{{mensaje_correo|json}}
+	</pre>
 		<div class="col-lg-12">
 			<div class="tabbable white-bg box-shadow vertical-tabs" id="tenth-tabs">
 				<div class="row">
@@ -43,7 +41,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_dia_total">@{{valores_recaudo.dia.actual}}</span>
+														<span class="w-amount blue" id="meta_dia_total">@{{valores_recaudo.dia.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Día</span>
 													</div>
@@ -66,7 +64,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_semana_total">@{{valores_recaudo.semana.actual}}</span>
+														<span class="w-amount blue" id="meta_semana_total">@{{valores_recaudo.semana.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Semana</span>
 													</div>
@@ -87,7 +85,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_mes_total">@{{valores_recaudo.mes.actual}}</span>
+														<span class="w-amount blue" id="meta_mes_total">@{{valores_recaudo.mes.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Mes</span>
 													</div>
@@ -109,7 +107,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_trimestre_total">@{{valores_recaudo.trimestre_actual.actual}}</span>
+														<span class="w-amount blue" id="meta_trimestre_total">@{{valores_recaudo.trimestre_actual.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Trimestre</span>
 													</div>
@@ -131,7 +129,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_semestre_total">@{{valores_recaudo.semestre_actual.actual}}</span>
+														<span class="w-amount blue" id="meta_semestre_total">@{{valores_recaudo.semestre_actual.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Semestre</span>
 													</div>
@@ -153,7 +151,7 @@
 											<div class="content-box ultra-widget">
 												<div class="w-content big-box">
 													<div class="w-progress">
-														<span class="w-amount blue" id="meta_ano_total">@{{valores_recaudo.ano.actual}}</span>
+														<span class="w-amount blue" id="meta_ano_total">@{{valores_recaudo.ano.total}}</span>
 														<br>
 														<span class="text-uppercase w-name">Año</span>
 													</div>
@@ -279,7 +277,7 @@
 													<br>
 													<p class="text-note col-lg-12">@{{tarjeta.mensaje}}</p>
 													<span class="pull-right" title="@{{tarjeta.created_at | DateSmall}}">@{{tarjeta.created_at | DateSmall}}</span></div>
-													<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
+													<div class="panel-footer cam-panel-footer"><button  @click="delete_note(tarjeta.id)" type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
 												</div>
 											</div>
 										</div>
@@ -319,7 +317,7 @@
 													</h3><br> <p class="text-note col-lg-12"> @{{tarjeta.mensaje}} </p>
 
 												</div>
-												<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>
+												<div class="panel-footer cam-panel-footer"><button type="button"  @click="delete_note(tarjeta.id)" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>
 													<button type="button" @click="EnviarCobro(tarjeta.id,tarjeta.tipo_anotacion)" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary"  @click="EditCobro(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i>Editar</button>
 													<button type="button" class="btn btn-xs btn-success pull-right"><i class="icon-upload"></i> Reportar</button>
 												</div>
@@ -520,6 +518,72 @@
 
 
 </script>
+
+
+
+<script>	
+
+function GenerarGraficaFinanzas(arr_1, arr_2, arr_3){
+
+ // var contrataciones    = [5,4,5,3,2,1,9,9,6,12,10,5];
+ // var pagos_programados = [3,4,5,6,7,8,9,9,5,4,3,2];
+ // var pagos_efectuados  = [4,3,5,2,5,7,2,3,4,5,3,2];
+
+ var contrataciones = [];
+ var pagos_programados = [];
+ var pagos_efectuados = [];
+
+
+ console.log(vm.arr_contrataciones[7]);
+
+
+ $('#grafica_ventas').highcharts({
+  chart: { type: 'column' },
+  title: { text: 'Nuevas Contrataciones' },
+
+  xAxis: {
+    categories: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dec'],
+    crosshair: true
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Millones de Pesos'
+    }
+  },
+  tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+    '<td style="padding:0"><b>{point.y:.1f} m</b></td></tr>',
+    footerFormat: '</table>',
+    shared: true,
+    useHTML: true
+  },
+  plotOptions: {
+    column: {
+      pointPadding: 0.2,
+      borderWidth: 0
+    }
+  },
+    
+  series: [{
+    name: 'Contrataciones',
+    data: vm.arr_contrataciones
+
+  },  {
+    name: 'Pagos Programados',
+    data: vm.arr_meta_mes
+
+  }, {
+    name: 'Pagos Efectuados',
+    data: vm.arr_meta_actual
+
+  }]
+});
+}
+
+</script>
+
 
 <script>
 	$(function () {

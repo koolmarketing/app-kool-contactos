@@ -20,7 +20,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-						<button type="button" id="btn-guardar-anotacion" class="btn btn-primary">Guardar Edición</button>
+						<button type="button" id="btn-guardar-anotacion" class="btn btn-primary" @click="UpdateNote()">Guardar Edición</button>
 						{!! Form::close() !!}
 					</div>          
 				</div>        
@@ -56,7 +56,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-						<button id="btn-guardar-recordatorio" type="button" class="btn btn-primary">Guardar Recordatorio</button>
+						<button id="btn-guardar-recordatorio" @click="UpdateNote()" type="button" class="btn btn-primary">Guardar Recordatorio</button>
 						{!! Form::close() !!}
 					</div>
 				</div>
@@ -107,7 +107,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
 
-						<button type="button" @click="UpdateCobro()" class="btn btn-primary">Editar Cobro</button>
+						<button type="button" @click="UpdateNote()" class="btn btn-primary">Editar Cobro</button>
 						{!! Form::close() !!}
 					</div>
 				</div>
@@ -115,7 +115,7 @@
 		</div>
 		{{--  --}}
 
-		<div class="modal fade" id="enviar_recordatorio">
+		<div class="modal fade" id="enviar_anotacion">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -129,7 +129,7 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-md-12">
-								<h5>Adjunte la dirección de correo</h5>
+								<h5><i class="icon-gmail"></i> Adjunte la dirección de correo</h5>
 								<div class="col-md-12">
 									<input type="text" name="mail" id="input" class="form-control material" placeholder="correo" v-model="mail" required="required">
 								</div>
@@ -139,12 +139,16 @@
 									<img src="/uploads/fotos/@{{fotografia}}" class="img-responsive img-circle" width="40px" alt=""><br>
 									<p class="text-note col-lg-12">@{{mensaje}}</p>
 									<span class="pull-right" title="@{{updated_at}}">@{{updated_at}}</span></div>
-								</div>						
+								</div>	
+								<div class="col-md-12">
+									<h5><i class="icon-pencil-5"></i> Escribir mensaje</h5>
+									<textarea v-model="mensaje_correo" name="" id="input" class="form-control" rows="3" required="required"></textarea>
+								</div>					
 							</div>					
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Enviar correo</button>
+							<button type="button" @click="envio_tarjeta('recordatorio')" class="btn btn-primary">Enviar correo</button>
 						</div>
 					</div>
 				</div>
@@ -182,6 +186,10 @@
 									</h3><br> <p class="text-note col-lg-12"> @{{mensaje}} </p>
 									<span class="pull-right" title="@{{updated_at}}">@{{updated_at}}</span>
 								</div>
+							</div>	
+							<div class="col-md-12">
+								<h5><i class="icon-pencil-5"></i> Escribir mensaje</h5>
+								<textarea v-model="mensaje_correo" name="" id="input" class="form-control" rows="3" required="required"></textarea>
 							</div>						
 						</div>					
 					</div>

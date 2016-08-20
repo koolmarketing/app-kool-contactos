@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use DB;
+use Mail;
 use App\Anotacion;
 use Carbon\carbon;
 
@@ -57,7 +58,7 @@ class ApiAsteroidController extends Controller
      */
     public function show($id)
     {
-        return App\Anotacion::findOrFail($id);
+        return Anotacion::findOrFail($id);
 
     }
 
@@ -81,10 +82,37 @@ class ApiAsteroidController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Anotacion::findOrFail($id)->update($request->all());
-        return response()->json($request->all());
+        // Anotacion::findOrFail($id)->update($request->all());
+        // return response()->json($request->all());
+        return "Ok llego a asteroid";
     }
 
+    public function ActualizarTarjeta (Request $request)
+    {
+
+        $tarjeta = Anotacion::find($request->id);
+
+        $tarjeta->mensaje            = $request->mensaje;
+        $tarjeta->id_creador         = intval($request->id_creador);
+        $tarjeta->fecha_cobro        = $request->fecha_cobro;
+        $tarjeta->fecha_vencimiento  = $request->fecha_vencimiento;
+        $tarjeta->serial             = $request->serial;
+        $tarjeta->monto              = $request->monto;
+        $tarjeta->estado             = $request->estado;
+        $tarjeta->fecha_inicio       = $request->fecha_inicio;
+        $tarjeta->involucrados       = $request->involucrados;
+        $tarjeta->id_perfil          = intval($request->id_perfil);
+        $tarjeta->tipo_perfil        = $request->tipo_perfil;
+        $tarjeta->comprobante        = $request->comprobante;
+        $tarjeta->fecha_comentario   = $request->fecha_comentario;
+
+        $tarjeta->save();
+
+
+
+        return  "Actualizada exitosamente";
+        
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -104,6 +132,24 @@ class ApiAsteroidController extends Controller
                 ]);
         }else{return "Not deleted";}
 
+    }
+
+    public function EnviarCorreo(Request $request){
+
+        $mensaje = $request->input('mensaje');
+        $the_id = $request->input('tarjeta');
+        $tarjeta =  DB::table('anotaciones')->where('anotaciones.id','=',''.$the_id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->first();
+        
+
+
+        $data = (object) array('tarjeta' => $tarjeta);
+// var_dump($data);
+
+        Mail::later(5, 'emails.anotacion_mail',  $data, function($message){
+            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+        });
+
+        return $request->input('Send !!');
     }
 
     public function FiltroFecha($ini,$fin){
@@ -367,7 +413,7 @@ class ApiAsteroidController extends Controller
             return CalcularFinanzas($inicio,$fin);
         }
 
-          $meses = array(
+        $meses = array(
             'enero' => enero(), 
             'febrero' => febrero(), 
             'marzo' => marzo(), 

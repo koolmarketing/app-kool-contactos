@@ -19,10 +19,15 @@ Route::get('api/card/{id}', [
 	'as'   => 'card.id', 
 	'uses' => 'ApiController@ShowCard'
 	]);
-Route::post('api/update/note/{id}',[
+Route::post('card/update',[
 	'middleware' => 'auth',
 	'as'   => 'card.update', 
-	'uses' => 'AnotacionesController@UpdateAnotacion'
+	'uses' => 'ApiAsteroidController@ActualizarTarjeta'
+	]);
+Route::post('card/enviar_correo',[
+	'middleware' => 'auth',
+	'as'   => 'card.update', 
+	'uses' => 'ApiAsteroidController@EnviarCorreo'
 	]);
 
 Route::get('api/recaudo',[

@@ -354,7 +354,7 @@ public function GuardarClientes (Request $request) {
 public function Clientes () {
 
     $all = \App\Persona::all();
-    $data = (object) array("page" => "Clientes","all"=>$all);
+    
     return view('contactos.lista',['data' => $data]);
 }
 public function Empresas () {
