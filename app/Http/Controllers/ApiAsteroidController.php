@@ -9,7 +9,7 @@ use DB;
 use Mail;
 use App\Anotacion;
 use Carbon\carbon;
-
+use Storage;
 
 class ApiAsteroidController extends Controller
 {
@@ -136,342 +136,419 @@ class ApiAsteroidController extends Controller
 
     public function EnviarCorreo(Request $request){
 
-        $mensaje = $request->input('mensaje');
-        $the_id = $request->input('tarjeta');
-        $tarjeta =  DB::table('anotaciones')->where('anotaciones.id','=',''.$the_id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->first();
-        
-
-
-        $data = new \stdClass;
-        //$data = [];
-
-        $data->id_tarjeta        = $tarjeta->id;
-        $data->mensaje           = $tarjeta->mensaje;
-        $data->id_creador        = $tarjeta->id_creador;
-        $data->fecha_vencimiento = $tarjeta->fecha_vencimiento;
-        $data->serial            = $tarjeta->serial;
-        $data->monto             = $tarjeta->monto;
-        $data->estado            = $tarjeta->estado;
-        $data->created_at        = $tarjeta->created_at;
-        $data->updated_at        = $tarjeta->updated_at;
-        $data->fecha_inicio      = $tarjeta->fecha_inicio;
-        $data->involucrados      = $tarjeta->involucrados;
-        $data->id_perfil         = $tarjeta->id_perfil;
-        $data->tipo_perfil       = $tarjeta->tipo_perfil;
-        $data->tipo_anotacion    = $tarjeta->tipo_anotacion;
-        $data->comprobante       = $tarjeta->comprobante;
-        $data->fecha_comentario  = $tarjeta->fecha_comentario;
-        $data->empresa_id        = $tarjeta->empresa_id;
-        $data->foto              = $tarjeta->foto;
-        $data->nombre_comercial  = $tarjeta->nombre_comercial;
-        $data->fotografia        = $tarjeta->fotografia;
-        $data->nota_mail         = $mensaje;
-        $data->fecha_cobro       = $tarjeta->fecha_cobro;
-
-switch ($tarjeta->tipo_anotacion) {
-    case 'comentario':
-          Mail::later(5, 'emails.anotacion_mail', ['msm'=>$data], function($message){
-            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
-        });
-        break;
-    case 'recordatorio':
-        Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
-            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
-        });
-        break;
-    case 'cobro':
-         Mail::later(5, 'emails.cobro_mail', ['msm'=>$data], function($message){
-            $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
-        });
-        break;
-    
-    default:
-        return "Error de Datos";
-        break;
+/*
+@ Crear Evento ( Archivo Plano )
+*/
+function GenerarIcalendar(){
+$IC = 'BEGIN:VCALENDAR 
+VERSION:2.0 
+PRODID:-//www.marudot.com//iCal Event Maker 
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE 
+TZID:America/Bogota
+TZURL:http://tzurl.org/zoneinfo-outlook/America/Bogota 
+X-LIC-LOCATION:America/Bogota 
+BEGIN:STANDARD 
+TZOFFSETFROM:-0500 
+TZOFFSETTO:-0500 
+TZNAME:COT 
+DTSTART:19700101T000000 
+END:STANDARD 
+END:VTIMEZONE 
+BEGIN:VEVENT 
+DTSTAMP:20160820T180201Z 
+UID:20160820T180201Z-1809902584@marudot.com 
+DTSTART;TZID="America/Bogota":20160821T130000
+DTEND;TZID="America/Bogota":20160821T150000 
+SUMMARY:Nombre Evento 
+URL:http%3A%2F%2Fkoolmarketing.net 
+DESCRIPTION:descripcion 
+LOCATION:Cali
+END:VEVENT 
+END:VCALENDAR 
+';
+return $IC;
 }
 
-      
+// BEGIN:VCALENDAR
+// VERSION:2.0
+// PRODID:-//www.marudot.com//iCal Event Maker
+// CALSCALE:GREGORIAN
+// BEGIN:VTIMEZONE
+// TZID:America/Bogota
+// TZURL:http://tzurl.org/zoneinfo-outlook/America/Bogota
+// X-LIC-LOCATION:America/Bogota
+// BEGIN:STANDARD
+// TZOFFSETFROM:-0500
+// TZOFFSETTO:-0500
+// TZNAME:COT
+// DTSTART:19700101T000000
+// END:STANDARD
+// END:VTIMEZONE
+// BEGIN:VEVENT
+// DTSTAMP:20160820T180201Z
+// UID:20160820T180201Z-1809902584@marudot.com
+// DTSTART;TZID="America/Bogota":20160821T130000
+// DTEND;TZID="America/Bogota":20160821T150000
+// SUMMARY:Nombre Evento
+// URL:http%3A%2F%2Fkoolmarketing.net
+// DESCRIPTION:descripcion
+// LOCATION:Cali
+// END:VEVENT
+// END:VCALENDAR
 
-        //return $request->input('Send !!');
-    }
+$vCalendar = new \Eluceo\iCal\Component\Calendar('www.example.com');
+            // 2. Create an event
+$vEvent = new \Eluceo\iCal\Component\Event();
+$vEvent->setDtStart(new \DateTime('2016-08-24'));
+$vEvent->setDtEnd(new \DateTime('2016-08-24'));
+$vEvent->setNoTime(true);
+$vEvent->setSummary('Christmas');
+$vEvent->setUseTimezone(true);
+            // 3. Add event to calendar
+$vCalendar->addComponent($vEvent);
+            // 4. Set headers
+header('Content-Type: text/calendar; charset=utf-8');
+header('Content-Disposition: attachment; filename="cal.ics"');
+            // 5. Output
 
-    public function FiltroFecha($ini,$fin){
+$name_file = "nuevo_evento_".str_random(4).".ics";
+
+//Storage::disk('public')->put($name_file,  $vCalendar->render());
+Storage::disk('public')->put($name_file,  GenerarIcalendar());
+
+$ruta_adjunto = asset('storage/app/public/'.$name_file.'');
+
+
+$mensaje = $request->input('mensaje');
+$the_id = $request->input('tarjeta');
+$tarjeta =  DB::table('anotaciones')->where('anotaciones.id','=',''.$the_id.'')->join('users', 'anotaciones.id_creador', '=', 'users.id')->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')->orderBy('anotaciones.created_at', 'desc')->first();
+
+$data = new \stdClass;
+$data->id_tarjeta        = $tarjeta->id;
+$data->mensaje           = $tarjeta->mensaje;
+$data->id_creador        = $tarjeta->id_creador;
+$data->fecha_vencimiento = $tarjeta->fecha_vencimiento;
+$data->serial            = $tarjeta->serial;
+$data->monto             = $tarjeta->monto;
+$data->estado            = $tarjeta->estado;
+$data->created_at        = $tarjeta->created_at;
+$data->updated_at        = $tarjeta->updated_at;
+$data->fecha_inicio      = $tarjeta->fecha_inicio;
+$data->involucrados      = $tarjeta->involucrados;
+$data->id_perfil         = $tarjeta->id_perfil;
+$data->tipo_perfil       = $tarjeta->tipo_perfil;
+$data->tipo_anotacion    = $tarjeta->tipo_anotacion;
+$data->comprobante       = $tarjeta->comprobante;
+$data->fecha_comentario  = $tarjeta->fecha_comentario;
+$data->empresa_id        = $tarjeta->empresa_id;
+$data->foto              = $tarjeta->foto;
+$data->nombre_comercial  = $tarjeta->nombre_comercial;
+$data->fotografia        = $tarjeta->fotografia;
+$data->nota_mail         = $mensaje;
+$data->fecha_cobro       = $tarjeta->fecha_cobro;
+
+if($tarjeta->tipo_anotacion=="comentario"){
+    Mail::later(5, 'emails.anotacion_mail', ['msm'=>$data], function($message){
+        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+    });
+}elseif ($tarjeta->tipo_anotacion=="recordatorio") {
+ Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+    $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+});
+}elseif ($tarjeta->tipo_anotacion=="cobro") {
+    $ruta = $ruta_adjunto;
+    Mail::later(5, 'emails.cobro_mail', ['msm'=>$data], function($message){
+        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');               
+        $message->attach(storage_path('app/public/evento_estrella.ics'), [
+                        'as' => 'recordatorio_cobro.ics'
+                    ]);
+    });
+}else{
+    return "Not Send";
+}
+
+return $request->input('Send !!');
+
+}
+
+public function FiltroFecha($ini,$fin){
         // return $ini;
-        return DB::table('anotaciones')
-        ->whereBetween('fecha_cobro', [$ini, $fin])
-        ->orwhereBetween('fecha_vencimiento', [$ini, $fin])
-        ->orwhereBetween('fecha_comentario', [$ini, $fin])
-        ->join('users', 'anotaciones.id_creador', '=', 'users.id')
-        ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
-        ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
-        ->orderBy('anotaciones.created_at', 'desc')
+    return DB::table('anotaciones')
+    ->whereBetween('fecha_cobro', [$ini, $fin])
+    ->orwhereBetween('fecha_vencimiento', [$ini, $fin])
+    ->orwhereBetween('fecha_comentario', [$ini, $fin])
+    ->join('users', 'anotaciones.id_creador', '=', 'users.id')
+    ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
+    ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
+    ->orderBy('anotaciones.created_at', 'desc')
+    ->get();
+
+}
+
+public function GetRecaudo(){
+
+    function CalcularValores($inicio,$fin)
+    {
+        $respuesta = new \stdClass;
+
+        $meta_total =  DB::table('anotaciones')
+        ->select(DB::raw('SUM(monto) as total'))
+        ->whereBetween('fecha_cobro', [$inicio, $fin])
+        ->where('tipo_anotacion', '=', 'cobro')
+        ->get();
+        $meta_actual = DB::table('anotaciones')
+        ->select(DB::raw('SUM(monto) as total'))
+        ->whereBetween('fecha_cobro', [$inicio, $fin])
+        ->where('tipo_anotacion', '=', 'cobro')
+        ->where('estado', '=', '0')
         ->get();
 
+        $respuesta->inicio = $inicio;
+        $respuesta->final  = $fin;
+        $respuesta->meta_total  = $meta_total;
+        $respuesta->meta_actual = $meta_actual;
+
+        return $respuesta;
     }
 
-    public function GetRecaudo(){
 
-        function CalcularValores($inicio,$fin)
-        {
-            $respuesta = new \stdClass;
+    function calculardia(){
+        $dia = new \stdClass;
+        $inicio = \Carbon\carbon::now()->startOfDay();
+        $fin    = \Carbon\carbon::now()->endOfDay();
+        $respuesta = CalcularValores($inicio,$fin);         
+        return $respuesta;
 
-            $meta_total =  DB::table('anotaciones')
-            ->select(DB::raw('SUM(monto) as total'))
-            ->whereBetween('fecha_cobro', [$inicio, $fin])
-            ->where('tipo_anotacion', '=', 'cobro')
-            ->get();
-            $meta_actual = DB::table('anotaciones')
-            ->select(DB::raw('SUM(monto) as total'))
-            ->whereBetween('fecha_cobro', [$inicio, $fin])
-            ->where('tipo_anotacion', '=', 'cobro')
-            ->where('estado', '=', '0')
-            ->get();
-            
-            $respuesta->inicio = $inicio;
-            $respuesta->final  = $fin;
-            $respuesta->meta_total  = $meta_total;
-            $respuesta->meta_actual = $meta_actual;
-            
-            return $respuesta;
-        }
-        
+    }
+    function calcularsemana(){  
+        $semana = new \stdClass;
+        $inicio = Carbon::now()->startOfWeek();
+        $fin    = Carbon::now()->endOfWeek();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
+    /* Fin Semana*/
 
-        function calculardia(){
-            $dia = new \stdClass;
-            $inicio = \Carbon\carbon::now()->startOfDay();
-            $fin    = \Carbon\carbon::now()->endOfDay();
-            $respuesta = CalcularValores($inicio,$fin);         
-            return $respuesta;
+    /*   Mes Actual     */
 
-        }
-        function calcularsemana(){  
-            $semana = new \stdClass;
-            $inicio = Carbon::now()->startOfWeek();
-            $fin    = Carbon::now()->endOfWeek();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
-        /* Fin Semana*/
+    function calcularmes(){     
+        $mes = new \stdClass;
+        $inicio = Carbon::now()->startOfMonth();
+        $fin    = Carbon::now()->endOfMonth();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
 
-        /*   Mes Actual     */
+    /* Fin mes Actual   */
 
-        function calcularmes(){     
-            $mes = new \stdClass;
-            $inicio = Carbon::now()->startOfMonth();
-            $fin    = Carbon::now()->endOfMonth();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
+    /*   Primer Trimstre     */
 
-        /* Fin mes Actual   */
+    function calcularprimertrimestre(){ 
+        $primetrimestre= new \stdClass;
+        $inicio = Carbon::now()->startOfYear();
+        $fin    = Carbon::now()->startOfYear()->addMonths(2)->endOfMonth();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
 
-        /*   Primer Trimstre     */
-
-        function calcularprimertrimestre(){ 
-            $primetrimestre= new \stdClass;
-            $inicio = Carbon::now()->startOfYear();
-            $fin    = Carbon::now()->startOfYear()->addMonths(2)->endOfMonth();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
-
-        /*   Primer Trimstre     */
-        function calcularsegundotrimestre(){
-            $segundotrimestre= new \stdClass;
-            $inicio = Carbon::now()->startOfYear()->addMonths(3);
-            $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
+    /*   Primer Trimstre     */
+    function calcularsegundotrimestre(){
+        $segundotrimestre= new \stdClass;
+        $inicio = Carbon::now()->startOfYear()->addMonths(3);
+        $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
 
 
-        function calculartercertrimestre(){
-            $tercertrimestre= new \stdClass;
-            $inicio = Carbon::now()->startOfYear()->addMonths(6);
-            $fin    = Carbon::now()->startOfYear()->addMonths(8)->endOfMonth();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-
-        }
-
-        function calcularcuartotrimestre(){
-            $cuartotrimestre= new \stdClass;
-            $inicio = Carbon::now()->startOfYear()->addMonths(9);
-            $fin    = Carbon::now()->endOfYear();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
-
-        function calcularprimersemestre(){
-            $primersemestre = new \stdClass;
-            $inicio = Carbon::now()->startOfYear();
-            $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
-
-        function calcularsegundosemestre(){
-            $segundosemestre = new \stdClass;
-            $inicio = Carbon::now()->startOfYear()->addMonths(6);
-            $fin    = Carbon::now()->endOfYear();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;
-        }
-
-        function calcularano(){
-            $ano = new \stdClass;
-            $inicio = Carbon::now()->startOfYear();
-            $fin    = Carbon::now()->endOfYear();
-            $respuesta = CalcularValores($inicio,$fin);
-            return $respuesta;                          
-        }  
-
-        $trimestre_actual=Carbon::now();
-        $mes = $trimestre_actual->month;
-        if ($mes >= 1 and $mes <= 3) {
-            $trimestre_actual = calcularprimertrimestre();
-            $semestre_actual  = calcularprimersemestre();
-        } elseif ($mes >= 4 and $mes <= 6) {
-            $trimestre_actual = calcularsegundotrimestre();
-            $semestre_actual  = calcularprimersemestre();
-        } elseif ($mes >= 7 and $mes <= 10) {
-            $trimestre_actual = calculartercertrimestre();
-            $semestre_actual  = calcularsegundosemestre();
-        }else{
-            $trimestre_actual = calcularcuartotrimestre();
-            $semestre_actual  = calcularsegundosemestre();
-        }
-
-
-
-        $valores = array(
-            'dia' => calculardia(), 
-            'semana' => calcularsemana(), 
-            'mes' => calcularmes(), 
-            'primer_trimestre' => calcularprimertrimestre(), 
-            'segundo_trimestre' => calcularsegundotrimestre(), 
-            'tercer_trimestre' => calculartercertrimestre(), 
-            'cuarto_trimestre' => calcularcuartotrimestre(), 
-            'primer_semestre' => calcularprimersemestre(), 
-            'segundo_semestre' => calcularsegundosemestre(), 
-            'ano' => calcularano(),
-            'trimestre_actual' => $trimestre_actual,
-            'semestre_actual'  => $semestre_actual
-            );
-
-        return  response()->json($valores);
+    function calculartercertrimestre(){
+        $tercertrimestre= new \stdClass;
+        $inicio = Carbon::now()->startOfYear()->addMonths(6);
+        $fin    = Carbon::now()->startOfYear()->addMonths(8)->endOfMonth();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
 
     }
 
-    public function GetFinanzas (){
-
-        function CalcularFinanzas($inicio,$fin)
-        {
-            $respuesta = new \stdClass;
-
-            $meta_total =  DB::table('anotaciones')
-            ->select(DB::raw('SUM(monto) as total'))
-            ->whereBetween('fecha_cobro', [$inicio, $fin])
-            ->where('tipo_anotacion', '=', 'cobro')
-            ->get();
-            $meta_actual = DB::table('anotaciones')
-            ->select(DB::raw('SUM(monto) as total'))
-            ->whereBetween('fecha_cobro', [$inicio, $fin])
-            ->where('tipo_anotacion', '=', 'cobro')
-            ->where('estado', '=', '0')
-            ->get();
-            $contratacion_mes = DB::table('servicios')
-            ->select(DB::raw('SUM(saldo) as total'))
-            ->whereBetween('created_at', [$inicio, $fin])
-            ->get();
-            
-            $respuesta->inicio = $inicio;
-            $respuesta->final  = $fin;
-            $respuesta->meta_mes  = $meta_total;
-            $respuesta->meta_actual = $meta_actual;
-            $respuesta->contratacion_mes = $contratacion_mes;
-            
-            return $respuesta;
-        }
-
-        function enero(){
-            $inicio = Carbon::now()->startOfYear();
-            $fin    = Carbon::now()->startOfYear()->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-
-        function febrero(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(1);
-            $fin    = Carbon::now()->startOfYear()->addMonths(1)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function marzo(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(2);
-            $fin    = Carbon::now()->startOfYear()->addMonths(2)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function abril(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(3);
-            $fin    = Carbon::now()->startOfYear()->addMonths(3)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function mayo(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(4);
-            $fin    = Carbon::now()->startOfYear()->addMonths(4)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function junio(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(5);
-            $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function julio(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(6);
-            $fin    = Carbon::now()->startOfYear()->addMonths(6)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function agosto(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(7);
-            $fin    = Carbon::now()->startOfYear()->addMonths(7)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function septiembre(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(8);
-            $fin    = Carbon::now()->startOfYear()->addMonths(8)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function octubre(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(9);
-            $fin    = Carbon::now()->startOfYear()->addMonths(9)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function noviembre(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(10);
-            $fin    = Carbon::now()->startOfYear()->addMonths(10)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-        function diciembre(){
-            $inicio = Carbon::now()->startOfYear()->addMonths(11);
-            $fin    = Carbon::now()->startOfYear()->addMonths(11)->endOfMonth();
-            return CalcularFinanzas($inicio,$fin);
-        }
-
-        $meses = array(
-            'enero' => enero(), 
-            'febrero' => febrero(), 
-            'marzo' => marzo(), 
-            'abril' => abril(), 
-            'mayo' => mayo(), 
-            'junio' => junio(), 
-            'julio' => julio(), 
-            'agosto' => agosto(), 
-            'septiembre' => septiembre(), 
-            'octubre' => octubre(),
-            'noviembre' => noviembre(),
-            'diciembre'  => diciembre()
-            );
-
-        return  response()->json($meses);
-
+    function calcularcuartotrimestre(){
+        $cuartotrimestre= new \stdClass;
+        $inicio = Carbon::now()->startOfYear()->addMonths(9);
+        $fin    = Carbon::now()->endOfYear();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
     }
+
+    function calcularprimersemestre(){
+        $primersemestre = new \stdClass;
+        $inicio = Carbon::now()->startOfYear();
+        $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
+
+    function calcularsegundosemestre(){
+        $segundosemestre = new \stdClass;
+        $inicio = Carbon::now()->startOfYear()->addMonths(6);
+        $fin    = Carbon::now()->endOfYear();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;
+    }
+
+    function calcularano(){
+        $ano = new \stdClass;
+        $inicio = Carbon::now()->startOfYear();
+        $fin    = Carbon::now()->endOfYear();
+        $respuesta = CalcularValores($inicio,$fin);
+        return $respuesta;                          
+    }  
+
+    $trimestre_actual=Carbon::now();
+    $mes = $trimestre_actual->month;
+    if ($mes >= 1 and $mes <= 3) {
+        $trimestre_actual = calcularprimertrimestre();
+        $semestre_actual  = calcularprimersemestre();
+    } elseif ($mes >= 4 and $mes <= 6) {
+        $trimestre_actual = calcularsegundotrimestre();
+        $semestre_actual  = calcularprimersemestre();
+    } elseif ($mes >= 7 and $mes <= 10) {
+        $trimestre_actual = calculartercertrimestre();
+        $semestre_actual  = calcularsegundosemestre();
+    }else{
+        $trimestre_actual = calcularcuartotrimestre();
+        $semestre_actual  = calcularsegundosemestre();
+    }
+
+
+
+    $valores = array(
+        'dia' => calculardia(), 
+        'semana' => calcularsemana(), 
+        'mes' => calcularmes(), 
+        'primer_trimestre' => calcularprimertrimestre(), 
+        'segundo_trimestre' => calcularsegundotrimestre(), 
+        'tercer_trimestre' => calculartercertrimestre(), 
+        'cuarto_trimestre' => calcularcuartotrimestre(), 
+        'primer_semestre' => calcularprimersemestre(), 
+        'segundo_semestre' => calcularsegundosemestre(), 
+        'ano' => calcularano(),
+        'trimestre_actual' => $trimestre_actual,
+        'semestre_actual'  => $semestre_actual
+        );
+
+    return  response()->json($valores);
+
+}
+
+public function GetFinanzas (){
+
+    function CalcularFinanzas($inicio,$fin)
+    {
+        $respuesta = new \stdClass;
+
+        $meta_total =  DB::table('anotaciones')
+        ->select(DB::raw('SUM(monto) as total'))
+        ->whereBetween('fecha_cobro', [$inicio, $fin])
+        ->where('tipo_anotacion', '=', 'cobro')
+        ->get();
+        $meta_actual = DB::table('anotaciones')
+        ->select(DB::raw('SUM(monto) as total'))
+        ->whereBetween('fecha_cobro', [$inicio, $fin])
+        ->where('tipo_anotacion', '=', 'cobro')
+        ->where('estado', '=', '0')
+        ->get();
+        $contratacion_mes = DB::table('servicios')
+        ->select(DB::raw('SUM(saldo) as total'))
+        ->whereBetween('created_at', [$inicio, $fin])
+        ->get();
+
+        $respuesta->inicio = $inicio;
+        $respuesta->final  = $fin;
+        $respuesta->meta_mes  = $meta_total;
+        $respuesta->meta_actual = $meta_actual;
+        $respuesta->contratacion_mes = $contratacion_mes;
+
+        return $respuesta;
+    }
+
+    function enero(){
+        $inicio = Carbon::now()->startOfYear();
+        $fin    = Carbon::now()->startOfYear()->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+
+    function febrero(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(1);
+        $fin    = Carbon::now()->startOfYear()->addMonths(1)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function marzo(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(2);
+        $fin    = Carbon::now()->startOfYear()->addMonths(2)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function abril(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(3);
+        $fin    = Carbon::now()->startOfYear()->addMonths(3)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function mayo(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(4);
+        $fin    = Carbon::now()->startOfYear()->addMonths(4)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function junio(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(5);
+        $fin    = Carbon::now()->startOfYear()->addMonths(5)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function julio(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(6);
+        $fin    = Carbon::now()->startOfYear()->addMonths(6)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function agosto(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(7);
+        $fin    = Carbon::now()->startOfYear()->addMonths(7)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function septiembre(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(8);
+        $fin    = Carbon::now()->startOfYear()->addMonths(8)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function octubre(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(9);
+        $fin    = Carbon::now()->startOfYear()->addMonths(9)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function noviembre(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(10);
+        $fin    = Carbon::now()->startOfYear()->addMonths(10)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+    function diciembre(){
+        $inicio = Carbon::now()->startOfYear()->addMonths(11);
+        $fin    = Carbon::now()->startOfYear()->addMonths(11)->endOfMonth();
+        return CalcularFinanzas($inicio,$fin);
+    }
+
+    $meses = array(
+        'enero' => enero(), 
+        'febrero' => febrero(), 
+        'marzo' => marzo(), 
+        'abril' => abril(), 
+        'mayo' => mayo(), 
+        'junio' => junio(), 
+        'julio' => julio(), 
+        'agosto' => agosto(), 
+        'septiembre' => septiembre(), 
+        'octubre' => octubre(),
+        'noviembre' => noviembre(),
+        'diciembre'  => diciembre()
+        );
+
+    return  response()->json($meses);
+
+}
 }

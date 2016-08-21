@@ -54,6 +54,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'evento' => [
+            'driver' => 'local',
+            'root' => public_path('eventos'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',
