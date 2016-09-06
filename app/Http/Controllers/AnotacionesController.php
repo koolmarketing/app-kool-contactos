@@ -241,7 +241,9 @@ function updateCobro(Request $request){
     
      // $id_anotacion = 7;
     $cobro          = \App\Anotacion::find($id_anotacion);
-    $servicio_activo=  DB::table('servicios')->where('serial', ''.$cobro->serial.'')->first(); $monto_cobro    = $cobro->monto;    
+    $servicio_activo=  DB::table('servicios')
+    ->where('serial', ''.$cobro->serial.'')
+    ->first(); $monto_cobro    = $cobro->monto;    
 
     $nuevo_saldo = $servicio_activo->saldo - $monto_cobro;
 

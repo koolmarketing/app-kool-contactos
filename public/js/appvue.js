@@ -46,7 +46,7 @@ var vm = new Vue({
   arr_contrataciones : [],
   arr_meta_actual    : [],
   arr_meta_mes       : [],
-  mensaje_correo: "Escribir mensaje"
+  mensaje_correo: ""
 },
 
 
@@ -227,14 +227,24 @@ EditCobro: function(id,tipo_anotacion){
 
 },
 
-EnviarRecordatorio: function(id,tipo){
+EnviarAnotacion: function(id,tipo){
 
-this.$http.get('/api/card/'+id).then((data) => {
+  this.$http.get('/api/card/'+id).then((data) => {
     this.$set('data_recordatorio', data.json()),
     new_data = data.json()
     this.SetData(new_data)
-}),
-$('#enviar_anotacion').modal('show'); 
+  }),
+  $('#enviar_anotacion').modal('show'); 
+},
+
+EnviarRecordatorio: function(id,tipo){
+
+  this.$http.get('/api/card/'+id).then((data) => {
+    this.$set('data_recordatorio', data.json()),
+    new_data = data.json()
+    this.SetData(new_data)
+  }),
+  $('#enviar_recordatorio').modal('show'); 
 },
 
 EnviarCobro: function (id,tipo){
@@ -299,8 +309,12 @@ UpdateNote: function(){
     data: serial_data,
 
     success: function(result){
-      console.log(result);
-      swal("Tú anotación ha sido actualizada!"); 
+      resultado = jQuery.parseJSON(result); 
+      if (resultado.tipo=="Error") {
+        swal(resultado.mensaje);
+      }else{
+        swal("Actualizado");
+      }
     },
     error: function(result){
       console.log(result);
@@ -311,6 +325,74 @@ UpdateNote: function(){
 
 },
 
+ReportarCobro: function(the_id,serial,id_perfil){
+
+  var serial       = serial;
+  var id_anotacion = the_id;
+  var id_empresa   = id_perfil;
+
+  console.log("serial: "+serial+" id:"+the_id);
+
+  
+  swal(
+  {   
+    title: "¿Estas seguro?",
+    text: "Estas por reportar el ingreso de dinero",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Si!, Confirmo Pago",
+    cancelButtonText: "No",
+    closeOnConfirm: false,
+    closeOnCancel: false },
+
+    function(isConfirm){ 
+      if (isConfirm) {
+            //$('#reporte-de-cobro').modal('show');
+            swal("Reportado!", "El pago se ha ingresado en el sistema", "success");
+            ;(function(){
+
+              
+              $.ajaxSetup({
+                headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+              })
+              var cobro = {};
+              cobro.id_anotacion = the_id;
+              cobro.serial = serial;
+              cobro.id_empresa = id_empresa;
+
+
+              var serial_data = $.param(cobro);
+              $.ajax({
+                url: '/update/cobro',
+                type: 'POST',
+                data: serial_data,
+                dataType: 'html',
+                success: function(result){                    
+                  resultado = jQuery.parseJSON(result);
+                        //alert(result);                    
+                        if (resultado.tipo=="Error") {
+                          swal(resultado.mensaje);
+
+                        }else if(resultado.tipo=="Exito"){
+                          swal(resultado.mensaje); 
+                          vm.reload_notes();                         
+                        }
+                        else{                                                        
+
+                        }                                   
+                      },
+                      error: function(){
+                        console.log('Error');
+                      }
+                    });                    
+
+            })();
+          }
+          else {     swal("Cancelado!", "El reporte ha sido cancelado", "error");   } });
+vm.reload_notes();
+
+},
 
 envio_tarjeta: function(tipo_tarjeta){
 
@@ -336,7 +418,7 @@ envio_tarjeta: function(tipo_tarjeta){
      
      //data_mail_1 = JSON.stringify(data_mail);
      serial_data_envio = $.param( data_mail, true );
-     event.preventDefault();
+     
      $.ajaxSetup({
       headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
     })
@@ -434,9 +516,7 @@ ready: function () {
   this.load_notes(),
   this.SetGrafica(),
   this.load_cartera()
-  
-  
-  
+   
 }
 });
 

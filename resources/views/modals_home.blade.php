@@ -156,6 +156,49 @@
 
 			{{--  --}}
 
+				{{--  --}}
+
+		<div class="modal fade" id="enviar_recordatorio">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<div class="row">
+							<div class="col-md-12">
+								<h4 class="modal-title">Enviar recordatorio por correo</h4>
+							</div>
+						</div> 
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<h5><i class="icon-gmail"></i> Adjunte la dirección de correo</h5>
+								<div class="col-md-12">
+									<input type="text" name="mail" id="input" class="form-control material" placeholder="correo" v-model="mail" required="required">
+								</div>
+							</div>	<br><br>
+							<div class="col-md-12">
+								<div class="panel-body">
+									<img src="/uploads/fotos/@{{fotografia}}" class="img-responsive img-circle" width="40px" alt=""><br>
+									<p class="text-note col-lg-12">@{{mensaje}}</p>
+									<span class="pull-right" title="@{{updated_at}}">@{{updated_at}}</span></div>
+								</div>	
+								<div class="col-md-12">
+									<h5><i class="icon-pencil-5"></i> Escribir mensaje</h5>
+									<textarea v-model="mensaje_correo" name="" id="input" class="form-control" rows="3" required="required"></textarea>
+								</div>					
+							</div>					
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" @click="envio_tarjeta('recordatorio')" class="btn btn-primary">Enviar correo</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{{--  --}}
+
 			{{--  --}}
 
 			<div class="modal fade" id="enviar_cobro">

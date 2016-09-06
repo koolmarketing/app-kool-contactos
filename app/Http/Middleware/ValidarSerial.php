@@ -20,7 +20,7 @@ class ValidarSerial
      */
     public function handle($request, Closure $next)
     {
-      if ($request->input('tipo')=="cobro") 
+      if ($request->input('tipo')=="cobro" || $request->input('tipo_anotacion')=="cobro") 
       {
         $serial_cobro = $request->input('serial');
         $nuevo_cobro  = $request->input('monto');

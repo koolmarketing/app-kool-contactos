@@ -10,6 +10,7 @@ use Mail;
 use App\Anotacion;
 use Carbon\carbon;
 use Storage;
+use App\Empresa;
 
 class ApiAsteroidController extends Controller
 {
@@ -22,6 +23,7 @@ class ApiAsteroidController extends Controller
     {
         return DB::table('anotaciones')
         ->where('tipo_anotacion','!=','""')
+        ->where('estado','=','1')
         ->join('users', 'anotaciones.id_creador', '=', 'users.id')
         ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
         ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
@@ -140,62 +142,35 @@ class ApiAsteroidController extends Controller
 @ Crear Evento ( Archivo Plano )
 */
 function GenerarIcalendar(){
-$IC = 'BEGIN:VCALENDAR 
-VERSION:2.0 
-PRODID:-//www.marudot.com//iCal Event Maker 
-CALSCALE:GREGORIAN
-BEGIN:VTIMEZONE 
-TZID:America/Bogota
-TZURL:http://tzurl.org/zoneinfo-outlook/America/Bogota 
-X-LIC-LOCATION:America/Bogota 
-BEGIN:STANDARD 
-TZOFFSETFROM:-0500 
-TZOFFSETTO:-0500 
-TZNAME:COT 
-DTSTART:19700101T000000 
-END:STANDARD 
-END:VTIMEZONE 
-BEGIN:VEVENT 
-DTSTAMP:20160820T180201Z 
-UID:20160820T180201Z-1809902584@marudot.com 
-DTSTART;TZID="America/Bogota":20160821T130000
-DTEND;TZID="America/Bogota":20160821T150000 
-SUMMARY:Nombre Evento 
-URL:http%3A%2F%2Fkoolmarketing.net 
-DESCRIPTION:descripcion 
-LOCATION:Cali
-END:VEVENT 
-END:VCALENDAR 
-';
-return $IC;
+    $IC = 'BEGIN:VCALENDAR 
+    VERSION:2.0 
+    PRODID:-//www.marudot.com//iCal Event Maker 
+    CALSCALE:GREGORIAN
+    BEGIN:VTIMEZONE 
+    TZID:America/Bogota
+    TZURL:http://tzurl.org/zoneinfo-outlook/America/Bogota 
+    X-LIC-LOCATION:America/Bogota 
+    BEGIN:STANDARD 
+    TZOFFSETFROM:-0500 
+    TZOFFSETTO:-0500 
+    TZNAME:COT 
+    DTSTART:19700101T000000 
+    END:STANDARD 
+    END:VTIMEZONE 
+    BEGIN:VEVENT 
+    DTSTAMP:20160820T180201Z 
+    UID:20160820T180201Z-1809902584@marudot.com 
+    DTSTART;TZID="America/Bogota":20160821T130000
+    DTEND;TZID="America/Bogota":20160821T150000 
+    SUMMARY:Nombre Evento 
+    URL:http%3A%2F%2Fkoolmarketing.net 
+    DESCRIPTION:descripcion 
+    LOCATION:Cali
+    END:VEVENT 
+    END:VCALENDAR 
+    ';
+    return $IC;
 }
-
-// BEGIN:VCALENDAR
-// VERSION:2.0
-// PRODID:-//www.marudot.com//iCal Event Maker
-// CALSCALE:GREGORIAN
-// BEGIN:VTIMEZONE
-// TZID:America/Bogota
-// TZURL:http://tzurl.org/zoneinfo-outlook/America/Bogota
-// X-LIC-LOCATION:America/Bogota
-// BEGIN:STANDARD
-// TZOFFSETFROM:-0500
-// TZOFFSETTO:-0500
-// TZNAME:COT
-// DTSTART:19700101T000000
-// END:STANDARD
-// END:VTIMEZONE
-// BEGIN:VEVENT
-// DTSTAMP:20160820T180201Z
-// UID:20160820T180201Z-1809902584@marudot.com
-// DTSTART;TZID="America/Bogota":20160821T130000
-// DTEND;TZID="America/Bogota":20160821T150000
-// SUMMARY:Nombre Evento
-// URL:http%3A%2F%2Fkoolmarketing.net
-// DESCRIPTION:descripcion
-// LOCATION:Cali
-// END:VEVENT
-// END:VCALENDAR
 
 $vCalendar = new \Eluceo\iCal\Component\Calendar('www.example.com');
             // 2. Create an event
@@ -247,22 +222,25 @@ $data->nombre_comercial  = $tarjeta->nombre_comercial;
 $data->fotografia        = $tarjeta->fotografia;
 $data->nota_mail         = $mensaje;
 $data->fecha_cobro       = $tarjeta->fecha_cobro;
+$data->destino           = $request->input('email');
+
+$the_email    =  $request->input('email');
 
 if($tarjeta->tipo_anotacion=="comentario"){
     Mail::later(5, 'emails.anotacion_mail', ['msm'=>$data], function($message){
-        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Anotación en Perfil de Cliente');
     });
 }elseif ($tarjeta->tipo_anotacion=="recordatorio") {
- Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
-    $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');
+   Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+    $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Recordatorio');
 });
 }elseif ($tarjeta->tipo_anotacion=="cobro") {
-    $ruta = $ruta_adjunto;
+
     Mail::later(5, 'emails.cobro_mail', ['msm'=>$data], function($message){
-        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Test');               
-        $message->attach(storage_path('app/public/evento_estrella.ics'), [
-                        'as' => 'recordatorio_cobro.ics'
-                    ]);
+        $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Recordatorio de Cobro');               
+        // $message->attach(storage_path('app/public/'.$name_file.''), [
+        //                 'as' => 'recordatorio_cobro.ics'
+        //             ]);
     });
 }else{
     return "Not Send";
@@ -275,6 +253,7 @@ return $request->input('Send !!');
 public function FiltroFecha($ini,$fin){
         // return $ini;
     return DB::table('anotaciones')
+    ->where('estado','=','1')
     ->whereBetween('fecha_cobro', [$ini, $fin])
     ->orwhereBetween('fecha_vencimiento', [$ini, $fin])
     ->orwhereBetween('fecha_comentario', [$ini, $fin])
@@ -458,8 +437,8 @@ public function GetFinanzas (){
         ->where('estado', '=', '0')
         ->get();
         $contratacion_mes = DB::table('servicios')
-        ->select(DB::raw('SUM(saldo) as total'))
-        ->whereBetween('created_at', [$inicio, $fin])
+        ->select(DB::raw('SUM(valor) as total'))
+        ->whereBetween('inicio', [$inicio, $fin])
         ->get();
 
         $respuesta->inicio = $inicio;
@@ -551,4 +530,13 @@ public function GetFinanzas (){
     return  response()->json($meses);
 
 }
+
+public function ShowProfile($id){
+    $data = Empresa::findOrFail($id);
+    return $data;
+}
+
+
+
+
 }

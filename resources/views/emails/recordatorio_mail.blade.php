@@ -58,8 +58,8 @@
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                                 
-                                    
-                                        <img align="center" alt="" src="https://gallery.mailchimp.com/4bdc494bce956a4ee910a1c4c/images/8e30e2c3-e3d4-4609-9422-a783fc010c6a.jpg" width="250" style="max-width: 250px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+                                    <?php $foto = public_path('uploads/fotos/').$msm['foto'];  ?>
+                                        <img align="center" alt="" src="{{ $foto }}" width="250" style="max-width: 250px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
                                     
                                 
                             </td>

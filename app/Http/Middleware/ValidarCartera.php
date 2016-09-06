@@ -17,7 +17,7 @@ class ValidarCartera
      */
     public function handle($request, Closure $next)
     {   
-        if ($request->input('tipo')=="cobro") 
+        if ($request->input('tipo')=="cobro" || $request->input('tipo_anotacion')=="cobro") 
         {
             $id          = $request->input('id_perfil');
             $nuevo_cobro = $request->input('monto'); 

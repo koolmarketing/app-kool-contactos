@@ -17,8 +17,11 @@ return array(
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '2cffec82183ee1cea088009cef9a6fc3' => $vendorDir . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     'bbe6d7864b3e32e9c8ad6a0627670727' => $vendorDir . '/regulus/tetra-text/src/helpers.php',
+    'c964ee0ededf28c96ebd9db5099ef910' => $vendorDir . '/guzzlehttp/promises/src/functions_include.php',
+    'a0edc8309cc5e1d60e3047b5df6b7052' => $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     '752af1c2bdb339e8474c3c31b22b7d54' => $vendorDir . '/illuminate/html/helpers.php',
     '0722f366d96f0cefcdd3d02d4504fc2e' => $vendorDir . '/laracasts/testdummy/src/functions.php',
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
     '1072206bd01f02ac21081385c1522d44' => $vendorDir . '/cknow/laravel-money/src/Clicknow/Money/helpers.php',
+    '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
 );

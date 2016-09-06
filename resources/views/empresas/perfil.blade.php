@@ -11,63 +11,64 @@
 @stop
 @section('content')
 
-<div class="row">
-
-  <div class="col-lg-12">
-    <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Todas las empresas</a>
-    <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Datos</a>
-    <div class="col-lg-12"><br>
+<div id="app-profile">
+  <div class="row" >
 
 
+    <div class="container">
+      {{-- <pre>@{{data_empresa | json}}</pre>   --}}
     </div>
-    <!-- Sección panel 1 -->
-    <section>
-      <div class="panel panel-default">
-        <div class="panel-body">
+    <input type="hidden" v-model="id" value="{!! $data->empresa->id !!}">
 
-          <article class="col-md-5">
-            <div class="col-lg-12 col-xs-12">
-              <div class="content-box profile-sidebar box-shadow company-block-1">
-                <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
-                <div class="profile-usertitle">
-                  <div class="profile-usertitle-name">
-                    <h4>{!! $data->empresa->razon_social !!}</h4>
+    <div class="col-lg-12">
+      <a href="{!! URL::to('/empresas') !!}" class="btn btn-md btn-primary"> Todas las empresas</a>
+      <a href="{!! URL::to('/') !!}/empresa/editar/{!! $data->empresa->id !!}" class="btn btn-md btn-primary pull-right">Editar Estos Datos</a>
+      <div class="col-lg-12"><br>
+
+
+      </div>
+      <!-- Sección panel 1 -->
+      <section>
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <article class="col-md-5">
+              <div class="col-lg-12 col-xs-12">
+                <div class="content-box profile-sidebar box-shadow company-block-1">
+                  <img src="{!! URL::to('/') !!}/uploads/fotos/{!! $data->empresa->foto !!}" class="img-responsive center-block" alt="user" width="200px">
+                  <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                      <h4>{!! $data->empresa->razon_social !!}</h4>
+                    </div>
+                    <div class="profile-usertitle-job">
+                      {!! $data->empresa->nit !!}
+                    </div>
                   </div>
-                  <div class="profile-usertitle-job">
-                    {!! $data->empresa->nit !!}
-                  </div>
-                </div>
-              </div>            
-            </div>
+                </div>            
+              </div>
 
 
-          </article>
+            </article>
 
 
 
-          <?php 
-          if(!empty($data->empresa->servicios))
-          {
-            $servicios = json_decode($data->empresa->servicios);
-          }
-          ?>
+            <?php 
+            if(!empty($data->empresa->servicios))
+            {
+              $servicios = json_decode($data->empresa->servicios);
+            }
+            ?>
 
-          <article class="col-md-3">
-            <div class="col-md-12">
-              <div class="content-box box-shadow">
-                <div class="content-box small-box">
-                  <span class="fa-stack fa-2x block pull-left">
-                    <i class="fa fa-circle fa-stack-2x blue"></i>
-                    <i class="fa fa-building-o fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <div class="pull-left info">
-                    @if (!empty($servicios))
-                    @foreach ($servicios as $servicio)
-                    <h3>{!! $servicio !!}</h3>
-                    @endforeach
-                    @endif
+            <article class="col-md-3">
+              <div class="col-md-12">
+                <div class="content-box box-shadow">
+                  <div class="content-box small-box">
+                   <div class="pull-left info">
+
+                    <h5> @{{data_empresa.sector}}</h5>  
+
                     <span class="block">
-                      <h5 class="text-uppercase zero-m">Sector</h5>
+                      <h5 class="text-uppercase zero-m"><i class="fa fa-building-o"></i> Sector</h5>
                     </span>
                   </div>
                 </div>
@@ -76,21 +77,10 @@
 
             <div class="col-md-12">
               <div class="content-box box-shadow">
-                <div class="content-box small-box">
-                  <span class="fa-stack fa-2x block pull-left">
-                    <i class="fa fa-circle fa-stack-2x blue"></i>
-                    <i class="icon-briefcase-3 fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <div class="pull-left info">
-
-                    <span class="block">
-                      @if (!empty($servicios))
-                      @foreach ($servicios as $servicio)
-                      <h3>{!! $servicio !!}</h3>
-                      @endforeach
-                      @endif
-                    </span>
-                    <h5 class="text-uppercase zero-m">Tipo de Empresa</h5>
+                <div class="content-box small-box">                 
+                  <div class="pull-left info">                                  
+                    <h5> @{{data_empresa.tipo_empresa | TipoEmpresa}}</h5>                    
+                    <h5 class="text-uppercase zero-m"><i class="icon-briefcase-3"></i> Tipo de Empresa</h5>
                   </div>
                 </div>
               </div>
@@ -99,23 +89,15 @@
 
             <div class="col-md-12">
               <div class="content-box box-shadow">
-                <div class="content-box small-box">
-                  <span class="fa-stack fa-2x block pull-left">
-                    <i class="fa fa-circle fa-stack-2x blue"></i>
-                    <i class="icon-users-1 fa-stack-1x fa-inverse"></i>
-                  </span>
+                <div class="content-box small-box">                
                   <div class="pull-left info">
+                    <h5>                                   
+                      <h5> @{{data_empresa.numero_empleados | SizeCompany}}</h5>                     
+                    </h5>
                     <span class="block">
 
-                      @if (!empty($servicios))
-                      @foreach ($servicios as $servicio)
-                      <h3>{!! $servicio !!}</h3>
-                      @endforeach
-                      @endif
-
                     </span>
-                    <h5 class="text-uppercase zero-m">Tamaño</h5>
-
+                    <h5 class="text-uppercase zero-m"><i class="icon-users-1"></i> Tamaño</h5>
                   </div>
                 </div>
               </div>
@@ -126,17 +108,11 @@
           <article class="col-md-4">
             <div class="col-md-12">
               <div class="content-box box-shadow">
-                <div class="content-box small-box">
-                  <span class="fa-stack fa-2x block pull-left">
-                    <i class="fa fa-circle fa-stack-2x blue"></i>
-                    <i class="icon-calendar fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <div class="pull-left info">
-                    @if (!empty($data->empresa->fecha_fundacion))                     
-                    <h3>{!! $data->empresa->fecha_fundacion !!}</h3>                    
-                    @endif
+                <div class="content-box small-box">                 
+                  <div class="pull-left info">                                  
+                    <h5> @{{data_empresa.fecha_fundacion }} </h5>
                     <span class="block">
-                      <h5 class="text-uppercase zero-m">Fecha Fundación</h5>
+                      <h5 class="text-uppercase zero-m"><i class="icon-calendar"></i> Fecha Fundación</h5>
                     </span>
                   </div>
                 </div>
@@ -146,18 +122,11 @@
             <div class="col-md-12">
               <div class="content-box box-shadow">
                 <div class="content-box small-box">
-                  <span class="fa-stack fa-2x block pull-left">
-                    <i class="fa fa-circle fa-stack-2x blue"></i>
-                    <i class=" icon-location-8 fa-stack-1x fa-inverse"></i>
-                  </span>
                   <div class="pull-left info">
-
-                    <span class="block">
-                     @if (!empty($data->empresa->direccion))                        
-                     <h3>{!! $data->empresa->direccion !!} {!! $data->empresa->ciudad_pais !!}</h3>                       
-                     @endif
+                    <span class="block">                                          
+                     <h5>@{{ data_empresa.direccion }} @{{data_empresa.ciudad_pais }}</h5>
                    </span>
-                   <h5 class="text-uppercase zero-m">Dirección</h5>
+                   <h5 class="text-uppercase zero-m"><i class="icon-location-8"></i> Dirección</h5>
                  </div>
                </div>
              </div>
@@ -167,42 +136,25 @@
            <div class="col-md-12">
             <div class="content-box box-shadow">
               <div class="content-box small-box">
-                <span class="fa-stack fa-2x block pull-left">
-                  <i class="fa fa-circle fa-stack-2x blue"></i>
-                  <i class=" icon-phone fa-stack-1x fa-inverse"></i>
+               <div class="pull-left info">
+                <span class="block">
+                  <h5>@{{ data_empresa.telefono_1 }} - @{{ data_empresa.telefono_2 }}</h5>
+
                 </span>
-                <div class="pull-left info">
-                  <span class="block">
+                <h5 class="text-uppercase zero-m"><i class=" icon-phone"></i> Telefonos</h5>
 
-                    @if (!empty($data->empresa->telefono_1))
-
-                    <h3>{!! $data->empresa->telefono_1 !!} - {!! $data->empresa->telefono_2 !!}</h3>
-
-                    @endif
-
-                  </span>
-                  <h5 class="text-uppercase zero-m">Telefonos</h5>
-
-                </div>
               </div>
             </div>
           </div>
-        </article>
+        </div>
+      </article>
 
         <!--  <article class="col-md-6">
             <div class="col-md-12" id="vida_cliente">
             </div>
           </article> -->
-
-
           <div class="col-lg-6">
-
-
-
-
           </div>
-
-
         </div>
       </div>
     </section>
@@ -228,9 +180,10 @@
         <li role="presentation" class="active"><a href="#contactos" aria-controls="contactos" role="tab" data-toggle="tab"><i class="icon-contacts"></i> Contacto</a></li>
         <li role="presentation"><a href="#filosofia" aria-controls="filosofia" role="tab" data-toggle="tab"><i class="icon-coffee-1"></i> Filosofia</a></li>
         <li role="presentation"><a href="#redes" aria-controls="redes" role="tab" data-toggle="tab"><i class="icon-share"></i> Redes</a></li>
-        @if ($data->empresa->administracion !="1")
-        <li role="presentation"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones</a></li>
-        @endif
+        
+        <li role="presentation" v-if="data_empresa.administracion != 1"><a href="#contrataciones" aria-controls="contrataciones" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Contrataciones @{{data_empresa.administracion}}</a></li>
+        
+
         @if ($data->empresa->administracion =="1")
         <li role="presentation"><a href="#costos" aria-controls="costos" role="tab" data-toggle="tab"><i class="icon-briefcase-2"></i> Costos</a></li>
         @endif
@@ -254,868 +207,298 @@
               <!-- Fin Contactos Empresas -->
               <br>
               <!-- Inicio tab Contactos -->
-              <div>
 
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active"><a href="#representante" aria-controls="representante" role="tab" data-toggle="tab">Representante</a></li>
-                  <li role="presentation"><a href="#comercial" aria-controls="comercial" role="tab" data-toggle="tab">Comercial</a></li>
-                  <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte</a></li>
 
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div role="tabpanel" class="tab-pane active" id="representante">
-                   <div class="panel panel-default">
-                    <div class="panel-body">
-                      @if ($representante->nombre[0]  != "")
-                      <!-- -->
-                      <div class="col-md-6">
-                        <h4>{!! $representante->trato[0] !!} {!! $representante->nombre[0] !!}</h4>
-                        <p><i class="icon-user"></i> Nombre</p>
-                      </div>
-
-                      <div class="col-md-6">
-                        <h4>{!! $representante->cargo[0] !!}</h4>
-                        <p><i class="icon-cog-alt"></i> Cargo</p>
-                      </div>
-
-                      <div class="col-md-6">
-                        <h4>{!! $representante->email[0] !!}</h4>
-                        <p><i class="icon-email"></i> email</p>
-                      </div>
-
-                      <div class="col-md-3">
-                        <h4>{!! $representante->telefono[0] !!}</h4>
-                        <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
-                      </div>
-                      <div class="col-md-3">
-                        <h4>{!! $representante->celular[0] !!}</h4>
-                        <p><i class="icon-mobile-2"></i> Celular</p>
-                      </div>
-                      <!-- -->
-                      @else
-                      <div class="col-md-12">
-                        <h2>No hay contacto Comercial</h2>
-                      </div>
-                      @endif
+              <div class="row">
+                <div class="col-lg-6" v-if="data_empresa.representante.nombre">
+                  <div class="content-box biggest-box">
+                    <div class="pull-left">
+                      <span class="block">Representante</span>
+                      <h2 class="text-uppercase zero-m">@{{data_empresa.representante.trato}} @{{data_empresa.representante.nombre}}</h2>
+                      <span class="text-uppercase w-name"><b>@{{data_empresa.representante.cargo}}</b></span>
+                      <hr> 
+                      <span>
+                        <i class="icon-mail-2"></i>@{{data_empresa.representante.email}}           
+                      </span> <br>
+                      <span>  
+                        <i class="icon-phone"></i>@{{data_empresa.representante.telefono}}
+                      </span><br>
+                      <span>
+                        <i class="icon-mobile-2"></i>@{{data_empresa.representante.celular}}
+                      </span>
                     </div>
+                    <div class="clearfix"></div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="comercial">
-                  <div class="panel panel-default">
-                    <div class="panel-body">
 
-                      @if ($comercial->nombre[0]  != "")
-                      {{-- expr --}} 
-                      <!-- -->
-                      <div class="col-md-6">
-                        <h4>{!! $comercial->trato[0] !!} {!! $comercial->nombre[0] !!}</h4>
-                        <p><i class="icon-user"></i> Nombre</p>
-                      </div>
-
-                      <div class="col-md-6">
-                        <h4>{!! $comercial->cargo[0] !!}</h4>
-                        <p><i class="icon-cog-alt"></i> Cargo</p>
-                      </div>
-
-                      <div class="col-md-6">
-                        <h4>{!! $comercial->email[0] !!}</h4>
-                        <p><i class="icon-email"></i> email</p>
-                      </div>
-
-                      <div class="col-md-3">
-                        <h4>{!! $comercial->telefono[0] !!}</h4>
-                        <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
-                      </div>
-                      <div class="col-md-3">
-                        <h4>{!! $comercial->celular[0] !!}</h4>
-                        <p><i class="icon-mobile-2"></i> Celular</p>
-                      </div>
-                      <!-- -->
-                      @else
-                      <div class="col-md-12">
-                        <h2>No hay datos</h2>
-                      </div>
-                      @endif
+                <div class="col-lg-6" v-if="data_empresa.comercial.nombre">
+                  <div class="content-box biggest-box">
+                    <div class="pull-left">
+                      <span class="block">Comercial</span>
+                      <h2 class="text-uppercase zero-m">@{{data_empresa.comercial.trato}} @{{data_empresa.comercial.nombre}}</h2>
+                      <span class="text-uppercase w-name"><b>@{{data_empresa.comercial.cargo}}</b></span>
+                      <hr> 
+                      <span>
+                        <i class="icon-mail-2"></i>@{{data_empresa.comercial.email}}           
+                      </span> <br>
+                      <span>  
+                        <i class="icon-phone"></i>@{{data_empresa.comercial.telefono}}
+                      </span><br>
+                      <span>
+                        <i class="icon-mobile-2"></i>@{{data_empresa.comercial.celular}}
+                      </span>
                     </div>
+                    <div class="clearfix"></div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="soporte">
-                 <div class="panel panel-default">
-                  <div class="panel-body">
-                    @if ($soporte->nombre[0]  != "")
-                    <!-- -->
 
-                    <div class="col-md-6">
-                      <h4>{!! $soporte->trato[0] !!} {!! $soporte->nombre[0] !!}</h4>
-                      <p><i class="icon-user"></i> Nombre</p>
+                <div v-if="data_empresa.soporte" class="col-lg-6" v-if="data_empresa.soporte.nombre">
+                  <div class="content-box biggest-box">
+                    <div class="pull-left">
+                      <span class="block">Soporte</span>
+                      <h2 class="text-uppercase zero-m">@{{data_empresa.soporte.trato}} @{{data_empresa.soporte.nombre}}</h2>
+                      <span class="text-uppercase w-name"><b>@{{data_empresa.soporte.cargo}}</b></span>
+                      <hr> 
+                      <span>
+                        <i class="icon-mail-2"></i>@{{data_empresa.soporte.email}}           
+                      </span> <br>
+                      <span>  
+                        <i class="icon-phone"></i>@{{data_empresa.soporte.telefono}}
+                      </span><br>
+                      <span>
+                        <i class="icon-mobile-2"></i>@{{data_empresa.soporte.celular}}
+                      </span>
                     </div>
-
-                    <div class="col-md-6">
-                      <h4>{!! $soporte->cargo[0] !!}</h4>
-                      <p><i class="icon-cog-alt"></i> Cargo</p>
-                    </div>
-
-                    <div class="col-md-6">
-                      <h4>{!! $soporte->email[0] !!}</h4>
-                      <p><i class="icon-email"></i> email</p>
-                    </div>
-
-                    <div class="col-md-3">
-                      <h4>{!! $soporte->telefono[0] !!}</h4>
-                      <p><i class="icon-phone-1"></i> Teléfono Fijo</p>
-                    </div>
-                    <div class="col-md-3">
-                      <h4>{!! $soporte->celular[0] !!}</h4>
-                      <p><i class="icon-mobile-2"></i> Celular</p>
-                    </div>
-
-                    <!-- -->
-                    @else
-                    <div class="col-md-12">
-                      <h2>No hay datos para Soporte</h2>
-                    </div>
-                    @endif
+                    <div class="clearfix"></div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-          </div>
-        </div><!-- Panel Body  -->
-      </div><!-- Panel defaul -->
-    </div>
-    <!-- Fin Contactos -->
-
-    <!-- Inicio Filosofia -->
-    <div role="tabpanel" class="tab-pane" id="filosofia">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <?php 
-            if(!empty($data->empresa->valores))
-            {
-              $valores = json_decode($data->empresa->valores);
-            }
-
-            ?>
-            <h3>@if (!empty($valores))
 
 
-              @foreach ( $valores as $valor)
-              <span class="label label-primary">{!!$valor!!}</span>
-              @endforeach</h3>
-              @endif
-              <p><i class="icon-list-2"></i> Valores Corporativos</p>
+              </div>      
 
-              <br>
-              <div class="col-md-12">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                  <div class="panel panel-primary">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                      <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          <i class="icon-bookmark-empty-1"></i> Misión
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                      <div class="panel-body">
-                        @if(!empty($data->empresa->mision))
-                        {!! $data->empresa->mision !!}
-                        @endif
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-primary">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                      <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          <i class="icon-bookmark-empty-1"></i> Visión
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                      <div class="panel-body">
-                        @if (!empty($data->empresa->vision))
-                        {!! $data->empresa->vision !!}
-                        @endif
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <br>
+            </div><!-- Panel Body  -->
+          </div><!-- Panel defaul -->
+        </div>
+        <!-- Fin Contactos -->
+
+        <!-- Inicio Filosofia -->
+        <div role="tabpanel" class="tab-pane" id="filosofia">
+          <div class="panel panel-default">
+            <div class="panel-body">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <?php 
-                if(!empty($data->empresa->intereses)){
-                  $intereses = json_decode($data->empresa->intereses);
-                } ?>
-                <h3>
-                  @if (!empty($intereses))
-                  @foreach ($intereses as $interes)
-                  <span class="label label-primary">{!!$interes!!}</span>
-                  @endforeach
+                if(!empty($data->empresa->valores))
+                {
+                  $valores = json_decode($data->empresa->valores);
+                }
+
+                ?>
+                <h3>@if (!empty($valores))
+
+
+                  @foreach ( $valores as $valor)
+                  <span class="label label-primary">{!!$valor!!}</span>
+                  @endforeach</h3>
                   @endif
-                </h3>
-                <p><i class="icon-hourglass-1"></i> Intereses</p>
-              </div>
+                  <p><i class="icon-list-2"></i> Valores Corporativos</p>
 
+                  <br>
+                  <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-primary">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <i class="icon-bookmark-empty-1"></i> Misión
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+                            @if(!empty($data->empresa->mision))
+                            {!! $data->empresa->mision !!}
+                            @endif
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-primary">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <i class="icon-bookmark-empty-1"></i> Visión
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                            @if (!empty($data->empresa->vision))
+                            {!! $data->empresa->vision !!}
+                            @endif
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <?php 
+                    if(!empty($data->empresa->intereses)){
+                      $intereses = json_decode($data->empresa->intereses);
+                    } ?>
+                    <h3>
+                      @if (!empty($intereses))
+                      @foreach ($intereses as $interes)
+                      <span class="label label-primary">{!!$interes!!}</span>
+                      @endforeach
+                      @endif
+                    </h3>
+                    <p><i class="icon-hourglass-1"></i> Intereses</p>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Fin Filosofia -->
-      <!-- Inicio Redes -->
-      <div role="tabpanel" class="tab-pane" id="redes">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <?php
-            $gmail = json_decode($data->empresa->gmail);
-            ?>  
-            @if($gmail->cuenta_1->usuario[0] != "")
+          <!-- Fin Filosofia -->
+          <!-- Inicio Redes -->
+          <div role="tabpanel" class="tab-pane" id="redes">
             <div class="panel panel-default">
               <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-gmail"></i> Gmail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $gmail->cuenta_1->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$gmail->cuenta_1->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-            @if($gmail->cuenta_2->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-gmail"></i> Gmail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $gmail->cuenta_2->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$gmail->cuenta_2->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-            @if($gmail->cuenta_3->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-gmail"></i> Gmail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $gmail->cuenta_3->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$gmail->cuenta_3->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-            @if($gmail->cuenta_4->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-gmail"></i> Gmail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $gmail->cuenta_4->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$gmail->cuenta_4->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
 
-            @if($gmail->cuenta_5->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-gmail"></i> Gmail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $gmail->cuenta_5->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$gmail->cuenta_5->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-            <?php
-            $zohomail = json_decode($data->empresa->zohomail);
-            ?>  
+             @include('empresas.extras_empresas.redes_perfil')
 
-
-            @if ($zohomail->cuenta_1->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_1->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_1->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if ($zohomail->cuenta_2->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Facebook</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_2->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_2->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if ($zohomail->cuenta_3->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_3->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_3->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if ($zohomail->cuenta_4->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_4->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_4->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if ($zohomail->cuenta_5->usuario[0] != "")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_5->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_5->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if (!empty($zohomail->cuenta_6->usuario[0] ))
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_6->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_6->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if (!empty($zohomail->cuenta_7->usuario[0]))
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_7->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_7->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if (!empty($zohomail->cuenta_8->usuario[0]))
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_8->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_8->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if (!empty($zohomail->cuenta_9->usuario[0]))
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_9->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_9->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            @if (!empty($zohomail->cuenta_10->usuario[0]))
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-mail-5"></i> Zohomail</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$zohomail->cuenta_10->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$zohomail->cuenta_10->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-
-            <?php 
-            $facebook = json_decode($data->empresa->facebook);
-            ?>
-            @if ($facebook->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-facebook-4"></i> Facebook</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $facebook->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!! $facebook->contraseña[0] !!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* TWITTER */
-            $twitter = json_decode($data->empresa->twitter); ?>
-            @if ($twitter->usuario[0]!="")           
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-twitter-3"></i> Twitter</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $twitter->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!! $twitter->contraseña[0] !!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* YOUTUBE */
-            $youtube = json_decode($data->empresa->youtube); 
-            ?>
-            @if ($youtube->usuario[0]!="")    
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-youtube-2"></i> Youtube</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $youtube->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!! $youtube->contraseña[0] !!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* Instagram */
-            $instagram = json_decode($data->empresa->instagram); 
-            ?>
-            @if ($instagram->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-instagram-1"></i> Instagram</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!! $instagram->usuario[0] !!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$instagram->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* Linkedin */
-            $linkedin = json_decode($data->empresa->linkedin); 
-            ?>
-            @if ($linkedin->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-linkedin-3"></i> Linkedin</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$linkedin->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$linkedin->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* Pinterest */
-            $pinterest = json_decode($data->empresa->pinterest); 
-            ?>
-            @if ($pinterest->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-pinterest-2"></i> Pinterest</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$linkedin->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$linkedin->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* Pinterest */
-            $hootsuite = json_decode($data->empresa->hootsuite); 
-            ?>
-            @if ($hootsuite->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-website"></i> Hootsuite</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$hootsuite->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$hootsuite->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* AMARILLAS INTERNET */
-            $amarillas_internet = json_decode($data->empresa->amarillas_internet); 
-            ?>          
-            @if ($amarillas_internet->usuario[0]!="")
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-fire-3"></i> A.I</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$amarillas_internet->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$amarillas_internet->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* PHOTOSNACK */
-            $photosnack = json_decode($data->empresa->photosnack); 
-            ?> 
-            @if ($photosnack->usuario[0]!="")  
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-camera-alt"></i> Photosnack</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-5">
-                  <h4>{!!$photosnack->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>{!!$photosnack->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-
-            <?php /* FTP */
-            $ftp = json_decode($data->empresa->ftp); 
-            ?> 
-
-            @if ($ftp->usuario[0]!="") 
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="col-md-3">
-                  <h4><i class="icon-server"></i> FTP</h4>
-                  <p>Red</p>
-                </div>
-                <div class="col-md-3">
-                  <h4>{!!$ftp->server[0]!!}</h4>
-                  <p>Server</p>
-                </div>
-                <div class="col-md-3">
-                  <h4>{!!$ftp->usuario[0]!!}</h4>
-                  <p>Usuario</p>
-                </div>
-                <div class="col-md-3">
-                  <h4>{!!$ftp->contraseña[0]!!}</h4>
-                  <p>Contraseña</p>
-                </div>
-              </div>
-            </div>
-            @endif
-          </div>
-        </div>
-      </div>
-      <!-- Fin Redes -->
-      <!-- Inicio Contrataciones -->
-      <div role="tabpanel" class="tab-pane" id="contrataciones">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div role="tabpanel" class="tab-pane" id="contrataciones">
-              <div class="pull-left">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <label class="sr-only" for=""></label>
-                    <input type="text" class="form-control" id="" placeholder="Inicio">
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for=""></label>
-                    <input type="text" class="form-control" id="" placeholder="Final">
-                  </div>
-                  <button type="submit" class="btn btn-default">Filtrar</button>
-                </form>
-              </div>
-              <div class="pull-right">
-               <button class="btn btn-md btn-primary" data-toggle="modal" href='#modal-service'>Agregar un servicio</button> 
              </div>
-             <br><br><br>
-           </div><br>
-           <div id="contenedor_servicios_empresa" class="col-md-12">
+           </div>
+         </div>
+         <!-- Fin Redes -->
+         <!-- Inicio Contrataciones -->
+         <div role="tabpanel" class="tab-pane" id="contrataciones">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div role="tabpanel" class="tab-pane" id="contrataciones">
+                <div class="pull-left">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label class="sr-only" for=""></label>
+                      <input type="text" class="form-control" id="" placeholder="Inicio">
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for=""></label>
+                      <input type="text" class="form-control" id="" placeholder="Final">
+                    </div>
+                    <button type="submit" class="btn btn-default">Filtrar</button>
+                  </form>
+                </div>
+                <div class="pull-right">
+                 <button class="btn btn-md btn-primary" data-toggle="modal" href='#modal-service'>Agregar un servicio</button> 
+               </div>
+               <br><br><br>
+             </div><br>
+             <div id="contenedor_servicios_empresa" class="col-md-12">
+
+             </div>
+           </div>
+
+
+         </div>
+       </div>
+
+       <!-- Fin Contrataciones -->
+
+       @if ($data->empresa->administracion =="1")
+
+       <!-- Inicio Costos -->
+
+       <div role="tabpanel" class="tab-pane" id="costos">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <div class="pull-left">
+              <form class="form-inline">
+                <div class="form-group">
+                  <label class="sr-only" for=""></label>
+                  <input type="text" class="form-control" id="" placeholder="Inicio">
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for=""></label>
+                  <input type="text" class="form-control" id="" placeholder="Final">
+                </div>
+                <button type="submit" class="btn btn-default">Filtrar</button>
+              </form>
+            </div>
+
+            <div class="pull-right">
+             <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
+           </div>
+           <br><br><br>
+           <br>
+           <div id="contenedor_costos_empresa" class="col-md-12">
 
            </div>
          </div>
-
-
        </div>
      </div>
 
-     <!-- Fin Contrataciones -->
+     <!-- Fin Costos -->
 
-     @if ($data->empresa->administracion =="1")
 
-     <!-- Inicio Costos -->
+     @endif
 
-     <div role="tabpanel" class="tab-pane" id="costos">
+     <div role="tabpanel" class="tab-pane" id="documentos">
       <div class="panel panel-default">
         <div class="panel-body">
-
-          <div class="pull-left">
-            <form class="form-inline">
-              <div class="form-group">
-                <label class="sr-only" for=""></label>
-                <input type="text" class="form-control" id="" placeholder="Inicio">
-              </div>
-              <div class="form-group">
-                <label class="sr-only" for=""></label>
-                <input type="text" class="form-control" id="" placeholder="Final">
-              </div>
-              <button type="submit" class="btn btn-default">Filtrar</button>
-            </form>
-          </div>
-
-          <div class="pull-right">
-           <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
+         <div class="pull-right">
+           <!-- Button trigger modal -->
+           <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
+             <i class="icon-plus"></i> Agregar un documento
+           </button>
          </div>
-         <br><br><br>
-         <br>
-         <div id="contenedor_costos_empresa" class="col-md-12">
+         <br><br><br><br>
 
-         </div>
-       </div>
-     </div>
-   </div>
+         <!-- Modal -->
+         <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="icon-upload"></i> Subir Documento</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                 {!!Form::open(array('action' => 'DocumentosController@GuardarDocumentoEmpresa', 'method' => 'post', 'id' => 'form-guardar-documento-cliente','files'=>true));!!}
+                 <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
 
-   <!-- Fin Costos -->
+                 <div class="col-md-12"> 
+                   <div class="col-md-12"> <br> 
+                     <input type="text"  name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
+                   </div>
+                   <div class="col-md-12"> <br>                     
+                    <input type="file" name="archivo" id=""  class="form-control material" value="" required="required">
+                  </div>
+                  <br><br>
+                </div>                
 
-
-   @endif
-
-   <div role="tabpanel" class="tab-pane" id="documentos">
-    <div class="panel panel-default">
-      <div class="panel-body">
-       <div class="pull-right">
-         <!-- Button trigger modal -->
-         <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
-           <i class="icon-plus"></i> Agregar un documento
-         </button>
-       </div>
-       <br><br><br><br>
-
-       <!-- Modal -->
-       <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel"><i class="icon-upload"></i> Subir Documento</h4>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-               {!!Form::open(array('action' => 'DocumentosController@GuardarDocumentoEmpresa', 'method' => 'post', 'id' => 'form-guardar-documento-cliente','files'=>true));!!}
-               <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-
-               <div class="col-md-12"> 
-                 <div class="col-md-12"> <br> 
-                   <input type="text"  name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
-                 </div>
-                 <div class="col-md-12"> <br>                     
-                  <input type="file" name="archivo" id=""  class="form-control material" value="" required="required">
+                <div class="col-md-12" style="margin-top: 10px">
+                  <textarea name="descripcion" id="" cols="5" rows="4" class="material form-control"></textarea>
                 </div>
-                <br><br>
-              </div>                
-
-              <div class="col-md-12" style="margin-top: 10px">
-                <textarea name="descripcion" id="" cols="5" rows="4" class="material form-control"></textarea>
               </div>
             </div>
-          </div>
 
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-            <button type="submit" id="" class="btn btn-primary">Guardar Documento</button>
-            {!! Form::close() !!}              
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+              {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+              <button type="submit" id="" class="btn btn-primary">Guardar Documento</button>
+              {!! Form::close() !!}              
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div id="contenedor_documentos_empresa" class="col-md-12">
+      <div id="contenedor_documentos_empresa" class="col-md-12">
 
 
 {{--       <div class="content-box small-box">
@@ -1637,7 +1020,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <!-- END Archivo Cliente -->
 
 {{--  --}}
@@ -1912,7 +1295,8 @@ function load_modal_cartera(){
   });
 </script>
 
-
+<script src="{!! URL::to('/') !!}/js/vendor.js"></script>
+<script src="{!! URL::to('/') !!}/js/profile-vue.js"></script>
 
 
 

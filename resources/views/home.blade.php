@@ -7,9 +7,6 @@
 
 <div id="app-home">
 	<div class="row">
-	<pre>
-		@{{mensaje_correo|json}}
-	</pre>
 		<div class="col-lg-12">
 			<div class="tabbable white-bg box-shadow vertical-tabs" id="tenth-tabs">
 				<div class="row">
@@ -236,7 +233,7 @@
 											<img v-bind:src="'/uploads/fotos/'+tarjeta.fotografia" class="img-responsive img-circle" width="40px" alt=""> <br>												<br>
 											<p class="text-note col-lg-12">@{{tarjeta.mensaje}}</p>
 											<span class="pull-right" title="@{{tarjeta.created_at | DateSmall}}">@{{tarjeta.created_at | DateSmall}}</span></div>
-											<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger" @click="delete_note(tarjeta.id)"><i class="icon-cancel-2"></i></button><button @click="EnviarRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)" type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>  <button type="button" class="btn btn-xs btn-primary" @click="EditAnotacion(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
+											<div class="panel-footer cam-panel-footer"><button type="button" class="btn btn-xs btn-danger" @click="delete_note(tarjeta.id)"><i class="icon-cancel-2"></i></button><button @click="EnviarAnotacion(tarjeta.id,tarjeta.tipo_anotacion)" type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>  <button type="button" class="btn btn-xs btn-primary" @click="EditAnotacion(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
 										</div>
 									</div>
 									<div class="clearfix"></div>
@@ -277,7 +274,7 @@
 													<br>
 													<p class="text-note col-lg-12">@{{tarjeta.mensaje}}</p>
 													<span class="pull-right" title="@{{tarjeta.created_at | DateSmall}}">@{{tarjeta.created_at | DateSmall}}</span></div>
-													<div class="panel-footer cam-panel-footer"><button  @click="delete_note(tarjeta.id)" type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
+													<div class="panel-footer cam-panel-footer"><button  @click="delete_note(tarjeta.id)" type="button" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>       <button  @click="EnviarRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)" type="button" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary" @click="EditRecordatorio(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i> Editar</button></div>
 												</div>
 											</div>
 										</div>
@@ -319,7 +316,9 @@
 												</div>
 												<div class="panel-footer cam-panel-footer"><button type="button"  @click="delete_note(tarjeta.id)" class="btn btn-xs btn-danger"><i class="icon-cancel-2"></i></button>
 													<button type="button" @click="EnviarCobro(tarjeta.id,tarjeta.tipo_anotacion)" class="btn btn-xs btn-primary"><i class="icon-mail"></i> Enviar</button>   <button type="button" class="btn btn-xs btn-primary"  @click="EditCobro(tarjeta.id,tarjeta.tipo_anotacion)"><i class="icon-pencil-2"></i>Editar</button>
-													<button type="button" class="btn btn-xs btn-success pull-right"><i class="icon-upload"></i> Reportar</button>
+													
+													<button v-if="tarjeta.estado == 1" type="button" class="btn btn-xs btn-success pull-right" @click="ReportarCobro(tarjeta.id,tarjeta.serial,tarjeta.id_perfil)"><i class="icon-check-1"></i> Reportar</button>
+
 												</div>
 											</div>
 										</div>

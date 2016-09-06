@@ -20,7 +20,7 @@ Route::get('api/card/{id}', [
 	'uses' => 'ApiController@ShowCard'
 	]);
 Route::post('card/update',[
-	'middleware' => 'auth',
+	'middleware' => ['auth','web','validarcartera','validarserial'],
 	'as'   => 'card.update', 
 	'uses' => 'ApiAsteroidController@ActualizarTarjeta'
 	]);
@@ -43,3 +43,12 @@ Route::get('api/finanzas',[
 
 Route::patch('/card/{id}', ['as' => 'card.update', 'uses'=>'ApiAsteroidController@update']);
 Route::resource('card', 'ApiAsteroidController');
+
+
+/* PERFIL EMPRESA*/
+
+Route::get('asteroid/company/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'profile.id', 
+	'uses' => 'ApiAsteroidController@ShowProfile'
+	]);
