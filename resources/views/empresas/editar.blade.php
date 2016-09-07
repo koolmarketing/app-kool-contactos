@@ -45,16 +45,18 @@ $prestashop       = json_decode($data_actual->prestashop);
 $foto             = $data_actual->foto;
 $fecha_fundacion  = $data_actual->fecha_fundacion;
 $servicios        = json_decode($data_actual->servicios);
-$sector           = json_decode($data_actual->sector);
+$sector           = $data_actual->sector;
 $rango           = $data_actual->rango;
+$tipo_empresa     = $data_actual->tipo_empresa;
+$numero_empleados = $data_actual->numero_empleados;
  //var_dump($gmail);
 ?>
 
 
 <div class="container-fluid">
-<pre>
-  {!! var_dump($gmail) !!}
-</pre>
+  {{-- <pre>
+    {!! var_dump($gmail) !!}
+  </pre> --}}
   <div class="col-md-8 col-md-offset-2">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -112,124 +114,186 @@ $rango           = $data_actual->rango;
                       <input type="text" name="nit" class="form-control material" id="" placeholder="">
                       <p class="help-text">NIT</p>
                     </div>
-                    <div class="form-group col-md-6">
-                      <select  id="servicios" name="servicios[]" class="form-control material" multiple="multiple">
-                        <optgroup label="Arte y Marketing">
-                          <option value="Diseño Gráfico">Diseño Gráfico</option>
-                          <option value="Editor">Editor</option>
-                          <option value="Fotógrafo">Fotógrafo</option>
-                          <option value="Radiodifusión y Producción">Radiodifusión y Producción</option>
-                          <option value="Servicio de Entretenimiento">Servicio de Entretenimiento</option>
-                        </optgroup>
-                        <optgroup label="Bricolage">
-                          <option value="Artículos de Cocina">Artículos de Cocina</option>
-                          <option value="Caravanas">Caravanas</option>
-                          <option value="Centro de jardinería">Centro de jardinería</option>
-                          <option value="Colchones y ropa de cama">Colchones y ropa de cama</option>
-                          <option value="Contratista">Contratista</option>
-                          <option value="Decoración de interiores">Decoración de interiores</option>
-                          <option value="Diseñador de interiores">Diseñador de interiores</option>
-                          <option value="Electricista">Electricista</option>
-                          <option value="Mudanza">Mudanza</option>
-                          <option value="Paisajismo">Paisajismo</option>
-                          <option value="Pintor">Pintor</option>
-                          <option value="Plomero">Plomero</option>
-                          <option value="Servicio de limpieza">Servicio de limpieza</option>
-                          <option value="Terrazas y patios">Terrazas y patios</option>
-                          <option value="Utensilios domésticos">Utensilios domésticos</option>
-                        </optgroup>
-                        <optgroup label="Medicina y Salud">
-                          <option value="Atención prenatal y partos">Atención prenatal y partos</option>
-                          <option value="Cirugía plástica">Cirugía plástica</option>
-                          <option value="Clínica">Clínica</option>
-                          <option value="Consulta psicológica y salud">Consulta psicológica y salud</option>
-                          <option value="Dentista">Dentista</option>
-                          <option value="Doctor">Doctor</option>
-                          <option value="Farmacia">Farmacia</option>
-                          <option value="Hospital">Hospital</option>
-                          <option value="Medicina alternativa">Medicina alternativa</option>
-                          <option value="Nutricionista">Nutricionista</option>
-                          <option value="Salud de la mujer">Salud de la mujer</option>
-                          <option value="Terapeuta físico">Terapeuta físico</option>
-                        </optgroup>
-                        <optgroup label="Organización de eventos">
-                          <option value="Animador">Animador</option>
-                          <option value="Bandas y músicos">Bandas y músicos</option>
-                          <option value="DJ">DJ</option>
-                          <option value="Organización de bodas">Organización de bodas</option>
-                          <option value="Organización de eventos">Organización de eventos</option>
-                          <option value="Salón de eventos">Salón de eventos</option>
-                          <option value="Servicio de comidas a domicilio">Servicio de comidas a domicilio</option>
-                        </optgroup>
-                        <optgroup label="Sector Automotriz">
-                          <option value="Autopartes y accesorios">Autopartes y accesorios</option>
-                          <option value="Autos de Carreras">Autos de Carreras</option>
-                          <option value="Concesionaria">Concesionaria</option>
-                          <option value="Lavado y encerado de autos">Lavado y encerado de autos</option>
-                          <option value="Motocicletas">Motocicletas</option>
-                          <option value="Personalización de automóviles">Personalización de automóviles</option>
-                          <option value="Reparación automotriz">Reparación automotriz</option>
-                        </optgroup>
-                        <optgroup label="Servicio para mascotas">
-                          <option value="Caballos">Caballos</option>
-                          <option value="Criador de mascotas">Criador de mascotas</option>
-                          <option value="Entrenamiento de perros">Entrenamiento de perros</option>
-                          <option value="Peluquería para mascotas">Peluquería para mascotas</option>
-                          <option value="Refugio de animales">Refugio de animales</option>
-                          <option value="Tienda de mascotas">Tienda de mascotas</option>
-                          <option value="Veterinario">Veterinario</option>
-                        </optgroup>
-                        <optgroup label="Servicio de estilo de vida">
-                          <option value="Autopartes y accesorios">Autopartes y accesorios</option>
-                          <option value="Autos de carreras">Autos de carreras</option>
-                          <option value="Cuidado de niños">Cuidado de niños</option>
-                          <option value="Entrenamiento personal"></option>
-                          <option value="Psíquico">Psíquico</option>
-                          <option value="Servicio de citas">Servicio de citas</option>
-                        </optgroup>
-                        <optgroup label="Servicios empresariales">
-                          <option value="Agencia de empleos">Agencia de empleos</option>
-                          <option value="Asesor comercial">Asesor comercial</option>
-                          <option value="Proveedor de servicios de internet">Proveedor de servicios de internet</option>
-                          <option value="Servicio de entretenimieno">Servicio de entretenimieno</option>
-                          <option value="Servicio de impresión">Servicio de impresión</option>
-                          <option value="Servicio de publicidad">Servicio de publicidad</option>
-                          <option value="Servicio de transporte">Servicio de transporte</option>
-                          <option value="Servicio de informática">Servicio de informática</option>  
-                        </optgroup>
-                        <optgroup label="Servicios financieros">
-                          <option value="Agente de seguros">Agente de seguros</option>
-                          <option value="Agentes hipotecarios">Agentes hipotecarios</option>
-                          <option value="Contador">Contador</option>
-                          <option value="Intercambio de divisas">Intercambio de divisas</option>
-                          <option value="Planificación financiera">Planificación financiera</option>
-                          <option value="Preparación de la declaración de renta"></option>
-                          <option value="Préstamos">Préstamos</option>
-                        </optgroup>
-                        <optgroup label="Spa, belleza y cuidado personal">
-                          <option value="Cosmeticos y productos de belleza">Cosmeticos y productos de belleza</option>
-                          <option value="Cuidado de la piel">Cuidado de la piel</option>
-                          <option value="Estética">Estética</option>
-                          <option value="Masaje">Masaje</option>
-                          <option value="Peluquería">peluquería</option>
-                          <option value="Salón de belleza">Salón de belleza</option>
-                          <option value="Salón de uñas">Salón de uñas</option>
-                          <option value="Spa">Spa</option>
-                          <option value="Tatuajes y piercings"></option>
-                        </optgroup>
 
+                    <div class="form-group col-md-3">
+                      <select name="numero_empleados" id="numero_empleados" class="form-control material">
+                        <option value=""></option>
+                        <option value="A">1</option>
+                        <option value="B">2-10</option>
+                        <option value="C">51-200</option>
+                        <option value="D">201-500</option>
+                        <option value="E">501-1000</option>
+                        <option value="F">1001-5000</option><option value="G">5001-10000</option>
+                        <option value="H">+10001</option>
                       </select>
-                      <p class="help-text">Servicios</p>
+                      <p class="help-text">Tamaño de la Empresa</p> 
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                      <select name="tipo_empresa" id="tipo_empresa" class="form-control material">
+                        <option value=""></option>
+                        <option value="C">Empresa pública</option>
+                        <option value="D">Educativa</option>
+                        <option value="E">Autónomo</option>
+                        <option value="G">Organismo gubernamental</option>
+                        <option value="N">Organización sin ánimo de lucro</option>
+                        <option value="O">Empresa propia</option>
+                        <option value="P">De financiación privada</option>
+                        <option value="S">Asociación</option>
+                      </select>
+                      <p class="help-text">Tipo de Empresa</p>
                     </div>
 
                     <div class="form-group col-md-6">
                       <select id="sector" name="sector" class="form-control material">
-                        @foreach ($data->sectores as $sectores)
-                        <option value="{!! $sectores->nombre !!}">{!! $sectores->nombre !!}</option>
-                        @endforeach
+                        <option value=""></option>
+                        <option value="BANKING">Actividades bancarias</option>
+                        <option value="GOVERNMENT_ADMINISTRATION">Administración gubernamental</option>
+                        <option value="AIRLINES_AVIATION">Aeronáutica/Aviación</option>
+                        <option value="FARMING">Agricultura</option>
+                        <option value="FOOD_AND_BEVERAGES">Alimentación y bebidas</option>
+                        <option value="WAREHOUSING">Almacenamiento</option>
+                        <option value="ANIMATION">Animación</option>
+                        <option value="GAMBLING_AND_CASINOS">Apuestas y casinos</option>
+                        <option value="ARCHITECTURE_AND_PLANNING">Arquitectura y planificación</option>
+                        <option value="ARTS_AND_CRAFTS">Artesanía</option>
+                        <option value="PERFORMING_ARTS">Artes interpretativas</option>
+                        <option value="CONSUMER_GOODS">Artículos de consumo</option>
+                        <option value="LUXURY_GOODS_AND_JEWELRY">Artículos de lujo y joyas</option>
+                        <option value="SPORTING_GOODS">Artículos deportivos</option>
+                        <option value="INTERNATIONAL_AFFAIRS">Asuntos internacionales</option>
+                        <option value="MENTAL_HEALTH_CARE">Atención a la salud mental</option>
+                        <option value="HOSPITAL_AND_HEALTH_CARE">Atención sanitaria y hospitalaria</option>
+                        <option value="INDUSTRIAL_AUTOMATION">Automación industrial</option>
+                        <option value="INVESTMENT_BANKING_AND_VENTURE">Banca de inversiones</option>
+                        <option value="FINE_ART">Bellas Artes</option>
+                        <option value="LIBRARIES">Bibliotecas</option>
+                        <option value="REAL_ESTATE">Bienes inmobiliarios</option>
+                        <option value="COMMERCIAL_REAL_ESTATE">Bienes inmuebles comerciales</option>
+                        <option value="BIOTECHNOLOGY">Biotecnología</option>
+                        <option value="VENTURE_CAPITAL">Capital de riesgo</option>
+                        <option value="CONSTRUCTION">Construcción</option>
+                        <option value="SHIPBUILDING">Construcción naval</option>
+                        <option value="MANAGEMENT_CONSULTING">Consultoría de estrategia y operaciones</option>
+                        <option value="ACCOUNTING">Contabilidad</option>
+                        <option value="COSMETICS">Cosmética</option>
+                        <option value="GLASS_CERAMICS_AND_CONCRETE">Cristal, cerámica y hormigón</option>
+                        <option value="LAW_ENFORCEMENT">Cumplimiento de la ley</option>
+                        <option value="DEFENSE_AND_SPACE">Departamento de defensa y del espacio exterior</option>
+                        <option value="SPORTS">Deportes</option>
+                        <option value="LAW_PRACTICE">Derecho</option>
+                        <option value="PROGRAM_DEVELOPMENT">Desarrollo de programación</option>
+                        <option value="INTERNATIONAL_TRADE_AND_DEVELOPMENT">Desarrollo y comercio internacional</option>
+                        <option value="DESIGN">Diseño</option>
+                        <option value="GRAPHIC_DESIGN">Diseño gráfico</option>
+                        <option value="MEDICAL_DEVICE">Dispositivos médicos</option>
+                        <option value="STAFFING_AND_RECRUITING">Dotación y selección de personal</option>
+                        <option value="ONLINE_PUBLISHING">Edición en línea</option>
+                        <option value="PRIMARY_SECONDARY">Educación primaria/secundaria</option>
+                        <option value="MILITARY">Ejército</option><option value="E_LEARNING">E-learning</option>
+                        <option value="CONSUMER_ELECTRONICS">Electrónica de consumo</option>
+                        <option value="PACKAGING_AND_CONTAINERS">Embalaje y contenedores</option>
+                        <option value="RENEWABLES_AND_ENVIRONMENT">Energía renovable y medio ambiente</option>
+                        <option value="HIGHER_EDUCATION">Enseñanza superior</option>
+                        <option value="ENTERTAINMENT">Entretenimiento</option>
+                        <option value="PACKAGE_AND_FREIGHT_DELIVERY">Envío de paquetes y carga</option>
+                        <option value="COMPUTER_HARDWARE">Equipo informático</option>
+                        <option value="PHILANTHROPY">Filantropía</option>
+                        <option value="PROFESSIONAL_TRAINING">Formación profesional</option>
+                        <option value="PHOTOGRAPHY">Fotografía</option>
+                        <option value="THINK_TANKS">Gabinetes estratégicos</option>
+                        <option value="RANCHING">Ganadería</option>
+                        <option value="INVESTMENT_MANAGEMENT">Gestión de inversiones</option>
+                        <option value="NON_PROFIT_ORGANIZATION_MANAGEMENT">Gestión de organizaciones sin ánimo de lucro</option>
+                        <option value="EDUCATION_MANAGEMENT">Gestión educativa</option>
+                        <option value="HOSPITALITY">Hostelería</option>
+                        <option value="IMPORT_AND_EXPORT">Importar y exportar</option>
+                        <option value="PRINTING">Imprenta</option>
+                        <option value="AVIATION_AND_AEROSPACE">Industria aeroespacial y aviación</option>
+                        <option value="PHARMACEUTICALS">Industria farmacéutica</option>
+                        <option value="APPAREL_AND_FASHION">Industria textil y moda</option>
+                        <option value="CIVIL_ENGINEERING">Ingeniería civil</option>
+                        <option value="MECHANICAL_OR_INDUSTRIAL_ENGINEERING">Ingeniería industrial o mecánica</option>
+                        <option value="RECREATIONAL_FACILITIES_AND_SERVICES">Instalaciones y servicios de recreo</option>
+                        <option value="RELIGIOUS_INSTITUTIONS">Instituciones religiosas</option>
+                        <option value="COMPUTER_NETWORKING">Interconexión en red</option>
+                        <option value="INTERNET">Internet</option>
+                        <option value="RESEARCH">Investigación</option>
+                        <option value="MARKET_RESEARCH">Investigación de mercado</option>
+                        <option value="JUDICIARY">Judicial</option><option value="DAIRY">Lácteos</option>
+                        <option value="LOGISTICS_AND_SUPPLY_CHAIN">Logística y cadena de suministro</option>
+                        <option value="ELECTRICAL_AND_ELECTRONIC_MANUFACTURING">Manufactura eléctrica y electrónica</option>
+                        <option value="RAILROAD_MANUFACTURE">Manufactura ferroviaria</option>
+                        <option value="MACHINERY">Maquinaria</option>
+                        <option value="MARKETING_AND_ADVERTISING">Marketing y publicidad</option>
+                        <option value="BUILDING_MATERIALS">Materiales de construcción</option>
+                        <option value="BUSINESS_SUPPLIES_AND_EQUIPMENT">Material y equipo de negocios</option>
+                        <option value="ALTERNATIVE_MEDICINE">Medicina alternativa</option>
+                        <option value="BROADCAST_MEDIA">Medios de difusión</option>
+                        <option value="CAPITAL_MARKETS">Mercados capitales</option>
+                        <option value="MINING_AND_METALS">Minería y metalurgia</option>
+                        <option value="FURNITURE">Mobiliario</option>
+                        <option value="MUSEUMS_AND_INSTITUTIONS">Museos e instituciones</option>
+                        <option value="MUSIC">Música</option><option value="NANOTECHNOLOGY">Nanotecnología</option>
+                        <option value="MARITIME">Naval</option><option value="LEISURE_AND_TRAVEL">Ocio y viajes</option>
+                        <option value="EXECUTIVE_OFFICE">Oficina ejecutiva</option>
+                        <option value="LEGISLATIVE_OFFICE">Oficina legislativa</option>
+                        <option value="CIVIC_AND_SOCIAL_ORGANIZATION">Organización cívica y social</option>
+                        <option value="POLITICAL_ORGANIZATION">Organización política</option>
+                        <option value="MOTION_PICTURES_AND_FILM">Películas y cine</option>
+                        <option value="NEWSPAPERS">Periódicos</option>
+                        <option value="OIL_AND_ENERGY">Petróleo y energía</option>
+                        <option value="FISHERY">Piscicultura</option>
+                        <option value="PLASTICS">Plásticos</option>
+                        <option value="PUBLIC_POLICY">Política pública</option>
+                        <option value="FOOD_PRODUCTION">Producción alimentaria</option>
+                        <option value="MEDIA_PRODUCTION">Producción multimedia</option>
+                        <option value="PAPER_AND_FOREST_PRODUCTS">Productos de papel y forestales</option>
+                        <option value="CHEMICALS">Productos químicos</option>
+                        <option value="MEDICAL_PRACTICE">Profesiones médicas</option>
+                        <option value="COMPUTER_SOFTWARE">Programas informáticos</option>
+                        <option value="PUBLIC_SAFETY">Protección civil</option>
+                        <option value="PUBLISHING">Publicaciones</option>
+                        <option value="FUNDRAISING">Recaudación de fondos</option>
+                        <option value="HUMAN_RESOURCES">Recursos humanos</option>
+                        <option value="WRITING_AND_EDITING">Redacción y revisión</option>
+                        <option value="GOVERNMENT_RELATIONS">Relaciones gubernamentales</option>
+                        <option value="PUBLIC_RELATIONS">Relaciones públicas</option>
+                        <option value="ALTERNATIVE_DISPUTE_RESOLUTION">Resolución de conflicto por terceras partes</option>
+                        <option value="RESTAURANTS">Restaurantes</option>
+                        <option value="HEALTH_WELLNESS_AND_FITNESS">Sanidad, bienestar y buena condición física</option>
+                        <option value="AUTOMOTIVE">Sector automovilístico</option>
+                        <option value="TEXTILES">Sector textil</option>
+                        <option value="COMPUTER_AND_NETWORK_SECURITY">Seguridad del ordenador y de las redes</option>
+                        <option value="SECURITY_AND_INVESTIGATIONS">Seguridad e investigaciones</option>
+                        <option value="INSURANCE">Seguros</option><option value="SEMICONDUCTORS">Semiconductores</option>
+                        <option value="CONSUMER_SERVICES">Servicio al consumidor</option>
+                        <option value="INFORMATION_SERVICES">Servicio de información</option>
+                        <option value="EVENTS_SERVICES">Servicios de eventos</option>
+                        <option value="FINANCIAL_SERVICES">Servicios financieros</option>
+                        <option value="FACILITIES_SERVICES">Servicios infraestructurales</option>
+                        <option value="LEGAL_SERVICES">Servicios jurídicos</option>
+                        <option value="ENVIRONMENTAL_SERVICES">Servicios medioambientales</option>
+                        <option value="INDIVIDUAL_AND_FAMILY_SERVICES">Servicios para el individuo y la familia</option>
+                        <option value="UTILITIES">Servicios públicos</option>
+                        <option value="INFORMATION_TECHNOLOGY_AND_SERVICES">Servicios y tecnología de la información</option>
+                        <option value="OUTSOURCING_OFFSHORING">Subcontrataciones/Offshoring</option>
+                        <option value="SUPERMARKETS">Supermercados</option>
+                        <option value="TOBACCO">Tabaco</option><option value="WIRELESS">Tecnología inalámbrica</option>
+                        <option value="TELECOMMUNICATIONS">Telecomunicaciones</option>
+                        <option value="TRANSLATION_AND_LOCALIZATION">Traducción y localización</option>
+                        <option value="TRANSPORTATION_TRUCKING_AND_RAILROAD">Transporte por carretera o ferrocarril</option>
+                        <option value="WHOLESALE">Venta al por mayor</option>
+                        <option value="RETAIL">Venta al por menor</option>
+                        <option value="VETERINARY">Veterinaria</option>
+                        <option value="COMPUTER_GAMES">Videojuegos</option>
+                        <option value="WINE_AND_SPIRITS">Vino y licor</option>
                       </select>
                       <p class="help-text">Sector Economico</p>
                     </div>
+
+
                     <div class="col-lg-12">
                       <div class="form-group col-md-4">
                         <input type="text" class="form-control material" name="telefono_1" id="" placeholder="">
@@ -735,7 +799,7 @@ $rango           = $data_actual->rango;
 {!! HTML::script('vendor\picEdit-master\dist\js\picedit.min.js') !!}
 {!! HTML::script('vendor\bootstrap-tagsinput-latest\dist\bootstrap-tagsinput.js') !!}
 {!! HTML::script('js/mask.js') !!}
-{{-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> --}}
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 {!! HTML::script('vendor\select2-master\dist\js\select2.min.js') !!}
 {!! HTML::script('vendor/ubilabs-geocomplete-4124db8/jquery.geocomplete.min.js') !!}
 {!! HTML::script('bower_components/ion.rangeslider/js/ion.rangeSlider.min.js') !!}
@@ -744,9 +808,12 @@ $rango           = $data_actual->rango;
 
 <script>
   $(document).ready(function() {
-
-
     /* Valores e Intereses de la empresa */
+    @if ($tipo_empresa != "") 
+    var tipo_empresa = "<?php echo $tipo_empresa."."; ?>";
+    var t_empresa = tipo_empresa.split(".");
+    SelectSelect(t_empresa,"tipo_empresa");  
+    @endif
 
     @if ($sector != "")
     var sector = "<?php echo $sector."."; ?>";
@@ -754,16 +821,10 @@ $rango           = $data_actual->rango;
     SelectSelect(set,"sector");  
     @endif
 
-    @if ($servicios != "")
-    var servicios = "<?php foreach ($servicios as $servicio) {echo $servicio.".";} ?>";
-    var ser = servicios.split(".");
-    SelectSelect(ser,"servicios");
-    @endif
-
-    @if ($valores != "")
-    var valores = "<?php foreach ($valores as $valor) {echo $valor.".";} ?>";
-    var valores = valores.split(".");
-    SelectSelect(valores,"valores");
+    @if ($numero_empleados != "")
+    var numero_empleados = "<?php echo $numero_empleados."."; ?>";
+    var n_empleados = numero_empleados.split(".");
+    SelectSelect(n_empleados,"numero_empleados");  
     @endif
 
     @if ($intereses != "")
@@ -772,15 +833,20 @@ $rango           = $data_actual->rango;
     SelectSelect(intereses,"intereses");
     @endif
 
-    /*   funcion SelectSelect para Select2JS   */
+    @if ($valores != "")
+    var valores = "<?php foreach ($valores as $valor) {echo $valor.".";} ?>";
+    var valores = valores.split(".");
+    SelectSelect(valores,"valores");
+    @endif
+
+
+    /***   funcion SelectSelect para Select2JS   ***/
 
 
     function SelectSelect (arr,id_select) {
-
       var id_select = id_select;
       var select    = "#"+id_select+" option";
       var arr       = arr;
-
       $(select).each(function(){
         var val = $(this).val();
     //console.log(val);
@@ -795,7 +861,6 @@ $rango           = $data_actual->rango;
 
     }
 
-
     $("#range").ionRangeSlider({
       min: 0,
       max: 6,
@@ -806,10 +871,7 @@ $rango           = $data_actual->rango;
       { tags: true,
         tokenSeparators: [",", " "]}
         );
-    $("#sector").select2(
-        // { tags: true,
-        //   tokenSeparators: [",", " "]}
-        );
+    $("#sector").select2();
 
     $('#servicios').select2({
       tags: true,
@@ -837,40 +899,40 @@ $rango           = $data_actual->rango;
   var $logger = $("#logger");
   $logger.html($logger.html() + "\n * " + message );
 }
-// $(function(){
+$(function(){
 
-//   $("#geocomplete").geocomplete()
-//   .bind("geocode:result", function(event, result){
-//     $.log("Result: " + result.formatted_address);
-//   })
-//   .bind("geocode:error", function(event, status){
-//     $.log("ERROR: " + status);
-//   })
-//   .bind("geocode:multiple", function(event, results){
-//     $.log("Multiple: " + results.length + " results found");
-//   });
+  $("#geocomplete").geocomplete()
+  .bind("geocode:result", function(event, result){
+    $.log("Result: " + result.formatted_address);
+  })
+  .bind("geocode:error", function(event, status){
+    $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function(event, results){
+    $.log("Multiple: " + results.length + " results found");
+  });
 
-//   $("#find").click(function(){
-//     $("#geocomplete").trigger("geocode");
-//   });
+  $("#find").click(function(){
+    $("#geocomplete").trigger("geocode");
+  });
 
 
-//   $("#examples a").click(function(){
-//     $("#geocomplete").val($(this).text()).trigger("geocode");
-//     return false;
-//   });
-// });
+  $("#examples a").click(function(){
+    $("#geocomplete").val($(this).text()).trigger("geocode");
+    return false;
+  });
+});
 
 </script>
 <script>
 
  //Ocultar Botones 
 
-  $("body").on('click', '.btn-red-info', function(event) {
-    event.preventDefault();
-    var valueBoton = $(this).prop('DataId');
-    alert("Heyyyy ".valueBoton);
-  });
+ $("body").on('click', '.btn-red-info', function(event) {
+  event.preventDefault();
+  var valueBoton = $(this).prop('DataId');
+  alert("Heyyyy ".valueBoton);
+});
 
 </script>
 

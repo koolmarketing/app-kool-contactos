@@ -151,8 +151,126 @@ for (var i = 0; i < redes.length; i++) {
 </script>
 
 @if($gmail->cuenta_1->usuario[0] != "")
-
+<script>
+  $("#gmail_1").show(); obj_redes["gmail_1"].active=true;
+  $('[name="gmail_1[usuario][]"]').val('{!! $gmail->cuenta_1->usuario[0] !!}');
+  $('[name="gmail_1[contraseña][]"]').val('{!! $gmail->cuenta_1->contraseña[0] !!}');
+</script>
 @endif
+@if($gmail->cuenta_2->usuario[0] != "")
+<script>
+  $("#gmail_2").show(); obj_redes["gmail_2"].active=true;
+  $('[name="gmail_2[usuario][]"]').val('{!! $gmail->cuenta_2->usuario[0] !!}');
+  $('[name="gmail_2[contraseña][]"]').val('{!! $gmail->cuenta_2->contraseña[0] !!}');
+</script>
+@endif
+@if($gmail->cuenta_3->usuario[0] != "")
+<script>
+  $("#gmail_3").show(); obj_redes["gmail_3"].active=true;
+  $('[name="gmail_3[usuario][]"]').val('{!! $gmail->cuenta_3->usuario[0] !!}');
+  $('[name="gmail_3[contraseña][]"]').val('{!! $gmail->cuenta_3->contraseña[0] !!}');
+</script>
+@endif
+@if($gmail->cuenta_4->usuario[0] != "")
+<script>
+  $("#gmail_4").show(); obj_redes["gmail_4"].active=true;
+  $('[name="gmail_4[usuario][]"]').val('{!! $gmail->cuenta_4->usuario[0] !!}');
+  $('[name="gmail_4[contraseña][]"]').val('{!! $gmail->cuenta_4->contraseña[0] !!}');
+</script>
+@endif
+@if($gmail->cuenta_5->usuario[0] != "")
+<script>
+  $("#gmail_5").show(); obj_redes["gmail_5"].active=true;
+  $('[name="gmail_5[usuario][]"]').val('{!! $gmail->cuenta_5->usuario[0] !!}');
+  $('[name="gmail_5[contraseña][]"]').val('{!! $gmail->cuenta_5->contraseña[0] !!}');
+</script>
+@endif
+
+{{-- ZOHOMAIL LOAD --}}
+@if($zohomail->cuenta_1->usuario[0] != "")
+<script>
+  $("#zohomail_1").show(); obj_redes["zohomail_1"].active=true;
+  $('[name="zohomail_1[usuario][]"]').val('{!! $zohomail->cuenta_1->usuario[0] !!}');
+  $('[name="zohomail_1[contraseña][]"]').val('{!! $zohomail->cuenta_1->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_2->usuario[0] != "")
+<script>
+  $("#zohomail_2").show(); obj_redes["zohomail_2"].active=true;
+  $('[name="zohomail_2[usuario][]"]').val('{!! $zohomail->cuenta_2->usuario[0] !!}');
+  $('[name="zohomail_2[contraseña][]"]').val('{!! $zohomail->cuenta_2->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_3->usuario[0] != "")
+<script>
+  $("#zohomail_3").show(); obj_redes["zohomail_3"].active=true;
+  $('[name="zohomail_3[usuario][]"]').val('{!! $zohomail->cuenta_3->usuario[0] !!}');
+  $('[name="zohomail_3[contraseña][]"]').val('{!! $zohomail->cuenta_3->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_4->usuario[0] != "")
+<script>
+  $("#zohomail_4").show(); obj_redes["zohomail_4"].active=true;
+  $('[name="zohomail_4[usuario][]"]').val('{!! $zohomail->cuenta_4->usuario[0] !!}');
+  $('[name="zohomail_4[contraseña][]"]').val('{!! $zohomail->cuenta_4->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_5->usuario[0] != "")
+<script>
+  $("#zohomail_5").show(); obj_redes["zohomail_5"].active=true;
+  $('[name="zohomail_5[usuario][]"]').val('{!! $zohomail->cuenta_5->usuario[0] !!}');
+  $('[name="zohomail_5[contraseña][]"]').val('{!! $zohomail->cuenta_5->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_6->usuario[0] != "")
+<script>
+  $("#zohomail_6").show(); obj_redes["zohomail_6"].active=true;
+  $('[name="zohomail_6[usuario][]"]').val('{!! $zohomail->cuenta_6->usuario[0] !!}');
+  $('[name="zohomail_6[contraseña][]"]').val('{!! $zohomail->cuenta_6->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_7->usuario[0] != "")
+<script>
+  $("#zohomail_7").show(); obj_redes["zohomail_7"].active=true;
+  $('[name="zohomail_7[usuario][]"]').val('{!! $zohomail->cuenta_7->usuario[0] !!}');
+  $('[name="zohomail_7[contraseña][]"]').val('{!! $zohomail->cuenta_7->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_8->usuario[0] != "")
+<script>
+  $("#zohomail_8").show(); obj_redes["zohomail_8"].active=true;
+  $('[name="zohomail_8[usuario][]"]').val('{!! $zohomail->cuenta_8->usuario[0] !!}');
+  $('[name="zohomail_8[contraseña][]"]').val('{!! $zohomail->cuenta_8->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_9->usuario[0] != "")
+<script>
+  $("#zohomail_9").show(); obj_redes["zohomail_9"].active=true;
+  $('[name="zohomail_9[usuario][]"]').val('{!! $zohomail->cuenta_9->usuario[0] !!}');
+  $('[name="zohomail_9[contraseña][]"]').val('{!! $zohomail->cuenta_9->contraseña[0] !!}');
+</script>
+@endif
+@if($zohomail->cuenta_10->usuario[0] != "")
+<script>
+  $("#zohomail_10").show(); obj_redes["zohomail_10"].active=true;
+  $('[name="zohomail_10[usuario][]"]').val('{!! $zohomail->cuenta_10->usuario[0] !!}');
+  $('[name="zohomail_10[contraseña][]"]').val('{!! $zohomail->cuenta_10->contraseña[0] !!}');
+</script>
+@endif
+
+
+{{-- Otras Redes --}}
+
+@if($redes_adicionales->cuenta_1->usuario[0] != "")
+<script>
+  $("#red_adicional_1").show(); obj_redes["red_adicional_1"].active=true;
+  $('[name="red_adicional_1[url][]"]').val('{!! $redes_adicionales->cuenta_1->url[0] !!}');
+  $('[name="red_adicional_1[usuario][]"]').val('{!! $redes_adicionales->cuenta_1->usuario[0] !!}');
+  $('[name="red_adicional_1[contraseña][]"]').val('{!! $redes_adicionales->cuenta_1->contraseña[0] !!}');
+</script>
+@endif
+
+
 
 @if($facebook->usuario[0]!="")
 <script>
@@ -226,3 +344,22 @@ for (var i = 0; i < redes.length; i++) {
 </script>
 @else
 @endif
+
+@if($wordpress->usuario[0]!="")
+<script>
+  $("#wordpress").show(); obj_redes["wordpress"].active=true;
+  $('[name="wordpress[url][]"]').val('{!! $wordpress->url[0] !!}');
+  $('[name="wordpress[usuario][]"]').val('{!! $wordpress->usuario[0] !!}');
+  $('[name="wordpress[contraseña][]"]').val('{!! $wordpress->contraseña[0] !!}');
+</script>
+@endif
+
+@if($prestashop->usuario[0]!="")
+<script>
+  $("#prestashop").show(); obj_redes["prestashop"].active=true;
+  $('[name="prestashop[url][]"]').val('{!! $prestashop->url[0] !!}');
+  $('[name="prestashop[usuario][]"]').val('{!! $prestashop->usuario[0] !!}');
+  $('[name="prestashop[contraseña][]"]').val('{!! $prestashop->contraseña[0] !!}');
+</script>
+@endif
+

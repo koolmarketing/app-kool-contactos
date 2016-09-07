@@ -26,7 +26,7 @@ class ContactoController extends Controller
 {     
     public function index()
     {
-          
+
         $data = (object) array("page" => "Home");
         return view('home',['data' => $data]);
     }
@@ -125,7 +125,6 @@ class ContactoController extends Controller
         $redes_adicionales->cuenta_13 = $request->input('red_adicional_13');
         $NC->redes_adicionales = json_encode($redes_adicionales);
 
-
         #Redes
         //$NC->gmail               = json_encode($request->input('gmail'));
         //$NC->zohomail            = json_encode($request->input('zohomail'));
@@ -144,6 +143,7 @@ class ContactoController extends Controller
         $NC->photosnack          = json_encode($request->input('photosnack'));
         $NC->ftp                 = json_encode($request->input('ftp'));
 
+
         $NC->save();
         
         
@@ -154,11 +154,11 @@ class ContactoController extends Controller
     }
 
     public function UpdateCompany(Request $request){
-       $id=$request->input('id');
-       $NC = \App\Empresa::find($id);
-       $destinationPath = 'uploads/fotos/';
+     $id=$request->input('id');
+     $NC = \App\Empresa::find($id);
+     $destinationPath = 'uploads/fotos/';
 
-       if ($request->hasFile('foto')) {
+     if ($request->hasFile('foto')) {
         $file = $request->file('foto');
         $destinationPath = 'uploads/fotos';
         $extension = $file->getClientOriginalExtension();
@@ -214,9 +214,8 @@ class ContactoController extends Controller
     $zohomail->cuenta_10 = $request->input('zohomail_10');
     $NC->zohomail = json_encode($zohomail);
 
-        #Redes
-        //$NC->gmail               = json_encode($request->input('gmail'));
-        //$NC->zohomail            = json_encode($request->input('zohomail'));
+    $NC->prestashop            = json_encode($request->input('prestashop'));
+    $NC->wordpress             = json_encode($request->input('wordpress'));
 
     $NC->facebook            = json_encode($request->input('facebook'));
     $NC->twitter             = json_encode($request->input('twitter'));
@@ -229,6 +228,23 @@ class ContactoController extends Controller
     $NC->photosnack          = json_encode($request->input('photosnack'));
     $NC->ftp                 = json_encode($request->input('ftp'));
 
+
+    $redes_adicionales = (object) array();
+    $redes_adicionales->cuenta_1 =  $request->input('red_adicional_1');
+    $redes_adicionales->cuenta_2 =  $request->input('red_adicional_2');
+    $redes_adicionales->cuenta_3 =  $request->input('red_adicional_3');
+    $redes_adicionales->cuenta_4 =  $request->input('red_adicional_4');
+    $redes_adicionales->cuenta_5 =  $request->input('red_adicional_5');
+    $redes_adicionales->cuenta_6 =  $request->input('red_adicional_6');
+    $redes_adicionales->cuenta_7 =  $request->input('red_adicional_7');
+    $redes_adicionales->cuenta_8 =  $request->input('red_adicional_8');
+    $redes_adicionales->cuenta_9 =  $request->input('red_adicional_9');
+    $redes_adicionales->cuenta_10 = $request->input('red_adicional_10');
+    $redes_adicionales->cuenta_11 = $request->input('red_adicional_11');
+    $redes_adicionales->cuenta_12 = $request->input('red_adicional_12');
+    $redes_adicionales->cuenta_13 = $request->input('red_adicional_13');
+    $NC->redes_adicionales = json_encode($redes_adicionales);
+
     $NC->save();
     return redirect()->action('ContactoController@Empresas');
 
@@ -239,14 +255,14 @@ class ContactoController extends Controller
 public function NewCompany()
 {
 
- $sectores = app\Sertor_Economia::all();
+   $sectores = app\Sertor_Economia::all();
 
- $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
+   $intereses=["Crecer","Contratar","Capacitar","Expander","Conseguir Socios","Vender la empresa","Afianzar","Colaborar","Donar","Dar a Conocer","Reestructurar","Contruir / Edificar","Recapitalizar","Sostener","Mejorar Ingresos","Pagar Deudas","Liquidar","Comprar Maquinaría/Equipos", "Subcontratar"];
 
- $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
+   $valores = ["Exactitud","Respeto","Responsabilidad","logro","Compañerismo","Audacia","altruismo","Ambición","asertividad","Equilibrio","Siendo el mejor","perteneciente","audacia","calma","cuidado","desafío","alegría","compromiso","comunidad","compasión","Competitividad","consistencia","contribución","control","cooperación","exactitud","cortesía","creatiidad","curiosidad","La rapidez de decisión","democraticidad","Juicio","confianza","determinación","devoción","diligencia","disciplina","discreción","diversidad","dinamismo","economía","eficacia","eficiencia","elegancia","empatía","disfrute","entusiasmo","igualdad","excelencia","emoción","pericia","exploración","expresividad","justicia","fe","Familia","fidelidad","aptitud","fluidez","foco","libertad","divertido","generosidad","bondad","gracia","crecimiento","felicidad","Trabajo duro","Salud","Ayudar Sociedad","Santidad","honestidad","honor","Humildad","Independencia","ingenio","Armonía Interior","curiosidad","perspicacia","Inteligencia","Intelectual Estado","Intuición","Alegría","Justicia","Liderazgo","Legado","Amor","Lealtad","Marcar La Diferencia","Maestría","Mérito","obediencia","apertura","Solicitar","originalidad","Patriotismo","perfección","piedad","La positividad","sentido práctico","preparación","profesionalismo","prudencia","Calidad-orientación","confiabilidad","inventiva","restricción","Orientación a resultados","rigor","seguridad","La auto-realización","Autocontrol","desinterés","Confianza en sí mismo","sensibilidad","serenidad","servicio","sagacidad","sencillez","solvencia","velocidad","espontaneidad","estabilidad","estratégico","fuerza","estructura","éxito","apoyo","trabajo en equipo","templanza","gratitud","minuciosidad","consideración","oportunidad","tolerancia","tradicionalismo","integridad","Búsqueda de la verdad","comprensión","unicidad","unidad","utilidad","visión","vitalidad"];
 
- $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
- return view('empresas.nuevo',['data' => $data]);
+   $data = (object) array("page" => "Nueva Empresa","valores"=>$valores,"intereses"=>$intereses,"sectores"=>$sectores);
+   return view('empresas.nuevo',['data' => $data]);
 }
 public function Empresa ($id)
 {
@@ -261,11 +277,11 @@ public function GuardarClientes (Request $request) {
 
 
     if($request->ajax()) {  
-     $NP = new \App\Persona;
+       $NP = new \App\Persona;
 
-     $destinationPath = 'uploads/fotos/';
+       $destinationPath = 'uploads/fotos/';
 
-     if ($request->hasFile('foto')) {
+       if ($request->hasFile('foto')) {
         $file = $request->file('foto');
         $destinationPath = 'uploads/fotos';
         $extension = $file->getClientOriginalExtension();

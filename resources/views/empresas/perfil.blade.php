@@ -65,7 +65,7 @@
                   <div class="content-box small-box">
                    <div class="pull-left info">
 
-                    <h5> @{{data_empresa.sector}}</h5>  
+                    <h5> @{{data_empresa.sector | SectorEmpresa}}</h5>  
 
                     <span class="block">
                       <h5 class="text-uppercase zero-m"><i class="fa fa-building-o"></i> Sector</h5>
@@ -365,10 +365,30 @@
           <!-- Fin Filosofia -->
           <!-- Inicio Redes -->
           <div role="tabpanel" class="tab-pane" id="redes">
+
+            {{-- GRID --}}
+            <br>
+
+            <div id="columns">
+              
+              @include('empresas.extras_empresas.redes_perfil') 
+
+            </div>
+
+
+            {{-- GRID --}}
+
+
+
+
+
+
             <div class="panel panel-default">
               <div class="panel-body">
 
-             @include('empresas.extras_empresas.redes_perfil')
+
+
+               {{--   @include('empresas.extras_empresas.redes_perfil') --}}
 
              </div>
            </div>
@@ -1041,6 +1061,14 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.js"></script>
+<script>
+  $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>
 
 <script>
   $(function () {

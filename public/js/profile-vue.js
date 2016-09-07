@@ -1,9 +1,9 @@
 Vue.http.options.beforeSend = function(request) {
-    request.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+	request.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 };
 
 Vue.filter('reverse', function (value) {
-  return value.split('').reverse().join('')
+	return value.split('').reverse().join('')
 })
 
 Vue.filter('my-filter', function (value) {
@@ -141,16 +141,16 @@ filters: {
 	},
 	TipoEmpresa:function(value){
 		switch (value) {
-		case 'C': return "Empresa Pública";	break;
-		case 'D': return "Educativa";	break;
-		case 'E': return "Autónomo";	break;
-		case 'G': return "Organismo gubernamental";	break;
-		case 'N': return "Organismo sin ánimo de lucro";	break;
-		case 'O': return "Empresa propia";	break;
-		case 'P': return "De financiación privada";	break;
-		case 'S': return "Asociación";	break;
-		default: return false; break;
-	};
+			case 'C': return "Empresa Pública";	break;
+			case 'D': return "Educativa";	break;
+			case 'E': return "Autónomo";	break;
+			case 'G': return "Organismo gubernamental";	break;
+			case 'N': return "Organismo sin ánimo de lucro";	break;
+			case 'O': return "Empresa propia";	break;
+			case 'P': return "De financiación privada";	break;
+			case 'S': return "Asociación";	break;
+			default: return false; break;
+		};
 	},
 	SectorEmpresa:function(value){
 		switch (value) {
@@ -236,28 +236,73 @@ filters: {
 			case 'MACHINERY': return "Maquinaria";	break;
 			case 'MARKETING_AND_ADVERTISING': return "Marketing y publicidad";	break;
 			case 'BUILDING_MATERIALS': return "Materiales de construcción";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-			case '': return " ";	break;
-		
+			case 'BUSINESS_SUPPLIES_AND_EQUIPMENT': return "Material y equipo de negocios";	break;
+			case 'ALTERNATIVE_MEDICINE': return "Medicina alternativa";	break;
+			case 'BROADCAST_MEDIA': return "Medios de difusión";	break;
+			case 'CAPITAL_MARKETS': return "Mercados capitales";	break;
+			case 'MINING_AND_METALS': return "Minería y metalurgia";	break;
+			case 'FURNITURE': return "Mobiliario";	break;
+			case 'MUSEUMS_AND_INSTITUTIONS': return "Museos e instituciones";	break;
+			case 'MUSIC': return "Música";	break;
+			case 'NANOTECHNOLOGY': return "Nanotecnología";	break;
+			case 'MARITIME': return "Naval";	break;
+			case 'LEISURE_AND_TRAVEL': return "Ocio y viajes";	break;
+			case 'EXECUTIVE_OFFICE': return "Oficina ejecutiva";	break;
+			case 'LEGISLATIVE_OFFICE': return "Oficina legislativa";	break;
+			case 'CIVIC_AND_SOCIAL_ORGANIZATION': return "Organización cívica y social";	break;
+			case 'POLITICAL_ORGANIZATION': return "Organización política";	break;
+			case 'MOTION_PICTURES_AND_FILM': return "Películas y cine";	break;
+			case 'NEWSPAPERS': return "Periódicos";	break;
+			case 'OIL_AND_ENERGY': return "Petróleo y energía";	break;
+			case 'FISHERY': return "Piscicultura";	break;
+			case 'PLASTICS': return "Plásticos";	break;
+			case 'PUBLIC_POLICY': return "Política pública";	break;
+			case 'FOOD_PRODUCTION': return "Producción alimentaria";	break;
+			case 'MEDIA_PRODUCTION': return "Producción multimedia";	break;
+			case 'PAPER_AND_FOREST_PRODUCTS': return "Productos de papel y forestales";	break;
+			case 'CHEMICALS': return "Productos químicos";	break;
+			case 'MEDICAL_PRACTICE': return "Profesiones médicas";	break;
+			case 'COMPUTER_SOFTWARE': return "Programas informáticos";	break;
+			case 'PUBLIC_SAFETY': return "Protección civil";	break;
+			case 'PUBLISHING': return "Publicaciones";	break;
+			case 'FUNDRAISING': return "Recaudación de fondos";	break;
+			case 'HUMAN_RESOURCES': return "Recursos humanos";	break;
+			case 'WRITING_AND_EDITING': return "Redacción y revisión";	break;
+			case 'GOVERNMENT_RELATIONS': return "Relaciones gubernamentales";	break;
+			case 'PUBLIC_RELATIONS': return "Relaciones públicas";	break;
+			case 'ALTERNATIVE_DISPUTE_RESOLUTION': return "Resolución de conflicto por terceras partes";	break;
+			case 'RESTAURANTS': return "Restaurantes";	break;
+			case 'HEALTH_WELLNESS_AND_FITNESS': return "Sanidad, bienestar y buena condición física";	break;
+			case 'AUTOMOTIVE': return "Sector automovilístico";	break;
+			case 'TEXTILES': return "Sector textil";	break;
+			case 'COMPUTER_AND_NETWORK_SECURITY': return "Seguridad del ordenador y de las redes";	break;
+			case 'SECURITY_AND_INVESTIGATIONS': return "Seguridad e investigaciones";	break;
+			case 'INSURANCE': return "Seguros";	break;
+			case 'SEMICONDUCTORS': return "Semiconductores";	break;
+			case 'CONSUMER_SERVICES': return "Servicio al consumidor";	break;
+			case 'INFORMATION_SERVICES': return "Servicio de información";	break;
+			case 'EVENTS_SERVICES': return "Servicios de eventos";	break;
+			case 'FINANCIAL_SERVICES': return "Servicios financieros";	break;
+			case 'FACILITIES_SERVICES': return "Servicios infraestructurales";	break;
+			case 'LEGAL_SERVICES': return "Servicios jurídicos";	break;
+			case 'ENVIRONMENTAL_SERVICES': return "Servicios medioambientales";	break;
+			case 'INDIVIDUAL_AND_FAMILY_SERVICES': return "Servicios para el individuo y la familia";	break;
+			case 'UTILITIES': return "Servicios públicos";	break;
+			case 'INFORMATION_TECHNOLOGY_AND_SERVICES': return "Servicios y tecnología de la información";	break;
+			case 'OUTSOURCING_OFFSHORING': return "Subcontrataciones/Offshoring";	break;
+			case 'SUPERMARKETS': return "Supermercados";	break;
+			case 'TOBACCO': return "Tabaco";	break;
+			case 'WIRELESS': return "Tecnología inalámbrica";	break;
+			case 'TELECOMMUNICATIONS': return "Telecomunicaciones";	break;
+			case 'TRANSLATION_AND_LOCALIZATION': return "Traducción y localización";	break;
+			case 'TRANSPORTATION_TRUCKING_AND_RAILROAD': return "Transporte por carretera o ferrocarril";	break;
+			case 'WHOLESALE': return "Venta al por mayor";	break;
+			case 'RETAIL': return "Venta al por menor";	break;
+			case 'VETERINARY': return "Veterinaria";	break;
+			case 'COMPUTER_GAMES': return "Videojuegos";	break;
+			case 'WINE_AND_SPIRITS': return "Vino y licor";	break;
+			default: return false; break;		
+
 		}
 	}
 },
