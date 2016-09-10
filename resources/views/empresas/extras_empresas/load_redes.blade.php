@@ -150,28 +150,28 @@ for (var i = 0; i < redes.length; i++) {
 }});
 </script>
 
-@if($gmail->cuenta_1->usuario[0] != "")
+@if(!empty($gmail->cuenta_1->usuario[0]))
 <script>
   $("#gmail_1").show(); obj_redes["gmail_1"].active=true;
   $('[name="gmail_1[usuario][]"]').val('{!! $gmail->cuenta_1->usuario[0] !!}');
   $('[name="gmail_1[contraseña][]"]').val('{!! $gmail->cuenta_1->contraseña[0] !!}');
 </script>
 @endif
-@if($gmail->cuenta_2->usuario[0] != "")
+@if(!empty($gmail->cuenta_2->usuario[0]))
 <script>
   $("#gmail_2").show(); obj_redes["gmail_2"].active=true;
   $('[name="gmail_2[usuario][]"]').val('{!! $gmail->cuenta_2->usuario[0] !!}');
   $('[name="gmail_2[contraseña][]"]').val('{!! $gmail->cuenta_2->contraseña[0] !!}');
 </script>
 @endif
-@if($gmail->cuenta_3->usuario[0] != "")
+@if(!empty($gmail->cuenta_3->usuario[0]))
 <script>
   $("#gmail_3").show(); obj_redes["gmail_3"].active=true;
   $('[name="gmail_3[usuario][]"]').val('{!! $gmail->cuenta_3->usuario[0] !!}');
   $('[name="gmail_3[contraseña][]"]').val('{!! $gmail->cuenta_3->contraseña[0] !!}');
 </script>
 @endif
-@if($gmail->cuenta_4->usuario[0] != "")
+@if(!empty($gmail->cuenta_4->usuario[0]))
 <script>
   $("#gmail_4").show(); obj_redes["gmail_4"].active=true;
   $('[name="gmail_4[usuario][]"]').val('{!! $gmail->cuenta_4->usuario[0] !!}');
@@ -260,7 +260,7 @@ for (var i = 0; i < redes.length; i++) {
 
 
 {{-- Otras Redes --}}
-
+@if(!empty($redes_adicionales))
 @if($redes_adicionales->cuenta_1->usuario[0] != "")
 <script>
   $("#red_adicional_1").show(); obj_redes["red_adicional_1"].active=true;
@@ -269,82 +269,91 @@ for (var i = 0; i < redes.length; i++) {
   $('[name="red_adicional_1[contraseña][]"]').val('{!! $redes_adicionales->cuenta_1->contraseña[0] !!}');
 </script>
 @endif
+@endif
 
 
-
+@if(!empty($facebook))
 @if($facebook->usuario[0]!="")
 <script>
   $("#facebook").show(); obj_redes["facebook"].active=true;
   $('[name="facebook[usuario][]"]').val('{!! $facebook->usuario[0] !!}');
   $('[name="facebook[contraseña][]"]').val('{!! $facebook->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($twitter))
 @if($twitter->usuario[0]!="")
 <script>
   $("#twitter").show(); obj_redes["twitter"].active=true;
   $('[name="twitter[usuario][]"]').val('{!! $twitter->usuario[0] !!}');
   $('[name="twitter[contraseña][]"]').val('{!! $twitter->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+
+@if(!empty($youtube))
 @if($youtube->usuario[0]!="")
 <script>
   $("#youtube").show(); obj_redes["youtube"].active=true;
   $('[name="youtube[usuario][]"]').val('{!! $youtube->usuario[0] !!}');
   $('[name="youtube[contraseña][]"]').val('{!! $youtube->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
-
+@if(!empty($linkedin))
 @if($linkedin->usuario[0]!="")
 <script>
   $("#linkedin").show(); obj_redes["linkedin"].active=true;
   $('[name="linkedin[usuario][]"]').val('{!! $linkedin->usuario[0] !!}');
   $('[name="linkedin[contraseña][]"]').val('{!! $linkedin->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($pinterest))
 @if($pinterest->usuario[0]!="")
 <script>
   $("#pinterest").show(); obj_redes["pinterest"].active=true;
   $('[name="pinterest[usuario][]"]').val('{!! $pinterest->usuario[0] !!}');
   $('[name="pinterest[contraseña][]"]').val('{!! $pinterest->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($amarillas_internet))
 @if($amarillas_internet->usuario[0]!="")
 <script>
   $("#amarillas_internet").show(); obj_redes["amarillas_internet"].active=true;
   $('[name="amarillas_internet[usuario][]"]').val('{!! $amarillas_internet->usuario[0] !!}');
   $('[name="amarillas_internet[contraseña][]"]').val('{!! $amarillas_internet->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($hootsuite))
 @if($hootsuite->usuario[0]!="")
 <script>
   $("#hootsuite").show(); obj_redes["hootsuite"].active=true;
   $('[name="hootsuite[usuario][]"]').val('{!! $hootsuite->usuario[0] !!}');
   $('[name="hootsuite[contraseña][]"]').val('{!! $hootsuite->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($photosnack))
 @if($photosnack->usuario[0]!="")
 <script>
   $("#photosnack").show(); obj_redes["photosnack"].active=true;
   $('[name="photosnack[usuario][]"]').val('{!! $photosnack->usuario[0] !!}');
   $('[name="photosnack[contraseña][]"]').val('{!! $photosnack->contraseña[0] !!}');
 </script>
-@else
+@endif
 @endif
 
+@if(!empty($wordpress))
 @if($wordpress->usuario[0]!="")
 <script>
   $("#wordpress").show(); obj_redes["wordpress"].active=true;
@@ -353,7 +362,9 @@ for (var i = 0; i < redes.length; i++) {
   $('[name="wordpress[contraseña][]"]').val('{!! $wordpress->contraseña[0] !!}');
 </script>
 @endif
+@endif
 
+@if(!empty($prestashop))
 @if($prestashop->usuario[0]!="")
 <script>
   $("#prestashop").show(); obj_redes["prestashop"].active=true;
@@ -362,4 +373,4 @@ for (var i = 0; i < redes.length; i++) {
   $('[name="prestashop[contraseña][]"]').val('{!! $prestashop->contraseña[0] !!}');
 </script>
 @endif
-
+@endif

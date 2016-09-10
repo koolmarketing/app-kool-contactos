@@ -52,3 +52,16 @@ Route::get('asteroid/company/{id}', [
 	'as'   => 'profile.id', 
 	'uses' => 'ApiAsteroidController@ShowProfile'
 	]);
+
+Route::get('asteroid/targets/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'targets.id', 
+	'uses' => 'ApiAsteroidController@ShowTargetsProfile'
+	]);
+
+Route::get('asteroid/service/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'service.id', 
+	'uses' => 'ApiAsteroidController@ShowTargetService'
+	]);
+

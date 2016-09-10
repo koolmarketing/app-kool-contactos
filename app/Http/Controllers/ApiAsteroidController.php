@@ -536,6 +536,25 @@ public function ShowProfile($id){
     return $data;
 }
 
+public function ShowTargetsProfile($id){
+    $data = DB::table('anotaciones')
+        ->where('id_perfil','=',''.$id.'')
+        ->join('users', 'anotaciones.id_creador', '=', 'users.id')
+        ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
+        ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
+        ->orderBy('anotaciones.created_at', 'desc')
+        ->get();
+    return $data;
+}
+public function ShowTargetService($id){
+    $data = DB::table('servicios')
+        ->where('serial','=',''.$id.'')
+        ->get();       
+
+
+    return $data;
+}
+
 
 
 

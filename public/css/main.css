@@ -106,5 +106,19 @@ div#columns small a {
 
   #columns figure {
     width: 100%; } }
+.separador_20 {
+  margin: 10px 0px 10px 0px;
+  padding: 0px 10px 0px 10px;
+  border-bottom: 2px solid #eee;
+  height: 2px; }
+
+.panel-footer-anotacion {
+  background: #63a8eb; }
+
+.panel-footer-recordatorio {
+  background: #42b382; }
+
+.panel-footer-cobro {
+  background: #4A148C; }
 
 /*# sourceMappingURL=main.css.map */

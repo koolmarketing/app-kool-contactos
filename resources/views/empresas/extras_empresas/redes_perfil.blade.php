@@ -290,7 +290,7 @@ $hootsuite = json_decode($data->empresa->hootsuite);
 <figure>
 <img src="{!! URL::to('/img/banner_red')!!}/hotsuite.jpg">
   <figcaption>   
- <h4><i class="icon-pinterest"></i> Hootsuite</h4>                            
+ <h4><i class="icon-share-2"></i> Hootsuite</h4>                            
  <h4>{!!$hootsuite->usuario[0]!!}</h4><p>Usuario</p>
  <h4>{!!$hootsuite->contraseña[0]!!}</h4><p>Contraseña</p>                
  </figcaption>
@@ -337,6 +337,38 @@ $ftp = json_decode($data->empresa->ftp);
  <h4>{!!$ftp->server[0]!!}</h4><p>Server</p>                         
  <h4>{!!$ftp->usuario[0]!!}</h4><p>Usuario</p>
  <h4>{!!$ftp->contraseña[0]!!}</h4><p>Contraseña</p>                
+ </figcaption>
+</figure>
+@endif
+
+
+
+<?php /* Prestashop */
+$prestashop = json_decode($data->empresa->prestashop); 
+?> 
+@if (!empty($prestashop->usuario[0]))
+<figure>
+<img src="{!! URL::to('/img/banner_red')!!}/prestashop.jpg">
+  <figcaption>   
+ <h4><i class="icon-shop-1"></i> Prestashop</h4> 
+ <h4>{!!$prestashop->url[0]!!}</h4><p>url</p>                         
+ <h4>{!!$prestashop->usuario[0]!!}</h4><p>Usuario</p>
+ <h4>{!!$prestashop->contraseña[0]!!}</h4><p>Contraseña</p>                
+ </figcaption>
+</figure>
+@endif
+
+<?php /* Prestashop */
+$wordpress = json_decode($data->empresa->wordpress); 
+?> 
+@if (!empty($wordpress->usuario[0]))
+<figure>
+<img src="{!! URL::to('/img/banner_red')!!}/wordpress.jpg">
+  <figcaption>   
+ <h4><i class="icon-wordpress-2"></i> Wordpress</h4> 
+ <h4>{!!$wordpress->url[0]!!}</h4><p>url</p>                         
+ <h4>{!!$wordpress->usuario[0]!!}</h4><p>Usuario</p>
+ <h4>{!!$wordpress->contraseña[0]!!}</h4><p>Contraseña</p>                
  </figcaption>
 </figure>
 @endif

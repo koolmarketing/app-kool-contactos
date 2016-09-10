@@ -2,19 +2,41 @@ Vue.http.options.beforeSend = function(request) {
 	request.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 };
 
-Vue.filter('reverse', function (value) {
-	return value.split('').reverse().join('')
-})
+// define
 
-Vue.filter('my-filter', function (value) {
-  //content
-})
+Vue.component('anotacion', {
+	template: '#anotacion-template'
+});
+Vue.component('recordatorio', {
+	template: '#recordatorio-template'
+});
+
+
+Vue.component('cobro', {
+	data: function () {
+		return {
+			datos_servicio: "123",
+		}
+	},
+	props: ['monto','vence','serial','mensaje','foto','estado','id_target','id'],
+	template: '#cobro-template',
+	methods: {
+		RevisarServicio:function(serial){
+			id = serial,
+			this.datos_servicio = vm.serviceId(id)
+		}
+
+	}
+	
+});
 
 var vm = new Vue({
 
 	el: '#app-profile',
 	data: function () {  {
 		return {
+			target_id:"",			
+			data_targets:"",
 			id:"",
 			data_empresa:{
 				id:"",
@@ -55,6 +77,15 @@ var vm = new Vue({
 },
 
 methods: {
+
+	serviceId: function (id) {
+		this.$http.get('/asteroid/service/'+id).then((data) => {
+			this.$set('target_id', data.json()),
+			target_id = data.json() 
+		})		
+		$('#servicio_cobro').modal('show');
+	},
+
 	load_data: function(){
 		this.$http.get('/asteroid/company/'+this.id).then((response) => {
 			this.$set('data_empresa', response.json()),
@@ -89,8 +120,6 @@ methods: {
 		vm.$set('data_empresa.soporte', soporte);
 		vm.$set('data_empresa.comercial', comercial);
 
-
-
 		this.data_empresa.valores    = valores;
 		this.data_empresa.intereses  = intereses;
 		vm.$set('data_empresa.gmail', gmail);
@@ -112,6 +141,15 @@ methods: {
 
 
 	},
+	load_targets_all: function(){
+		this.data_targets = "";
+		this.$http.get('/asteroid/targets/'+this.id).then((response) => {
+			this.$set('data_targets', response.json()),
+			this.data_targets = response.json()
+			
+		})
+	},
+	
 	moment: function () {
 		return moment();
 	},	
@@ -308,7 +346,11 @@ filters: {
 },
 
 ready: function () {
-	this.load_data()
+	this.load_data(),
+	this.load_targets_all()
 		//setTimeout(this.load_data, 0)
 	}
 });
+
+
+

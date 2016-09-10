@@ -11,7 +11,7 @@
 @stop
 @section('content')
 
-<div id="app-profile">
+<div id="app-profile" attr-id="{!! $data->empresa->id !!}">
   <div class="row" >
 
 
@@ -210,7 +210,7 @@
 
 
               <div class="row">
-                <div class="col-lg-6" v-if="data_empresa.representante.nombre">
+                <div class="col-lg-6" v-if="data_empresa.representante.nombre != ''">
                   <div class="content-box biggest-box">
                     <div class="pull-left">
                       <span class="block">Representante</span>
@@ -231,7 +231,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-6" v-if="data_empresa.comercial.nombre">
+                <div class="col-lg-6" v-if="data_empresa.comercial.nombre != '' ">
                   <div class="content-box biggest-box">
                     <div class="pull-left">
                       <span class="block">Comercial</span>
@@ -252,7 +252,8 @@
                   </div>
                 </div>
 
-                <div v-if="data_empresa.soporte" class="col-lg-6" v-if="data_empresa.soporte.nombre">
+@if (!empty($data->empresa->soporte->nombre[0]))
+      <div v-if="data_empresa.soporte" class="col-lg-6" v-if="data_empresa.soporte.nombre != ''">
                   <div class="content-box biggest-box">
                     <div class="pull-left">
                       <span class="block">Soporte</span>
@@ -272,8 +273,7 @@
                     <div class="clearfix"></div>
                   </div>
                 </div>
-
-
+@endif
               </div>      
 
 
@@ -370,7 +370,7 @@
             <br>
 
             <div id="columns">
-              
+
               @include('empresas.extras_empresas.redes_perfil') 
 
             </div>
@@ -520,24 +520,6 @@
 
       <div id="contenedor_documentos_empresa" class="col-md-12">
 
-
-{{--       <div class="content-box small-box">
-        <span class="fa-stack fa-2x block pull-left">
-          <i class="fa fa-circle fa-stack-2x green"></i>
-          <i class="fa fa-file-pdf-o fa-stack-1x fa-inverse"></i>
-        </span>
-        <div class="pull-left info">
-          <h4 class="text-uppercase zero-m">Rut Koolmarketing</h4>
-          <span class="block"><i class="icon-clock-2"></i> 12-07-2016 11:43</span>
-        </div>
-        <div class="pull-right info">
-          <button class="btn-xs btn btn-default"><i class=" icon-download-5"></i>Descargar</button>
-          <button class="btn-xs btn btn-default"><i class="icon-pencil"></i></button>
-          <button class="btn-xs btn btn-default"><i class="icon-cancel"></i></button>
-        </div>
-        <div class="clearfix"></div>          
-      </div> --}}
-
     </div>
   </div>
 </div>
@@ -562,488 +544,97 @@
         <button data-toggle="modal" href='#modal-cobro' type="button" class="btn waves btn-orange waves-effect waves-float">Cartera</button>
       </div>
     </div>
+    <div class="separador_20"></div>
 
     <div class="panel panel-default" id="anotaciones">
-      <div class="panel-body" id="contenedor_anotaciones_empresa">
+      <div class="panel-body" id="targets" >
+
+      <div v-for="target in data_targets">
+      {{-- <h3>@{{target.id}}</h3> --}}
+       <cobro v-if="target.tipo_anotacion = 'cobro'" 
+        :monto="target.monto"
+        :id="target.id"
+        :vence="target.fecha_cobro"
+        :serial="target.serial"
+        :mensaje="target.mensaje"
+        :foto="target.fotografia"
+        >
+        </cobro>
+      </div>
+{{--   <anotacion></anotacion> 
+  <recordatorio></recordatorio>  
+  <cobro></cobro> --}}
+
       </div>
     </div>
   </div>
 </div>
 </section>
 
-
-<div class="modal fade" id="modal-anotacion">
-  <div class="modal-dialog">    
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Escribe un Comentario</h4>
-      </div>{!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-anotacion','files'=>true));!!}
-      <div class="modal-body">
-        <div class="row">
-          <input type="hidden" name="tipo" id="" class="form-control" value="comentario">
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">                
-          <div class="form-group">
-            <div class="col-md-12">
-              <textarea name="nota" id="nota" cols="5" rows="4" value="" class="material form-control"></textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="button" id="btn-guardar-anotacion" class="btn btn-primary">Guardar Anotación</button>
-        {!! Form::close() !!}
-      </div>          
-    </div>        
-  </div>
-</div>
-<!--====  Stat Recordatorio  ====-->
-<div class="modal fade" id="modal-recordatorio">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Escribe un Recordatorio</h4>
-      </div>
-      <div class="modal-body">
-        {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-recordatorio','files'=>true));!!}
-        <div class="row">
-          <input type="hidden" name="tipo" id="" class="form-control" value="recordatorio">
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}">   
-          <div class="col-md-8">
-            <input type="text" name="fecha" id="input" class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required" >
-
-          </div>
-          <div class="col-md-12">
-            <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button id="btn-guardar-recordatorio" type="button" class="btn btn-primary">Guardar Recordatorio</button>
-        {!! Form::close() !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--====  Stat Alerta  ====-->
-<div class="modal fade" id="modal-alerta">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Escribe una alerta</h4>
-      </div>
-      <div class="modal-body">
-        {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-alerta','files'=>true));!!}
-        <div class="row">
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-          <input type="hidden" name="tipo" id="" class="form-control" value="alerta">  
-          <div class="col-md-8">
-            <input type="text" name="fecha"  class="form-control material datetimepicker3" placeholder="Fecha de Vencimiento" value="" required="required">
-
-          </div>
-
-          <div class="col-md-12">
-            <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="submit" id="btn-guardar-alerta" class="btn btn-primary guardar-form">Guardar Alerta</button>
-        {!! Form::close() !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--====  Stat Cartera  ====-->
-<div class="modal fade " id="modal-cobro">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Programar un Cobro
-
-        </h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">                
-
-          <div class="col-md-12">
-            <div class="alert alert-success">
-              Saldo Actual : 
-              <span class="pull-right" id="saldo"></span>
-            </div>
-            <div id="modal_cartera" class="col-md-12">
-            </div>                      
-          </div>
-
-          {!!Form::open(array('action' => 'AnotacionesController@GuardarAnotacion', 'method' => 'post', 'id' => 'form-guardar-cartera','files'=>true));!!}
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-          <input type="hidden" name="tipo" id="" class="form-control" value="cobro">  
-          <div class="col-md-12"> 
-           <div class="col-md-6">  <br>  
-
-             <input type="text"  name="inicio" id="date_timepicker_start" placeholder="Inicio" class="form-control material" value="" required="required">
-
-           </div>
-           <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="date_timepicker_end" placeholder="Fin" class="form-control material" value="" required="required">
-          </div>
-          <br><br>
-        </div>                
-        <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-6">
-
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
-
-        </div>
-        <div class="col-md-6">
-          <input type="text" name="monto" id="input" class="form-control material" placeholder="Monto" value="" required="required">
-        </div>
-      </div>
-      <div class="col-md-12" style="margin-top: 10px">
-        <textarea name="nota" id="" cols="5" rows="4" class="material form-control"></textarea>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-    {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-    <button type="submit" id="btn-guardar-cartera" class="btn btn-primary">Guardar Anotación</button>
-    {!! Form::close() !!}
-  </div>
-</div>
-</div>
-</div>
-
-
-<!--====  Stat Service  ====-->
-<div class="modal fade" id="modal-service">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Adjuntar un servicio</h4>
-
-      </div>
-      <div class="modal-body">
-        <div class="row">
-
-          {!!Form::open(array('action' => 'ServiciosController@SaveService', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-
-          <div class="col-md-12">
-            <div class="col-md-12"> <br>                     
-              <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" value="" required="required">
-            </div>
-          </div>                   
-          <div class="col-md-12">
-           <div class="col-md-6">  <br>  
-             <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-           </div>
-           <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
-          </div>
-          <br><br>
-        </div>                
-        <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-3">
-
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="# Comprobante" value="" required="required">
-        </div>
-        <div class="col-md-4">
-          <input type="number" name="valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio" value="" required="required">
-        </div>
-        <div class="col-md-3">
-          <input type="number" name="costos" id="costos_operativos" class="form-control material" placeholder="Costos" value="" required="required" step="any">
-        </div>
-        <div class="col-md-2">
-         <input type="number" name="iva" id="iva" min="0" step="0.05" class="form-control material" placeholder="IVA" value="" required="required" step="any">
-       </div>
-       <div class="col-md-12"><br>
-        <div class="col-md-1">
-
-          <button type="button" id="btn-retencion" class="btn btn-info btn-xs"><i class="icon-info"></i></button>
-        </div>
-        <div class="col-md-11">
-          <select name="retencion" id="retencion_select" class="form-control material" required="required">
-            <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
-            <option value="Sin Retención" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
-            @foreach ($retencion as $retencion)            
-            <option value="{!! $retencion->concepto !!}" data-tarifas="{!! $retencion->tarifas !!}" data-baseuvt="{!! $retencion->base_uvt !!}" data-basepesos="{!! $retencion->base_pesos !!}" value="">{!! $retencion->concepto !!} - <b class="text-danger">[ {!! $retencion->tarifas !!}% ]</b></option>            
-            @endforeach
-          </select>
-        </div>
-      </div>
-      <br>
-
-
-
-      <div class="col-md-12">
-        <br>
-        <ul class="list-group">
-          <li class="list-group-item"><b>IVA</b>
-            <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
-            <span class="pull-right" id="container_iva">          
-            </span></li>
-            <li class="list-group-item"><b>Retención</b>
-             <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
-             <span class="pull-right" id="container_RT"></span></li>
-
-             <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
-               <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
-               <span class="pull-right" id="container_utilidad"></span></li>
-             </ul>
-           </div><br>
-           <div class="form-group">
-            <div class="col-md-12">
-              <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observación</textarea>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12" style="margin-top: 10px">
-          <div class="col-md-12">
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-      <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
-      {!! Form::close() !!}
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- END Service -->
-
-<!------------  Load Comprobante Cobro  ------------>
-<div class="modal fade" id="comprobante-cobro">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Cargar comprobante de Cobro</h4>
-      </div>
-      <div class="modal-body">
-        {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-
-        <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" class="form-control" value="">
-        <input type="file" name="comprobante" class="form-control">              
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
-        {!! Form::close() !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!------------  Load Comprobante Servicio  ------------>
-<div class="modal fade" id="modal-comprobante-servicio">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Cargar Comprobante de Servicio</h4>
-      </div>
-      <div class="modal-body">
-        {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-        <input type="hidden" name="id_anotacion" id="id_anotacion_servicio" class="form-control" value="">
-        <input type="file" name="comprobante" class="form-control">              
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
-        {!! Form::close() !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-
-{{-- Reportar Cobro --}}
-
-{{-- End Reportar Cobro --}}
-
-<!------------  Load Comprobante Costo  ------------>
-<div class="modal fade" id="modal-comprobante-costo">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Cargar Comprobante de Costo</h4>
-      </div>
-      <div class="modal-body">
-        {!!Form::open(array('action' => 'CostosController@UpdateComprobanteCosto', 'method' => 'post', 'id' => 'form-guardar-comprobante-costo','files'=>true));!!}
-
-        <input type="hidden" name="id_anotacion_costo" id="id_anotacion_costo" class="form-control" value="">
-
-        <input type="file" name="comprobante" class="form-control">              
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="submit" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
-        {!! Form::close() !!}
-      </div>
-    </div>
-  </div>
-</div>
-
-
-{{-- Reportar Cobro --}}
-
-<!--====  Stat Costo  ====-->
-<div class="modal fade" id="modal-costos">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Adjuntar un Costo</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-
-          {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-
-          <div class="col-md-12">
-            <div class="col-md-12"> <br>                     
-              <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
-            </div>
-          </div>                   
-          <div class="col-md-12">
-           <div class="col-md-6">  <br>  
-             <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-           </div>
-           <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
-          </div>
-          <br><br>
-        </div>                
-        <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-6">
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
-        </div>
-        <div class="col-md-6">
-          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
-        </div>
-
-        <div class="col-md-12"><br>
-          <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
-        </div>
-        <div class="col-md-12" style="margin-top: 10px">
-          <div class="col-md-12">
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-      <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
-      {!! Form::close() !!}
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- END Costo -->
-
+{{--  --}}
 
 {{--  --}}
 
-<div class="modal fade" id="tabla-retencion">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<template id="anotacion-template">
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <img src="{!! URL::to('img') !!}/amanda.jpg" width="40px" class="img-circle pull-right" alt="">
+    <br>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore.</p>
+      <span class="pull-right"><i class="icon-clock"></i>10-08-2016 11:00</span>
+    </div>
+    <div class="panel-footer panel-footer-anotacion">
+      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
+      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
     </div>
   </div>
-</div>
+</template>
 
-{{--  --}}
-
-{{-- Reportar Cobro --}}
-
-<!--====  Stat Archivo Cliente  ====-->
-<div class="modal fade" id="archivos_cliente">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Adjuntar un Costo</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-
-          {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-
-          <div class="col-md-12">
-            <div class="col-md-12"> <br>                     
-              <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
-            </div>
-          </div>                   
-          <div class="col-md-12">
-           <div class="col-md-6">  <br>  
-             <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-           </div>
-           <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
-          </div>
-          <br><br>
-        </div>                
-        <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-6">
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
-        </div>
-        <div class="col-md-6">
-          <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
-        </div>
-
-        <div class="col-md-12"><br>
-          <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
-        </div>
-        <div class="col-md-12" style="margin-top: 10px">
-          <div class="col-md-12">
-            <br>
-          </div>
-        </div>
-      </div>
+<template id="recordatorio-template">
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <img src="{!! URL::to('img') !!}/amanda.jpg" width="40px" class="img-circle pull-right" alt="">
+    <span><i class="icon-calendar"></i>Vence: 10-08-2016 11:00</span><br>
+    <span class="label label-danger">vencido</span>
+    <br><br>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore.</p>
+       <span class="pull-right"><i class="icon-clock"></i>10-08-2016 11:00</span>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-      <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
-      {!! Form::close() !!}
+    <div class="panel-footer panel-footer-recordatorio">
+      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
+      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
     </div>
   </div>
-</div>
-</div>
-</div>
-<!-- END Archivo Cliente -->
+</template>
 
-{{--  --}}
+<template id="cobro-template">
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <img :src="'/uploads/fotos/' + foto" width="40px" class="img-circle pull-right" alt="">
+    <span><i class="icon-clock"></i>Vence: @{{vence}}</span><br>
+     <span><i class="icon-dollar"></i>Monto: @{{monto}}</span><br>
+     <span><i class="icon-pinboard"></i>Orden: @{{serial}}</span><br>
+     <span v-if="estado == 1" class="label label-danger">Sin Cobrar</span>
+     <span v-else class="label label-success">Cobrado</span>
+     <span></span>
+     <br>
+     <button class="btn btn-default btn-sm pull-right" @click="RevisarServicio(serial)"><i class="icon-search-2"></i> Revisar Servicio</button><br>
+    <br><p>
+      @{{mensaje}}</p>
+    </div>
+    <div class="panel-footer panel-footer-cobro">
+      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
+      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+      <button v-if="estado == '0'" class="btn btn-default btn-sm pull-right"><i class="icon-check-3"></i> Registrar Cobro</button>
+    </div>
+  </div>
+</template>
+
+@include('empresas.extras_empresas.modals_profile')
 
 @stop
 
