@@ -475,7 +475,7 @@
 {{--  --}}
 
 <div class="modal fade" id="servicio_cobro">
-  <div class="modal-dialog modal-lg">
+  <div v-for="target in target_id"  class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -486,91 +486,109 @@
            <table class="table table-condensed table-hover">
              <tbody>
                <tr>
-                 <td>Título</td>
-                 <td>(Nombre del Servicio)</td>
+               <td>Título</td>
+                 <td>@{{target.titulo}}</td>
                </tr>
                <tr>
-               <td>Empresa</td>
-                 <td><img src="{!! URL::to('image') !!}/fritolay.jpg" width="70px" alt=""> Nombre de la Empresa</td>
+                 <td>Empresa</td>
+                 <td><img :src="'/uploads/fotos/' + target.logo" width="40px" class="img-circle" alt="">@{{target.nombre_empresa}}</td>
                </tr>
                <tr>
                  <td>Periodo</td>
-                 <td>12-09-2016 / 13-09-2016</td>
+                 <td>@{{target.inicio|DateSmall}} <i class="icon-right-small"></i> @{{target.fin|DateSmall}}</td>
+               </tr>
+               <tr>
+                 <td >Vendedor</td>
+                 <td><img :src="'/uploads/fotos/' + target.foto_vendedor" width="40px" class="img-circle" alt=""> @{{target.nombre_vendedor}}</td>
                </tr>
                <tr>
                  <td >Serial</td>
-                 <td>0863</td>
-               </tr>
-               <tr class="success">
-                 <td >Valor</td>
-                 <td>5.000.000</td>
-               </tr>
-               <tr class="danger">
-                 <td>Saldo</td>
-                 <td>3.200.000</td>
-               </tr>
+                 <td>@{{target.serial}}</td>
+               </tr>  
+               <tr>
+                 <td >Estado</td>
+                 <td>
+                 <span v-if="target.estado = 1" class="label label-success">Activo</span>
+                 <span v-else class="label label-success">Inactivo</span>
+                 </td>
+               </tr> 
+               <tr>
+                 <td >Comentarios</td>
+                 <td>
+                 <p><i class="icon-chat-alt"></i> @{{target.comentarios_servicio}}</p>
+                 </td>
+               </tr>             
 
              </tbody>
            </table>          
          </div>
 
          <div class="col-md-6">
-            <table class="table table-condensed">
+          <table class="table table-condensed">
 
-             <tbody>
-               <tr>
-                 <td>Retención</td>
-                 <td>Servicios generales (no declarantes)</td>
+           <tbody>
+             <tr class="success">
+                 <td >Valor</td>
+                 <td>@{{target.valor | currency}}</td>
                </tr>
-               <tr>
-                 <td >Valor retención</td>
-                 <td>400.000</td>
+               <tr class="danger">
+                 <td>Saldo</td>
+                 <td>@{{target.saldo | currency}}</td>
                </tr>
-               <tr>
-                 <td>I.V.A</td>
-                 <td>16.0%</td>
-               </tr>
-               <tr>
-                 <td >Valor I.V.A</td>
-                 <td>560.000</td>
-               </tr> 
-               <tr>
-                 <td >Costos</td>
-                 <td>700.000</td>
-               </tr>   
-               <tr class="info">
-                 <td>Utilidad Neta</td>
-                 <td>3.380.000</td>
-               </tr>  
+             <tr>
+               <td>Retención</td>
+               <td>@{{target.titulo_retencion}}</td>
+             </tr>
+             <tr>
+               <td >Valor retención</td>
+               <td>@{{target.valor_retencion |currency}}</td>
+             </tr>
+             <tr>
+               <td>I.V.A</td>
+               <td>@{{target.iva}}%</td>
+             </tr>
+             <tr>
+               <td >Valor I.V.A</td>
+               <td>@{{target.valor_iva | currency}}</td>
+             </tr> 
+             <tr>
+               <td >Costos</td>
+               <td>@{{target.costos | currency}}</td>
+             </tr>   
+             <tr class="info">
+               <td>Utilidad Neta</td>
+               <td>@{{target.utilidad_neta | currency}}</td>
+             </tr>  
 
 
-             </tbody>
-           </table><br><br>
-         </div>
-         <div class="col-md-12">
-           <table class="table table-striped table-hover">
-             <thead>
-               <tr>
-                 <th width="10%">ID</th><th>Serial</th><th>Vence</th><th>Monto</th><th>Estado</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>Value</td> <td>Value</td><td>Value</td><td>Value</td><td>Value</td>
-               </tr>
-               
-             </tbody>
-           </table>
-         </div>
-
+           </tbody>
+         </table><br><br>
        </div>
+       
+      <div class="col-md-12"><h4><i class="icon-chart-alt-outline"></i> Historial de Cobros</h4>
+       <table class="table table-striped table-hover">
+         <thead>
+           <tr>
+             <th width="10%">ID</th><th>Serial</th><th>Vence</th><th>Monto</th><th>Estado</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr v-for="cobro in payments_id">
+             <td>@{{cobro.id}}</td> <td>@{{cobro.serial}}</td><td>@{{cobro.fecha_cobro | DateSmall}}</td><td>@{{cobro.monto | currency}}</td><td><span class="label label-success" v-if="cobro.estado == '0'">Pagado</span><span v-else class="label label-danger">No pagado</span></td>
+           </tr>
 
+         </tbody>
+       </table>
      </div>
-     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-  </div>
+
+   </div>
+
+ </div>
+ <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+</div>
 </div>
 </div>
 

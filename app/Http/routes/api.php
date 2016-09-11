@@ -64,4 +64,13 @@ Route::get('asteroid/service/{id}', [
 	'as'   => 'service.id', 
 	'uses' => 'ApiAsteroidController@ShowTargetService'
 	]);
-
+Route::get('asteroid/service/payments/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'service_payments.id', 
+	'uses' => 'ApiAsteroidController@ShowPaymentsService'
+	]);
+Route::get('asteroid/services/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'services.id', 
+	'uses' => 'ApiAsteroidController@AllServices'
+	]);

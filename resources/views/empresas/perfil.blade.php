@@ -252,8 +252,8 @@
                   </div>
                 </div>
 
-@if (!empty($data->empresa->soporte->nombre[0]))
-      <div v-if="data_empresa.soporte" class="col-lg-6" v-if="data_empresa.soporte.nombre != ''">
+                @if (!empty($data->empresa->soporte->nombre[0]))
+                <div v-if="data_empresa.soporte" class="col-lg-6" v-if="data_empresa.soporte.nombre != ''">
                   <div class="content-box biggest-box">
                     <div class="pull-left">
                       <span class="block">Soporte</span>
@@ -273,7 +273,7 @@
                     <div class="clearfix"></div>
                   </div>
                 </div>
-@endif
+                @endif
               </div>      
 
 
@@ -398,127 +398,138 @@
          <div role="tabpanel" class="tab-pane" id="contrataciones">
           <div class="panel panel-default">
             <div class="panel-body">
-              <div role="tabpanel" class="tab-pane" id="contrataciones">
-                <div class="pull-left">
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <label class="sr-only" for=""></label>
-                      <input type="text" class="form-control" id="" placeholder="Inicio">
+               <br>
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="col-md-4"><input id="inicio_anotacion" type="text" name="" value="" placeholder="Inicio" class="form-control"></div>
+                      <div class="col-md-4"><input id="fin_anotacion" type="text" name="" value="" placeholder="Final" class="form-control"></div>
+                      <div class="col-md-1">
+                        <button class="btn btn-md btn-primary">Filtrar Datos</button>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label class="sr-only" for=""></label>
-                      <input type="text" class="form-control" id="" placeholder="Final">
-                    </div>
-                    <button type="submit" class="btn btn-default">Filtrar</button>
-                  </form>
+                  </div>
                 </div>
-                <div class="pull-right">
-                 <button class="btn btn-md btn-primary" data-toggle="modal" href='#modal-service'>Agregar un servicio</button> 
-               </div>
-               <br><br><br>
-             </div><br>
-             <div id="contenedor_servicios_empresa" class="col-md-12">
+                <div class="col-md-3">  
+                  <button class="btn btn-md btn-primary pull-right" data-toggle="modal" href='#modal-service'>Registrar servicio</button> 
+                </div> 
+              
 
-             </div>
+             {{-- <div id="contenedor_servicios_empresa" class="col-md-12">
+           </div> --}}
+           <div v-for="servicio in all_services">  
+             <servicio
+             :comprobante="servicio.comprobante"
+             :valor="servicio.valor"
+             :saldo="servicio.saldo"
+             :inicio="servicio.inicio"
+             :fin="servicio.fin"
+             :foto="servicio.foto_vendedor"
+             :estado="servicio.estado"
+             :titulo="servicio.titulo"
+             :serial="servicio.serial"
+             :vendedor="servicio.nombre_vendedor"
+             ></servicio> 
            </div>
 
 
-         </div>
-       </div>
-
-       <!-- Fin Contrataciones -->
-
-       @if ($data->empresa->administracion =="1")
-
-       <!-- Inicio Costos -->
-
-       <div role="tabpanel" class="tab-pane" id="costos">
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <div class="pull-left">
-              <form class="form-inline">
-                <div class="form-group">
-                  <label class="sr-only" for=""></label>
-                  <input type="text" class="form-control" id="" placeholder="Inicio">
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for=""></label>
-                  <input type="text" class="form-control" id="" placeholder="Final">
-                </div>
-                <button type="submit" class="btn btn-default">Filtrar</button>
-              </form>
-            </div>
-
-            <div class="pull-right">
-             <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
-           </div>
-           <br><br><br>
-           <br>
-           <div id="contenedor_costos_empresa" class="col-md-12">
-
-           </div>
          </div>
        </div>
      </div>
 
-     <!-- Fin Costos -->
+     <!-- Fin Contrataciones -->
 
+     @if ($data->empresa->administracion =="1")
 
-     @endif
+     <!-- Inicio Costos -->
 
-     <div role="tabpanel" class="tab-pane" id="documentos">
+     <div role="tabpanel" class="tab-pane" id="costos">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div class="pull-right">
-           <!-- Button trigger modal -->
-           <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
-             <i class="icon-plus"></i> Agregar un documento
-           </button>
+
+          <div class="pull-left">
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only" for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Inicio">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for=""></label>
+                <input type="text" class="form-control" id="" placeholder="Final">
+              </div>
+              <button type="submit" class="btn btn-default">Filtrar</button>
+            </form>
+          </div>
+
+          <div class="pull-right">
+           <button class="btn btn-md btn-default" data-toggle="modal" href='#modal-costos'><i class="icon-plus"></i> Agregar un Costo</button>
          </div>
-         <br><br><br><br>
+         <br><br><br>
+         <br>
+         <div id="contenedor_costos_empresa" class="col-md-12">
 
-         <!-- Modal -->
-         <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><i class="icon-upload"></i> Subir Documento</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                 {!!Form::open(array('action' => 'DocumentosController@GuardarDocumentoEmpresa', 'method' => 'post', 'id' => 'form-guardar-documento-cliente','files'=>true));!!}
-                 <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+         </div>
+       </div>
+     </div>
+   </div>
 
-                 <div class="col-md-12"> 
-                   <div class="col-md-12"> <br> 
-                     <input type="text"  name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
-                   </div>
-                   <div class="col-md-12"> <br>                     
-                    <input type="file" name="archivo" id=""  class="form-control material" value="" required="required">
-                  </div>
-                  <br><br>
-                </div>                
+   <!-- Fin Costos -->
 
-                <div class="col-md-12" style="margin-top: 10px">
-                  <textarea name="descripcion" id="" cols="5" rows="4" class="material form-control"></textarea>
+
+   @endif
+
+   <div role="tabpanel" class="tab-pane" id="documentos">
+    <div class="panel panel-default">
+      <div class="panel-body">
+       <div class="pull-right">
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#archivos_clientes_modal">
+           <i class="icon-plus"></i> Agregar un documento
+         </button>
+       </div>
+       <br><br><br><br>
+
+       <!-- Modal -->
+       <div class="modal fade" id="archivos_clientes_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><i class="icon-upload"></i> Subir Documento</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+               {!!Form::open(array('action' => 'DocumentosController@GuardarDocumentoEmpresa', 'method' => 'post', 'id' => 'form-guardar-documento-cliente','files'=>true));!!}
+               <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+
+               <div class="col-md-12"> 
+                 <div class="col-md-12"> <br> 
+                   <input type="text"  name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
+                 </div>
+                 <div class="col-md-12"> <br>                     
+                  <input type="file" name="archivo" id=""  class="form-control material" value="" required="required">
                 </div>
+                <br><br>
+              </div>                
+
+              <div class="col-md-12" style="margin-top: 10px">
+                <textarea name="descripcion" id="" cols="5" rows="4" class="material form-control"></textarea>
               </div>
             </div>
+          </div>
 
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-              {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-              <button type="submit" id="" class="btn btn-primary">Guardar Documento</button>
-              {!! Form::close() !!}              
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+            <button type="submit" id="" class="btn btn-primary">Guardar Documento</button>
+            {!! Form::close() !!}              
           </div>
         </div>
       </div>
+    </div>
 
-      <div id="contenedor_documentos_empresa" class="col-md-12">
+    <div id="contenedor_documentos_empresa" class="col-md-12">
 
     </div>
   </div>
@@ -529,6 +540,7 @@
 </div>
 <!-- Fin Tab Principal -->
 
+@include('empresas.extras_empresas.modals_profile')
 
 <div class="col-md-4">
   <div class="content-box big-box">
@@ -549,25 +561,41 @@
     <div class="panel panel-default" id="anotaciones">
       <div class="panel-body" id="targets" >
 
-      <div v-for="target in data_targets">
-      {{-- <h3>@{{target.id}}</h3> --}}
-       <cobro v-if="target.tipo_anotacion = 'cobro'" 
-        :monto="target.monto"
-        :id="target.id"
-        :vence="target.fecha_cobro"
-        :serial="target.serial"
-        :mensaje="target.mensaje"
-        :foto="target.fotografia"
-        >
+        <div v-for="target in data_targets">
+          {{-- <h3>@{{target.id}}</h3> --}}
+          <cobro v-if="target.tipo_anotacion == 'cobro'" 
+          :monto="target.monto"
+          :id="target.id"
+          :vence="target.fecha_cobro"
+          :serial="target.serial"
+          :mensaje="target.mensaje"
+          :foto="target.fotografia"
+          :estado="target.estado"
+          :fecha_comentario="target.updated_at"
+          :comprobante="target.comprobante"
+          >
         </cobro>
-      </div>
+        <recordatorio v-if="target.tipo_anotacion == 'recordatorio'"
+        :mensaje="target.mensaje"
+        :vencimiento="target.fecha_vencimiento"
+        :foto="target.fotografia"
+        :fecha_comentario="target.updated_at"
+        >
+      </recordatorio>
+      <anotacion v-if="target.tipo_anotacion == 'comentario'"
+      :mensaje="target.mensaje"
+      :fecha_comentario="target.fecha_comentario"
+      :foto="target.fotografia"
+      >
+    </anotacion>
+  </div>
 {{--   <anotacion></anotacion> 
   <recordatorio></recordatorio>  
   <cobro></cobro> --}}
 
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 </section>
 
@@ -578,12 +606,10 @@
 <template id="anotacion-template">
   <div class="panel panel-default">
     <div class="panel-body">
-    <img src="{!! URL::to('img') !!}/amanda.jpg" width="40px" class="img-circle pull-right" alt="">
-    <br>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore.</p>
-      <span class="pull-right"><i class="icon-clock"></i>10-08-2016 11:00</span>
+      <img :src="'/uploads/fotos/' + foto" width="40px" class="img-circle pull-right" alt="foto_perfil">
+      <br>
+      <p>@{{mensaje}}</p>
+      <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
     </div>
     <div class="panel-footer panel-footer-anotacion">
       <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
@@ -595,44 +621,122 @@
 <template id="recordatorio-template">
   <div class="panel panel-default">
     <div class="panel-body">
-    <img src="{!! URL::to('img') !!}/amanda.jpg" width="40px" class="img-circle pull-right" alt="">
-    <span><i class="icon-calendar"></i>Vence: 10-08-2016 11:00</span><br>
-    <span class="label label-danger">vencido</span>
-    <br><br>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore.</p>
-       <span class="pull-right"><i class="icon-clock"></i>10-08-2016 11:00</span>
+      <img :src="'/uploads/fotos/' + foto" width="40px" class="img-circle pull-right" alt="foto_perfil">
+      <span><i class="icon-calendar"></i>Vence: @{{vencimiento}}</span><br>
+      <span v-if="estado == '1'" class="label label-danger">vencido</span>
+      <span v-else class="label label-success">activo</span>
+      <br><br>
+      <p>
+        @{{mensaje}}</p>
+        <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
+      </div>
+      <div class="panel-footer panel-footer-recordatorio">
+        <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
+        <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+      </div>
     </div>
-    <div class="panel-footer panel-footer-recordatorio">
-      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
-      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+  </template>
+
+  <template id="cobro-template">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <img :src="'/uploads/fotos/' + foto" width="40px" class="img-circle pull-right" alt="">
+        <span><i class="icon-clock"></i>Vence: @{{vence}}</span><br>
+        <span><i class="icon-dollar"></i>Monto: @{{monto}}</span><br>
+        <span><i class="icon-pinboard"></i>Orden: @{{serial}}</span><br>
+        <span v-if="estado == 1" class="label label-danger">Sin Cobrar</span>
+        <span v-else class="label label-success">Cobrado</span><br>
+        <a :href="'/uploads/comprobantes/'+comprobante" target="_blank" v-if="estado == 0 && comprobante != null" class="btn btn-default btn-xs"><i class="icon-eye-outline"></i> Ver comprobante</a> 
+        <button class="btn btn-default btn-xs pull-right" @click="RevisarServicio(serial)"><i class="icon-search-2"></i> Revisar Servicio</button><br>
+        <br><p>
+        @{{mensaje}}</p>
+        <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
+      </div>
+      <div class="panel-footer panel-footer-cobro">          
+        <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
+        <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+        <button v-if="estado == 1" class="btn btn-default btn-sm"><i class="icon-check-3"></i> Reportar Pago</button>
+        <button v-if="estado == 0 && comprobante == null" class="pull-right btn btn-default btn-sm"><i class="icon-attach-1"></i> Subir comprobante</button>
+        <button class="btn btn-default btn-sm pull-right" v-if="estado == 0 && comprobante != null"> <i class="icon-loop-1"></i> Actualizar comprobante</button>
+      </div>
     </div>
-  </div>
+  </template>
+
+  <template id="servicio-template">
+    <div class="col-md-12"> 
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-md-12"> 
+              <button class="btn btn-default btn-xs pull-right "><i class="icon-cancel-2"></i></button>
+              <button class="btn btn-default btn-xs pull-right margin-right-10"><i class="icon-pencil-1"></i></button>
+            </div>     
+            <div class="col-md-12"><p>                    
+
+            </p><h4><b>@{{titulo}} </b></h4>
+            <div class="col-md-6">  
+             <table class="table table-condensed table-hover">
+               <tbody>
+                 <tr>
+                   <td>Periodo</td>
+                   <td>@{{inicio}} <i class="icon-right-small"></i> @{{fin}}</td>
+                 </tr>
+                 <tr>
+                   <td>Vendedor</td>
+                   <td><img width="40px" class="img-circle" alt="" :src="'/uploads/fotos/' + foto"> @{{vendedor}}</td>
+                 </tr>
+                 <tr>
+                   <td>Serial</td>
+                   <td>@{{serial}}</td>
+                 </tr>  
+                 <tr>
+                   <td>Estado</td>
+                   <td>
+                     <span class="label label-success">Activo</span>                 
+                   </td>
+                 </tr>                    
+
+               </tbody>
+             </table>
+           </div>
+           <div class="col-md-6">
+            <table class="table table-condensed table-hover"> 
+              <tr class="success">
+               <td>Valor</td>
+               <td>@{{valor|currency}}</td>
+             </tr>
+             <tr class="danger">
+               <td>Saldo</td>
+               <td>@{{saldo|currency}}</td>
+             </tr>
+             <tr>
+               <td width="10%"><i class="icon-comment-2"></i></td>
+               <td width="90%">Nada en especial</td>
+             </tr>      
+           </table>  
+         </div>  
+
+
+         <hr>  
+         <button @click="RevisarServicio(serial)" class="btn btn-default btn-xs"><i class="icon-search-2"></i>Ver más</button>
+
+         <button class="btn btn-default btn-xs pull-right btn-comprobante-servicio" data-id="11"><i class="icon-attach-1"></i> Cargar Comprobante</button>
+
+       </div>
+       <div class="col-md-12">
+
+        <span class="pull-right">
+         <i class="icon-clock-2"></i> 2 weeks ago
+       </span>
+     </div>
+   </div>
+
+ </div>     
+</div>
+</div>
 </template>
 
-<template id="cobro-template">
-  <div class="panel panel-default">
-    <div class="panel-body">
-    <img :src="'/uploads/fotos/' + foto" width="40px" class="img-circle pull-right" alt="">
-    <span><i class="icon-clock"></i>Vence: @{{vence}}</span><br>
-     <span><i class="icon-dollar"></i>Monto: @{{monto}}</span><br>
-     <span><i class="icon-pinboard"></i>Orden: @{{serial}}</span><br>
-     <span v-if="estado == 1" class="label label-danger">Sin Cobrar</span>
-     <span v-else class="label label-success">Cobrado</span>
-     <span></span>
-     <br>
-     <button class="btn btn-default btn-sm pull-right" @click="RevisarServicio(serial)"><i class="icon-search-2"></i> Revisar Servicio</button><br>
-    <br><p>
-      @{{mensaje}}</p>
-    </div>
-    <div class="panel-footer panel-footer-cobro">
-      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
-      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
-      <button v-if="estado == '0'" class="btn btn-default btn-sm pull-right"><i class="icon-check-3"></i> Registrar Cobro</button>
-    </div>
-  </div>
-</template>
 
 @include('empresas.extras_empresas.modals_profile')
 

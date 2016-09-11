@@ -231,7 +231,7 @@ if($tarjeta->tipo_anotacion=="comentario"){
         $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Anotación en Perfil de Cliente');
     });
 }elseif ($tarjeta->tipo_anotacion=="recordatorio") {
-   Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+ Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
     $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Recordatorio');
 });
 }elseif ($tarjeta->tipo_anotacion=="cobro") {
@@ -538,23 +538,40 @@ public function ShowProfile($id){
 
 public function ShowTargetsProfile($id){
     $data = DB::table('anotaciones')
-        ->where('id_perfil','=',''.$id.'')
-        ->join('users', 'anotaciones.id_creador', '=', 'users.id')
-        ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
-        ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
-        ->orderBy('anotaciones.created_at', 'desc')
-        ->get();
+    ->where('id_perfil','=',''.$id.'')
+    ->join('users', 'anotaciones.id_creador', '=', 'users.id')
+    ->join('empresas', 'anotaciones.id_perfil', '=', 'empresas.id')
+    ->select('anotaciones.*', 'empresas.id AS empresa_id','empresas.foto', 'empresas.nombre_comercial', 'users.fotografia')
+    ->orderBy('anotaciones.created_at', 'desc')
+    ->get();
     return $data;
 }
 public function ShowTargetService($id){
     $data = DB::table('servicios')
-        ->where('serial','=',''.$id.'')
-        ->get();       
-
-
+    ->where('serial','=',''.$id.'')
+    ->join('users', 'servicios.vendedor', '=', 'users.id')
+    ->join('empresas','servicios.id_perfil','=','empresas.id')
+    ->select('servicios.*','empresas.foto AS logo','empresas.id AS id_empresa','empresas.nombre_comercial AS nombre_empresa','users.id AS id_vendedor','users.fotografia AS foto_vendedor','users.name AS nombre_vendedor')
+    ->get();       
     return $data;
 }
 
+public function ShowPaymentsService($id){
+    $data = DB::table('anotaciones')
+    ->where('serial','=',''.$id.'')  
+    ->orderBy('anotaciones.created_at', 'desc')      
+    ->get();     
+    return $data;
+}
+public function AllServices($id){
+    $data = DB::table('servicios')
+    ->where('id_perfil','=',''.$id.'')
+    ->join('users', 'servicios.vendedor', '=', 'users.id')
+    ->select('servicios.*','users.id AS id_vendedor','users.fotografia AS foto_vendedor','users.name AS nombre_vendedor')
+    ->orderBy('servicios.created_at','desc')
+    ->get();
+    return $data;
+}
 
 
 

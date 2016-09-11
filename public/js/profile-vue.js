@@ -3,14 +3,34 @@ Vue.http.options.beforeSend = function(request) {
 };
 
 // define
+Vue.component('servicio',{
+	data: function () {
+		return {
+			datos_servicio: "123",
+		}
+	},
+	template: '#servicio-template',
+	props: ['comprobante','saldo','valor','vence','serial','mensaje','foto',
+	'estado','id_target','id','titulo','publicado','serial','inicio','fin','vendedor'],
+	methods: {
+		RevisarServicio:function(serial){
+			id = serial,
+			this.datos_servicio = vm.serviceId(id)
+		}
+	}
+
+});
+
 
 Vue.component('anotacion', {
-	template: '#anotacion-template'
+	template: '#anotacion-template',
+	props: ['fecha_comentario','mensaje','foto']
 });
 Vue.component('recordatorio', {
-	template: '#recordatorio-template'
-});
+	template: '#recordatorio-template',
+	props:['mensaje','foto','vencimiento','estado','fecha_comentario'],
 
+});
 
 Vue.component('cobro', {
 	data: function () {
@@ -18,7 +38,7 @@ Vue.component('cobro', {
 			datos_servicio: "123",
 		}
 	},
-	props: ['monto','vence','serial','mensaje','foto','estado','id_target','id'],
+	props: ['comprobante','monto','vence','serial','mensaje','foto','estado','id_target','id','comprobante','fecha_comentario'],
 	template: '#cobro-template',
 	methods: {
 		RevisarServicio:function(serial){
@@ -35,7 +55,9 @@ var vm = new Vue({
 	el: '#app-profile',
 	data: function () {  {
 		return {
-			target_id:"",			
+			target_id:"",
+			payments_id:"",
+			all_services:"",			
 			data_targets:"",
 			id:"",
 			data_empresa:{
@@ -77,12 +99,26 @@ var vm = new Vue({
 },
 
 methods: {
+	
+	AllServices: function(id){
+		this.$http.get('/asteroid/services/'+id).then((data) => {
+			this.$set('all_services', data.json())
+		})	
+	},
+
+	paymentsId: function (id) {
+		this.$http.get('/asteroid/service/payments/'+id).then((data) => {
+			this.$set('payments_id', data.json())
+			// target_id = data.json() 
+		})		
+		//$('#servicio_cobro').modal('show');
+	},
 
 	serviceId: function (id) {
 		this.$http.get('/asteroid/service/'+id).then((data) => {
 			this.$set('target_id', data.json()),
-			target_id = data.json() 
-		})		
+			this.paymentsId(id)
+		}),
 		$('#servicio_cobro').modal('show');
 	},
 
@@ -159,7 +195,7 @@ filters: {
 		return moment(date).fromNow();
 	},
 	DateSmall: function (date) {
-		return moment(date).format('L');
+		return moment(date).format('MMM Do YY');
 	},
 	DateLarge: function(date){
 		return moment(date).format('YYYY-MM-DD 00:00:00'); 
@@ -347,7 +383,8 @@ filters: {
 
 ready: function () {
 	this.load_data(),
-	this.load_targets_all()
+	this.load_targets_all(),
+	this.AllServices(this.id)
 		//setTimeout(this.load_data, 0)
 	}
 });
