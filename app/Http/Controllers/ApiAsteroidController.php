@@ -109,10 +109,7 @@ class ApiAsteroidController extends Controller
         $tarjeta->fecha_comentario   = $request->fecha_comentario;
 
         $tarjeta->save();
-
-
-
-        return  "Actualizada exitosamente";
+        return $tarjeta;
         
     }
     /**
@@ -231,7 +228,7 @@ if($tarjeta->tipo_anotacion=="comentario"){
         $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Anotación en Perfil de Cliente');
     });
 }elseif ($tarjeta->tipo_anotacion=="recordatorio") {
- Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+   Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
     $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Recordatorio');
 });
 }elseif ($tarjeta->tipo_anotacion=="cobro") {
@@ -571,6 +568,22 @@ public function AllServices($id){
     ->orderBy('servicios.created_at','desc')
     ->get();
     return $data;
+}
+public function AllServicesFilter($id,$inicio,$fin){
+
+    $data = DB::table('servicios')
+    ->where('id_perfil','=',''.$id.'')
+    ->whereBetween('inicio', [$inicio, $fin])
+    ->join('users', 'servicios.vendedor', '=', 'users.id')
+    ->select('servicios.*','users.id AS id_vendedor','users.fotografia AS foto_vendedor','users.name AS nombre_vendedor')
+    ->orderBy('servicios.created_at','desc')
+    ->get();
+    return $data;
+
+}
+public function DeleteTarget($id){
+Anotacion::destroy($id);
+return "ok";
 }
 
 

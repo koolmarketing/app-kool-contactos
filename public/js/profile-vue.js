@@ -11,7 +11,7 @@ Vue.component('servicio',{
 	},
 	template: '#servicio-template',
 	props: ['comprobante','saldo','valor','vence','serial','mensaje','foto',
-	'estado','id_target','id','titulo','publicado','serial','inicio','fin','vendedor'],
+	'estado','id_target','id','titulo','publicado','serial','inicio','fin','vendedor','update'],
 	methods: {
 		RevisarServicio:function(serial){
 			id = serial,
@@ -23,12 +23,45 @@ Vue.component('servicio',{
 
 
 Vue.component('anotacion', {
+	data: function () {
+		return {
+			datos_anotacion: "",
+		}
+	},
 	template: '#anotacion-template',
-	props: ['fecha_comentario','mensaje','foto']
+	props: ['id','fecha_comentario','mensaje','foto','tipo_anotacion'],
+	methods:{
+		SaveComentario: function(){
+			RegistrarComentario()
+		},
+		DeleteTarget:function(serial){
+			id = serial,
+			this.datos_anotacion = vm.DeleteTarget(id)
+		},
+		EditAnotacion:function(id,tipo_anotacion){
+			this.datos_anotacion = vm.EditAnotacion(id,tipo_anotacion)
+		}
+	}
 });
+
 Vue.component('recordatorio', {
+	data: function () {
+		return {
+			datos_recordatorio: "",
+		}
+	},
 	template: '#recordatorio-template',
-	props:['mensaje','foto','vencimiento','estado','fecha_comentario'],
+	props:['id','mensaje','foto','vencimiento','estado','fecha_comentario','tipo_anotacion'],
+	methods:{
+		DeleteTarget:function(serial){
+			id = serial,
+			this.datos_recordatorio = vm.DeleteTarget(id)
+		},
+		EditAnotacion:function(id,tipo_anotacion){
+			this.datos_anotacion = vm.EditAnotacion(id,tipo_anotacion)
+		}
+	}
+
 
 });
 
@@ -38,12 +71,22 @@ Vue.component('cobro', {
 			datos_servicio: "123",
 		}
 	},
-	props: ['comprobante','monto','vence','serial','mensaje','foto','estado','id_target','id','comprobante','fecha_comentario'],
+	props: ['tipo_anotacion','id','comprobante','monto','vence','serial','mensaje','foto','estado','id_target','id','comprobante','fecha_comentario'],
 	template: '#cobro-template',
 	methods: {
 		RevisarServicio:function(serial){
 			id = serial,
 			this.datos_servicio = vm.serviceId(id)
+		},
+		DeleteTarget:function(serial){
+			id = serial,
+			this.datos_servicio = vm.DeleteTarget(id)
+		},
+		ReportarPago:function(id,serial){
+			this.datos_servicio = vm.ReportarCobro(id,serial)
+		},
+		EditAnotacion:function(id,tipo_anotacion){
+			this.datos_anotacion = vm.EditAnotacion(id,tipo_anotacion)
 		}
 
 	}
@@ -60,6 +103,14 @@ var vm = new Vue({
 			all_services:"",			
 			data_targets:"",
 			id:"",
+			data_anotacion:"",
+			filter_service:{
+				inicio:"",
+				fin:""
+			},
+			UpNote : { _token: $('meta[name="csrf-token"]').attr('content'), mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",fecha_inicio: "",   involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "", fecha_comentario: ""},
+			id_targeta: "", mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",created_at: "",updated_at: "",fecha_inicio: "",    involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "",    fecha_comentario: "",empresa_id: "",foto: "", nombre_comercial: "", fotografia: "",
+
 			data_empresa:{
 				id:"",
 				rango:"",
@@ -99,16 +150,205 @@ var vm = new Vue({
 },
 
 methods: {
-	
-	AllServices: function(id){
-		this.$http.get('/asteroid/services/'+id).then((data) => {
+
+	EditAnotacion: function (id,tipo_anotacion) {
+		this.$http.get('/api/card/'+id).then((data) => {
+			this.$set('data_anotacion', data.json()),
+			new_data = data.json()
+			this.SetData(new_data)   
+		})
+		switch (tipo_anotacion) {
+			case 'comentario':
+			$('#edit-modal-anotacion').modal('show'); 
+			break;
+			case 'recordatorio':
+			$('#edit-modal-recordatorio').modal('show'); 
+			break;
+			case 'cobro':
+			$('#edit-modal-cobro').modal('show');
+			break;
+			default:
+			return false;
+			break;
+		}
+
+	},
+	/*Actualizar Anotacion*/
+	UpdateNote: function(){
+
+		this.UpNote.id = this.id_targeta  
+		this.UpNote.fecha_cobro = this.fecha_cobro
+		this.UpNote.mensaje = this.mensaje
+		this.UpNote.id_creador = this.id_creador
+		this.UpNote.fecha_cobro = this.fecha_cobro
+		this.UpNote.fecha_vencimiento = this.fecha_vencimiento
+		this.UpNote.serial = this.serial
+		this.UpNote.monto = this.monto
+		this.UpNote.estado = this.estado
+		this.UpNote.fecha_inicio = this.fecha_inicio
+		this.UpNote.involucrados = this.involucrados
+		this.UpNote.id_perfil = this.id_perfil
+		this.UpNote.tipo_perfil = this.tipo_perfil
+		this.UpNote.tipo_anotacion = this.tipo_anotacion
+		this.UpNote.comprobante = this.comprobante
+		this.UpNote.fecha_comentario = this.fecha_comentario
+
+
+		var note_save = JSON.stringify(this.UpNote);
+		var serial_data = $.param( this.UpNote, true );
+  // console.log(serial_data);
+  event.preventDefault();
+  $.ajaxSetup({
+  	headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+  })
+
+  $.ajax({
+  	url: '/card/update',
+  	type: 'POST',
+  	dataType: 'html',
+  	processData: false,
+  	data: serial_data,
+
+  	success: function(result){
+  		resultado = jQuery.parseJSON(result); 
+  		if (resultado.tipo=="Error") {
+  			swal(resultado.mensaje);
+  		}else{
+  			swal("Actualizado");
+  		}
+  	},
+  	error: function(result){
+  		console.log(result);
+  		swal("Ocurrio un Error");
+  	}
+  });
+  this.load_targets_all()
+
+},
+/*End Actualizar Anotacion*/
+/*Register Targets*/
+ModalGuardarComentario:function(){
+	VueRegistrarComentario(),
+	this.load_targets_all()
+},
+ModalGuardarRecordatorio:function(){
+	VueRegistrarRecordatorio(),
+	this.load_targets_all()
+},
+ModalGuardarCobro:function(){
+	VueRegistrarCobro(),
+	this.load_targets_all()
+},
+/*End Register Targets*/
+
+/*Reportar pago*/
+ReportarCobro: function(the_id,serial){
+
+	var serial       = serial;
+	var id_anotacion = the_id;
+
+
+	console.log("serial: "+serial+" id:"+the_id);
+	swal(
+	{   
+		title: "¿Estas seguro?",
+		text: "Estas por reportar el ingreso de dinero",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "Si!, Confirmo Pago",
+		cancelButtonText: "No",
+		closeOnConfirm: false,
+		closeOnCancel: false },
+
+		function(isConfirm){ 
+			if (isConfirm) {
+            //$('#reporte-de-cobro').modal('show');
+            swal("Reportado!", "El pago se ha ingresado en el sistema", "success");
+            ;(function(){
+            	$.ajaxSetup({
+            		headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+            	})
+            	var cobro = {};
+            	cobro.id_anotacion = the_id;
+            	cobro.serial = serial;
+
+            	var serial_data = $.param(cobro);
+            	$.ajax({
+            		url: '/update/cobro',
+            		type: 'POST',
+            		data: serial_data,
+            		dataType: 'html',
+            		success: function(result){                    
+            			resultado = jQuery.parseJSON(result);
+                        //alert(result);                    
+                        if (resultado.tipo=="Error") {
+                        	swal(resultado.mensaje);
+
+                        }else if(resultado.tipo=="Exito"){
+                        	swal(resultado.mensaje); 
+                        	vm.load_targets_all();                         
+                        }
+                        else{                                                        
+
+                        }                                   
+                    },
+                    error: function(){
+                    	console.log('Error');
+                    }
+                });                    
+
+            })();
+        }
+        else {     swal("Cancelado!", "El reporte ha sido cancelado", "error");   } });
+},
+
+
+/*End Reportar Cobro*/
+DeleteTarget:function(id){
+	swal({   
+		title: "¿Eliminar?",   
+		text: "Borrar esto puede tener repercuciones :s",   
+		type: "warning",   
+		showCancelButton: true,   
+		confirmButtonColor: "#DD6B55",   
+		confirmButtonText: "Si, borrar",   
+		cancelButtonText: "No, cancelar",   
+		closeOnConfirm: false,   closeOnCancel: false }, 
+		function(isConfirm){   
+			if (isConfirm) {    
+				vm.DeleteTargetOk(id)
+			} else {     
+				swal("Cancelado", "La acción fue cancelada", "error");   
+			}
+		})
+},
+DeleteTargetOk:function(id){
+	this.$http.get('/asteroid/deletetarget/'+id).then((data) => {
+		this.load_targets_all()
+	})	
+	swal("Eliminado!", "Se ha eliminado con exito de la base de datos", "success"); 
+},
+FilterService: function(id){
+	if (this.filter_service.inicio != '' && this.filter_service.fin != '') {
+		this.$http.get('/asteroid/services/'+id+'/filter_date/'+this.filter_service.inicio+'/'+this.filter_service.fin).then((data) => {
+			this.all_services='',
 			this.$set('all_services', data.json())
 		})	
-	},
+	}else{
+		swal('¿Que período quieres filtrar?')
+	}
+},
 
-	paymentsId: function (id) {
-		this.$http.get('/asteroid/service/payments/'+id).then((data) => {
-			this.$set('payments_id', data.json())
+AllServices: function(id){
+	this.$http.get('/asteroid/services/'+id).then((data) => {
+		this.$set('all_services', data.json())
+	})	
+},
+
+paymentsId: function (id) {
+	this.$http.get('/asteroid/service/payments/'+id).then((data) => {
+		this.$set('payments_id', data.json())
 			// target_id = data.json() 
 		})		
 		//$('#servicio_cobro').modal('show');
@@ -176,6 +416,31 @@ methods: {
 		this.data_empresa.redes_adicionales  = redes_adicionales;
 
 
+	},
+	SetData: function(data){
+		new_data = data;
+		this.id_targeta = new_data[0].id
+		this.fecha_cobro = new_data[0].fecha_cobro
+		this.mensaje = new_data[0].mensaje
+		this.id_creador = new_data[0].id_creador
+		this.fecha_cobro = new_data[0].fecha_cobro
+		this.fecha_vencimiento = new_data[0].fecha_vencimiento
+		this.serial = new_data[0].serial
+		this.monto = new_data[0].monto
+		this.estado = new_data[0].estado
+		this.created_at = new_data[0].created_at
+		this.updated_at = new_data[0].updated_at
+		this.fecha_inicio = new_data[0].fecha_inicio
+		this.involucrados = new_data[0].involucrados
+		this.id_perfil = new_data[0].id_perfil
+		this.tipo_perfil = new_data[0].tipo_perfil
+		this.tipo_anotacion = new_data[0].tipo_anotacion
+		this.comprobante = new_data[0].comprobante
+		this.fecha_comentario = new_data[0].fecha_comentario
+		this.empresa_id = new_data[0].empresa_id
+		this.foto = new_data[0].foto
+		this.nombre_comercial = new_data[0].nombre_comercial
+		this.fotografia = new_data[0].fotografia
 	},
 	load_targets_all: function(){
 		this.data_targets = "";
@@ -390,4 +655,20 @@ ready: function () {
 });
 
 
+Vue.filter('DateSmall', function (value) {
+	return moment(date).format('MMM Do YY');
+})
 
+Vue.filter('fromNow', function (value) {
+	return moment(date).fromNow();
+})
+
+	// fromNow: function (date) {
+	// 	return moment(date).fromNow();
+	// },
+	// DateSmall: function (date) {
+	// 	return moment(date).format('MMM Do YY');
+	// },
+	// DateLarge: function(date){
+	// 	return moment(date).format('YYYY-MM-DD 00:00:00'); 
+	// },

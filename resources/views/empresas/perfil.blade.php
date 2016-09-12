@@ -398,22 +398,24 @@
          <div role="tabpanel" class="tab-pane" id="contrataciones">
           <div class="panel panel-default">
             <div class="panel-body">
-               <br>
-                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                      <div class="col-md-4"><input id="inicio_anotacion" type="text" name="" value="" placeholder="Inicio" class="form-control"></div>
-                      <div class="col-md-4"><input id="fin_anotacion" type="text" name="" value="" placeholder="Final" class="form-control"></div>
-                      <div class="col-md-1">
-                        <button class="btn btn-md btn-primary">Filtrar Datos</button>
-                      </div>
-                    </div>
+             <br>
+             <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="col-md-4">
+                  <input id="inicio_contratacion" v-model="filter_service.inicio" type="text" name="" value="" placeholder="Inicio" class="form-control"></div>
+                  <div class="col-md-4">
+                  <input id="fin_contratacion" v-model="filter_service.fin" type="text" name="" value="" placeholder="Final" class="form-control"></div>
+                  <div class="col-md-1">
+                    <button @click="FilterService(id)" :disabled="filter_service.inicio == '' && filter_service.fin" class="btn btn-md btn-primary">Filtrar Datos</button>
                   </div>
                 </div>
-                <div class="col-md-3">  
-                  <button class="btn btn-md btn-primary pull-right" data-toggle="modal" href='#modal-service'>Registrar servicio</button> 
-                </div> 
-              
+              </div>
+            </div>
+            <div class="col-md-3">  
+              <button class="btn btn-md btn-primary pull-right" data-toggle="modal" href='#modal-service'>Registrar servicio</button> 
+            </div> 
+
 
              {{-- <div id="contenedor_servicios_empresa" class="col-md-12">
            </div> --}}
@@ -429,6 +431,7 @@
              :titulo="servicio.titulo"
              :serial="servicio.serial"
              :vendedor="servicio.nombre_vendedor"
+             :update="servicio.updated_at"
              ></servicio> 
            </div>
 
@@ -573,6 +576,7 @@
           :estado="target.estado"
           :fecha_comentario="target.updated_at"
           :comprobante="target.comprobante"
+          :tipo_anotacion="target.tipo_anotacion"          
           >
         </cobro>
         <recordatorio v-if="target.tipo_anotacion == 'recordatorio'"
@@ -580,12 +584,16 @@
         :vencimiento="target.fecha_vencimiento"
         :foto="target.fotografia"
         :fecha_comentario="target.updated_at"
+        :id="target.id"
+        :tipo_anotacion="target.tipo_anotacion"
         >
       </recordatorio>
       <anotacion v-if="target.tipo_anotacion == 'comentario'"
       :mensaje="target.mensaje"
       :fecha_comentario="target.fecha_comentario"
       :foto="target.fotografia"
+      :id="target.id"
+      :tipo_anotacion="target.tipo_anotacion"
       >
     </anotacion>
   </div>
@@ -612,8 +620,8 @@
       <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
     </div>
     <div class="panel-footer panel-footer-anotacion">
-      <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
-      <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+      <button class="btn btn-default btn-sm" @click="DeleteTarget(id)"><i class="icon-cancel-3"></i></button>
+      <button @click="EditAnotacion(id,tipo_anotacion)" class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
     </div>
   </div>
 </template>
@@ -631,8 +639,8 @@
         <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
       </div>
       <div class="panel-footer panel-footer-recordatorio">
-        <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
-        <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+        <button class="btn btn-default btn-sm" @click="DeleteTarget(id)"><i class="icon-cancel-3"></i></button>
+        <button @click="EditAnotacion(id,tipo_anotacion)" class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
       </div>
     </div>
   </template>
@@ -653,9 +661,9 @@
         <span class="pull-right"><i class="icon-clock"></i>@{{fecha_comentario}}</span>
       </div>
       <div class="panel-footer panel-footer-cobro">          
-        <button class="btn btn-default btn-sm"><i class="icon-cancel-3"></i></button>
-        <button class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
-        <button v-if="estado == 1" class="btn btn-default btn-sm"><i class="icon-check-3"></i> Reportar Pago</button>
+        <button class="btn btn-default btn-sm" @click="DeleteTarget(id)"><i class="icon-cancel-3"></i></button>
+        <button @click="EditAnotacion(id,tipo_anotacion)" class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
+        <button v-if="estado == 1" @click="ReportarPago(id,serial)" class="btn btn-default btn-sm"><i class="icon-check-3"></i> Reportar Pago</button>
         <button v-if="estado == 0 && comprobante == null" class="pull-right btn btn-default btn-sm"><i class="icon-attach-1"></i> Subir comprobante</button>
         <button class="btn btn-default btn-sm pull-right" v-if="estado == 0 && comprobante != null"> <i class="icon-loop-1"></i> Actualizar comprobante</button>
       </div>
@@ -680,7 +688,7 @@
                <tbody>
                  <tr>
                    <td>Periodo</td>
-                   <td>@{{inicio}} <i class="icon-right-small"></i> @{{fin}}</td>
+                   <td>@{{inicio | DateSmall}} <i class="icon-right-small"></i> @{{fin | DateSmall}}</td>
                  </tr>
                  <tr>
                    <td>Vendedor</td>
@@ -720,14 +728,11 @@
 
          <hr>  
          <button @click="RevisarServicio(serial)" class="btn btn-default btn-xs"><i class="icon-search-2"></i>Ver más</button>
-
          <button class="btn btn-default btn-xs pull-right btn-comprobante-servicio" data-id="11"><i class="icon-attach-1"></i> Cargar Comprobante</button>
-
        </div>
        <div class="col-md-12">
-
         <span class="pull-right">
-         <i class="icon-clock-2"></i> 2 weeks ago
+         <i class="icon-clock-2"></i> @{{update}}
        </span>
      </div>
    </div>
@@ -929,6 +934,32 @@
     });
   });
 </script>
+<script>
+$('#inicio_contratacion').datetimepicker({
+        format:'Y-m-d 00:00:00',
+        step:"30",
+        onShow:function( ct ){
+          this.setOptions({
+            maxDate:$('#fin_contratacion').val()?$('#fin_contratacion').val():false
+          })
+        },
+        lang:'es',
+        timepicker:false
+      });
+
+      $('#fin_contratacion').datetimepicker({
+        step:"30",
+        format:'Y-m-d 23:59:59',
+        onShow:function( ct ){
+          this.setOptions({
+            minDate:$('#inicio_contratacion').val()?$('#inicio_contratacion').val():false
+          })
+        },
+        lang:'es',
+        timepicker:false
+      });
+</script>
+
 <script>
 
 

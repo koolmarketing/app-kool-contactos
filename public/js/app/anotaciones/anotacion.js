@@ -1,7 +1,6 @@
         //      SAVE AJAX   
 
-        $('body').on('click', '#btn-guardar-anotacion', function(event) {
-            event.preventDefault();
+        function VueRegistrarComentario(){
                 $.ajaxSetup({
                     headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
                 })
@@ -28,5 +27,6 @@
                         console.log('Error');
                     }
                 });                    
-        });
+        }
+       
 //      END SAVE AJAX    <---

@@ -74,3 +74,14 @@ Route::get('asteroid/services/{id}', [
 	'as'   => 'services.id', 
 	'uses' => 'ApiAsteroidController@AllServices'
 	]);
+Route::get('asteroid/services/{id}/filter_date/{inicio}/{fin}', [
+	'middleware' => 'auth',
+	'as'   => 'services_filter.id', 
+	'uses' => 'ApiAsteroidController@AllServicesFilter'
+	]);
+
+Route::get('asteroid/deletetarget/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'deletetarget.id', 
+	'uses' => 'ApiAsteroidController@DeleteTarget'
+	]);
