@@ -432,6 +432,7 @@
              :serial="servicio.serial"
              :vendedor="servicio.nombre_vendedor"
              :update="servicio.updated_at"
+             :id="servicio.id"
              ></servicio> 
            </div>
 
@@ -664,8 +665,8 @@
         <button class="btn btn-default btn-sm" @click="DeleteTarget(id)"><i class="icon-cancel-3"></i></button>
         <button @click="EditAnotacion(id,tipo_anotacion)" class="btn btn-default btn-sm"><i class="icon-pencil-5"></i></button>
         <button v-if="estado == 1" @click="ReportarPago(id,serial)" class="btn btn-default btn-sm"><i class="icon-check-3"></i> Reportar Pago</button>
-        <button v-if="estado == 0 && comprobante == null" class="pull-right btn btn-default btn-sm"><i class="icon-attach-1"></i> Subir comprobante</button>
-        <button class="btn btn-default btn-sm pull-right" v-if="estado == 0 && comprobante != null"> <i class="icon-loop-1"></i> Actualizar comprobante</button>
+        <button @click="ComprobarPago(id)" v-if="estado == 0 && comprobante == null" class="pull-right btn btn-default btn-sm"><i class="icon-attach-1" ></i> Subir comprobante</button>
+        <button @click="ComprobarPago(id)" class="btn btn-default btn-sm pull-right" v-if="estado == 0 && comprobante != null"> <i class="icon-loop-1" ></i> Actualizar comprobante</button>
       </div>
     </div>
   </template>
@@ -678,7 +679,7 @@
           <div class="row">
             <div class="col-md-12"> 
               <button class="btn btn-default btn-xs pull-right "><i class="icon-cancel-2"></i></button>
-              <button class="btn btn-default btn-xs pull-right margin-right-10"><i class="icon-pencil-1"></i></button>
+              <button @click="EditarServicio(id)" class="btn btn-default btn-xs pull-right margin-right-10"><i class="icon-pencil-1"></i></button>
             </div>     
             <div class="col-md-12"><p>                    
 
@@ -718,17 +719,14 @@
                <td>Saldo</td>
                <td>@{{saldo|currency}}</td>
              </tr>
-             <tr>
-               <td width="10%"><i class="icon-comment-2"></i></td>
-               <td width="90%">Nada en especial</td>
-             </tr>      
+                
            </table>  
          </div>  
 
 
          <hr>  
          <button @click="RevisarServicio(serial)" class="btn btn-default btn-xs"><i class="icon-search-2"></i>Ver más</button>
-         <button class="btn btn-default btn-xs pull-right btn-comprobante-servicio" data-id="11"><i class="icon-attach-1"></i> Cargar Comprobante</button>
+         <button  class="btn btn-default btn-xs pull-right"><i class="icon-attach-1"></i> Cargar Comprobante</button>
        </div>
        <div class="col-md-12">
         <span class="pull-right">

@@ -16,6 +16,9 @@ Vue.component('servicio',{
 		RevisarServicio:function(serial){
 			id = serial,
 			this.datos_servicio = vm.serviceId(id)
+		},
+		EditarServicio: function(id){
+			this.datos_servicio = vm.LoadServiceId(id)
 		}
 	}
 
@@ -87,6 +90,10 @@ Vue.component('cobro', {
 		},
 		EditAnotacion:function(id,tipo_anotacion){
 			this.datos_anotacion = vm.EditAnotacion(id,tipo_anotacion)
+		},
+		ComprobarPago: function(id){
+			this.datos_servicio = vm.AbrirComprobantePago(id)
+
 		}
 
 	}
@@ -98,6 +105,17 @@ var vm = new Vue({
 	el: '#app-profile',
 	data: function () {  {
 		return {
+			calculos_service:{
+				utilidad_neta:"",
+				valor_retencion: function() {
+					return "ok";					
+				},
+				valor_iva:""
+			},
+			vendedores:"",
+			retenciones:"",
+			servicio_edit:"",
+			comprobante_target:"",
 			target_id:"",
 			payments_id:"",
 			all_services:"",			
@@ -150,6 +168,36 @@ var vm = new Vue({
 },
 
 methods: {
+
+	LoadServiceId: function(id){
+		this.$http.get('/asteroid/service_id/'+id).then((data) => {
+			datos=data.data[0],
+			console.log(datos),
+			this.$set('servicio_edit', datos)  
+		}),
+		this.calculos_service.valor_retencion = this.servicio_edit.titulo_retencion,
+		this.LoadRetenciones(),
+		this.LoadVendedores(),
+		setTimeout($('#modal-service-update').modal('show'), 800)
+		
+	},
+
+	LoadVendedores: function(){
+		this.$http.get('/asteroid/vendedores').then((data) => {
+			this.$set('vendedores', data.json())  
+		})
+	},
+
+	LoadRetenciones: function(){
+		this.$http.get('/asteroid/retenciones').then((data) => {
+			this.$set('retenciones', data.json())  
+		})
+	},
+
+	AbrirComprobantePago: function(id){
+		this.comprobante_target = id,
+		$('#comprobante-cobro').modal('show')
+	},
 
 	EditAnotacion: function (id,tipo_anotacion) {
 		this.$http.get('/api/card/'+id).then((data) => {

@@ -228,7 +228,7 @@ if($tarjeta->tipo_anotacion=="comentario"){
         $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Anotación en Perfil de Cliente');
     });
 }elseif ($tarjeta->tipo_anotacion=="recordatorio") {
-   Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
+ Mail::later(5, 'emails.recordatorio_mail', ['msm'=>$data], function($message){
     $message->to('soporteweb@koolmarketing.net','Koolkontact')->subject('Recordatorio');
 });
 }elseif ($tarjeta->tipo_anotacion=="cobro") {
@@ -582,10 +582,31 @@ public function AllServicesFilter($id,$inicio,$fin){
 
 }
 public function DeleteTarget($id){
-Anotacion::destroy($id);
-return "ok";
+    Anotacion::destroy($id);
+    return "ok";
 }
-
+public function LoadService($id){
+    $data = DB::table('servicios')
+    ->where('id','=',''.$id.'')
+    ->get();
+    return $data;
+}
+public function LoadRetenciones(){
+    $data = DB::table('retencion_fuente')
+    ->get();
+    return $data;
+}
+public function LoadVendedores(){
+     $data = DB::table('users')
+     ->select('id','name')
+    ->get();
+    return $data;
+}
+public function ValueRetencion($id){
+    $data = DB::table('retencion_fuente')
+    ->where('concepto','=','Compras generales (declarantes)')
+    ->get();
+}
 
 
 }

@@ -85,3 +85,25 @@ Route::get('asteroid/deletetarget/{id}', [
 	'as'   => 'deletetarget.id', 
 	'uses' => 'ApiAsteroidController@DeleteTarget'
 	]);
+
+Route::get('asteroid/service_id/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'edit_service_id', 
+	'uses' => 'ApiAsteroidController@LoadService'
+	]);
+Route::get('/asteroid/retenciones', [
+	'middleware' => 'auth',
+	'as'   => 'retenciones', 
+	'uses' => 'ApiAsteroidController@LoadRetenciones'
+	]);
+Route::get('/asteroid/vendedores', [
+	'middleware' => 'auth',
+	'as'   => 'vendedores', 
+	'uses' => 'ApiAsteroidController@LoadVendedores'
+	]);
+Route::get('/valor-retencion/{id}', [
+	'middleware' => 'auth',
+	'as'   => 'valor_retencion', 
+	'uses' => 'ApiAsteroidController@ValueRetencion'
+	]);
+
