@@ -164,48 +164,50 @@
       <div class="modal-body">
         <div class="row">
           {!!Form::open(array('action' => 'ServiciosController@SaveService', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-          <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+          <input type="hidden" v-model="nuevoservicio.id" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
 
           <div class="col-md-12">
             <div class="col-md-12"> <br>                     
-              <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" value="" required="required">
+              <input type="text" name="titulo" v-model="nuevoservicio.titulo" placeholder="Título del servicio" class="form-control material" value="" required="required">
             </div>
           </div>                   
           <div class="col-md-12">
            <div class="col-md-6">  <br>  
-             <input type="text"  name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+             <input type="text" v-model="nuevoservicio.inicio" name="inicio" id="inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
            </div>
            <div class="col-md-6"> <br>                     
-            <input type="text" name="fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
+            <input type="text" name="fin" v-model="nuevoservicio.fin" id="fin_servicio" placeholder="Finalización" class="form-control material" value="" required="required">
           </div>
           <br><br>
         </div>                
         <div class="col-md-12" style="margin-top: 20px;"> 
-         <div class="col-md-3">
-
-          <input type="text" name="serial" id="input" class="form-control material" placeholder="# Comprobante" value="" required="required">
-        </div>
-        <div class="col-md-4">
-          <input type="number" name="valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio" value="" required="required">
+         <div class="col-md-2">
+          <input type="text" v-model="nuevoservicio.serial" name="serial" id="input" class="form-control material" placeholder="# Comprobante" value="" required="required">
         </div>
         <div class="col-md-3">
-          <input type="number" name="costos" id="costos_operativos" class="form-control material" placeholder="Costos" value="" required="required" step="any">
+          <input type="number" name="valor" v-model="nuevoservicio.valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio" value="" required="required">
+        </div>
+        <div class="col-md-3">
+          <input type="number" name="descuento" v-model="nuevoservicio.descuento" id="valor_descuento" class="form-control material" placeholder="Valor del Descuento" value="" required="required">
         </div>
         <div class="col-md-2">
-         <input type="number" name="iva" id="iva" min="0" step="0.05" class="form-control material" placeholder="IVA" value="" required="required" step="any">
+          <input type="number" name="costos" v-model="nuevoservicio.costos" id="costos_operativos" class="form-control material" placeholder="Costos" value="" required="required" step="any">
+        </div>
+        <div class="col-md-2">
+         <input type="number" v-model="nuevoservicio.iva" name="iva" id="iva" min="0" step="0.05" class="form-control material" placeholder="IVA" value="" required="required" step="any">
        </div>
        <div class="col-md-12"><br>
-        <div class="col-md-1">
+         <div class="col-md-3">
+           <select name="vendedor" v-model="nuevoservicio.vendedor" class="form-control material" required="required">
+             <option v-for="v in vendedores"               
+             value="@{{v.id}}">@{{v.name}}</option>
+           </select>
+         </div>
+         <div class="col-md-9">
+          <select name="retencion" v-model="nuevoservicio.retencion"  class="form-control material" required="required">
 
-          <button type="button" id="btn-retencion" class="btn btn-info btn-xs"><i class="icon-info"></i></button>
-        </div>
-        <div class="col-md-11">
-          <select name="retencion" id="retencion_select" class="form-control material" required="required">
-            <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
-            <option value="Sin Retención" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
-            @foreach ($retencion as $retencion)            
-            <option value="{!! $retencion->concepto !!}" data-tarifas="{!! $retencion->tarifas !!}" data-baseuvt="{!! $retencion->base_uvt !!}" data-basepesos="{!! $retencion->base_pesos !!}" value="">{!! $retencion->concepto !!} - <b class="text-danger">[ {!! $retencion->tarifas !!}% ]</b></option>            
-            @endforeach
+            <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
+            <option v-for="r in retenciones" value="@{{r.id}}">@{{r.concepto}} - @{{r.tarifas}}</option>          
           </select>
         </div>
       </div>
@@ -213,274 +215,26 @@
       <div class="col-md-12">
         <br>
         <ul class="list-group">
-          <li class="list-group-item"><b>IVA</b>
-            <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
-            <span class="pull-right" id="container_iva">          
-            </span></li>
-            <li class="list-group-item"><b>Retención</b>
-             <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
-             <span class="pull-right" id="container_RT"></span></li>
+          <li class="list-group-item"><b>Valor a Cobrar</b>
+            <input type="hidden" id="valor_iva" name="valor_iva">
+            <span class="pull-right">@{{nuevoservicio.valor_real | currency}}</span></li>
+            <li class="list-group-item"><b>IVA</b>
+              <input type="hidden" id="valor_iva" name="valor_iva">
+              <span class="pull-right">@{{calcular_iva | currency}}</span></li>
+              <li class="list-group-item"><b>Retención</b>
+               <input type="hidden" name="valor_retencion" id="valor_retencion" v-model="nuevoservicio.calcular_retencion">
+               <span class="pull-right">@{{calcular_retencion | currency}}</span></li>
+               <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
+                 <input type="hidden" name="utilidad_neta" id="utilidad_neta" v-model="nuevoservicio.utilidad_neta">
+                 <span class="pull-right">@{{utilidad_neta | currency}}</span></li>
+               </ul>
+             </div><br>
 
-             <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
-               <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
-               <span class="pull-right" id="container_utilidad"></span></li>
-             </ul>
-           </div><br>
-           <div class="col-md-12">
-            <br>
-            <ul class="list-group">
-              <li class="list-group-item"><b>IVA</b>
-                <input type="hidden" id="valor_iva" name="valor_iva" value="" placeholder="">
-                <span class="pull-right">          
-                </span></li>
-                <li class="list-group-item"><b>Retención</b>
-                 <input type="hidden" name="valor_retencion" id="valor_retencion" value="" placeholder="">
-                 <span class="pull-right"></span></li>
-
-                 <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
-                   <input type="hidden" name="utilidad_neta" value="" placeholder="">
-                   <span class="pull-right" id="container_utilidad"></span></li>
-                 </ul>
-               </div><br>
-
-               <div class="form-group">
-                <div class="col-md-12">
-                  <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" value="" class="material form-control">Observaciones</textarea>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12" style="margin-top: 10px">
+             <div class="form-group">
               <div class="col-md-12">
-                <br>
+                <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="4" class="material form-control" v-model="nuevoservicio.comentarios_servicio">Observaciones</textarea>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-          <button type="button" id="btn-guardar-servicio" class="btn btn-primary">Registrar Servicio</button>
-          {!! Form::close() !!}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- END Service -->
-
-  {{-- ACTUALIZAR SERVICIO --}}
-
-  <div class="modal fade" id="modal-service-update">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-12"> <br>                     
-                <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" v-model="servicio_edit.titulo"  required="required">
-              </div>
-            </div>
-
-
-            <div class="col-md-12">
-             <div class="col-md-6">  <br>  
-               <input type="text"  name="inicio" id="edit_inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" v-model="servicio_edit.inicio" required="required">
-             </div>
-             <div class="col-md-6"> <br>                     
-              <input type="text" name="fin" id="edit_fin_servicio" placeholder="Finalización" class="form-control material" v-model="servicio_edit.fin" required="required">
-            </div>
-            <br><br>
-          </div>
-
-          <div class="col-md-12">
-            <div class="col-md-3"><br>
-              <input type="text" name="serial" id="input" class="form-control material" placeholder="# Comprobante" v-model="servicio_edit.serial" required="required">
-            </div>
-            <div class="col-md-4"><br>
-              <input type="number" v-model="servicio_edit.valor" name="valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio"  required="required">
-            </div>
-            <div class="col-md-3"><br>
-              <input type="number"  name="costos" id="costos_operativos" class="form-control material" placeholder="Costos" v-model="servicio_edit.costos" required="required" step="any">
-            </div>
-            <div class="col-md-2"><br>
-              <input type="number" name="iva" id="iva" min="0" step="0.05" class="form-control material" placeholder="IVA" v-model="servicio_edit.iva" required="required" step="any">
-            </div>
-          </div> 
-
-          <div class="col-md-12"><br>
-           <div class="col-md-3">
-             <select name="vendedor" v-model="servicio_edit.vendedor" class="form-control material" required="required">
-               <option v-for="v in vendedores"
-               selected="@{{v.id == servicio_edit.vendedor}}"
-               value="@{{v.id}}">@{{v.name}}</option>
-             </select>
-           </div>
-           <div class="col-md-9">
-            <select  name="retencion" v-model="servicio_edit.titulo_retencion" id="retencion_select_edit" class="form-control material" required="required">
-              <option value="0" tarifa="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
-              <option data-valor="0" value="Sin Retención" selected="@{{calculos_service.valor_retencion == 'Sin Retención'}}" tarifa="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
-              <option  v-for="r in retenciones"
-               v-bind:tarifa="r.tarifa"
-              name="retencion"
-              selected="@{{r.concepto == calculos_service.valor_retencion}}"
-              value="@{{r.concepto}}" >@{{r.concepto}}</option>
-            </select>
-          </div><br>
-          <div class="col-md-12">
-            <br>
-            <ul class="list-group">
-              <li class="list-group-item"><b>IVA</b>
-                <input type="hidden" id="valor_iva" name="valor_iva" value="@{{servicio_edit.valor_iva}}" placeholder="">
-                <span class="pull-right" id="container_iva">
-                </span></li>
-                <li class="list-group-item"><b>Retención</b>
-                  <span v-for="r in retenciones" v-if="r.concepto == servicio_edit.titulo_retencion">
-                  <input type="hidden" name="valor_retencion" v-model="servicio_edit.valor_retencion" id="valor_retencion" value="" placeholder="">
-                   <span class="pull-right"></span></span>
-                 </li>
-
-                 <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
-                   <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
-                   <span class="pull-right"></span></li>
-                 </ul>
-               </div>
-               <div class="col-md-12"><br>
-                 <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="3" v-model="servicio_edit.comentarios_servicio" class="material form-control"></textarea>
-               </div>
-
-             </div>
-
-           </div>
-         </div>
-
-         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-          <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- END Service -->
-  {{-- FIN ACTUALIZAR SERVICIO --}}
-
-
-  <!------------  Load Comprobante Cobro  ------------>
-  <div class="modal fade" id="comprobante-cobro">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Cargar comprobante de Cobro</h4>
-        </div>
-        <div class="modal-body">
-          {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-
-          <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" v-model="comprobante_target" class="form-control" value="">
-          <input type="file" name="comprobante" class="form-control">              
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-          <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
-          {!! Form::close() !!}
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!------------  Load Comprobante Servicio  ------------>
-  <div class="modal fade" id="modal-comprobante-servicio">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Cargar Comprobante de Servicio</h4>
-        </div>
-        <div class="modal-body">
-          {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
-          <input type="hidden" name="id_anotacion" id="id_anotacion_servicio" class="form-control" value="">
-          <input type="file" name="comprobante" class="form-control">              
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-          <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
-          {!! Form::close() !!}
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  {{-- Reportar Cobro --}}
-
-  {{-- End Reportar Cobro --}}
-
-  <!------------  Load Comprobante Costo  ------------>
-  <div class="modal fade" id="modal-comprobante-costo">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Cargar Comprobante de Costo</h4>
-        </div>
-        <div class="modal-body">
-          {!!Form::open(array('action' => 'CostosController@UpdateComprobanteCosto', 'method' => 'post', 'id' => 'form-guardar-comprobante-costo','files'=>true));!!}
-
-          <input type="hidden" name="id_anotacion_costo" id="id_anotacion_costo" class="form-control" value="">
-
-          <input type="file" name="comprobante" class="form-control">              
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-          <button type="submit" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
-          {!! Form::close() !!}
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  {{-- Reportar Cobro --}}
-
-  <!--====  Stat Costo  ====-->
-  <div class="modal fade" id="modal-costos">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Adjuntar un Costo</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-
-            {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
-            <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
-
-            <div class="col-md-12">
-              <div class="col-md-12"> <br>                     
-                <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
-              </div>
-            </div>                   
-            <div class="col-md-12">
-             <div class="col-md-6">  <br>  
-               <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
-             </div>
-             <div class="col-md-6"> <br>                     
-              <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
-            </div>
-            <br><br>
-          </div>                
-          <div class="col-md-12" style="margin-top: 20px;"> 
-           <div class="col-md-6">
-            <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
-          </div>
-          <div class="col-md-6">
-            <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
-          </div>
-
-          <div class="col-md-12"><br>
-            <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
           </div>
           <div class="col-md-12" style="margin-top: 10px">
             <div class="col-md-12">
@@ -491,12 +245,263 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-        <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
+        <button type="button" v-bind:disabled="nuevoservicio.vendedor == '' || nuevoservicio.vendedor == '' || nuevoservicio.costos == valor || nuevoservicio.costos == '' || nuevoservicio.titulo == ''" onclick="GuardarServicio(vm.nuevoservicio)" class="btn btn-primary">Registrar Servicio</button>
         {!! Form::close() !!}
       </div>
     </div>
   </div>
 </div>
+
+<!-- END Service -->
+
+{{-- ACTUALIZAR SERVICIO --}}
+
+<div class="modal fade" id="modal-service-update">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12"> <br>                     
+              <input type="text" name="titulo" id="" placeholder="Título del servicio" class="form-control material" v-model="servicio_edit.titulo"  required="required">
+            </div>
+          </div>
+
+
+          <div class="col-md-12">
+           <div class="col-md-6">  <br>  
+             <input type="text"  name="inicio" id="edit_inicio_servicio" placeholder="Periodo de Inicio" class="form-control material" v-model="servicio_edit.inicio" required="required">
+           </div>
+           <div class="col-md-6"> <br>                     
+            <input type="text" name="fin" id="edit_fin_servicio" placeholder="Finalización" class="form-control material" v-model="servicio_edit.fin" required="required">
+          </div>
+          <br><br>
+        </div>
+
+        <div class="col-md-12"><br>
+        {{--  --}}
+          <div class="col-md-2">
+            <input type="text"  name="serial" id="input" class="form-control material" placeholder="# Comprobante" v-model="servicio_edit.serial" required="required">
+          </div>
+          <div class="col-md-3">
+            <input type="number" name="valor" id="valor_servicio" class="form-control material" placeholder="Valor del servicio" v-model="servicio_edit.valor" required="required">
+          </div>
+          <div class="col-md-3">
+            <input type="number" name="descuento" id="valor_descuento" class="form-control material" placeholder="Valor del Descuento" v-model="servicio_edit.descuento" required="required">
+          </div>
+          <div class="col-md-2">
+            <input type="number" name="costos" v-model="servicio_edit.costos" id="costos_operativos" class="form-control material" placeholder="Costos"  required="required" step="any">
+          </div>
+          <div class="col-md-2">
+           <input type="number"  min="0" step="0.05" class="form-control material" placeholder="IVA" v-model="servicio_edit.iva" required="required" step="any">
+         </div>
+         {{--  --}}
+       </div> 
+
+       <div class="col-md-12"><br>
+         <div class="col-md-3">
+           <select name="vendedor" v-model="servicio_edit.vendedor" class="form-control material" required="required">
+             <option v-for="v in vendedores"
+             selected="@{{v.id == servicio_edit.vendedor}}"
+             value="@{{v.id}}">@{{v.name}}</option>
+           </select>
+         </div>
+         <div class="col-md-9">
+
+
+           <select name="retencion" v-model="servicio_edit.retencion"  class="form-control material" required="required">
+
+            <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
+            <option v-for="r in retenciones" value="@{{r.id}}" selected="@{{r.id == servicio_edit.titulo_retencion}}">@{{r.concepto}} | @{{r.tarifas}}</option>          
+          </select>
+
+{{-- 
+            <select  name="retencion" v-model="servicio_edit.retencion" id="retencion_select_edit" class="form-control material" required="required">            
+            <option value="0" tarifa="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
+              <option data-valor="0" value="Sin Retención" selected="@{{calculos_service.valor_retencion == 'Sin Retención'}}" tarifa="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option> 
+               <option  v-for="r in retenciones"
+               v-bind:tarifa="r.tarifa"
+              name="retencion"
+              selected="@{{r.concepto == calculos_service.valor_retencion}}"
+              value="@{{r.concepto}}" >@{{r.concepto}}</option>               
+            </select> --}}
+
+          </div><br>
+          <div class="col-md-12">
+            <br>
+            <ul class="list-group">
+              <li class="list-group-item"><b>Valor a Cobrar</b>
+                <input type="hidden" id="valor_iva" name="valor_iva">
+                <span class="pull-right">@{{servicio_edit.valor_real | currency}}</span></li>
+
+                <li class="list-group-item"><b>IVA</b>
+                  <input type="hidden" id="valor_iva" name="valor_iva" value="@{{servicio_edit.valor_iva}}" placeholder="">
+                  <span class="pull-right" id="container_iva">@{{edit_calcular_iva | currency}}</span></li>
+                  <li class="list-group-item"><b>Retención</b>
+                    <span>
+                      <input type="hidden" name="valor_retencion" v-model="servicio_edit.valor_retencion" id="valor_retencion" value="" placeholder="">
+                      <span class="pull-right">@{{edit_calcular_retencion | currency}}</span></span>
+                    </li>
+
+                    <li class="list-group-item list-group-item-success"><b>Utilidad Neta</b>
+                     <input type="hidden" name="utilidad_neta" id="utilidad_neta" value="" placeholder="">
+                     <span class="pull-right">@{{edit_utilidad_neta | currency}}</span></li>
+                   </ul>
+                 </div>
+                 <div class="col-md-12"><br>
+                   <textarea name="comentarios_servicio" id="comentarios_servicio" cols="5" rows="3" v-model="servicio_edit.comentarios_servicio" class="material form-control"></textarea>
+                 </div>
+
+               </div>
+
+             </div>
+           </div>
+
+           <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="input" onclick="VMUpdateServicio(vm.servicio_edit)" class="btn btn-primary">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END Service -->
+    {{-- FIN ACTUALIZAR SERVICIO --}}
+
+
+    <!------------  Load Comprobante Cobro  ------------>
+    <div class="modal fade" id="comprobante-cobro">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Cargar comprobante de Cobro</h4>
+          </div>
+          <div class="modal-body">
+            {!!Form::open(array('action' => 'AnotacionesController@updateCobroComprobante', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+
+            <input type="hidden" name="id_anotacion" id="id_anotacion_cobro" v-model="comprobante_target" class="form-control" value="">
+            <input type="file" name="comprobante" class="form-control">              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
+            {!! Form::close() !!}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!------------  Load Comprobante Servicio  ------------>
+    <div class="modal fade" id="modal-comprobante-servicio">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Cargar Comprobante de Servicio</h4>
+          </div>
+          <div class="modal-body">
+            {!!Form::open(array('action' => 'ServiciosController@UpdateComprobanteServicio', 'method' => 'post', 'id' => 'form-guardar-servicio','files'=>true));!!}
+            <input type="hidden" name="id_anotacion" id="id_anotacion_servicio" value="@{{ImprimirIdServicio}}" class="form-control">
+            <input type="file" name="comprobante" class="form-control">              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="input" id="save_id_anotacion_cobro" class="btn btn-primary">Guardar</button>
+            {!! Form::close() !!}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {{-- Reportar Cobro --}}
+
+    {{-- End Reportar Cobro --}}
+
+    <!------------  Load Comprobante Costo  ------------>
+    <div class="modal fade" id="modal-comprobante-costo">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Cargar Comprobante de Costo</h4>
+          </div>
+          <div class="modal-body">
+            {!!Form::open(array('action' => 'CostosController@UpdateComprobanteCosto', 'method' => 'post', 'id' => 'form-guardar-comprobante-costo','files'=>true));!!}
+
+            <input type="hidden" name="id_anotacion_costo" id="id_anotacion_costo" class="form-control" value="">
+
+            <input type="file" name="comprobante" class="form-control">              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            <button type="submit" id="save_id_anotacion_costo" class="btn btn-primary">Guardar</button>
+            {!! Form::close() !!}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {{-- Reportar Cobro --}}
+
+    <!--====  Stat Costo  ====-->
+    <div class="modal fade" id="modal-costos">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Adjuntar un Costo</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+
+              {!!Form::open(array('action' => 'CostosController@SaveCosto', 'method' => 'post', 'id' => 'form-guardar-costo','files'=>true));!!}
+              <input type="hidden" name="id_perfil" id="" class="form-control" value="{!! $data->empresa->id !!}"> 
+
+              <div class="col-md-12">
+                <div class="col-md-12"> <br>                     
+                  <input type="text" name="titulo" id="" placeholder="Título" class="form-control material" value="" required="required">
+                </div>
+              </div>                   
+              <div class="col-md-12">
+               <div class="col-md-6">  <br>  
+                 <input type="text"  name="inicio" id="inicio_costo" placeholder="Periodo de Inicio" class="form-control material" value="" required="required">
+               </div>
+               <div class="col-md-6"> <br>                     
+                <input type="text" name="fin" id="fin_costo" placeholder="Finalización" class="form-control material" value="" required="required">
+              </div>
+              <br><br>
+            </div>                
+            <div class="col-md-12" style="margin-top: 20px;"> 
+             <div class="col-md-6">
+              <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial o número de comprobante" value="" required="required">
+            </div>
+            <div class="col-md-6">
+              <input type="number" name="valor" id="input" class="form-control material" placeholder="Valor" value="" required="required" step="any">
+            </div>
+
+            <div class="col-md-12"><br>
+              <textarea name="comentarios_costo" id="input" class="form-control material" rows="3" required="required"></textarea>
+            </div>
+            <div class="col-md-12" style="margin-top: 10px">
+              <div class="col-md-12">
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+          <button type="button" id="btn-guardar-costo" class="btn btn-primary">Registrar este Costo</button>
+          {!! Form::close() !!}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- END Costo -->
@@ -650,7 +655,7 @@
              </tr>
              <tr>
                <td>Retención</td>
-               <td>@{{target.titulo_retencion}}</td>
+               <td>@{{target.titulo_retencion | imprimir_retencion}}</td>
              </tr>
              <tr>
                <td >Valor retención</td>
@@ -675,7 +680,10 @@
 
 
            </tbody>
-         </table><br><br>
+         </table><br>
+         <a target="_blank" :href="'/uploads/comprobantes/'+target.comprobante" type="button" v-if="target.comprobante != undefined  || target.comprobante != null" class="btn btn-success btn-xs">Ver comprobante</a>
+
+
        </div>
        
        <div class="col-md-12"><h4><i class="icon-chart-alt-outline"></i> Historial de Cobros</h4>
@@ -698,8 +706,8 @@
 
    </div>
    <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+    
   </div>
 </div>
 </div>

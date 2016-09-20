@@ -6,6 +6,12 @@ Route::post('adjuntar-servicio', [
 	'uses' => 'ServiciosController@SaveService'
 	]);
 
+Route::post('actualizar-servicio', [
+	'middleware' => ['auth','validarservicio'],
+	'as'   => 'actualizar.servicio', 
+	'uses' => 'ServiciosController@UpdateService'
+	]);
+
 Route::get('empresa/servicios_imprimir/all/{id}', [
 	'middleware' => 'auth',
 	'as'   => 'empresa.servicios.all', 

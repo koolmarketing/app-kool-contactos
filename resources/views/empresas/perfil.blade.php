@@ -403,18 +403,18 @@
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="col-md-4">
-                  <input id="inicio_contratacion" v-model="filter_service.inicio" type="text" name="" value="" placeholder="Inicio" class="form-control"></div>
-                  <div class="col-md-4">
-                  <input id="fin_contratacion" v-model="filter_service.fin" type="text" name="" value="" placeholder="Final" class="form-control"></div>
-                  <div class="col-md-1">
-                    <button @click="FilterService(id)" :disabled="filter_service.inicio == '' && filter_service.fin" class="btn btn-md btn-primary">Filtrar Datos</button>
+                    <input id="inicio_contratacion" v-model="filter_service.inicio" type="text" name="" value="" placeholder="Inicio" class="form-control"></div>
+                    <div class="col-md-4">
+                      <input id="fin_contratacion" v-model="filter_service.fin" type="text" name="" value="" placeholder="Final" class="form-control"></div>
+                      <div class="col-md-1">
+                        <button @click="FilterService(id)" :disabled="filter_service.inicio == '' && filter_service.fin" class="btn btn-md btn-primary">Filtrar Datos</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-3">  
-              <button class="btn btn-md btn-primary pull-right" data-toggle="modal" href='#modal-service'>Registrar servicio</button> 
-            </div> 
+                <div class="col-md-3">  
+                  <button class="btn btn-md btn-primary pull-right" data-toggle="modal" href='#modal-service'>Registrar servicio</button> 
+                </div> 
 
 
              {{-- <div id="contenedor_servicios_empresa" class="col-md-12">
@@ -689,7 +689,7 @@
                <tbody>
                  <tr>
                    <td>Periodo</td>
-                   <td>@{{inicio | DateSmall}} <i class="icon-right-small"></i> @{{fin | DateSmall}}</td>
+                   <td>@{{inicio | DateSmallService}} <i class="icon-right-small"></i> @{{fin | DateSmallService}}</td>
                  </tr>
                  <tr>
                    <td>Vendedor</td>
@@ -719,24 +719,27 @@
                <td>Saldo</td>
                <td>@{{saldo|currency}}</td>
              </tr>
-                
+
            </table>  
          </div>  
 
 
          <hr>  
          <button @click="RevisarServicio(serial)" class="btn btn-default btn-xs"><i class="icon-search-2"></i>Ver más</button>
-         <button  class="btn btn-default btn-xs pull-right"><i class="icon-attach-1"></i> Cargar Comprobante</button>
-       </div>
-       <div class="col-md-12">
-        <span class="pull-right">
-         <i class="icon-clock-2"></i> @{{update}}
-       </span>
-     </div>
-   </div>
+         <button @click="CargarComprobanteServicio(id)" v-if="comprobante === null"  class="btn btn-default btn-xs pull-right"><i class="icon-attach-1"></i> Cargar Comprobante</button>
 
- </div>     
-</div>
+         <button @click="CargarComprobanteServicio(id)" v-else  class="btn btn-default btn-xs pull-right"><i class="icon-loop-1"></i> Actualizar comprobante</button>
+
+         <a target="_blank" v-if="comprobante != undefined || comprobante != null" :href="'/uploads/comprobantes/'+comprobante"  class="btn btn-default btn-xs pull-right"><i class="icon-eye"></i>Ver Comprobante</a>
+         <div class="col-md-12">
+          <span class="pull-right">
+           <i class="icon-clock-2"></i> @{{update}}
+         </span>
+       </div>
+     </div>
+
+   </div>     
+ </div>
 </div>
 </template>
 
@@ -933,29 +936,29 @@
   });
 </script>
 <script>
-$('#inicio_contratacion').datetimepicker({
-        format:'Y-m-d 00:00:00',
-        step:"30",
-        onShow:function( ct ){
-          this.setOptions({
-            maxDate:$('#fin_contratacion').val()?$('#fin_contratacion').val():false
-          })
-        },
-        lang:'es',
-        timepicker:false
-      });
+  $('#inicio_contratacion').datetimepicker({
+    format:'Y-m-d 00:00:00',
+    step:"30",
+    onShow:function( ct ){
+      this.setOptions({
+        maxDate:$('#fin_contratacion').val()?$('#fin_contratacion').val():false
+      })
+    },
+    lang:'es',
+    timepicker:false
+  });
 
-      $('#fin_contratacion').datetimepicker({
-        step:"30",
-        format:'Y-m-d 23:59:59',
-        onShow:function( ct ){
-          this.setOptions({
-            minDate:$('#inicio_contratacion').val()?$('#inicio_contratacion').val():false
-          })
-        },
-        lang:'es',
-        timepicker:false
-      });
+  $('#fin_contratacion').datetimepicker({
+    step:"30",
+    format:'Y-m-d 23:59:59',
+    onShow:function( ct ){
+      this.setOptions({
+        minDate:$('#inicio_contratacion').val()?$('#inicio_contratacion').val():false
+      })
+    },
+    lang:'es',
+    timepicker:false
+  });
 </script>
 
 <script>

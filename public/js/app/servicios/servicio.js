@@ -23,24 +23,21 @@
 
         //      SAVE AJAX   
 
-        $('body').on('click', '#btn-guardar-servicio', function(event) {
-            event.preventDefault();
+        function GuardarServicio(data){
+            
             $.ajaxSetup({
-                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+                headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
             })
 
             var formId = '#form-guardar-servicio';
+            var serial_data = $.param(data, true ); console.log(serial_data);
             $.ajax({
-                url: $(formId).attr('action'),
-                type: $(formId).attr('method'),
-                data: $(formId).serialize(),
+                url: '/adjuntar-servicio',
+                type: 'post',                
+                data: serial_data,
                 dataType: 'html',
-                success: function(result){
-                    if ($(formId).find("input:first-child").attr('value') == 'PUT') {
-                        var $jsonObject = jQuery.parseJSON(result);
-                        $(location).attr('href',$jsonObject.url);
-                    }
-                    else{
+                success: function(result){                   
+                    if(result){
                         resultado = jQuery.parseJSON(result);                                          
                         if (resultado.tipo=="Error") {
                             sweetAlert(resultado.mensaje,'','warning');
@@ -48,15 +45,55 @@
                             $(formId)[0].reset();
                             swal("El servicio se ha registrado con éxito!"); 
                             load_servicios();
+                            vm.AllServices(vm.id);
                         }                        
                     }
                 },
                 error: function(){
                     console.log('Error');
                 }
-            });                    
-    });
-//      END SAVE AJAX    <---
+            });
+            }             
+    
+//      END UPDATE AJAX    <---
+
+
+        //      UPDATE AJAX   
+
+        function VMUpdateServicio(data){
+            
+            $.ajaxSetup({
+                headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+            })
+
+            
+            var serial_data = $.param(data, true ); console.log(serial_data);
+            $.ajax({
+                url: '/actualizar-servicio',
+                type: 'post',                
+                data: serial_data,
+                dataType: 'html',
+                success: function(result){                   
+                    if(result){
+                        resultado = jQuery.parseJSON(result);                                          
+                        if (resultado.tipo=="Error") {
+                            sweetAlert(resultado.mensaje,'','warning');
+                        }else{                            
+                            swal("El servicio se ha actualizado con éxito!"); 
+                            load_servicios();
+                            vm.AllServices(vm.id);
+                        }                        
+                    }
+                },
+                error: function(){
+                    console.log('Error');
+                }
+            });
+            }             
+    
+//      END UPDATE AJAX    <---
+
+
 
 
 $('body').on('click', '.btn-comprobante-servicio', function(event) {

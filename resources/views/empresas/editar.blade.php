@@ -518,7 +518,7 @@ $numero_empleados = $data_actual->numero_empleados;
                 <input type="text" name="gmail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-              <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+             {{--  <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
             </div>
             @endfor
 
@@ -537,7 +537,7 @@ $numero_empleados = $data_actual->numero_empleados;
                 <input type="text" name="zohomail_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-              <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+              {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
             </div>            
             @endfor
 
@@ -562,7 +562,7 @@ $numero_empleados = $data_actual->numero_empleados;
                 <input type="text" name="red_adicional_{!!$i!!}[contraseña][]" class="form-control material">
                 <p class="help-text">Contraseña</p>
               </div>
-              <div class="col-md-1"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button></div>
+              {{-- <div class="col-md-1"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button></div> --}}
             </div>            
             @endfor
 
@@ -581,7 +581,7 @@ $numero_empleados = $data_actual->numero_empleados;
               <input type="text" name="facebook[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <span class="btn-red-info btn btn-md "><i class="icon-cancel"></i></span> </div>
+            {{-- <div class="col-md-2"> <span class="btn-red-info btn btn-md "><i class="icon-cancel"></i></span> </div> --}}
           </div>
 
           <!-- Twitter -->
@@ -600,7 +600,7 @@ $numero_empleados = $data_actual->numero_empleados;
               <p class="help-text">Contraseña</p>
             </div>
 
-            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+           {{--  <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
           </div>
           
           <div class="col-lg-12 Youtube" id="youtube" attr-visible="">
@@ -617,7 +617,7 @@ $numero_empleados = $data_actual->numero_empleados;
               <input type="text" name="youtube[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+            {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
           </div>
 
           <div class="col-lg-12 Instagram" id="instagram" attr-visible="">
@@ -634,7 +634,7 @@ $numero_empleados = $data_actual->numero_empleados;
               <input type="text" name="instagram[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+            {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
           </div>
 
           <div class="col-lg-12 Linkedin" id="linkedin" attr-visible="">
@@ -651,7 +651,7 @@ $numero_empleados = $data_actual->numero_empleados;
               <input type="text" name="linkedin[contraseña][]" class="form-control material">
               <p class="help-text">Contraseña</p>
             </div>
-            <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+            {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
           </div>
 
           <!-- Pinterest -->
@@ -669,7 +669,7 @@ $numero_empleados = $data_actual->numero_empleados;
             <input type="text" name="pinterest[contraseña][]" class="form-control material">
             <p class="help-text">Contraseña</p>
           </div>
-          <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+          {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
         </div>
 
         <!-- Hootsuite -->
@@ -688,7 +688,7 @@ $numero_empleados = $data_actual->numero_empleados;
           <input type="text" name="hootsuite[contraseña][]" class="form-control material">
           <p class="help-text">Contraseña</p>
         </div>
-        <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+        {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
       </div>
       <!-- Amarillas Internet -->
       <div class="col-lg-12 Amarillas_Internet" id="amarillas_internet" attr-visible="">
@@ -703,7 +703,7 @@ $numero_empleados = $data_actual->numero_empleados;
         <input type="text" name="amarillas_internet[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+      {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
     </div>      
 
 
@@ -721,7 +721,7 @@ $numero_empleados = $data_actual->numero_empleados;
         <input type="text" name="photosnack[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+      {{-- <div class="col-md-2"> <button class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
     </div>
 
     <div class="col-lg-12 Prestashop" id="prestashop" attr-visible="">    
@@ -740,7 +740,7 @@ $numero_empleados = $data_actual->numero_empleados;
         <input type="text" name="prestashop[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      {{-- <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div> --}}
     </div>
 
     <div class="col-lg-12 Wordpress" id="wordpress" attr-visible="">    
@@ -759,7 +759,7 @@ $numero_empleados = $data_actual->numero_empleados;
         <input type="text" name="wordpress[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div>
+      {{-- <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md btn-danger"><i class="icon-cancel"></i></button> </div> --}}
     </div>
 
     <div class="col-lg-12 FTP" id="ftp" attr-visible="">    
@@ -778,7 +778,7 @@ $numero_empleados = $data_actual->numero_empleados;
         <input type="text" name="ftp[contraseña][]" class="form-control material">
         <p class="help-text">Contraseña</p>
       </div>
-      <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div>
+      {{-- <div class="col-md-1"> <button DataId="ftp" class="btn-red-info btn btn-md "><i class="icon-cancel"></i></button> </div> --}}
     </div>
 
 

@@ -13,6 +13,9 @@ Vue.component('servicio',{
 	props: ['comprobante','saldo','valor','vence','serial','mensaje','foto',
 	'estado','id_target','id','titulo','publicado','serial','inicio','fin','vendedor','update'],
 	methods: {
+		CargarComprobanteServicio:function(id){
+			this.datos_servicio = vm.ComprobanteLoadServiceId(id)
+		},
 		RevisarServicio:function(serial){
 			id = serial,
 			this.datos_servicio = vm.serviceId(id)
@@ -20,6 +23,11 @@ Vue.component('servicio',{
 		EditarServicio: function(id){
 			this.datos_servicio = vm.LoadServiceId(id)
 		}
+	},
+	filters:{
+		DateSmallService: function (date) {
+			return moment(date).format('MMM Do YY');
+		},
 	}
 
 });
@@ -104,14 +112,7 @@ var vm = new Vue({
 
 	el: '#app-profile',
 	data: function () {  {
-		return {
-			calculos_service:{
-				utilidad_neta:"",
-				valor_retencion: function() {
-					return "ok";					
-				},
-				valor_iva:""
-			},
+		return {			
 			vendedores:"",
 			retenciones:"",
 			servicio_edit:"",
@@ -122,9 +123,28 @@ var vm = new Vue({
 			data_targets:"",
 			id:"",
 			data_anotacion:"",
+			calculos_service:"",
 			filter_service:{
 				inicio:"",
 				fin:""
+			},
+			nuevoservicio:{
+				id:"",
+				titulo:"",
+				inicio:"",
+				fin:"",
+				serial:"",
+				valor:"",
+				costos:"",
+				iva:"",
+				vendedor:"",
+				descuento:"",
+				retencion:"",
+				calcular_iva:"",
+				calcular_retencion:"",
+				utilidad_neta:"",
+				comentarios_servicio:"",
+				valor_real: ""
 			},
 			UpNote : { _token: $('meta[name="csrf-token"]').attr('content'), mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",fecha_inicio: "",   involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "", fecha_comentario: ""},
 			id_targeta: "", mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",created_at: "",updated_at: "",fecha_inicio: "",    involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "",    fecha_comentario: "",empresa_id: "",foto: "", nombre_comercial: "", fotografia: "",
@@ -166,14 +186,106 @@ var vm = new Vue({
 		};
 	}
 },
+computed:{
+	// Cargar ID de Servicio
+	ImprimirIdServicio:function(){
+		if(this.servicio_edit.id != undefined || this.servicio_edit.id != null ){
+			return this.servicio_edit.id
+		} else{return "1";}
+		
+	},
+	
+/*
+ @ 
+
+ */
+
+ edit_calcular_iva: function(){
+ 	a = this.servicio_edit.valor - parseInt(this.servicio_edit.descuento);
+ 	b = a - (a * parseInt(this.servicio_edit.iva) / 100);
+ 	this.servicio_edit.valor_iva = a - b;
+ 	return a-b;
+ },
+
+ edit_calcular_retencion:function(){
+// verificar ID de retención
+for (var i = this.retenciones.length - 1; i >= 0; i--) {
+	var a = this.retenciones[i]; 
+	var b = a.id;
+	if (b==this.servicio_edit.retencion) {
+		y = this.servicio_edit.valor - parseInt(this.servicio_edit.descuento);
+		z = a.tarifas;
+		var x = y - (y - (y * z / 100));
+		this.servicio_edit.valor_retencion = x;
+		return x;
+	}
+}
+
+},
+edit_utilidad_neta:function(){
+	J = this.servicio_edit.valor_retencion + this.servicio_edit.valor_iva;
+	K = this.servicio_edit.costos;
+	L = this.servicio_edit.valor - parseInt(this.servicio_edit.descuento);
+	M = L - J - K;
+	this.servicio_edit.utilidad_neta = parseInt(M);
+	this.servicio_edit.valor_real = parseInt(this.servicio_edit.valor) - parseInt(this.servicio_edit.descuento);
+	return parseInt(M);
+},
+
+//
+
+calcular_iva: function(){
+	a = this.nuevoservicio.valor - this.nuevoservicio.descuento;
+	b = a - (a * this.nuevoservicio.iva / 100);
+	this.nuevoservicio.calcular_iva = a - b;
+	return a-b;
+},
+calcular_retencion:function(){
+// verificar ID de retención
+for (var i = this.retenciones.length - 1; i >= 0; i--) {
+	var a = this.retenciones[i]; 
+	var b = a.id;
+	if (b==this.nuevoservicio.retencion) {
+		y = this.nuevoservicio.valor - this.nuevoservicio.descuento;
+		z = a.tarifas;
+		var x = y - (y - (y * z / 100));
+		this.nuevoservicio.calcular_retencion = x;
+	}
+}
+return x;
+},
+utilidad_neta:function(){
+	J = this.nuevoservicio.calcular_retencion + this.nuevoservicio.calcular_iva;
+	K = this.nuevoservicio.costos;
+	L = this.nuevoservicio.valor - parseInt(this.nuevoservicio.descuento);
+	M = L - J - K;
+	this.nuevoservicio.utilidad_neta = parseInt(M);
+	this.nuevoservicio.valor_real = parseInt(this.nuevoservicio.valor) - parseInt(this.nuevoservicio.descuento);
+	return parseInt(M);
+}
+},
 
 methods: {
+
+	ComprobanteLoadServiceId: function(id){
+		this.$http.get('/asteroid/service_id/'+id).then((data) => {
+			datos=data.data[0],
+			console.log(datos),
+			this.$set('servicio_edit', datos)
+			//this.servicio_edit.retencion = this.servicio_edit.titulo_retencion
+		}),
+		
+		setTimeout($('#modal-comprobante-servicio').modal('show'), 800)
+		
+	},
+
 
 	LoadServiceId: function(id){
 		this.$http.get('/asteroid/service_id/'+id).then((data) => {
 			datos=data.data[0],
 			console.log(datos),
-			this.$set('servicio_edit', datos)  
+			this.$set('servicio_edit', datos),
+			this.servicio_edit.retencion = this.servicio_edit.titulo_retencion  
 		}),
 		this.calculos_service.valor_retencion = this.servicio_edit.titulo_retencion,
 		this.LoadRetenciones(),
@@ -504,12 +616,25 @@ paymentsId: function (id) {
 	},	
 },
 filters: {
+	imprimir_retencion: function(id){
+
+		for (var i = this.retenciones.length - 1; i >= 0; i--) {
+			var a = this.retenciones[i]; 
+			var b = a.id;
+			if (b==id) {
+				z = a.concepto +' | '+ a.tarifas;
+				return z;
+			}
+		}
+	},
+
 	fromNow: function (date) {
 		return moment(date).fromNow();
 	},
 	DateSmall: function (date) {
 		return moment(date).format('MMM Do YY');
 	},
+
 	DateLarge: function(date){
 		return moment(date).format('YYYY-MM-DD 00:00:00'); 
 	},
@@ -697,7 +822,9 @@ filters: {
 ready: function () {
 	this.load_data(),
 	this.load_targets_all(),
-	this.AllServices(this.id)
+	this.AllServices(this.id),
+	this.LoadVendedores(),
+	this.LoadRetenciones()
 		//setTimeout(this.load_data, 0)
 	}
 });

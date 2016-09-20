@@ -1,9 +1,8 @@
         //      SAVE AJAX   
 
-        $('body').on('click', '#btn-guardar-cartera', function(event) {
-            event.preventDefault();
+        function VueRegistrarCobro(){
             $.ajaxSetup({
-                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+                headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
             })
             var formId = '#form-guardar-cartera';
             $.ajax({
@@ -32,32 +31,28 @@
                 error: function(){
                     console.log('Error');
                 }
-            });                    
-        });
+            })  
+    }                  
+
 //      END SAVE AJAX    <---
 
 
 //   REPORTAR COBRO   //
-
-$('body').on('click', '.btn-reportar', function(event) {
-    serial = $(this).attr('data-serial');
-    id     = $(this).attr('data-id');
-
-    console.log("serial: "+serial+" id:"+id);
-
-    function deducirCobro(id){
-        event.preventDefault();
-        $.ajaxSetup({
-            headers: { 'X-CSRF-Token' : $('input[name=_token]').attr('content') }
-        })
-        var formId = '#form-actualizar-cobro_'+id;
-        $.ajax({
-            url: '/update/cobro',
-            type: 'POST',
-            data: $(formId).serialize(),
-            dataType: 'html',
-            success: function(result){                    
-                resultado = jQuery.parseJSON(result);
+function VueReportarCobro(id,serial){
+   function deducirCobro(id,serial){
+      $.ajaxSetup({
+                headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
+            })
+    //var formId = '#form-actualizar-cobro_'+id;
+    datos = {id:id,serial:serial};
+    envio = $.param(datos);
+    $.ajax({
+        url: '/update/cobro',
+        type: 'POST',
+        data: envio,
+        dataType: 'html',
+        success: function(result){                    
+            resultado = jQuery.parseJSON(result);
                         //alert(result);                    
                         if (resultado.tipo=="Error") {
                             swal(resultado.mensaje);
@@ -69,7 +64,7 @@ $('body').on('click', '.btn-reportar', function(event) {
                             load_servicios();
                         }
                         else{                                                        
-                            
+
                         }                                   
                     },
                     error: function(){
@@ -77,7 +72,7 @@ $('body').on('click', '.btn-reportar', function(event) {
                     }
                 });                    
     }
-    swal(
+        swal(
     {   
         title: "¿Estas seguro?",
         text: "Estas por reportar el ingreso de dinero",
@@ -96,7 +91,8 @@ $('body').on('click', '.btn-reportar', function(event) {
             deducirCobro(id);
         }
         else {     swal("Cancelado!", "El reporte ha sido cancelado", "error");   } });
-});
+}
+
 
 // Modal Comprobante
 
