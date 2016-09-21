@@ -4097,5 +4097,43 @@
             "rest",
             "web service"
         ]
+    },
+    {
+        "name": "garygreen/pretty-routes",
+        "version": "0.0.1",
+        "version_normalized": "0.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/garygreen/pretty-routes.git",
+            "reference": "f636424fa0b136e891b1634dbc7077f1e7734a62"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/garygreen/pretty-routes/zipball/f636424fa0b136e891b1634dbc7077f1e7734a62",
+            "reference": "f636424fa0b136e891b1634dbc7077f1e7734a62",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "5.1.*|5.2.*|5.3.*"
+        },
+        "time": "2016-08-26 16:03:48",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PrettyRoutes\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gary Green",
+                "email": "holegary@gmail.com"
+            }
+        ],
+        "description": "Pretty routes for Laravel 5."
     }
 ]

@@ -129,9 +129,7 @@
         </div>                
         <div class="col-md-12" style="margin-top: 20px;"> 
          <div class="col-md-6">
-
           <input type="text" name="serial" id="input" class="form-control material" placeholder="Serial" value="" required="required">
-
         </div>
         <div class="col-md-6">
           <input type="text" name="monto" id="input" class="form-control material" placeholder="Monto" value="" required="required">
@@ -151,8 +149,6 @@
 </div>
 </div>
 </div>
-
-
 <!--====  Stat Service  ====-->
 <div class="modal fade" id="modal-service">
   <div class="modal-dialog modal-lg">
@@ -205,9 +201,8 @@
          </div>
          <div class="col-md-9">
           <select name="retencion" v-model="nuevoservicio.retencion"  class="form-control material" required="required">
-
             <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
-            <option v-for="r in retenciones" value="@{{r.id}}">@{{r.concepto}} - @{{r.tarifas}}</option>          
+            <option v-for="r in retenciones" value="@{{r.id}}">@{{r.concepto}} - @{{r.tarifas}}</option>
           </select>
         </div>
       </div>
@@ -251,7 +246,6 @@
     </div>
   </div>
 </div>
-
 <!-- END Service -->
 
 {{-- ACTUALIZAR SERVICIO --}}
@@ -308,25 +302,10 @@
            </select>
          </div>
          <div class="col-md-9">
-
-
            <select name="retencion" v-model="servicio_edit.retencion"  class="form-control material" required="required">
-
             <option value="0" data-tarifas="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option>
             <option v-for="r in retenciones" value="@{{r.id}}" selected="@{{r.id == servicio_edit.titulo_retencion}}">@{{r.concepto}} | @{{r.tarifas}}</option>          
           </select>
-
-{{-- 
-            <select  name="retencion" v-model="servicio_edit.retencion" id="retencion_select_edit" class="form-control material" required="required">            
-            <option value="0" tarifa="0" data-baseuvt="0" data-basepesos="0">Tipo de Retención</option>
-              <option data-valor="0" value="Sin Retención" selected="@{{calculos_service.valor_retencion == 'Sin Retención'}}" tarifa="0" data-baseuvt="0" data-basepesos="0">Sin Retención</option> 
-               <option  v-for="r in retenciones"
-               v-bind:tarifa="r.tarifa"
-              name="retencion"
-              selected="@{{r.concepto == calculos_service.valor_retencion}}"
-              value="@{{r.concepto}}" >@{{r.concepto}}</option>               
-            </select> --}}
-
           </div><br>
           <div class="col-md-12">
             <br>
@@ -360,9 +339,11 @@
 
            <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
-            <button type="input" onclick="VMUpdateServicio(vm.servicio_edit)" class="btn btn-primary">Actualizar</button>
+            <button type="input" onclick="VMUpdateServicio(vm.servicio_edit)"
+             class="btn btn-primary">Actualizar</button>
           </div>
         </div>
+
       </div>
     </div>
 

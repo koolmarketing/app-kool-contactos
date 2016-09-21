@@ -146,7 +146,7 @@ var vm = new Vue({
 				comentarios_servicio:"",
 				valor_real: ""
 			},
-			UpNote : { _token: $('meta[name="csrf-token"]').attr('content'), mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",fecha_inicio: "",   involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "", fecha_comentario: ""},
+			UpNote : { _token: $('meta[name="csrf-token"]').attr('content'), mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",fecha_inicio: "",   involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "", fecha_comentario: "", edicion:""},
 			id_targeta: "", mensaje: "",id_creador: "",fecha_cobro: "", fecha_vencimiento: "", serial: "",monto: "",estado: "",created_at: "",updated_at: "",fecha_inicio: "",    involucrados: "",id_perfil: "",tipo_perfil: "",tipo_anotacion: "", comprobante: "",    fecha_comentario: "",empresa_id: "",foto: "", nombre_comercial: "", fotografia: "",
 
 			data_empresa:{
@@ -352,6 +352,7 @@ methods: {
 		this.UpNote.tipo_anotacion = this.tipo_anotacion
 		this.UpNote.comprobante = this.comprobante
 		this.UpNote.fecha_comentario = this.fecha_comentario
+		this.UpNote.edicion = true
 
 
 		var note_save = JSON.stringify(this.UpNote);
@@ -447,11 +448,11 @@ ReportarCobro: function(the_id,serial){
 
                         }else if(resultado.tipo=="Exito"){
                         	swal(resultado.mensaje); 
-                        	vm.load_targets_all();                         
+                        	vm.load_targets_all(); 
+                        	vm.AllServices(vm.id);
+                     
                         }
-                        else{                                                        
-
-                        }                                   
+                        else{}
                     },
                     error: function(){
                     	console.log('Error');
@@ -642,12 +643,13 @@ filters: {
 		switch (value) {
 			case 'A': return "1";	break;
 			case 'B': return "2-10";	break;
-			case 'C': return "51-200";	break;
-			case 'D': return "201-500";	break;
-			case 'E': return "501-1000";	break;
-			case 'F': return "1001-5000";	break;
-			case 'G': return "5001-10000";	break;
-			case 'H': return "+10001";	break;
+			case 'C': return "2-10";	break;
+			case 'D': return "51-200";	break;
+			case 'E': return "201-500";	break;
+			case 'F': return "501-1000";	break;
+			case 'G': return "1001-5000";	break;
+			case 'H': return "5001-10000";	break;
+			case 'I': return "+10001";	break;
 			default: return false; break;
 		}
 	},

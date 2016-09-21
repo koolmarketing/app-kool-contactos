@@ -51,7 +51,7 @@ Route::get('anotaciones/empresa/contar-recordatorios', [
 */
 
 Route::post('update/cobro', [
-	'middleware' => ['auth','web'], 
+	'middleware' => ['auth','web','validarrecaudo'], 
 	'uses' => 'AnotacionesController@updateCobro'
 	]);
 

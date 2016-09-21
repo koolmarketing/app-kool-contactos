@@ -52,5 +52,7 @@ class Kernel extends HttpKernel
     'validarcartera' =>  \App\Http\Middleware\ValidarCartera::class,
     'validarserial' =>  \App\Http\Middleware\ValidarSerial::class,
     'validarservicio' => \App\Http\Middleware\ValidarServicio::class,
+    'validarrecaudo' => \App\Http\Middleware\ValidarRecaudo::class,
+
     ];
 }

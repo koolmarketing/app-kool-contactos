@@ -31,6 +31,7 @@ return array(
     'Regulus\\ActivityLog\\' => array($vendorDir . '/regulus/activity-log/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PrettyRoutes\\' => array($vendorDir . '/garygreen/pretty-routes/src'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
